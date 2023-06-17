@@ -1,3 +1,4 @@
+import json
 import time
 
 from request import request_fb
@@ -97,6 +98,7 @@ class MainWindow(QMainWindow):
         self.count = 0
         self.ui.comboBox_12.currentIndexChanged.connect(self.openUpPhoiWindow)
         self.show()
+
     def centerWindow(self):
         # Get the screen's geometry
         screen = QDesktopWidget().screenGeometry()
@@ -111,6 +113,7 @@ class MainWindow(QMainWindow):
 
         # Set the window's position
         self.move(window_x, window_y)
+
     def menuChanged(self):
         if self.ui.toolBox_3.currentIndex() == 0:
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_view)
@@ -248,9 +251,8 @@ class MainWindow(QMainWindow):
                 self.count_loop = int(len(self.generator_threads) / self.num_threads) + 1
             self.run_next_threads(self.index_loop)
 
-
     def run_next_threads(self, index_loop):
-        if (index_loop+1) != self.count_loop:
+        if (index_loop + 1) != self.count_loop:
             for j in range(index_loop * self.num_threads, index_loop * self.num_threads + self.num_threads):
                 (self.generator_threads[j]).start()
         else:
@@ -288,13 +290,68 @@ class MainWindow(QMainWindow):
         print("Stop all Threads!")
 
     def handle_do_work(self, thread_id):
+        # Get acc fb
+        info_acc = self.ui.tableWidget.item(thread_id, 1).text()
+        info_acc_arr = str(info_acc).split('|')
+        id_fb = info_acc_arr[0]
+        pass_fb = info_acc_arr[1]
+        code_2fa = info_acc_arr[2]
         request = request_fb()
         response = request.get_cookie_before_login_facebook_mbasic(self.default_user_agent)
-        self.handle_write_table(thread_id, 4, response)
+        response = json.loads(response)
+        if response['status'] != 200:
+            self.handle_write_table(thread_id, 4, response['message'])
+        else:
+            self.handle_write_table(thread_id, 4, response['message'])
+            response = request.get_cookie_checkpoint_2fa(id_fb, pass_fb, response['cookie'], response['lsd'],
+                                                         response['jazoest'],
+                                                         response['m_ts'], response['li'], response['login'],
+                                                         response['bi_xrwh'], self.default_user_agent)
+        response = json.loads(response)
+        if response['status'] != 200:
+            self.handle_write_table(thread_id, 4, response['message'])
+        else:
+            self.handle_write_table(thread_id, 4, response['message'])
+            response = request.check_approvals_code(response['cookie'], code_2fa, self.default_user_agent)
+        response = json.loads(response)
+        if response['status'] != 200:
+            self.handle_write_table(thread_id, 4, response['message'])
+        else:
+            self.handle_write_table(thread_id, 4, response['message'])
+            response = request.submit_code_2fa(response['fb_dtsg'], response['jazoest'],
+                                               response['approvals_code'], response['nh'],
+                                               response['cookie'], self.default_user_agent,
+                                               response['submit_name'], response['submit_value'])
+        response = json.loads(response)
+        if response['status'] != 200:
+            self.handle_write_table(thread_id, 4, response['message'])
+        else:
+            self.handle_write_table(thread_id, 4, response['message'])
+            response = request.get_cookie_dont_save_browser(response['fb_dtsg'], response['jazoest'],
+                                                            response['nh'], response['cookie'],
+                                                            self.default_user_agent, response['submit_name'],
+                                                            response['submit_value'])
+        response = json.loads(response)
+        while response['status'] == 302:
+            response = request.review_recent_login(response['fb_dtsg'], response['jazoest'],
+                                                   response['nh'], response['cookie'],
+                                                   self.default_user_agent, response['submit_name'],
+                                                   response['submit_value'])
+            response = json.loads(response)
+        # response = request.check_login_to_home(response['cookie'], self.default_user_agent)
+        # response = json.loads(response)
+        if response['status'] != 200:
+            self.handle_write_table(thread_id, 4, response['message'])
+        else:
+            self.handle_write_table(thread_id, 4, response['message'])
+            self.handle_write_table(thread_id, 3, response['cookie'])
+
     def handle_write_table(self, row, column, content):
         item = QTableWidgetItem()
         item.setText(str(content))
         self.ui.tableWidget.setItem(row, column, item)
+        QApplication.processEvents()  # Đồng bộ hóa giao diện
+
     def handle_number_generated(self, number, thread_id):
         # print(f"Thread {thread_id}: {number}")
         item = QTableWidgetItem()
@@ -310,7 +367,6 @@ class MainWindow(QMainWindow):
             self.run_next_threads(self.index_loop)
         elif self.count_thread_done == len(self.generator_threads):
             self.finish_generation()
-
 
         # print('current_thread_index: ', self.current_thread_index)
         # import ipdb; ipdb.set_trace();
