@@ -22,26 +22,26 @@ class UpPhoiWindow(QMainWindow):
         self.ui.comboBox_3.addItems(font_families)
         for num in range(6, 96):
             self.ui.comboBox_2.addItem(str(num))
-        self.ui.spinBox_11.setValue(170)
-        self.ui.spinBox_12.setValue(480)
+        # self.ui.spinBox_11.setValue(170)
+        # self.ui.spinBox_12.setValue(480)
 
-        self.ui.spinBox_17.setValue(150)
-        self.ui.spinBox_18.setValue(210)
+        # self.ui.spinBox_17.setValue(150)
+        # self.ui.spinBox_18.setValue(210)
 
-        self.ui.spinBox_14.setValue(70)
-        self.ui.spinBox_15.setValue(210)
+        # self.ui.spinBox_14.setValue(70)
+        # self.ui.spinBox_15.setValue(210)
 
-        self.ui.spinBox_20.setValue(120)
-        self.ui.spinBox_21.setValue(210)
+        # self.ui.spinBox_20.setValue(120)
+        # self.ui.spinBox_21.setValue(210)
 
-        self.ui.spinBox_23.setValue(210)
-        self.ui.spinBox_25.setValue(100)
+        # self.ui.spinBox_23.setValue(210)
+        # self.ui.spinBox_25.setValue(100)
         self.ui.label_36.setText('<a href="https://www.youtube.com">Video hướng dẫn</a>')
         self.ui.label_36.setOpenExternalLinks(True)  # Allow opening the link in an external browser
         self.ui.btn_preview.clicked.connect(self.show_preview)
         # Connect the link clicked signal to a slot
         self.ui.label_36.linkActivated.connect(lambda url: QDesktopServices.openUrl(QUrl(url)))
-
+        self.load_value('output/config.ini')
         self.show()
     def centerWindow(self):
         # Get the screen's geometry
@@ -153,9 +153,13 @@ class UpPhoiWindow(QMainWindow):
             self.ui.textEdit.setText(img_path)
             self.background_image = QPixmap(img_path)
             self.foreground_image = QPixmap("demo/a.png")
-            w = self.foreground_image.width()
-            h = self.foreground_image.height()
-
+           
+            if self.ui.spinBox.value() > 0 and self.ui.spinBox_2.value() > 0:
+                w = self.ui.spinBox.value()
+                h = self.ui.spinBox_2.value()
+            else:
+                w = self.foreground_image.width()
+                h = self.foreground_image.height()
             # current_index = self.ui.comboBox_2.currentIndex()
             font_size = self.ui.comboBox_2.currentText()
 
@@ -190,7 +194,7 @@ class UpPhoiWindow(QMainWindow):
 
             self.paint_images(self.background_image, self.foreground_image, 
                               self.givenname,self.surname,self.birthday,self.gender,self.address,
-                                img_x=100, img_y=100, rotation_angle = 0,
+                                img_x=self.ui.spinBox_3.value(), img_y=self.ui.spinBox_4.value(), rotation_angle = self.ui.spinBox_5.value(),
                                 img_width =w , img_height = h,
                                 givenname_x = givenname_x, givenname_y= givenname_y, surname_x= surname_x, surname_y=surname_y,
                                 birthday_x= birthday_x, birthday_y= birthday_y,gender_x= gender_x, gender_y= gender_y,
@@ -309,8 +313,9 @@ class UpPhoiWindow(QMainWindow):
         current_datetime = datetime.datetime.now()
 
         # Format the datetime as a string
-        datetime_string = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
-        settings = QSettings(f"output/config_{datetime_string}.ini", QSettings.IniFormat)
+        # datetime_string = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
+        # settings = QSettings(f"output/config_{datetime_string}.ini", QSettings.IniFormat)
+        settings = QSettings(f"output/config.ini", QSettings.IniFormat)
         # Clear the content of the config file
         settings.clear()
         settings.setValue("Background_Width", 591)
@@ -347,5 +352,5 @@ class UpPhoiWindow(QMainWindow):
         settings.setValue("Address_Angle", self.ui.spinBox_22.value())
 
         settings.sync()
-        print(f"All configuration is saved in output/config_{datetime_string}.ini")
+        print(f"All configuration is saved in output/config.ini")
 

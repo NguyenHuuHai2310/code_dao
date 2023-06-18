@@ -89,7 +89,7 @@ class MainWindow(QMainWindow):
         self.ui.stop_button.setEnabled(False)
         self.generator_threads = []
         self.count = 0
-        self.ui.comboBox_12.currentIndexChanged.connect(self.openUpPhoiWindow)
+        self.ui.comboBox_12.activated.connect(self.openUpPhoiWindow)
         self.show()
     def centerWindow(self):
         # Get the screen's geometry
