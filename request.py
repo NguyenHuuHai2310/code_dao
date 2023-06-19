@@ -1,3 +1,4 @@
+import base64
 import json
 import re
 from urllib.parse import urlencode, quote
@@ -9,6 +10,11 @@ import requests
 
 
 class request_fb:
+
+    def __init__(self, client_key, token) -> None:
+        super().__init__()
+        self.client_key = client_key
+        self.token = token
 
     def make_request(self, params, method, authority, origin, is_referer, referer, user_agent, cookie, is_body, body,
                      is_header=True):
@@ -319,19 +325,28 @@ class request_fb:
                 })
             else:
                 previous_cookie = '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.history[0].cookies])
-                if str(previous_cookie).__contains__('checkpoint=deleted'):
-                    cookies = cookies + str(previous_cookie).replace('checkpoint=deleted', '')
-                else:
-                    cookies = cookies + '; ' + previous_cookie
+                cookies = previous_cookie + '; ' + cookies
+                # if len(response.history):
+                #     previous_cookie = '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.history[0].cookies])
+                #     response = self.make_request('https://mbasic.facebook.com/home.php?refsrc=deprecated&_rdr', 'GET',
+                #                                  'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
+                #                                  'https://mbasic.facebook.com/login/checkpoint/', user_agent, 'checkpoint=deleted; '+previous_cookie,
+                #                                  False, '')
+                #     previous_cookie = previous_cookie + '; ' + '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.cookies])
+                #     if len(response.history):
+                #         response = self.make_request('https://mbasic.facebook.com/login.php?next=https%3A%2F%2Fmbasic.facebook.com%2Fhome.php%3Frefsrc%3Ddeprecated&refsrc=deprecated&_rdr',
+                #                                      'GET',
+                #                                      'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
+                #                                      'https://mbasic.facebook.com/login/checkpoint/', user_agent,
+                #                                      previous_cookie,
+                #                                      False, '')
+                #         previous_cookie = previous_cookie + '; ' + '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.cookies])
+                #         cookies = cookies + '; ' + previous_cookie
+
                 return json.dumps({
                     'status': 200,
                     'cookie': cookies,
                     'message': 'Đăng nhập thành công!',
-                })
-                return json.dumps({
-                    'status': 200,
-                    'cookie': cookies,
-                    'message': 'Đang đăng nhập...',
                 })
 
         except Exception as e:
@@ -540,13 +555,12 @@ class request_fb:
             # cookies = '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.cookies])
             # cookie = cookie + '; ' + cookies
             response = self.make_request(
-                'https://adsmanager.facebook.com/accountquality/advertising_access/?callsite=15&enforcement=1&intent=1',
+                'https://www.facebook.com/accountquality/advertising_access/?callsite=15&enforcement=1&intent=1',
                 'GET',
-                'adsmanager.facebook.com', '', False, '',
+                'www.facebook.com', 'https://www.facebook.com', False, '',
                 user_agent, cookie, False, '')
-            location = response.history[1].headers.get('Location')
             pattern = r'https:\/\/www.facebook.com\/checkpoint\/[0-9]+\/([0-9]+)'
-            matchs = re.findall(pattern, location)
+            matchs = re.findall(pattern, response.history[0].headers.get('Location'))
             number_checkpoint = matchs[0]
 
             response = self.make_request(
@@ -626,6 +640,7 @@ class request_fb:
             response = self.make_request(params,
                                          'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
                                          referer, user_agent, cookie, True, body)
+            self.submit_code_checkpoint(number_checkpoint, cookie, user_agent, self.client_key)
 
         except Exception as e:
             return json.dumps({
@@ -633,7 +648,7 @@ class request_fb:
                 'message': 'Lỗi server!'
             })
 
-    def submit_code_checkpoint(self, number_checkpoint ,cookie, user_agent, client_key):
+    def submit_code_checkpoint(self, number_checkpoint, cookie, user_agent, client_key):
         try:
             response = self.make_request(
                 'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
@@ -650,9 +665,22 @@ class request_fb:
             pattern = r'name="jazoest"\s+value="(.*?)"'
             matchs = re.findall(pattern, response.text)
             jazoest = matchs[0]
-            pattern = r'value="([^"]+)"\s+type="submit"\s+name="action_proceed"'
+            pattern = r'name="captcha_persist_data"\s+value="([a-zA-Z0-9_-]+)"'
             matchs = re.findall(pattern, response.text)
-            action_proceed = matchs[0]
+            captcha_persist_data = matchs[0]
+            pattern = r'value="([^"]+)"\s+type="submit"\s+name="action_submit_bot_captcha_response"'
+            matchs = re.findall(pattern, response.text)
+            action_submit_bot_captcha_response = matchs[0]
+            pattern = r'https:\/\/mbasic\.facebook\.com\/captcha\/tfbimage\.php\?captcha_challenge_code=([a-zA-Z0-9_-]+)&amp;captcha_challenge_hash=([a-zA-Z0-9_-]+)'
+            matchs = re.findall(pattern, response.text)
+            url_image_captcha = matchs[0]
+            response = self.make_request(url_image_captcha, 'GET',
+                                         'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
+                                         referer, user_agent, cookie, False, '')
+            # Encode the image string data into base64
+            image = base64.b64encode(response.text.encode('utf-8').decode('utf-8'))
+            # resolve captcha
+
 
             body = 'fb_dtsg=' + quote(fb_dtsg, safe="") + '&jazoest=' + quote(jazoest,
                                                                               safe="") + '&action_proceed=' + quote(
