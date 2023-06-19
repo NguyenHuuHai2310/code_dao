@@ -25,6 +25,7 @@ class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
         self.isOn = False
+        self.setStyleSheet(u"background-color: rgb(46, 52, 54);")
 
     def setTableWidget(self, tableWidget):
         self.tableWidget = tableWidget
@@ -138,7 +139,7 @@ class MainWindow(QMainWindow):
         return 0
 
     def openUpPhoiWindow(self):
-        if self.ui.comboBox_12.currentIndex() == 1:
+        if  self.ui.comboBox_12.currentIndex() == 1:
             # self.window= QtWidgets.QMainWindow()
             self.window2 = UpPhoiWindow()
             # self.ui.setupUi(self.window)
@@ -368,13 +369,13 @@ class MainWindow(QMainWindow):
                                     response = request.submit_continue_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
                                 elif (response['status'] == 200) and (response['action'] == 'captcha'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_code_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
+                                    # response = request.submit_code_checkpoint()
                                 elif (response['status'] == 200) and (response['action'] == 'add_phone_number'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_phone_number()
+                                    # response = request.submit_phone_number()
                                 elif (response['status'] == 200) and (response['action'] == 'upload_your_id'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_your_id()
+                                    # response = request.submit_your_id()
                                 else:
                                     self.handle_write_table(thread_id, 4, response['message'])
                             else:
