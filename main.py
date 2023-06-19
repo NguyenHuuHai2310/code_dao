@@ -25,6 +25,7 @@ class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
         self.isOn = False
+        self.setStyleSheet(u"background-color: rgb(46, 52, 54);")
 
     def setTableWidget(self, tableWidget):
         self.tableWidget = tableWidget
