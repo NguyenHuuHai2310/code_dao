@@ -2,6 +2,8 @@ import base64
 import json
 import re
 from urllib.parse import urlencode, quote
+from captcha import anycaptcha
+from PhoneNumber import viotp
 
 import brotli
 import zlib
@@ -640,7 +642,7 @@ class request_fb:
             response = self.make_request(params,
                                          'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
                                          referer, user_agent, cookie, True, body)
-            self.submit_code_checkpoint(number_checkpoint, cookie, user_agent, self.client_key)
+            return self.submit_code_checkpoint(number_checkpoint, cookie, user_agent, self.client_key)
 
         except Exception as e:
             return json.dumps({
@@ -680,14 +682,193 @@ class request_fb:
             # Encode the image string data into base64
             image = base64.b64encode(response.text.encode('utf-8').decode('utf-8'))
             # resolve captcha
+            captcha = anycaptcha(client_key)
+            response_captcha = captcha.create_task_image_to_text('https://api.anycaptcha.com/createTask', 'POST',
+                                                                 client_key, image)
+            response_captcha = json.loads(response_captcha)
+            if response_captcha['errorId'] == 0:
+                response_captcha = captcha.get_task_result_image_to_text('https://api.anycaptcha.com/getTaskResult',
+                                                                         'POST', client_key, response_captcha['taskId'])
+                response_captcha = json.loads(response_captcha)
+                if response_captcha['errorId'] == 0:
+                    while response_captcha['status'] == 'processing':
+                        response_captcha = captcha.get_task_result_image_to_text(
+                            'https://api.anycaptcha.com/getTaskResult', 'POST', client_key, response_captcha['taskId'])
+                        response_captcha = json.loads(response_captcha)
+                    captcha_response = response_captcha['solution']['text']
+                    body = 'fb_dtsg=' + quote(fb_dtsg, safe="") + '&jazoest=' + quote(jazoest,
+                                                                                      safe="") + '&captcha_persist_data=' + quote(
+                        captcha_persist_data, safe="") + '&captcha_response=' + quote(captcha_response,
+                                                                                      safe="") + '&action_submit_bot_captcha_response=' + quote(
+                        action_submit_bot_captcha_response, safe="")
+                    response = self.make_request(params,
+                                                 'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
+                                                 referer, user_agent, cookie, True, body)
+                    return self.submit_phone_number(number_checkpoint, cookie, user_agent, self.token, 7)
+                else:
+                    return json.dumps({
+                        'status': 404,
+                        'message': 'Giải captcha lỗi!'
+                    })
+            else:
+                return json.dumps({
+                    'status': 404,
+                    'message': 'Giải captcha lỗi!'
+                })
 
+        except Exception as e:
+            return json.dumps({
+                'status': 404,
+                'message': 'Lỗi server!'
+            })
 
-            body = 'fb_dtsg=' + quote(fb_dtsg, safe="") + '&jazoest=' + quote(jazoest,
-                                                                              safe="") + '&action_proceed=' + quote(
-                action_proceed, safe="")
-            response = self.make_request(params,
-                                         'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
-                                         referer, user_agent, cookie, True, body)
+    def submit_phone_number(self, number_checkpoint, cookie, user_agent, token, serviceId):
+        try:
+            response = self.make_request(
+                'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
+                'GET',
+                'mbasic.facebook.com', 'https://mbasic.facebook.com', False, '',
+                user_agent, cookie, False, '')
+            referer = 'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F'
+            pattern = r'form\s+method="[^"]+"\s+action="\/checkpoint([^"]+)"'
+            matchs = re.findall(pattern, response.text)
+            params = 'https://mbasic.facebook.com/checkpoint' + str(matchs[0]).replace('&amp;', '&')
+            pattern = r'name="fb_dtsg"\s+value="(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            fb_dtsg = matchs[0]
+            pattern = r'name="jazoest"\s+value="(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            jazoest = matchs[0]
+            pattern = r'value="([^"]+)"\s+type="submit"\s+name="action_set_contact_point"'
+            matchs = re.findall(pattern, response.text)
+            action_set_contact_point = matchs[0]
+
+            # get phone number from api
+            phone_number = viotp(token)
+            response_phone_number = phone_number.request_viotp_request_service(token, serviceId)
+            response_phone_number = json.loads(response_phone_number)
+            if response_phone_number['status_code'] == 200:
+                contact_point = response_phone_number['data']['phone_number']
+                requestId = response_phone_number['data']['request_id']
+                body = 'fb_dtsg=' + quote(fb_dtsg, safe="") + '&jazoest=' + quote(jazoest,
+                                                                                  safe="") + '&country_code=VN&contact_point=' + quote(
+                    contact_point, safe="") + '&action_set_contact_point=' + quote(action_set_contact_point, safe="")
+                response = self.make_request(params,
+                                             'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
+                                             referer, user_agent, cookie, True, body)
+                if response.text.__contains__('action_submit_code'):
+                    # get code from phone number
+                    response_phone_number = phone_number.request_viotp_get_code(token, requestId)
+                    response_phone_number = json.loads(response_phone_number)
+                    if (response_phone_number['status_code'] == 200) and (response_phone_number['data']['Status'] != 2):
+                        while response_phone_number['data']['Status'] == 0:
+                            response_phone_number = phone_number.request_viotp_get_code(token, requestId)
+                            response_phone_number = json.loads(response_phone_number)
+                        code = response_phone_number['data']['Code']
+
+                        response = self.make_request(
+                            'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
+                            'GET',
+                            'mbasic.facebook.com', 'https://mbasic.facebook.com', False, '',
+                            user_agent, cookie, False, '')
+                        referer = 'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F'
+                        pattern = r'form\s+method="[^"]+"\s+action="\/checkpoint([^"]+)"'
+                        matchs = re.findall(pattern, response.text)
+                        params = 'https://mbasic.facebook.com/checkpoint' + str(matchs[0]).replace('&amp;', '&')
+                        pattern = r'name="fb_dtsg"\s+value="(.*?)"'
+                        matchs = re.findall(pattern, response.text)
+                        fb_dtsg = matchs[0]
+                        pattern = r'name="jazoest"\s+value="(.*?)"'
+                        matchs = re.findall(pattern, response.text)
+                        jazoest = matchs[0]
+                        pattern = r'value="([^"]+)"\s+type="submit"\s+name="action_submit_code"'
+                        matchs = re.findall(pattern, response.text)
+                        action_submit_code = matchs[0]
+
+                        body = 'fb_dtsg=' + quote(fb_dtsg, safe="") + '&jazoest=' + quote(jazoest,
+                                                                                          safe="") + '&code=' + quote(
+                            code, safe="") + '&action_submit_code=' + quote(action_submit_code, safe="")
+                        response = self.make_request(params,
+                                                     'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
+                                                     referer, user_agent, cookie, True, body)
+                        return self.submit_your_id(number_checkpoint, cookie, user_agent)
+                    else:
+                        return json.dumps({
+                            'status': 404,
+                            'message': 'Lấy code gửi về SĐT thất bại!'
+                        })
+                else:
+                    return json.dumps({
+                        'status': 404,
+                        'message': 'Thêm SĐT thất bại!'
+                    })
+            else:
+                return json.dumps({
+                    'status': 404,
+                    'message': 'Lấy SĐT thất bại!'
+                })
+        except Exception as e:
+            return json.dumps({
+                'status': 404,
+                'message': 'Lỗi server!'
+            })
+
+    def submit_your_id(self, number_checkpoint, cookie, user_agent):
+        try:
+            response = self.make_request(
+                'https://m.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
+                'GET',
+                'm.facebook.com', 'https://m.facebook.com', False, '',
+                user_agent, cookie, False, '')
+            referer = 'https://m.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F'
+            pattern = r'form\s+method="[^"]+"\s+action="\/checkpoint([^"]+)"'
+            matchs = re.findall(pattern, response.text)
+            params = 'https://m.facebook.com/checkpoint' + str(matchs[0]).replace('&amp;', '&')
+            pattern = r'name="fb_dtsg"\s+value="(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            fb_dtsg = matchs[0]
+            pattern = r'name="jazoest"\s+value="(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            jazoest = matchs[0]
+            pattern = r'type="submit"\s+value="([^"]+)"\s+class="[^"]+"\s+name="action_upload_image"'
+            matchs = re.findall(pattern, response.text)
+            action_upload_image = matchs[0]
+
+            headers = {
+                'authority': 'm.facebook.com',
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'accept-language': 'en-US,en;q=0.9',
+                'cache-control': 'max-age=0',
+                'cookie': cookie,
+                'origin': 'https://m.facebook.com',
+                'referer': referer,
+                'sec-ch-ua-mobile': '?0',
+                'sec-fetch-dest': 'document',
+                'sec-fetch-mode': 'navigate',
+                'sec-fetch-site': 'same-origin',
+                'sec-fetch-user': '?1',
+                'upgrade-insecure-requests': '1',
+                'user-agent': user_agent,
+            }
+
+            payload = {'fb_dtsg': fb_dtsg,
+                       'jazoest': jazoest,
+                       'action_upload_image': action_upload_image}
+            files = [
+                ('mobile_image_data',
+                 ('004515.jpg', open('D:\Tool FB\Phoi_XMDT\photo_6172328012985513199_y.jpg', 'rb'), 'image/jpeg'))
+            ]
+            response = requests.request("POST", params, headers=headers, data=payload, files=files)
+            if response.text.__contains__('Review requested'):
+                return json.dumps({
+                    'status': 200,
+                    'message': 'XMDT thành công!',
+                })
+            else:
+                return json.dumps({
+                    'status': 200,
+                    'message': 'XMDT thất bại!',
+                })
 
         except Exception as e:
             return json.dumps({

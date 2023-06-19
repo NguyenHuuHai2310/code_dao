@@ -16,7 +16,7 @@ class anycaptcha:
             response = requests.request(method, params, headers=headers, data=body,
                                         allow_redirects=True)
 
-            return response
+            return response.text
 
         except Exception as e:
             return json.dumps({

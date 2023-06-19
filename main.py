@@ -360,13 +360,13 @@ class MainWindow(QMainWindow):
                                     response = request.submit_continue_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
                                 elif (response['status'] == 200) and (response['action'] == 'captcha'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    # response = request.submit_code_checkpoint()
+                                    response = request.submit_code_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
                                 elif (response['status'] == 200) and (response['action'] == 'add_phone_number'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    # response = request.submit_phone_number()
+                                    response = request.submit_phone_number()
                                 elif (response['status'] == 200) and (response['action'] == 'upload_your_id'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    # response = request.submit_your_id()
+                                    response = request.submit_your_id()
                                 else:
                                     self.handle_write_table(thread_id, 4, response['message'])
                             else:
