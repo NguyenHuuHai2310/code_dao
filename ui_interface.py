@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceDmcCdN.ui'
+## Form generated from reading UI file 'interfaceSEvlFW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1207, 697)
+        MainWindow.resize(1216, 697)
         MainWindow.setCursor(QCursor(Qt.ArrowCursor))
         MainWindow.setStyleSheet(u"*{\n"
 "	border: none;\n"
@@ -359,10 +359,7 @@ class Ui_MainWindow(object):
         self.label_8 = QLabel(self.frame_11)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setGeometry(QRect(828, 61, 23, 62))
-
-        self.verticalLayout_4.addWidget(self.frame_11)
-
-        self.tableWidget = QTableWidget(self.page_view)
+        self.tableWidget = QTableWidget(self.frame_11)
         if (self.tableWidget.columnCount() < 6):
             self.tableWidget.setColumnCount(6)
         __qtablewidgetitem = QTableWidgetItem()
@@ -386,6 +383,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem8 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(2, __qtablewidgetitem8)
         self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setGeometry(QRect(0, 170, 934, 421))
         sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
@@ -393,8 +391,33 @@ class Ui_MainWindow(object):
         self.tableWidget.setSizePolicy(sizePolicy2)
         self.tableWidget.setMinimumSize(QSize(0, 300))
         self.tableWidget.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        self.tableWidget.setFrameShape(QFrame.StyledPanel)
+        self.tableWidget.setFrameShadow(QFrame.Sunken)
+        self.tableWidget.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.tableWidget.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.tableWidget.setEditTriggers(QAbstractItemView.AllEditTriggers)
+        self.tableWidget.setDragEnabled(True)
+        self.tableWidget.setDragDropOverwriteMode(False)
+        self.tableWidget.setDragDropMode(QAbstractItemView.DragDrop)
+        self.tableWidget.setDefaultDropAction(Qt.IgnoreAction)
+        self.tableWidget.setAlternatingRowColors(False)
+        self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.tableWidget.setShowGrid(True)
+        self.tableWidget.setGridStyle(Qt.SolidLine)
+        self.tableWidget.setSortingEnabled(True)
+        self.tableWidget.setWordWrap(True)
+        self.tableWidget.setCornerButtonEnabled(True)
+        self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget.horizontalHeader().setMinimumSectionSize(10)
+        self.tableWidget.horizontalHeader().setProperty("showSortIndicator", True)
+        self.tableWidget.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget.verticalHeader().setVisible(True)
+        self.tableWidget.verticalHeader().setCascadingSectionResizes(True)
+        self.tableWidget.verticalHeader().setHighlightSections(True)
+        self.tableWidget.verticalHeader().setProperty("showSortIndicator", True)
+        self.tableWidget.verticalHeader().setStretchLastSection(False)
 
-        self.verticalLayout_4.addWidget(self.tableWidget)
+        self.verticalLayout_4.addWidget(self.frame_11)
 
         self.stackedWidget.addWidget(self.page_view)
         self.page_config = QWidget()
@@ -534,22 +557,6 @@ class Ui_MainWindow(object):
         self.comboBox_16.setSizeIncrement(QSize(0, 0))
         self.comboBox_16.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
 "")
-        self.textEdit_7 = QTextEdit(self.frame_6)
-        self.textEdit_7.setObjectName(u"textEdit_7")
-        self.textEdit_7.setEnabled(True)
-        self.textEdit_7.setGeometry(QRect(110, 370, 791, 40))
-        self.textEdit_7.setMinimumSize(QSize(0, 40))
-        self.textEdit_7.setMaximumSize(QSize(16777215, 40))
-        self.textEdit_7.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"")
-        self.textEdit_8 = QTextEdit(self.frame_6)
-        self.textEdit_8.setObjectName(u"textEdit_8")
-        self.textEdit_8.setEnabled(True)
-        self.textEdit_8.setGeometry(QRect(450, 220, 451, 40))
-        self.textEdit_8.setMinimumSize(QSize(0, 40))
-        self.textEdit_8.setMaximumSize(QSize(16777215, 40))
-        self.textEdit_8.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"")
         self.comboBox_6 = QComboBox(self.frame_6)
         self.comboBox_6.addItem("")
         self.comboBox_6.addItem("")
@@ -652,6 +659,32 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_9.addWidget(self.radioButton_12)
 
+        self.keyCapcha = QPlainTextEdit(self.frame_6)
+        self.keyCapcha.setObjectName(u"keyCapcha")
+        self.keyCapcha.setGeometry(QRect(430, 220, 471, 40))
+        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.keyCapcha.sizePolicy().hasHeightForWidth())
+        self.keyCapcha.setSizePolicy(sizePolicy3)
+        self.keyCapcha.setMinimumSize(QSize(0, 0))
+        self.keyCapcha.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        self.keyCapcha.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.keyCapcha.setLineWrapMode(QPlainTextEdit.WidgetWidth)
+        self.keyOtp = QPlainTextEdit(self.frame_6)
+        self.keyOtp.setObjectName(u"keyOtp")
+        self.keyOtp.setGeometry(QRect(110, 370, 791, 40))
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(1)
+        sizePolicy4.setHeightForWidth(self.keyOtp.sizePolicy().hasHeightForWidth())
+        self.keyOtp.setSizePolicy(sizePolicy4)
+        self.keyOtp.setMinimumSize(QSize(0, 40))
+        self.keyOtp.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        self.keyOtp.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.keyOtp.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.keyOtp.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.keyOtp.setLineWrapMode(QPlainTextEdit.NoWrap)
         self.stackedWidget.addWidget(self.page_function)
         self.page_contact = QWidget()
         self.page_contact.setObjectName(u"page_contact")
@@ -685,8 +718,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.toolBox_3.setCurrentIndex(1)
-        self.stackedWidget.setCurrentIndex(1)
+        self.toolBox_3.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -711,13 +744,15 @@ class Ui_MainWindow(object):
         self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"T\u1ea5t c\u1ea3:", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"2", None))
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"@Cookie", None));
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"@T\u00e0i kho\u1ea3n[Id|Pw|2Fa]", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"@Ip", None));
-        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(4)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"@Limit", None));
-        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(5)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"@Cookie", None));
+        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(3)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"@Ip", None));
+        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(4)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"@Tr\u1ea1ng th\u00e1i", None));
+        ___qtablewidgetitem4 = self.tableWidget.horizontalHeaderItem(5)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"@Limit", None));
         self.comboBox_20.setItemText(0, QCoreApplication.translate("MainWindow", u"https://m.facebook.com/", None))
         self.comboBox_20.setItemText(1, QCoreApplication.translate("MainWindow", u"https://mbasic.facebook.com/", None))
         self.comboBox_20.setItemText(2, QCoreApplication.translate("MainWindow", u"https://www.facebook.com/", None))
@@ -764,18 +799,6 @@ class Ui_MainWindow(object):
         self.comboBox_16.setItemText(3, QCoreApplication.translate("MainWindow", u"4 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
         self.comboBox_16.setItemText(4, QCoreApplication.translate("MainWindow", u"5 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
 
-        self.textEdit_7.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu'; font-size:11pt;\"><br /></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu'; font-size:11pt;\"><br /></p></body></html>", None))
-        self.textEdit_8.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu'; font-size:11pt;\"><br /></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu'; font-size:11pt;\"><br /></p></body></html>", None))
         self.comboBox_6.setItemText(0, QCoreApplication.translate("MainWindow", u"G\u1eedi 902 up ph\u00f4i", None))
         self.comboBox_6.setItemText(1, QCoreApplication.translate("MainWindow", u"G\u1eedi 902 ch\u1ecdn d\u00f2ng(b\u1ecf qua b\u01b0\u1edbc up ph\u00f4i)", None))
 
