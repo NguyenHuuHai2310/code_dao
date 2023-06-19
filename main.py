@@ -25,7 +25,6 @@ class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
         self.isOn = False
-        self.setStyleSheet(u"background-color: rgb(46, 52, 54);")
 
     def setTableWidget(self, tableWidget):
         self.tableWidget = tableWidget
@@ -62,8 +61,6 @@ class MainWindow(QMainWindow):
         self.centerWindow()
         # Disable moving the window out of the screen boundaries
         self.setFixedSize(self.size())
-        self.ui.textEdit_8.setEnabled(True)
-        self.ui.textEdit_7.setEnabled(True)
         ########################################################################
         # APPLY JSON STYLESHEET
         ########################################################################
