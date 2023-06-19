@@ -18,6 +18,7 @@ from PyQt5 import QtWidgets
 from functions import *
 from ui_upPhoiWindow import *
 from upPhoiWindow import UpPhoiWindow
+from PyQt5.QtWidgets import QTextEdit
 
 
 class MyHeader(QHeaderView):
@@ -42,13 +43,14 @@ class MyHeader(QHeaderView):
         if self.logicalIndexAt(event.pos()) == 0:
             self.isOn = not self.isOn
             self.update()
-            super().mousePressEvent(event)
 
-        if self.tableWidget and self.logicalIndexAt(event.pos()) == 0:
+        if self.tableWidget:
             for row in range(self.tableWidget.rowCount()):
                 item = self.tableWidget.item(row, 0)
                 if item:
                     item.setCheckState(Qt.Checked if self.isOn else Qt.Unchecked)
+
+        super().mousePressEvent(event)
 
 
 class MainWindow(QMainWindow):
@@ -78,12 +80,16 @@ class MainWindow(QMainWindow):
         self.data = []
         myHeader = MyHeader(Qt.Horizontal, self.ui.tableWidget)
         myHeader.setTableWidget(self.ui.tableWidget)
+        # Assuming you have an instance of QHeaderView named 'headerView'
+        # myHeader.setSectionResizeMode(QHeaderView.Stretch)
+        myHeader.setStretchLastSection(True)
+
         self.ui.tableWidget.setHorizontalHeader(myHeader)
-        self.ui.tableWidget.setColumnWidth(0, 30)
         self.ui.tableWidget.setColumnWidth(1, 300)
         self.ui.tableWidget.setColumnWidth(2, 100)
         self.ui.tableWidget.setColumnWidth(3, 100)
-        self.ui.tableWidget.setColumnWidth(4, 150)
+        self.ui.tableWidget.setColumnWidth(4, 100)
+
         # Add checkboxes to the table
         for row in range(self.ui.tableWidget.rowCount()):
             item = QTableWidgetItem()
@@ -142,7 +148,11 @@ class MainWindow(QMainWindow):
 
     def contextMenuEvent(self, event):
         # print("Coordinate",event.x(), event.y())
-        if (event.y() >305 and event.y() <602 and event.x() >  260 and event.x() < 987):
+        x = 261
+        y = 269
+        w = self.ui.tableWidget.width()
+        h = self.ui.tableWidget.height()
+        if (event.y() >y and event.y() <y+h and event.x() >  x and event.x() < x + w):
             menu = QMenu(self)
 
             paste_delete_action = QAction("Paste tài khoản [Xóa tài khoản cũ]", self)
