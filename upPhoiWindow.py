@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QFileDialog, QDesktopWidget
 from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform, QDesktopServices, QClipboard, QPdfWriter
 from PyQt5.QtCore import Qt, QUrl,  QSettings
 from Custom_Widgets.Widgets import *
-
+from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkRequest, QNetworkReply
 from ui_upPhoiWindow import *
 
 class UpPhoiWindow(QMainWindow):
@@ -22,26 +22,26 @@ class UpPhoiWindow(QMainWindow):
         self.ui.comboBox_3.addItems(font_families)
         for num in range(6, 96):
             self.ui.comboBox_2.addItem(str(num))
-        self.ui.spinBox_11.setValue(170)
-        self.ui.spinBox_12.setValue(480)
+        # self.ui.spinBox_11.setValue(170)
+        # self.ui.spinBox_12.setValue(480)
 
-        self.ui.spinBox_17.setValue(150)
-        self.ui.spinBox_18.setValue(210)
+        # self.ui.spinBox_17.setValue(150)
+        # self.ui.spinBox_18.setValue(210)
 
-        self.ui.spinBox_14.setValue(70)
-        self.ui.spinBox_15.setValue(210)
+        # self.ui.spinBox_14.setValue(70)
+        # self.ui.spinBox_15.setValue(210)
 
-        self.ui.spinBox_20.setValue(120)
-        self.ui.spinBox_21.setValue(210)
+        # self.ui.spinBox_20.setValue(120)
+        # self.ui.spinBox_21.setValue(210)
 
-        self.ui.spinBox_23.setValue(210)
-        self.ui.spinBox_25.setValue(100)
+        # self.ui.spinBox_23.setValue(210)
+        # self.ui.spinBox_25.setValue(100)
         self.ui.label_36.setText('<a href="https://www.youtube.com">Video hướng dẫn</a>')
         self.ui.label_36.setOpenExternalLinks(True)  # Allow opening the link in an external browser
         self.ui.btn_preview.clicked.connect(self.show_preview)
         # Connect the link clicked signal to a slot
         self.ui.label_36.linkActivated.connect(lambda url: QDesktopServices.openUrl(QUrl(url)))
-
+        self.load_value('output/config.ini')
         self.show()
     def centerWindow(self):
         # Get the screen's geometry
@@ -153,9 +153,13 @@ class UpPhoiWindow(QMainWindow):
             self.ui.textEdit.setText(img_path)
             self.background_image = QPixmap(img_path)
             self.foreground_image = QPixmap("demo/a.png")
-            w = self.foreground_image.width()
-            h = self.foreground_image.height()
-
+           
+            if self.ui.spinBox.value() > 0 and self.ui.spinBox_2.value() > 0:
+                w = self.ui.spinBox.value()
+                h = self.ui.spinBox_2.value()
+            else:
+                w = self.foreground_image.width()
+                h = self.foreground_image.height()
             # current_index = self.ui.comboBox_2.currentIndex()
             font_size = self.ui.comboBox_2.currentText()
 
@@ -190,7 +194,7 @@ class UpPhoiWindow(QMainWindow):
 
             self.paint_images(self.background_image, self.foreground_image, 
                               self.givenname,self.surname,self.birthday,self.gender,self.address,
-                                img_x=100, img_y=100, rotation_angle = 0,
+                                img_x=self.ui.spinBox_3.value(), img_y=self.ui.spinBox_4.value(), rotation_angle = self.ui.spinBox_5.value(),
                                 img_width =w , img_height = h,
                                 givenname_x = givenname_x, givenname_y= givenname_y, surname_x= surname_x, surname_y=surname_y,
                                 birthday_x= birthday_x, birthday_y= birthday_y,gender_x= gender_x, gender_y= gender_y,
@@ -272,9 +276,122 @@ class UpPhoiWindow(QMainWindow):
         self.save_as_png(self.combined_image)
         self.save_value()
         # self.load_value("/home/baoanh/Desktop/qt5_application/app_v1/output/config.ini")
+    def save_url_image(self,  facebook_id, options,  image_url, image, 
+                       givenname, surname, birthday, gender, address):
+        
+        if options == 1:
+            self.network_manager = QNetworkAccessManager(self)
+            self.network_manager.finished.connect(self.handle_network_response)
+            request = QNetworkRequest(image_url)
+            img = self.network_manager.get(request)
+            img.save(f"data/{facebook_id}.png", "PNG")
+            avt = img
+        elif options == 2:
+            image.save(f"output/{facebook_id}.png", "PNG")
+            avt = image
+        settings = QSettings('output/config.ini', QSettings.IniFormat)
+        defaultValue = 0
+        # load values from .ini fill
+        avt_w = int(settings.value("Foreground_Width", defaultValue))
+        avt_h = int(settings.value("Foreground_Height", defaultValue))
+        avt_x = int(settings.value("Foreground_x", defaultValue))
+        avt_y = int(settings.value("Foreground_y", defaultValue))
+        avt_a = int(settings.value("Foreground_Angle", defaultValue))
+        font_size  = settings.value("Font_Size", defaultValue)
+        font_family = settings.value("Font_Family", defaultValue)
+        GivenName_x = int(settings.value("GivenName_x", defaultValue))
+        GivenName_y = int(settings.value("GivenName_y", defaultValue))
+        GivenName_Angle =int(settings.value("GivenName_Angle", defaultValue))
+        FirstName_x = int(settings.value("FirstName_x", defaultValue))
+        FirstName_y = int(settings.value("FirstName_y", defaultValue))
+        FirstName_Angle = int(settings.value("FirstName_Angle", defaultValue))
+        Birthday_x = int(settings.value("Birthday_x", defaultValue))
+        Birthday_y= int(settings.value("Birthday_y", defaultValue))
+        Birthday_Angle = int(settings.value("Birthday_Angle", defaultValue))
+        Gender_x = int(settings.value("Gender_x", defaultValue))
+        Gender_y = int(settings.value("Gender_y", defaultValue))
+        Gender_Angle = int(settings.value("Gender_Angle", defaultValue))
+        Address_x = int(settings.value("Address_x", defaultValue))
+        Address_y = int(settings.value("Address_y", defaultValue))
+        Address_Angle = int(settings.value("Address_Angle", defaultValue))
+        is_bold = True
+        width = 591  # desired width
+        height = 361  # desired height
+        background_image = QPixmap('demo/input2.jpg')
+        background_image = background_image.scaled(width, height)
+        foreground_image = foreground_image.scaled(avt_w, avt_h)
+        transform = QTransform()
+        transform.rotate(avt_a)
+        rotated_image = foreground_image.transformed(transform)
+        combined_image = QPixmap(background_image.size())
+        combined_image.fill(Qt.transparent)
+
+        # Draw the background image on the combined image
+        painter = QPainter(combined_image)
+        painter.drawPixmap(0, 0, background_image)
+        painter.drawPixmap(avt_x, avt_y, rotated_image)
+        painter.setFont(font_family)
+        # Set the rotation angles for the texts
+        angle_givenname = GivenName_Angle
+        angle_surname = FirstName_Angle
+        angle_birthday = Birthday_Angle
+        angle_gender = Gender_Angle
+        angle_address = Address_Angle
+
+        # Create a transformation matrix for the rotation angle around the center
+        transform_1 = QTransform()
+        transform_1.translate(GivenName_x, GivenName_y)
+        transform_1.rotate(angle_givenname)
+        transform_1.translate(-GivenName_x, -GivenName_y)
+          # Create a transformation matrix for the rotation angle around the center
+        transform_2 = QTransform()
+        transform_2.translate(FirstName_x, FirstName_y)
+        transform_2.rotate(angle_surname)
+        transform_2.translate(-FirstName_x, -FirstName_y)
+          # Create a transformation matrix for the rotation angle around the center
+        transform_3 = QTransform()
+        transform_3.translate(Birthday_x, Birthday_y)
+        transform_3.rotate(angle_birthday)
+        transform_3.translate(-Birthday_x, -Birthday_y)
+          # Create a transformation matrix for the rotation angle around the center
+        transform_4 = QTransform()
+        transform_4.translate(Gender_x, Gender_y)
+        transform_4.rotate(angle_gender)
+        transform_4.translate(-Gender_x, -Gender_y)
+          # Create a transformation matrix for the rotation angle around the center
+        transform_5 = QTransform()
+        transform_5.translate(Address_x, Address_y)
+        transform_5.rotate(angle_address)
+        transform_5.translate(-Address_x, -Address_y)
+
+        painter.setTransform(transform_1)
+        painter.drawText(GivenName_x, GivenName_y, givenname)
+
+        painter.setTransform(transform_2)
+        painter.drawText(FirstName_x, FirstName_y, surname)
+
+        painter.setTransform(transform_3)
+        painter.drawText(Birthday_x, Birthday_y, birthday)
+
+        painter.setTransform(transform_4)
+        painter.drawText(Gender_x, Gender_y, gender)
+
+        painter.setTransform(transform_5)
+        painter.drawText(Address_x, Address_y, address)
+        
+        return combined_image
+    
+    def handle_network_response(self, reply):
+        if reply.error() == QNetworkReply.NoError:
+            image_data = reply.readAll()
+            pixmap = QPixmap()
+            pixmap.loadFromData(image_data)
+            return pixmap
+        else:
+            print("Error:", reply.errorString())
     def save_as_png(self,   image):
         image.save("output/preview.png", "PNG")
-    
+
     def load_value(self, filepath):
         settings = QSettings(filepath, QSettings.IniFormat)
         defaultValue = 0
@@ -309,8 +426,9 @@ class UpPhoiWindow(QMainWindow):
         current_datetime = datetime.datetime.now()
 
         # Format the datetime as a string
-        datetime_string = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
-        settings = QSettings(f"output/config_{datetime_string}.ini", QSettings.IniFormat)
+        # datetime_string = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
+        # settings = QSettings(f"output/config_{datetime_string}.ini", QSettings.IniFormat)
+        settings = QSettings(f"output/config.ini", QSettings.IniFormat)
         # Clear the content of the config file
         settings.clear()
         settings.setValue("Background_Width", 591)
@@ -347,5 +465,5 @@ class UpPhoiWindow(QMainWindow):
         settings.setValue("Address_Angle", self.ui.spinBox_22.value())
 
         settings.sync()
-        print(f"All configuration is saved in output/config_{datetime_string}.ini")
+        print(f"All configuration is saved in output/config.ini")
 

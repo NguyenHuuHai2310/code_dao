@@ -59,6 +59,8 @@ class MainWindow(QMainWindow):
         self.centerWindow()
         # Disable moving the window out of the screen boundaries
         self.setFixedSize(self.size())
+        self.ui.textEdit_8.setEnabled(True)
+        self.ui.textEdit_7.setEnabled(True)
         ########################################################################
         # APPLY JSON STYLESHEET
         ########################################################################
@@ -96,7 +98,7 @@ class MainWindow(QMainWindow):
         self.ui.stop_button.setEnabled(False)
         self.generator_threads = []
         self.count = 0
-        self.ui.comboBox_12.currentIndexChanged.connect(self.openUpPhoiWindow)
+        self.ui.comboBox_12.activated.connect(self.openUpPhoiWindow)
         self.show()
 
     def centerWindow(self):
@@ -140,7 +142,7 @@ class MainWindow(QMainWindow):
 
     def contextMenuEvent(self, event):
         # print("Coordinate",event.x(), event.y())
-        if (event.y() > 305 and event.y() < 602 and event.x() > 260 and event.x() < 987):
+        if (event.y() >305 and event.y() <602 and event.x() >  260 and event.x() < 987):
             menu = QMenu(self)
 
             paste_delete_action = QAction("Paste tài khoản [Xóa tài khoản cũ]", self)
@@ -156,11 +158,11 @@ class MainWindow(QMainWindow):
             menu.addAction(click_selected_account_action)
 
             menu.setStyleSheet("QMenu { background-color: rgb(46, 52, 54); }"
-                               "QMenu::item {   background-color: rgb(46, 52, 54); color: white; \
+                            "QMenu::item {   background-color: rgb(46, 52, 54); color: white; \
                                                 padding: 4px solid rgb(46, 52, 54);\
                                                 padding-left: 2px solid rgb(46, 52, 54);\
                                                 border: 1px solid rgb(46, 52, 54); }"
-                               "QMenu::item:selected { background-color: blue; }")
+                            "QMenu::item:selected { background-color: blue; }")
 
             menu.exec_(event.globalPos())
             event.accept()
