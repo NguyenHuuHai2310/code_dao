@@ -442,3 +442,227 @@ class request_fb:
                 'status': 404,
                 'message': 'Lỗi server!'
             })
+
+    def check_account_quality(self, id_fb, cookie, user_agent):
+        try:
+            response = self.make_request('https://www.facebook.com/accountquality/' + id_fb + '/?source=link', 'GET',
+                                         'www.facebook.com', 'https://www.facebook.com', True,
+                                         'https://www.facebook.com/accountquality',
+                                         user_agent, cookie, False, '')
+
+            cookies = '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.cookies])
+            pattern = r'"token":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            lsd = matchs[1]
+            pattern = r'"sessionID":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            session_id = matchs[0]
+            pattern = r'"haste_session":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            haste_session = matchs[0]
+            pattern = r'"connectionClass":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            __ccg = matchs[0]
+            pattern = r'"server_revision":\s*(\d+)'
+            matchs = re.findall(pattern, response.text)
+            __rev = matchs[0]
+            pattern = r'"hsi":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            __hsi = matchs[0]
+            pattern = r'"token":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            fb_dtsg = matchs[0]
+            pattern = r'"__spin_r":\s*(\d+)'
+            matchs = re.findall(pattern, response.text)
+            __spin_r = matchs[0]
+            pattern = r'"__spin_b":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            __spin_b = matchs[0]
+            pattern = r'"__spin_t":\s*(\d+)'
+            matchs = re.findall(pattern, response.text)
+            __spin_t = matchs[0]
+
+            headers = {
+                'authority': 'www.facebook.com',
+                'accept': '*/*',
+                'accept-language': 'en-US,en;q=0.9',
+                'cache-control': 'max-age=0',
+                'content-type': 'application/x-www-form-urlencoded',
+                'cookie': cookie,
+                'origin': 'https://www.facebook.com',
+                'referer': 'https://www.facebook.com/accountquality/' + id_fb,
+                'sec-ch-ua-mobile': '?0',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'same-origin',
+                'user-agent': user_agent,
+                'x-asbd-id': '198387',
+                'x-fb-friendly-name': 'AccountQualityHubAssetOwnerViewV2Query',
+                'x-fb-lsd': lsd,
+                'accept-encoding': 'gzip, deflate, br',
+                'connection': 'keep-alive',
+            }
+
+            data = 'av=' + quote(id_fb, safe="") + '&session_id=' + quote(session_id, safe="") + '&__user=' + quote(
+                id_fb, safe="") + '&__a=1&__req=1&__hs=' + quote(haste_session, safe="") + '&dpr=2&__ccg=' + quote(
+                __ccg, safe="") + '&__rev=' + quote(__rev, safe="") + '&__s=ma0z7e%3A573g7w%3Adpehmi&__hsi=' + quote(
+                __hsi,
+                safe="") + '&__dyn=7xeUmxa2C5rgydwn8K2abBWqxu59o9E4a2i5VGxK5FEG484S4UKewPGi4FoixWE-16xq4EOezobo-4Lxe1kx21FxG9xedz8hwgo5qq3a4EuCx62a2q5E9UeUryFE4WWBBwLjzu2SJaECfiwzlwXyXwBxu1UxO6AcK2y5oeEjx63K7EC11xnzoO9ws8nw8ScwgECu7EK3i2a3Fe6rwiolDwFwBgaohzE8U98doK78-4Ea8mwnHxJUpx2aK2a4p8y26U8U-UbE4S7VEjCx6Etw9O3ifzobEaUiwm8myUnwUzpA6EfEO32fxiFVoa9obGwgUy1kx6bCyVUCcG2-qaUK2e0UFU2RwiU8U6Ci2G1bzFHwCwmo4S7EaUkw&__csr=&fb_dtsg=' + quote(
+                fb_dtsg, safe="") + '&jazoest=25769&lsd=' + quote(lsd, safe="") + '&__spin_r=' + quote(__spin_r,
+                                                                                                       safe="") + '&__spin_b=' + quote(
+                __spin_b, safe="") + '&__spin_t=' + quote(__spin_t,
+                                                          safe="") + '&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=AccountQualityHubAssetOwnerViewV2Query&variables=%7B%22assetOwnerId%22%3A%22' + quote(
+                id_fb, safe="") + '%22%7D&server_timestamps=true&doc_id=6139497919470985'
+
+            response = requests.request('POST', 'https://www.facebook.com/api/graphql/', headers=headers, data=data,
+                                        allow_redirects=True)
+            response = json.loads(response.text)
+            acc_is_restricted = response['data']['assetOwnerData']['advertising_restriction_info']['is_restricted']
+            return json.dumps({
+                'status': 200,
+                'acc_is_restricted': acc_is_restricted,
+                'message': 'Check trạng thái tài khoản thành công!',
+            })
+
+        except Exception as e:
+            return json.dumps({
+                'status': 404,
+                'message': 'Lỗi server!'
+            })
+
+    def get_view_checkpoint_282(self, cookie, user_agent):
+        try:
+            # response = self.make_request(
+            #     'https://www.facebook.com/',
+            #     'GET',
+            #     'www.facebook.com', 'https://www.facebook.com/', False, '',
+            #     user_agent, cookie, False, '')
+            # cookies = '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.cookies])
+            # cookie = cookie + '; ' + cookies
+            response = self.make_request(
+                'https://adsmanager.facebook.com/accountquality/advertising_access/?callsite=15&enforcement=1&intent=1',
+                'GET',
+                'adsmanager.facebook.com', '', False, '',
+                user_agent, cookie, False, '')
+            location = response.history[1].headers.get('Location')
+            pattern = r'https:\/\/www.facebook.com\/checkpoint\/[0-9]+\/([0-9]+)'
+            matchs = re.findall(pattern, location)
+            number_checkpoint = matchs[0]
+
+            response = self.make_request(
+                'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
+                'GET',
+                'mbasic.facebook.com', 'https://mbasic.facebook.com', False, '',
+                user_agent, cookie, False, '')
+            referer = 'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F'
+            # Upload your ID
+            if response.text.__contains__('mobile_image_data'):
+                return json.dumps({
+                    'status': 200,
+                    'action': 'upload_your_id',
+                    'number_checkpoint': number_checkpoint,
+                    'message': 'Upload your id',
+                })
+            # Starting process to request a review
+            elif response.text.__contains__('action_proceed'):
+                return json.dumps({
+                    'status': 200,
+                    'action': 'action_proceed',
+                    'number_checkpoint': number_checkpoint,
+                    'message': 'Bắt đầu XMDT',
+                })
+            # Captcha
+            elif response.text.__contains__('captcha_response'):
+                return json.dumps({
+                    'status': 200,
+                    'action': 'captcha',
+                    'number_checkpoint': number_checkpoint,
+                    'message': 'Giải captcha',
+                })
+            # View input phone number
+            elif response.text.__contains__('contact_point'):
+                return json.dumps({
+                    'status': 200,
+                    'action': 'add_phone_number',
+                    'number_checkpoint': number_checkpoint,
+                    'message': 'Thêm SĐT',
+                })
+            else:
+                return json.dumps({
+                    'status': 404,
+                    'message': 'Không tìm thấy link XMDT!',
+                })
+
+        except Exception as e:
+            return json.dumps({
+                'status': 404,
+                'message': 'Lỗi server!'
+            })
+
+    def submit_continue_checkpoint(self, number_checkpoint, cookie, user_agent):
+        try:
+            response = self.make_request(
+                'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
+                'GET',
+                'mbasic.facebook.com', 'https://mbasic.facebook.com', False, '',
+                user_agent, cookie, False, '')
+            referer = 'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F'
+            pattern = r'form\s+method="[^"]+"\s+action="\/checkpoint([^"]+)"'
+            matchs = re.findall(pattern, response.text)
+            params = 'https://mbasic.facebook.com/checkpoint' + str(matchs[0]).replace('&amp;', '&')
+            pattern = r'name="fb_dtsg"\s+value="(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            fb_dtsg = matchs[0]
+            pattern = r'name="jazoest"\s+value="(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            jazoest = matchs[0]
+            pattern = r'value="([^"]+)"\s+type="submit"\s+name="action_proceed"'
+            matchs = re.findall(pattern, response.text)
+            action_proceed = matchs[0]
+
+            body = 'fb_dtsg=' + quote(fb_dtsg, safe="") + '&jazoest=' + quote(jazoest,
+                                                                              safe="") + '&action_proceed=' + quote(
+                action_proceed, safe="")
+            response = self.make_request(params,
+                                         'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
+                                         referer, user_agent, cookie, True, body)
+
+        except Exception as e:
+            return json.dumps({
+                'status': 404,
+                'message': 'Lỗi server!'
+            })
+
+    def submit_code_checkpoint(self, number_checkpoint ,cookie, user_agent, client_key):
+        try:
+            response = self.make_request(
+                'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
+                'GET',
+                'mbasic.facebook.com', 'https://mbasic.facebook.com', False, '',
+                user_agent, cookie, False, '')
+            referer = 'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F'
+            pattern = r'form\s+method="[^"]+"\s+action="\/checkpoint([^"]+)"'
+            matchs = re.findall(pattern, response.text)
+            params = 'https://mbasic.facebook.com/checkpoint' + str(matchs[0]).replace('&amp;', '&')
+            pattern = r'name="fb_dtsg"\s+value="(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            fb_dtsg = matchs[0]
+            pattern = r'name="jazoest"\s+value="(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            jazoest = matchs[0]
+            pattern = r'value="([^"]+)"\s+type="submit"\s+name="action_proceed"'
+            matchs = re.findall(pattern, response.text)
+            action_proceed = matchs[0]
+
+            body = 'fb_dtsg=' + quote(fb_dtsg, safe="") + '&jazoest=' + quote(jazoest,
+                                                                              safe="") + '&action_proceed=' + quote(
+                action_proceed, safe="")
+            response = self.make_request(params,
+                                         'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
+                                         referer, user_agent, cookie, True, body)
+
+        except Exception as e:
+            return json.dumps({
+                'status': 404,
+                'message': 'Lỗi server!'
+            })

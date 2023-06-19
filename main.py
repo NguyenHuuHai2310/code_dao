@@ -289,7 +289,7 @@ class MainWindow(QMainWindow):
             generator_thread.requestInterruption()
         print("Stop all Threads!")
 
-    def handle_do_work(self, thread_id):
+    def handle_do_work(self, thread_id, cookie_login_success):
         # Get acc fb
         info_acc = self.ui.tableWidget.item(thread_id, 1).text()
         info_acc_arr = str(info_acc).split('|')
@@ -307,44 +307,68 @@ class MainWindow(QMainWindow):
                                                          response['jazoest'],
                                                          response['m_ts'], response['li'], response['login'],
                                                          response['bi_xrwh'], self.default_user_agent)
-        response = json.loads(response)
-        if response['status'] != 200:
-            self.handle_write_table(thread_id, 4, response['message'])
-        else:
-            self.handle_write_table(thread_id, 4, response['message'])
-            response = request.check_approvals_code(response['cookie'], code_2fa, self.default_user_agent)
-        response = json.loads(response)
-        if response['status'] != 200:
-            self.handle_write_table(thread_id, 4, response['message'])
-        else:
-            self.handle_write_table(thread_id, 4, response['message'])
-            response = request.submit_code_2fa(response['fb_dtsg'], response['jazoest'],
-                                               response['approvals_code'], response['nh'],
-                                               response['cookie'], self.default_user_agent,
-                                               response['submit_name'], response['submit_value'])
-        response = json.loads(response)
-        if response['status'] != 200:
-            self.handle_write_table(thread_id, 4, response['message'])
-        else:
-            self.handle_write_table(thread_id, 4, response['message'])
-            response = request.get_cookie_dont_save_browser(response['fb_dtsg'], response['jazoest'],
-                                                            response['nh'], response['cookie'],
-                                                            self.default_user_agent, response['submit_name'],
-                                                            response['submit_value'])
-        response = json.loads(response)
-        while response['status'] == 302:
-            response = request.review_recent_login(response['fb_dtsg'], response['jazoest'],
-                                                   response['nh'], response['cookie'],
-                                                   self.default_user_agent, response['submit_name'],
-                                                   response['submit_value'])
             response = json.loads(response)
-        # response = request.check_login_to_home(response['cookie'], self.default_user_agent)
-        # response = json.loads(response)
-        if response['status'] != 200:
-            self.handle_write_table(thread_id, 4, response['message'])
-        else:
-            self.handle_write_table(thread_id, 4, response['message'])
-            self.handle_write_table(thread_id, 3, response['cookie'])
+            if response['status'] != 200:
+                self.handle_write_table(thread_id, 4, response['message'])
+            else:
+                self.handle_write_table(thread_id, 4, response['message'])
+                response = request.check_approvals_code(response['cookie'], code_2fa, self.default_user_agent)
+                response = json.loads(response)
+                if response['status'] != 200:
+                    self.handle_write_table(thread_id, 4, response['message'])
+                else:
+                    self.handle_write_table(thread_id, 4, response['message'])
+                    response = request.submit_code_2fa(response['fb_dtsg'], response['jazoest'],
+                                                       response['approvals_code'], response['nh'],
+                                                       response['cookie'], self.default_user_agent,
+                                                       response['submit_name'], response['submit_value'])
+                    response = json.loads(response)
+                    if response['status'] != 200:
+                        self.handle_write_table(thread_id, 4, response['message'])
+                    else:
+                        self.handle_write_table(thread_id, 4, response['message'])
+                        response = request.get_cookie_dont_save_browser(response['fb_dtsg'], response['jazoest'],
+                                                                        response['nh'], response['cookie'],
+                                                                        self.default_user_agent,
+                                                                        response['submit_name'],
+                                                                        response['submit_value'])
+                        response = json.loads(response)
+                        while response['status'] == 302:
+                            response = request.review_recent_login(response['fb_dtsg'], response['jazoest'],
+                                                                   response['nh'], response['cookie'],
+                                                                   self.default_user_agent, response['submit_name'],
+                                                                   response['submit_value'])
+                            response = json.loads(response)
+                        # response = request.check_login_to_home(response['cookie'], self.default_user_agent)
+                        # response = json.loads(response)
+                        if response['status'] != 200:
+                            self.handle_write_table(thread_id, 4, response['message'])
+                        else:
+                            cookie_login_success = response['cookie']
+                            self.handle_write_table(thread_id, 4, response['message'])
+                            self.handle_write_table(thread_id, 3, cookie_login_success)
+                            response = request.check_account_quality(id_fb, response['cookie'], self.default_user_agent)
+                            response = json.loads(response)
+                            if (response['status'] == 200) and (response['acc_is_restricted'] == True):
+                                self.handle_write_table(thread_id, 4, response['message'])
+                                response = request.get_view_checkpoint_282(cookie_login_success, self.default_user_agent)
+                                response = json.loads(response)
+                                if (response['status'] == 200) and (response['action'] == 'action_proceed'):
+                                    self.handle_write_table(thread_id, 4, response['message'])
+                                    response = request.submit_continue_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
+                                elif (response['status'] == 200) and (response['action'] == 'captcha'):
+                                    self.handle_write_table(thread_id, 4, response['message'])
+                                    # response = request.submit_code_checkpoint()
+                                elif (response['status'] == 200) and (response['action'] == 'add_phone_number'):
+                                    self.handle_write_table(thread_id, 4, response['message'])
+                                    # response = request.submit_phone_number()
+                                elif (response['status'] == 200) and (response['action'] == 'upload_your_id'):
+                                    self.handle_write_table(thread_id, 4, response['message'])
+                                    # response = request.submit_your_id()
+                                else:
+                                    self.handle_write_table(thread_id, 4, response['message'])
+                            else:
+                                self.handle_write_table(thread_id, 4, response['message'])
 
     def handle_write_table(self, row, column, content):
         item = QTableWidgetItem()
