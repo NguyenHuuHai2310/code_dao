@@ -52,6 +52,8 @@ class MainWindow(QMainWindow):
         self.centerWindow()
         # Disable moving the window out of the screen boundaries
         self.setFixedSize(self.size())
+        self.ui.textEdit_8.setEnabled(True) 
+        self.ui.textEdit_7.setEnabled(True)
         ########################################################################
         # APPLY JSON STYLESHEET
         ########################################################################
