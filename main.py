@@ -1,31 +1,26 @@
-import json
-import time
-
-from request import request_fb
 from ui_interface import *
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, \
-    QInputDialog, QLineEdit, \
-    QFileDialog, QTableWidget, \
-    QTableWidgetItem, QMessageBox, \
-    QHeaderView, QStyle, QStyleOptionButton, QAction, \
-    QCheckBox, QVBoxLayout, QMenu, QDesktopWidget
+                            QInputDialog, QLineEdit,\
+                            QFileDialog, QTableWidget, \
+                            QTableWidgetItem, QMessageBox, \
+                            QHeaderView, QStyle, QStyleOptionButton,QAction,  \
+                            QCheckBox, QVBoxLayout, QMenu,QDesktopWidget
 
 from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform, QDesktopServices, QClipboard
 from PyQt5.QtCore import Qt, QRect, QUrl
 from Custom_Widgets.Widgets import *
 from PyQt5 import QtWidgets
-from functions import *
+from functions import * 
 from ui_upPhoiWindow import *
 from upPhoiWindow import UpPhoiWindow
 from PyQt5.QtWidgets import QTextEdit
-
-
 class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
         self.isOn = False
-
+        self.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        
     def setTableWidget(self, tableWidget):
         self.tableWidget = tableWidget
 
@@ -87,7 +82,7 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget.setColumnWidth(2, 100)
         self.ui.tableWidget.setColumnWidth(3, 100)
         self.ui.tableWidget.setColumnWidth(4, 100)
-
+        
         # Add checkboxes to the table
         for row in range(self.ui.tableWidget.rowCount()):
             item = QTableWidgetItem()
@@ -104,7 +99,6 @@ class MainWindow(QMainWindow):
         self.count = 0
         self.ui.comboBox_12.activated.connect(self.openUpPhoiWindow)
         self.show()
-
     def centerWindow(self):
         # Get the screen's geometry
         screen = QDesktopWidget().screenGeometry()
@@ -119,7 +113,6 @@ class MainWindow(QMainWindow):
 
         # Set the window's position
         self.move(window_x, window_y)
-
     def menuChanged(self):
         if self.ui.toolBox_3.currentIndex() == 0:
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_view)
@@ -143,7 +136,6 @@ class MainWindow(QMainWindow):
             self.window2 = UpPhoiWindow()
             # self.ui.setupUi(self.window)
             self.window2.show()
-
     def contextMenuEvent(self, event):
         # print("Coordinate",event.x(), event.y())
         x = 261
@@ -174,7 +166,6 @@ class MainWindow(QMainWindow):
 
             menu.exec_(event.globalPos())
             event.accept()
-
     def get_checked_rows(self):
         # Retrieve checked rows
         checked_rows = []
@@ -183,7 +174,6 @@ class MainWindow(QMainWindow):
             if check_item.checkState() == Qt.Checked:
                 checked_rows.append(row)
         return checked_rows
-
     def pasteDeleteAccount(self):
         if self.ui.tableWidget.rowCount() > 0:
             # print(self.ui.tableWidget.rowCount())
@@ -208,8 +198,8 @@ class MainWindow(QMainWindow):
 
     def pasteNoDeleteAccount(self):
         if self.ui.tableWidget.rowCount() > 0:
-            start_row = self.ui.tableWidget.rowCount()
-
+            start_row = self.ui.tableWidget.rowCount()  
+        
         clipboard = QApplication.clipboard()
         clipboard_texts = clipboard.text().split("\n")
         self.ui.tableWidget.setRowCount(start_row + len(clipboard_texts))
@@ -226,11 +216,9 @@ class MainWindow(QMainWindow):
             item2 = QTableWidgetItem(str(row + 1))
             self.ui.tableWidget.setVerticalHeaderItem(row, item2)
             self.ui.tableWidget.setItem(row, 0, item)
-
     def clickSelectedAccount(self):
         # QMessageBox.information(self, "Custom Action", "Click vào tài khoản đã bôi đen clicked!")
         pass
-
     def start_generation(self):
         self.ui.start_button.setEnabled(False)
         self.ui.stop_button.setEnabled(True)
@@ -243,148 +231,27 @@ class MainWindow(QMainWindow):
         for i in range(0, self.ui.tableWidget.rowCount()):  # Create 4 generator threads
             if i in self.checked_rows:
                 generator_thread = NumberGeneratorThread(i, i * 10 + 1, self.delay_time)
-                generator_thread.setObjectName('Thread ' + str(i))
-                generator_thread.do_work.connect(self.handle_do_work)
                 generator_thread.number_generated.connect(self.handle_number_generated)
                 generator_thread.thread_finished.connect(self.handle_thread_finished)
                 self.generator_threads.append(generator_thread)
         # print( "len(self.generator_threads): " , len(self.generator_threads))
         self.current_thread_index = 0
-        self.index_loop = 0
-        self.count_thread_done = 0
-        self.default_user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.48'
-        # So vong lap de chay het
-        if self.num_threads != 0:
-            if (len(self.generator_threads) % self.num_threads) == 0:
-                self.count_loop = int(len(self.generator_threads) / self.num_threads)
-            else:
-                self.count_loop = int(len(self.generator_threads) / self.num_threads) + 1
-            self.run_next_threads(self.index_loop)
+        self.run_next_threads()
 
-    def run_next_threads(self, index_loop):
-        if (index_loop + 1) != self.count_loop:
-            for j in range(index_loop * self.num_threads, index_loop * self.num_threads + self.num_threads):
-                (self.generator_threads[j]).start()
-        else:
-            for j in range(index_loop * self.num_threads, len(self.generator_threads)):
-                (self.generator_threads[j]).start()
-
-        # if (len(self.generator_threads) % self.num_threads) == 0:
-        #     for i in range(0, int(self.count_loop)):
-        #         for j in range(i * self.num_threads, i * self.num_threads + self.num_threads):
-        #             (self.generator_threads[j]).start()
-        #         time.sleep(self.delay_time)
-        # else:
-        #     for i in range(0, int(self.count_loop) + 1):
-        #         if i != self.count_loop:
-        #             for j in range(i * self.num_threads, i * self.num_threads + self.num_threads):
-        #                 (self.generator_threads[j]).start()
-        #             time.sleep(self.delay_time)
-        #         else:
-        #             for j in range(i * self.num_threads, len(self.generator_threads)):
-        #                 (self.generator_threads[j]).start()
-
-        # num_threads_to_run = min(len(self.generator_threads) - self.current_thread_index, self.num_threads)
-        # # import ipdb; ipdb.set_trace();
-        # if num_threads_to_run > 0:
-        #     for i in range(num_threads_to_run):
-        #         generator_thread = self.generator_threads[self.current_thread_index]
-        #         generator_thread.start()
-        #         # if i == num_threads_to_run-1:
-        #         self.current_thread_index += 1
+    def run_next_threads(self):
+        num_threads_to_run = min(len(self.generator_threads) - self.current_thread_index, self.num_threads)
+        # import ipdb; ipdb.set_trace();
+        if num_threads_to_run > 0:
+            for i in range(num_threads_to_run):
+                generator_thread = self.generator_threads[self.current_thread_index]
+                generator_thread.start()
+                # if i == num_threads_to_run-1:
+                self.current_thread_index += 1
 
     def stop_generation(self):
         self.ui.start_button.setEnabled(True)
         for generator_thread in self.generator_threads:
             generator_thread.requestInterruption()
-        print("Stop all Threads!")
-
-    def handle_do_work(self, thread_id, cookie_login_success):
-        # Get acc fb
-        info_acc = self.ui.tableWidget.item(thread_id, 1).text()
-        info_acc_arr = str(info_acc).split('|')
-        id_fb = info_acc_arr[0]
-        pass_fb = info_acc_arr[1]
-        code_2fa = info_acc_arr[2]
-        request = request_fb()
-        response = request.get_cookie_before_login_facebook_mbasic(self.default_user_agent)
-        response = json.loads(response)
-        if response['status'] != 200:
-            self.handle_write_table(thread_id, 4, response['message'])
-        else:
-            self.handle_write_table(thread_id, 4, response['message'])
-            response = request.get_cookie_checkpoint_2fa(id_fb, pass_fb, response['cookie'], response['lsd'],
-                                                         response['jazoest'],
-                                                         response['m_ts'], response['li'], response['login'],
-                                                         response['bi_xrwh'], self.default_user_agent)
-            response = json.loads(response)
-            if response['status'] != 200:
-                self.handle_write_table(thread_id, 4, response['message'])
-            else:
-                self.handle_write_table(thread_id, 4, response['message'])
-                response = request.check_approvals_code(response['cookie'], code_2fa, self.default_user_agent)
-                response = json.loads(response)
-                if response['status'] != 200:
-                    self.handle_write_table(thread_id, 4, response['message'])
-                else:
-                    self.handle_write_table(thread_id, 4, response['message'])
-                    response = request.submit_code_2fa(response['fb_dtsg'], response['jazoest'],
-                                                       response['approvals_code'], response['nh'],
-                                                       response['cookie'], self.default_user_agent,
-                                                       response['submit_name'], response['submit_value'])
-                    response = json.loads(response)
-                    if response['status'] != 200:
-                        self.handle_write_table(thread_id, 4, response['message'])
-                    else:
-                        self.handle_write_table(thread_id, 4, response['message'])
-                        response = request.get_cookie_dont_save_browser(response['fb_dtsg'], response['jazoest'],
-                                                                        response['nh'], response['cookie'],
-                                                                        self.default_user_agent,
-                                                                        response['submit_name'],
-                                                                        response['submit_value'])
-                        response = json.loads(response)
-                        while response['status'] == 302:
-                            response = request.review_recent_login(response['fb_dtsg'], response['jazoest'],
-                                                                   response['nh'], response['cookie'],
-                                                                   self.default_user_agent, response['submit_name'],
-                                                                   response['submit_value'])
-                            response = json.loads(response)
-                        # response = request.check_login_to_home(response['cookie'], self.default_user_agent)
-                        # response = json.loads(response)
-                        if response['status'] != 200:
-                            self.handle_write_table(thread_id, 4, response['message'])
-                        else:
-                            cookie_login_success = response['cookie']
-                            self.handle_write_table(thread_id, 4, response['message'])
-                            self.handle_write_table(thread_id, 3, cookie_login_success)
-                            response = request.check_account_quality(id_fb, response['cookie'], self.default_user_agent)
-                            response = json.loads(response)
-                            if (response['status'] == 200) and (response['acc_is_restricted'] == True):
-                                self.handle_write_table(thread_id, 4, response['message'])
-                                response = request.get_view_checkpoint_282(cookie_login_success, self.default_user_agent)
-                                response = json.loads(response)
-                                if (response['status'] == 200) and (response['action'] == 'action_proceed'):
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_continue_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
-                                elif (response['status'] == 200) and (response['action'] == 'captcha'):
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                                    # response = request.submit_code_checkpoint()
-                                elif (response['status'] == 200) and (response['action'] == 'add_phone_number'):
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                                    # response = request.submit_phone_number()
-                                elif (response['status'] == 200) and (response['action'] == 'upload_your_id'):
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                                    # response = request.submit_your_id()
-                                else:
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                            else:
-                                self.handle_write_table(thread_id, 4, response['message'])
-
-    def handle_write_table(self, row, column, content):
-        item = QTableWidgetItem()
-        item.setText(str(content))
-        self.ui.tableWidget.setItem(row, column, item)
-        QApplication.processEvents()  # Đồng bộ hóa giao diện
 
     def handle_number_generated(self, number, thread_id):
         # print(f"Thread {thread_id}: {number}")
@@ -394,21 +261,13 @@ class MainWindow(QMainWindow):
 
     def handle_thread_finished(self, thread_id):
         print(f"Thread {thread_id} finished")
-        self.count_thread_done += 1
-        if (self.count_thread_done % self.num_threads) == 0 and self.count_thread_done != len(self.generator_threads):
-            self.index_loop += 1
-            time.sleep(self.delay_time / 1000)
-            self.run_next_threads(self.index_loop)
-        elif self.count_thread_done == len(self.generator_threads):
-            self.finish_generation()
-
         # print('current_thread_index: ', self.current_thread_index)
         # import ipdb; ipdb.set_trace();
-        # if self.current_thread_index < len(self.generator_threads):
-        #     if thread_id % self.num_threads == 0:
-        #         self.run_next_threads()
-        # else:
-        #     self.finish_generation()
+        if self.current_thread_index < len(self.generator_threads):
+            if thread_id % self.num_threads==0:
+                self.run_next_threads() 
+        else:
+            self.finish_generation()
 
     def finish_generation(self):
         self.ui.stop_button.setEnabled(False)
@@ -420,15 +279,13 @@ class MainWindow(QMainWindow):
             generator_thread.quit()
             generator_thread.wait()
         self.generator_threads = []
-
+        
         # self.start_generation()
         print("All threads finished")
-
     def clearRow(self):
         for row in range(self.ui.tableWidget.rowCount()):
             item = QTableWidgetItem("")
             self.ui.tableWidget.setItem(row, 4, item)
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
