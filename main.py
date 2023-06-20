@@ -59,30 +59,15 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.centerWindow()
-        # Disable moving the window out of the screen boundaries
         self.setFixedSize(self.size())
-        ########################################################################
-        # APPLY JSON STYLESHEET
-        ########################################################################
-        # self = QMainWindow class
-        # self.ui = Ui_MainWindow / user interface class
-        # loadJsonStyle(self, self.ui)
-        ########################################################################
-        # self.ui.pushButton_view.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_view))
-        # self.ui.pushButton_config.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_config))
-        # self.ui.pushButton_contact.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_contact))
-        # self.ui.comboBox.currentIndexChanged.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_function))
-        # self.ui.comboBox.activated.connect(self.activated)
+
         self.ui.toolBox_3.currentChanged.connect(self.menuChanged)
         self.ui.BtnListMail.clicked.connect(self.openFileDialog)
         self.data = []
         myHeader = MyHeader(Qt.Horizontal, self.ui.tableWidget)
         myHeader.setTableWidget(self.ui.tableWidget)
-        # Assuming you have an instance of QHeaderView named 'headerView'
-        # myHeader.setSectionResizeMode(QHeaderView.Stretch)
         myHeader.setStretchLastSection(True)
-
+        self.get_values()
         self.ui.tableWidget.setHorizontalHeader(myHeader)
         self.ui.tableWidget.setColumnWidth(1, 300)
         self.ui.tableWidget.setColumnWidth(2, 100)
@@ -104,8 +89,18 @@ class MainWindow(QMainWindow):
         self.generator_threads = []
         self.count = 0
         self.ui.comboBox_12.activated.connect(self.openUpPhoiWindow)
+        self.ui.keyCapcha.textChanged.connect(self.save_values)
+        self.ui.keyOtp.textChanged.connect(self.save_values)
         self.show()
-
+    def save_values(self):
+            settings = QSettings(f"output/config.ini", QSettings.IniFormat)
+            settings.setValue("KeyOtp", self.ui.keyOtp.toPlainText())
+            settings.setValue("KeyCapcha",self.ui.keyCapcha.toPlainText())
+            settings.sync()
+    def get_values(self):
+        settings = QSettings(f"output/config.ini", QSettings.IniFormat)
+        self.ui.keyCapcha.setPlainText(settings.value("KeyCapcha", ""))
+        self.ui.keyOtp.setPlainText(settings.value("KeyOtp", ""))
     def centerWindow(self):
         # Get the screen's geometry
         screen = QDesktopWidget().screenGeometry()
@@ -140,9 +135,7 @@ class MainWindow(QMainWindow):
 
     def openUpPhoiWindow(self):
         if  self.ui.comboBox_12.currentIndex() == 1:
-            # self.window= QtWidgets.QMainWindow()
             self.window2 = UpPhoiWindow()
-            # self.ui.setupUi(self.window)
             self.window2.show()
 
     def contextMenuEvent(self, event):
@@ -244,8 +237,6 @@ class MainWindow(QMainWindow):
         for i in range(0, self.ui.tableWidget.rowCount()):  # Create 4 generator threads
             if i in self.checked_rows:
                 generator_thread = NumberGeneratorThread(i, i * 10 + 1, self.delay_time)
-                generator_thread.setObjectName('Thread ' + str(i))
-                generator_thread.do_work.connect(self.handle_do_work)
                 generator_thread.number_generated.connect(self.handle_number_generated)
                 generator_thread.thread_finished.connect(self.handle_thread_finished)
                 self.generator_threads.append(generator_thread)
