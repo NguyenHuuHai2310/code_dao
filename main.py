@@ -237,6 +237,8 @@ class MainWindow(QMainWindow):
         for i in range(0, self.ui.tableWidget.rowCount()):  # Create 4 generator threads
             if i in self.checked_rows:
                 generator_thread = NumberGeneratorThread(i, i * 10 + 1, self.delay_time)
+                generator_thread.setObjectName('Thread ' + str(i))
+                generator_thread.do_work.connect(self.handle_do_work)
                 generator_thread.number_generated.connect(self.handle_number_generated)
                 generator_thread.thread_finished.connect(self.handle_thread_finished)
                 self.generator_threads.append(generator_thread)
