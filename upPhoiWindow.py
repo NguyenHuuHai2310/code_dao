@@ -6,7 +6,6 @@ from PyQt5.QtCore import Qt, QUrl,  QSettings
 from Custom_Widgets.Widgets import *
 from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkRequest, QNetworkReply
 from ui_upPhoiWindow import *
-
 class UpPhoiWindow(QMainWindow):
     def __init__(self, parent=None):
         QMainWindow.__init__(self)
@@ -22,20 +21,6 @@ class UpPhoiWindow(QMainWindow):
         self.ui.comboBox_3.addItems(font_families)
         for num in range(6, 96):
             self.ui.comboBox_2.addItem(str(num))
-        # self.ui.spinBox_11.setValue(170)
-        # self.ui.spinBox_12.setValue(480)
-
-        # self.ui.spinBox_17.setValue(150)
-        # self.ui.spinBox_18.setValue(210)
-
-        # self.ui.spinBox_14.setValue(70)
-        # self.ui.spinBox_15.setValue(210)
-
-        # self.ui.spinBox_20.setValue(120)
-        # self.ui.spinBox_21.setValue(210)
-
-        # self.ui.spinBox_23.setValue(210)
-        # self.ui.spinBox_25.setValue(100)
         self.ui.label_36.setText('<a href="https://www.youtube.com">Video hướng dẫn</a>')
         self.ui.label_36.setOpenExternalLinks(True)  # Allow opening the link in an external browser
         self.ui.btn_preview.clicked.connect(self.show_preview)
@@ -145,7 +130,6 @@ class UpPhoiWindow(QMainWindow):
         self.combined_image = combined_image
         self.ui.label_img.setPixmap(combined_image)
         self.ui.label_img.show()
-
     def browser_images(self):
         fname = QFileDialog.getOpenFileName(self, "Open Image","", "Image Files (*.png *.jpg *.jpeg *.bmp)")
         if fname:
@@ -272,7 +256,6 @@ class UpPhoiWindow(QMainWindow):
         self.preview_window.setCentralWidget(label)
         # Show the new window
         self.preview_window.show()
-        # Save the combined_image as PDF
         self.save_as_png(self.combined_image)
         self.save_value()
         # self.load_value("/home/baoanh/Desktop/qt5_application/app_v1/output/config.ini")
@@ -418,19 +401,20 @@ class UpPhoiWindow(QMainWindow):
         self.ui.spinBox_22.setValue(int(settings.value("Address_x", defaultValue)))
         self.ui.spinBox_20.setValue(int(settings.value("Address_y", defaultValue)))
         self.ui.spinBox_21.setValue(int(settings.value("Address_Angle", defaultValue)))
+
         print("Loading successfully!")
     def save_value(self):
-        import datetime
+        # import datetime
 
         # Get the current date and time
-        current_datetime = datetime.datetime.now()
+        # current_datetime = datetime.datetime.now()
 
         # Format the datetime as a string
         # datetime_string = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
         # settings = QSettings(f"output/config_{datetime_string}.ini", QSettings.IniFormat)
         settings = QSettings(f"output/config.ini", QSettings.IniFormat)
         # Clear the content of the config file
-        settings.clear()
+        # settings.clear()
         settings.setValue("Background_Width", 591)
         settings.setValue("Backgroun_Height",361)
 

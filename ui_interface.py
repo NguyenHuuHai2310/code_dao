@@ -17,6 +17,7 @@ from Custom_Widgets.Widgets import QCustomSlideMenu
 import resources_rc
 
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -829,4 +830,4 @@ class Ui_MainWindow(object):
         self.radioButton_11.setText(QCoreApplication.translate("MainWindow", u"Tempsms.com", None))
         self.radioButton_12.setText(QCoreApplication.translate("MainWindow", u"Primeotp", None))
     # retranslateUi
-
+        
