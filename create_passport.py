@@ -57,7 +57,7 @@ def save_url_image(facebook_id, options,  image_url, image,
             avt = QPixmap("input_avatar/image.jpg")
             avt.save(f"input_avatar/{facebook_id}.jpg", "JPG")
         elif options == 2:
-            image.save(f"input_phoi/{facebook_id}.jpg", "JPG")
+            image.save(f"input_avatar/{facebook_id}.jpg", "JPG")
             avt = image
 
 
@@ -96,7 +96,12 @@ def save_url_image(facebook_id, options,  image_url, image,
         font.setBold(is_bold)
         width = 591  # desired width
         height = 361  # desired height
-        background_image = QPixmap(URL_Phoi)
+        if options == 1:
+            background_image = QPixmap('input_phoi/input2.jpg')
+            # print(background_image)
+        else:
+            print(URL_Phoi)
+            background_image = QPixmap(URL_Phoi)
         background_image = background_image.scaled(width, height)
         foreground_image = avt.scaled(avt_w, avt_h)
         transform = QTransform()
