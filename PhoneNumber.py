@@ -1,3 +1,5 @@
+import json
+
 import requests
 
 
@@ -9,7 +11,7 @@ class viotp:
     def request_viotp_request_service(self, token, serviceId):
         try:
             response = requests.request('GET',
-                                        'https://api.viotp.com/request/getv2?token=' + token + '&serviceId=' + serviceId,
+                                        'https://api.viotp.com/request/getv2?token=' + token + '&serviceId=' + str(serviceId),
                                         allow_redirects=True)
 
             return response.text
@@ -23,7 +25,7 @@ class viotp:
     def request_viotp_get_code(self, token, requestId):
         try:
             response = requests.request('GET',
-                                        'https://api.viotp.com/session/getv2?requestId=' + requestId + '&token=' + token,
+                                        'https://api.viotp.com/session/getv2?requestId=' + str(requestId) + '&token=' + token,
                                         allow_redirects=True)
 
             return response.text

@@ -675,12 +675,12 @@ class request_fb:
             action_submit_bot_captcha_response = matchs[0]
             pattern = r'https:\/\/mbasic\.facebook\.com\/captcha\/tfbimage\.php\?captcha_challenge_code=([a-zA-Z0-9_-]+)&amp;captcha_challenge_hash=([a-zA-Z0-9_-]+)'
             matchs = re.findall(pattern, response.text)
-            url_image_captcha = matchs[0]
+            url_image_captcha = 'https://mbasic.facebook.com/captcha/tfbimage.php?captcha_challenge_code=' + matchs[0][0] + '&captcha_challenge_hash=' + matchs[0][1]
             response = self.make_request(url_image_captcha, 'GET',
                                          'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
                                          referer, user_agent, cookie, False, '')
             # Encode the image string data into base64
-            image = base64.b64encode(response.text.encode('utf-8').decode('utf-8'))
+            image = base64.b64encode(response.content).decode('utf-8')
             # resolve captcha
             captcha = anycaptcha(client_key)
             response_captcha = captcha.create_task_image_to_text('https://api.anycaptcha.com/createTask', 'POST',
@@ -756,6 +756,12 @@ class request_fb:
                 response = self.make_request(params,
                                              'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
                                              referer, user_agent, cookie, True, body)
+                response = self.make_request(
+                    'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
+                    'GET',
+                    'mbasic.facebook.com', 'https://mbasic.facebook.com', False, '',
+                    user_agent, cookie, False, '')
+                referer = 'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F'
                 if response.text.__contains__('action_submit_code'):
                     # get code from phone number
                     response_phone_number = phone_number.request_viotp_get_code(token, requestId)
@@ -766,12 +772,6 @@ class request_fb:
                             response_phone_number = json.loads(response_phone_number)
                         code = response_phone_number['data']['Code']
 
-                        response = self.make_request(
-                            'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
-                            'GET',
-                            'mbasic.facebook.com', 'https://mbasic.facebook.com', False, '',
-                            user_agent, cookie, False, '')
-                        referer = 'https://mbasic.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F'
                         pattern = r'form\s+method="[^"]+"\s+action="\/checkpoint([^"]+)"'
                         matchs = re.findall(pattern, response.text)
                         params = 'https://mbasic.facebook.com/checkpoint' + str(matchs[0]).replace('&amp;', '&')

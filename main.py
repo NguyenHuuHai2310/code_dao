@@ -307,7 +307,9 @@ class MainWindow(QMainWindow):
         id_fb = info_acc_arr[0]
         pass_fb = info_acc_arr[1]
         code_2fa = info_acc_arr[2]
-        request = request_fb()
+        client_token = self.ui.keyCapcha.toPlainText()
+        token = self.ui.keyOtp.toPlainText()
+        request = request_fb(client_token, token)
         response = request.get_cookie_before_login_facebook_mbasic(self.default_user_agent)
         response = json.loads(response)
         if response['status'] != 200:
@@ -357,7 +359,7 @@ class MainWindow(QMainWindow):
                         else:
                             cookie_login_success = response['cookie']
                             self.handle_write_table(thread_id, 4, response['message'])
-                            self.handle_write_table(thread_id, 3, cookie_login_success)
+                            self.handle_write_table(thread_id, 2, cookie_login_success)
                             response = request.check_account_quality(id_fb, response['cookie'], self.default_user_agent)
                             response = json.loads(response)
                             if (response['status'] == 200) and (response['acc_is_restricted'] == True):
@@ -369,15 +371,18 @@ class MainWindow(QMainWindow):
                                     response = request.submit_continue_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
                                 elif (response['status'] == 200) and (response['action'] == 'captcha'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    # response = request.submit_code_checkpoint()
+                                    response = request.submit_code_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent, client_token)
                                 elif (response['status'] == 200) and (response['action'] == 'add_phone_number'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    # response = request.submit_phone_number()
+                                    response = request.submit_phone_number(response['number_checkpoint'], cookie_login_success, self.default_user_agent, token, 7)
                                 elif (response['status'] == 200) and (response['action'] == 'upload_your_id'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    # response = request.submit_your_id()
+                                    response = request.submit_your_id(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
                                 else:
+                                    response = json.loads(response)
                                     self.handle_write_table(thread_id, 4, response['message'])
+                                response = json.loads(response)
+                                self.handle_write_table(thread_id, 4, response['message'])
                             else:
                                 self.handle_write_table(thread_id, 4, response['message'])
 

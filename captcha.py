@@ -44,7 +44,7 @@ class anycaptcha:
         try:
             body = '{' \
                    '"clientKey": "'+client_key+'",' \
-                                               '"taskId": '+task_id+'' \
+                                               '"taskId": '+str(task_id)+'' \
                                                                     '}'
             return self.request_anycaptcha_image_to_text(params, method, body)
 
