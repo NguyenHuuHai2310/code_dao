@@ -88,13 +88,18 @@ class MainWindow(QMainWindow):
         self.show()
     def save_values(self):
             settings = QSettings(f"output/config.ini", QSettings.IniFormat)
+            settings.beginGroup('section2')
             settings.setValue("KeyOtp", self.ui.keyOtp.toPlainText())
             settings.setValue("KeyCapcha",self.ui.keyCapcha.toPlainText())
             settings.sync()
+            settings.endGroup()
+            
     def get_values(self):
         settings = QSettings(f"output/config.ini", QSettings.IniFormat)
+        settings.beginGroup('section2')
         self.ui.keyCapcha.setPlainText(settings.value("KeyCapcha", ""))
         self.ui.keyOtp.setPlainText(settings.value("KeyOtp", ""))
+        settings.endGroup()
     def centerWindow(self):
         # Get the screen's geometry
         screen = QDesktopWidget().screenGeometry()

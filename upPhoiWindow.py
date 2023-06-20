@@ -136,7 +136,7 @@ class UpPhoiWindow(QMainWindow):
             img_path = str(fname).replace("Image Files (*.png *.jpg *.jpeg *.bmp)","")[2:-6]
             self.ui.textEdit.setText(img_path)
             self.background_image = QPixmap(img_path)
-            self.foreground_image = QPixmap("demo/a.png")
+            self.foreground_image = QPixmap("phoi/a.png")
            
             if self.ui.spinBox.value() > 0 and self.ui.spinBox_2.value() > 0:
                 w = self.ui.spinBox.value()
@@ -265,6 +265,7 @@ class UpPhoiWindow(QMainWindow):
     def load_value(self, filepath):
         settings = QSettings(filepath, QSettings.IniFormat)
         defaultValue = 0
+        settings.beginGroup('section2')
         # Load values from the configuration file and set them to spin box widgets
         self.ui.spinBox.setValue(int(settings.value("Foreground_Width", defaultValue)))
         self.ui.spinBox_2.setValue(int(settings.value("Foreground_Height", defaultValue)))
@@ -289,7 +290,7 @@ class UpPhoiWindow(QMainWindow):
         self.ui.spinBox_20.setValue(int(settings.value("Address_y", defaultValue)))
         self.ui.spinBox_22.setValue(int(settings.value("Address_Angle", defaultValue)))
         # self.ui.textEdit.setPlainText(settings.value("URL_Phoi", ""))
-
+        settings.endGroup()
         print("Loading successfully!")
     def save_value(self):
         # import datetime
@@ -300,7 +301,9 @@ class UpPhoiWindow(QMainWindow):
         # Format the datetime as a string
         # datetime_string = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
         # settings = QSettings(f"output/config_{datetime_string}.ini", QSettings.IniFormat)
+        
         settings = QSettings(f"output/config.ini", QSettings.IniFormat)
+        settings.beginGroup('section2')
         # Clear the content of the config file
         # settings.clear()
         settings.setValue("Background_Width", 591)
@@ -337,5 +340,6 @@ class UpPhoiWindow(QMainWindow):
         settings.setValue("Address_Angle", self.ui.spinBox_22.value())
         settings.setValue("URL_Phoi", self.ui.textEdit.toPlainText())
         settings.sync()
+        settings.endGroup()
         print(f"All configuration is saved in output/config.ini")
 

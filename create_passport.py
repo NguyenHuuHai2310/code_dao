@@ -63,6 +63,8 @@ def save_url_image(facebook_id, options,  image_url, image,
 
         settings = QSettings('output/config.ini', QSettings.IniFormat)
         defaultValue = 0
+
+        settings.beginGroup(f'section{options}')
         # load values from .ini fill
         avt_w = int(settings.value("Foreground_Width", defaultValue))
         avt_h = int(settings.value("Foreground_Height", defaultValue))
@@ -86,7 +88,9 @@ def save_url_image(facebook_id, options,  image_url, image,
         Address_x = int(settings.value("Address_x", defaultValue))
         Address_y = int(settings.value("Address_y", defaultValue))
         Address_Angle = int(settings.value("Address_Angle", defaultValue))
-        URL_Phoi = settings.value("URL_Phoi", "")
+        if options==1:
+            URL_Phoi = settings.value("URL_Phoi", "")
+        settings.endGroup()
         # print(URL_Phoi)
         painter = QPainter()
         is_bold = True
@@ -165,7 +169,7 @@ def save_url_image(facebook_id, options,  image_url, image,
         painter.drawText(Address_x, Address_y, address)
 
         combined_image.save("output_xmdt/preview.jpg", "JPG")
-        
+        print("Done")
         return combined_image
     
 
