@@ -11,7 +11,14 @@ class UpPhoiWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui  = Ui_UpPhoiWindow()
         self.ui.setupUi(self)
-        self.centerWindow()
+        screen = QDesktopWidget().screenGeometry()
+        # Calculate the center point of the screen
+        center_x = screen.width() // 2
+        center_y = screen.height() // 2
+
+        
+        # self.setFixedSize(self.size())
+        # self.centerWindow()
         # Get the screen geometry
         screen_rect = QDesktopWidget().screenGeometry()
 
@@ -19,6 +26,7 @@ class UpPhoiWindow(QMainWindow):
         window_width = screen_rect.width() * 0.8  # Set the desired width (e.g., 80% of the screen width)
         window_height = screen_rect.height() * 0.8  # Set the desired height (e.g., 80% of the screen height)
         self.resize(window_width, window_height)
+        self.move(center_x -window_width//2, center_y - window_height//2)
         # Disable moving the window out of the screen boundaries
         # self.setFixedSize(self.size())
         self.ui.pushButton.clicked.connect(self.browser_images)
@@ -41,20 +49,6 @@ class UpPhoiWindow(QMainWindow):
         self.ui.label_img.setScaledContents(True)
         self.ui.image_label.setScaledContents(True)
         self.show()
-    def centerWindow(self):
-        # Get the screen's geometry
-        screen = QDesktopWidget().screenGeometry()
-
-        # Calculate the center point of the screen
-        center_x = screen.width() // 2
-        center_y = screen.height() // 2
-
-        # Calculate the top-left position of the window
-        window_x = center_x - self.width() // 2
-        window_y = center_y - self.height() // 2
-
-        # Set the window's position
-        self.move(window_x, window_y)
     def paint_images(self, background_image, foreground_image, 
                      givenname,surname,birthday,code, 
                      img_x, img_y, rotation_angle, img_width, img_height,

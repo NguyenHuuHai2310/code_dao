@@ -357,8 +357,8 @@ background-color: #040f13;
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>200</width>
-                        <height>68</height>
+                        <width>100</width>
+                        <height>30</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -374,8 +374,8 @@ background-color: #040f13;
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>200</width>
-                        <height>68</height>
+                        <width>117</width>
+                        <height>40</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -431,8 +431,8 @@ background-color: #040f13;
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>200</width>
-                        <height>68</height>
+                        <width>100</width>
+                        <height>30</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -532,7 +532,7 @@ background-color: #040f13;
 background-color: rgb(4, 15, 19);</string>
                   </property>
                   <property name="currentIndex">
-                   <number>2</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="page_view">
                    <layout class="QVBoxLayout" name="verticalLayout_4">
