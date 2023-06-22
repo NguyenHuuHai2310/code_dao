@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceDJdXVZ.ui'
+## Form generated from reading UI file 'interfacekfMOKA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -411,7 +411,7 @@ class Ui_MainWindow(object):
         self.tableWidget.horizontalHeader().setMinimumSectionSize(10)
         self.tableWidget.horizontalHeader().setProperty("showSortIndicator", True)
         self.tableWidget.horizontalHeader().setStretchLastSection(True)
-        self.tableWidget.verticalHeader().setVisible(True)
+        self.tableWidget.verticalHeader().setVisible(False)
         self.tableWidget.verticalHeader().setCascadingSectionResizes(True)
         self.tableWidget.verticalHeader().setHighlightSections(True)
         self.tableWidget.verticalHeader().setProperty("showSortIndicator", True)
@@ -568,7 +568,7 @@ class Ui_MainWindow(object):
         self.frame_14 = QFrame(self.frame_6)
         self.frame_14.setObjectName(u"frame_14")
         self.frame_14.setGeometry(QRect(110, 270, 791, 40))
-        self.frame_14.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        self.frame_14.setStyleSheet(u"")
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_9 = QHBoxLayout(self.frame_14)
@@ -639,7 +639,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.toolBox_3.setCurrentIndex(3)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

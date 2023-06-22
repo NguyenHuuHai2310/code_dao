@@ -532,7 +532,7 @@ background-color: #040f13;
 background-color: rgb(4, 15, 19);</string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="page_view">
                    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -963,7 +963,7 @@ background-color: rgb(4, 15, 19);</string>
                         <bool>true</bool>
                        </attribute>
                        <attribute name="verticalHeaderVisible">
-                        <bool>true</bool>
+                        <bool>false</bool>
                        </attribute>
                        <attribute name="verticalHeaderCascadingSectionResizes">
                         <bool>true</bool>
@@ -1624,7 +1624,7 @@ background-color: rgb(46, 52, 54);
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
+                      <string notr="true"/>
                      </property>
                      <property name="frameShape">
                       <enum>QFrame::StyledPanel</enum>
