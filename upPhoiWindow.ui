@@ -131,7 +131,8 @@
                    <item>
                     <widget class="QSpinBox" name="spinBox">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
+                      <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                      </property>
                      <property name="maximum">
                       <number>99999999</number>
@@ -157,7 +158,8 @@
                    <item>
                     <widget class="QSpinBox" name="spinBox_2">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
+                      <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                      </property>
                      <property name="maximum">
                       <number>999999</number>
@@ -210,7 +212,8 @@
                    <item>
                     <widget class="QSpinBox" name="spinBox_3">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
+                      <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                      </property>
                      <property name="maximum">
                       <number>999999</number>
@@ -230,7 +233,8 @@
                    <item>
                     <widget class="QSpinBox" name="spinBox_4">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
+                      <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                      </property>
                      <property name="maximum">
                       <number>999999</number>
@@ -250,7 +254,8 @@
                    <item>
                     <widget class="QSpinBox" name="spinBox_5">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
+                      <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                      </property>
                      <property name="minimum">
                       <number>-360</number>
@@ -437,7 +442,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_23">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -457,7 +463,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_25">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -477,7 +484,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_24">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="minimum">
                    <number>-360</number>
@@ -521,7 +529,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_15">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -541,7 +550,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_14">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -561,7 +571,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_16">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="minimum">
                    <number>-360</number>
@@ -605,7 +616,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_18">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -625,7 +637,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_17">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -645,7 +658,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_19">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="minimum">
                    <number>-360</number>
@@ -686,7 +700,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_12">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -706,7 +721,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_11">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -726,7 +742,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_13">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(46, 52, 54);
+color: #fff</string>
                   </property>
                   <property name="minimum">
                    <number>-360</number>
