@@ -27,11 +27,7 @@ class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
         self.isOn = False
-        self.setStyleSheet("QHeaderView::section { background-color: rgb(46, 52, 54); }")
-        # palette = self.palette()
-        # palette.setColor(QPalette.ColorGroup.Normal, QPalette.ColorRole.Background, QColor("red"))  # Đặt màu sắc header trực tiếp
-        # self.setPalette(palette)
-        # self.setStyle(QStyleFactory.create("Fusion"))
+        # self.setStyleSheet("QHeaderView::section { background-color: rgb(46, 52, 54); }")
 
     def setTableWidget(self, tableWidget):
         self.tableWidget = tableWidget
@@ -75,10 +71,27 @@ class MainWindow(QMainWindow):
         myHeader.setStretchLastSection(True)
         self.get_values()
         self.ui.tableWidget.setHorizontalHeader(myHeader)
-        self.ui.tableWidget.setColumnWidth(1, 300)
+
+        # Đặt stylesheet để thay đổi màu nền cho QTableWidget
+        self.ui.tableWidget.setStyleSheet("""
+            QTableWidget {
+                background-color: rgb(46, 52, 54);  /* Đổi màu nền của QTableWidget */
+                color: rgb(255, 255, 255);  /* Đổi màu văn bản của QTableWidget */
+            }
+            QTableWidget::item {
+                background-color: rgb(46, 52, 54);  /* Đổi màu nền của các item (cell) */
+            }
+            QHeaderView::section {
+                background-color: rgb(46, 52, 54);  /* Đổi màu nền của header */
+                color: rgb(255, 255, 255);  /* Đổi màu văn bản của header */
+            }
+        """)
+
+        self.ui.tableWidget.setColumnWidth(0, 5)
+        self.ui.tableWidget.setColumnWidth(1, 200)
         self.ui.tableWidget.setColumnWidth(2, 100)
         self.ui.tableWidget.setColumnWidth(3, 100)
-        self.ui.tableWidget.setColumnWidth(4, 100)
+        self.ui.tableWidget.setColumnWidth(4, 300)
 
         # Add checkboxes to the table
         for row in range(self.ui.tableWidget.rowCount()):
@@ -321,91 +334,147 @@ class MainWindow(QMainWindow):
         access_token_fb = info_acc_arr[3]
         client_token = self.ui.keyCapcha.toPlainText()
         token = self.ui.keyOtp.toPlainText()
-
         request = request_fb(client_token, token, access_token_fb, option_XMDT)
-        response = request.get_cookie_before_login_facebook_mbasic(self.default_user_agent)
-        response = json.loads(response)
-        if response['status'] != 200:
-            self.handle_write_table(thread_id, 4, response['message'])
-        else:
-            self.handle_write_table(thread_id, 4, response['message'])
-            response = request.get_cookie_checkpoint_2fa(id_fb, pass_fb, response['cookie'], response['lsd'],
-                                                         response['jazoest'],
-                                                         response['m_ts'], response['li'], response['login'],
-                                                         response['bi_xrwh'], self.default_user_agent)
-            response = json.loads(response)
-            if response['status'] != 200:
-                self.handle_write_table(thread_id, 4, response['message'])
+
+        # Check client_token and token
+        if (client_token != '') and (token != ''):
+            # Check đã có cookie hay chưa
+            item_cookie = self.ui.tableWidget.item(thread_id, 2)
+            if item_cookie is not None:
+                cookie_login_success = item_cookie.text()
             else:
-                self.handle_write_table(thread_id, 4, response['message'])
-                response = request.check_approvals_code(response['cookie'], code_2fa, self.default_user_agent)
+                cookie_login_success = ''
+            if cookie_login_success == '':
+                response = request.get_cookie_before_login_facebook_mbasic(self.default_user_agent)
                 response = json.loads(response)
                 if response['status'] != 200:
                     self.handle_write_table(thread_id, 4, response['message'])
                 else:
                     self.handle_write_table(thread_id, 4, response['message'])
-                    response = request.submit_code_2fa(response['fb_dtsg'], response['jazoest'],
-                                                       response['approvals_code'], response['nh'],
-                                                       response['cookie'], self.default_user_agent,
-                                                       response['submit_name'], response['submit_value'])
+                    response = request.get_cookie_checkpoint_2fa(id_fb, pass_fb, response['cookie'], response['lsd'],
+                                                                 response['jazoest'],
+                                                                 response['m_ts'], response['li'], response['login'],
+                                                                 response['bi_xrwh'], self.default_user_agent)
                     response = json.loads(response)
                     if response['status'] != 200:
                         self.handle_write_table(thread_id, 4, response['message'])
                     else:
                         self.handle_write_table(thread_id, 4, response['message'])
-                        response = request.get_cookie_dont_save_browser(response['fb_dtsg'], response['jazoest'],
-                                                                        response['nh'], response['cookie'],
-                                                                        self.default_user_agent,
-                                                                        response['submit_name'],
-                                                                        response['submit_value'])
+                        response = request.check_approvals_code(response['cookie'], code_2fa, self.default_user_agent)
                         response = json.loads(response)
-                        while response['status'] == 302:
-                            response = request.review_recent_login(response['fb_dtsg'], response['jazoest'],
-                                                                   response['nh'], response['cookie'],
-                                                                   self.default_user_agent, response['submit_name'],
-                                                                   response['submit_value'])
-                            response = json.loads(response)
-                        # response = request.check_login_to_home(response['cookie'], self.default_user_agent)
-                        # response = json.loads(response)
                         if response['status'] != 200:
                             self.handle_write_table(thread_id, 4, response['message'])
                         else:
-                            cookie_login_success = response['cookie']
                             self.handle_write_table(thread_id, 4, response['message'])
-                            self.handle_write_table(thread_id, 2, cookie_login_success)
-                            response = request.check_account_quality(id_fb, response['cookie'], self.default_user_agent)
+                            response = request.submit_code_2fa(response['fb_dtsg'], response['jazoest'],
+                                                               response['approvals_code'], response['nh'],
+                                                               response['cookie'], self.default_user_agent,
+                                                               response['submit_name'], response['submit_value'])
                             response = json.loads(response)
-                            if (response['status'] == 200) and (response['acc_is_restricted'] == True):
-                                self.handle_write_table(thread_id, 4, response['message'])
-                                response = request.get_view_checkpoint_282(cookie_login_success,
-                                                                           self.default_user_agent)
-                                response = json.loads(response)
-                                if (response['status'] == 200) and (response['action'] == 'action_proceed'):
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_continue_checkpoint(response['number_checkpoint'],
-                                                                                  cookie_login_success,
-                                                                                  self.default_user_agent)
-                                elif (response['status'] == 200) and (response['action'] == 'captcha'):
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_code_checkpoint(response['number_checkpoint'],
-                                                                              cookie_login_success,
-                                                                              self.default_user_agent, client_token)
-                                elif (response['status'] == 200) and (response['action'] == 'add_phone_number'):
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_phone_number(response['number_checkpoint'],
-                                                                           cookie_login_success,
-                                                                           self.default_user_agent, token, 7)
-                                elif (response['status'] == 200) and (response['action'] == 'upload_your_id'):
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_your_id(response['number_checkpoint'],
-                                                                      cookie_login_success, self.default_user_agent,
-                                                                      access_token_fb, option_XMDT['option_choise_Phoi'])
-                                else:
-                                    self.handle_write_table(thread_id, 4, response['message'])
-                                response = json.loads(response)
+                            if response['status'] != 200:
                                 self.handle_write_table(thread_id, 4, response['message'])
                             else:
                                 self.handle_write_table(thread_id, 4, response['message'])
+                                response = request.get_cookie_dont_save_browser(response['fb_dtsg'],
+                                                                                response['jazoest'],
+                                                                                response['nh'], response['cookie'],
+                                                                                self.default_user_agent,
+                                                                                response['submit_name'],
+                                                                                response['submit_value'])
+                                response = json.loads(response)
+                                while response['status'] == 302:
+                                    response = request.review_recent_login(response['fb_dtsg'], response['jazoest'],
+                                                                           response['nh'], response['cookie'],
+                                                                           self.default_user_agent,
+                                                                           response['submit_name'],
+                                                                           response['submit_value'])
+                                    response = json.loads(response)
+                                # response = request.check_login_to_home(response['cookie'], self.default_user_agent)
+                                # response = json.loads(response)
+                                if response['status'] != 200:
+                                    self.handle_write_table(thread_id, 4, response['message'])
+                                else:
+                                    cookie_login_success = response['cookie']
+                                    self.handle_write_table(thread_id, 4, response['message'])
+                                    self.handle_write_table(thread_id, 2, cookie_login_success)
+                                    response = request.check_account_quality(id_fb, response['cookie'],
+                                                                             self.default_user_agent)
+                                    response = json.loads(response)
+                                    if (response['status'] == 200) and (response['acc_is_restricted'] == True):
+                                        self.handle_write_table(thread_id, 4, response['message'])
+                                        response = request.get_view_checkpoint_282(cookie_login_success,
+                                                                                   self.default_user_agent)
+                                        response = json.loads(response)
+                                        if (response['status'] == 200) and (response['action'] == 'action_proceed'):
+                                            self.handle_write_table(thread_id, 4, response['message'])
+                                            response = request.submit_continue_checkpoint(response['number_checkpoint'],
+                                                                                          cookie_login_success,
+                                                                                          self.default_user_agent)
+                                        elif (response['status'] == 200) and (response['action'] == 'captcha'):
+                                            self.handle_write_table(thread_id, 4, response['message'])
+                                            response = request.submit_code_checkpoint(response['number_checkpoint'],
+                                                                                      cookie_login_success,
+                                                                                      self.default_user_agent,
+                                                                                      client_token)
+                                        elif (response['status'] == 200) and (response['action'] == 'add_phone_number'):
+                                            self.handle_write_table(thread_id, 4, response['message'])
+                                            response = request.submit_phone_number(response['number_checkpoint'],
+                                                                                   cookie_login_success,
+                                                                                   self.default_user_agent, token, 7)
+                                        elif (response['status'] == 200) and (response['action'] == 'upload_your_id'):
+                                            self.handle_write_table(thread_id, 4, response['message'])
+                                            response = request.submit_your_id(response['number_checkpoint'],
+                                                                              cookie_login_success,
+                                                                              self.default_user_agent,
+                                                                              access_token_fb,
+                                                                              option_XMDT['option_choise_Phoi'])
+                                        else:
+                                            self.handle_write_table(thread_id, 4, response['message'])
+                                        response = json.loads(response)
+                                        self.handle_write_table(thread_id, 4, response['message'])
+                                    else:
+                                        self.handle_write_table(thread_id, 4, response['message'])
+            else:
+                response = request.check_account_quality(id_fb, cookie_login_success,
+                                                         self.default_user_agent)
+                response = json.loads(response)
+                if (response['status'] == 200) and (response['acc_is_restricted'] == True):
+                    self.handle_write_table(thread_id, 4, response['message'])
+                    response = request.get_view_checkpoint_282(cookie_login_success,
+                                                               self.default_user_agent)
+                    response = json.loads(response)
+                    if (response['status'] == 200) and (response['action'] == 'action_proceed'):
+                        self.handle_write_table(thread_id, 4, response['message'])
+                        response = request.submit_continue_checkpoint(response['number_checkpoint'],
+                                                                      cookie_login_success,
+                                                                      self.default_user_agent)
+                    elif (response['status'] == 200) and (response['action'] == 'captcha'):
+                        self.handle_write_table(thread_id, 4, response['message'])
+                        response = request.submit_code_checkpoint(response['number_checkpoint'],
+                                                                  cookie_login_success,
+                                                                  self.default_user_agent, client_token)
+                    elif (response['status'] == 200) and (response['action'] == 'add_phone_number'):
+                        self.handle_write_table(thread_id, 4, response['message'])
+                        response = request.submit_phone_number(response['number_checkpoint'],
+                                                               cookie_login_success,
+                                                               self.default_user_agent, token, 7)
+                    elif (response['status'] == 200) and (response['action'] == 'upload_your_id'):
+                        self.handle_write_table(thread_id, 4, response['message'])
+                        response = request.submit_your_id(response['number_checkpoint'],
+                                                          cookie_login_success, self.default_user_agent,
+                                                          access_token_fb,
+                                                          option_XMDT['option_choise_Phoi'])
+                    else:
+                        self.handle_write_table(thread_id, 4, response['message'])
+                    response = json.loads(response)
+                    self.handle_write_table(thread_id, 4, response['message'])
+                else:
+                    self.handle_write_table(thread_id, 4, response['message'])
+        else:
+            if client_token == '':
+                QMessageBox.warning(None, 'WARNING', 'Chưa điền Key Captcha')
+            elif token == '':
+                QMessageBox.warning(None, 'WARNING', 'Chưa điền Key OTP')
 
     def handle_write_table(self, row, column, content):
         item = QTableWidgetItem()

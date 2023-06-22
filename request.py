@@ -541,11 +541,18 @@ class request_fb:
                                         allow_redirects=True)
             response = json.loads(response.text)
             acc_is_restricted = response['data']['assetOwnerData']['advertising_restriction_info']['is_restricted']
-            return json.dumps({
-                'status': 200,
-                'acc_is_restricted': acc_is_restricted,
-                'message': 'Check trạng thái tài khoản thành công!',
-            })
+            if acc_is_restricted:
+                return json.dumps({
+                    'status': 200,
+                    'acc_is_restricted': acc_is_restricted,
+                    'message': 'Tài khoản cần XMDT',
+                })
+            else:
+                return json.dumps({
+                    'status': 200,
+                    'acc_is_restricted': acc_is_restricted,
+                    'message': 'Tài khoản không bị XMDT',
+                })
 
         except Exception as e:
             return json.dumps({
@@ -852,6 +859,7 @@ class request_fb:
                 'user-agent': user_agent,
             }
 
+
             # Get info facebook
             response_info_fb = self.get_info_fb(access_token_fb)
             response_info_fb = json.loads(response_info_fb)
@@ -862,36 +870,46 @@ class request_fb:
                 pass_port = passport()
                 if response_gen_avatar['status'] == 200:
                     id_fb = response_info_fb['id']
-                    response = pass_port.save_url_image(id_fb, option_choise_Phoi+1, response_gen_avatar['url'],
-                                             response_info_fb['first_name'], response_info_fb['last_name'],
-                                             response_info_fb['birthday'], response_info_fb['gender'], 'HN')
-                    response = json.loads(response)
-                    if response['status'] == 200:
-                        payload = {'fb_dtsg': fb_dtsg,
-                                   'jazoest': jazoest,
-                                   'action_upload_image': action_upload_image}
-                        files = [
-                            ('mobile_image_data',
-                             (f'{id_fb}.jpg',
-                              open(f'output_xmdt\{id_fb}.jpg', 'rb'), 'image/jpeg'))
-                        ]
-                        response = requests.request("POST", params, headers=headers, data=payload, files=files)
-                        if response.text.__contains__('Review requested'):
-                            return json.dumps({
-                                'status': 200,
-                                'message': 'XMDT thành công!',
-                            })
+                    # Up avatar
+                    response_up_avatar = self.up_avatar(cookie, user_agent, id_fb)
+                    response_up_avatar = json.loads(response_up_avatar)
+                    if response_up_avatar['status'] == 200:
+                        response = pass_port.save_url_image(id_fb, option_choise_Phoi + 1, response_gen_avatar['url'],
+                                                            response_info_fb['first_name'],
+                                                            response_info_fb['last_name'],
+                                                            response_info_fb['birthday'], response_info_fb['gender'],
+                                                            'HN')
+                        response = json.loads(response)
+                        if response['status'] == 200:
+                            payload = {'fb_dtsg': fb_dtsg,
+                                       'jazoest': jazoest,
+                                       'action_upload_image': action_upload_image}
+                            files = [
+                                ('mobile_image_data',
+                                 (f'{id_fb}.jpg',
+                                  open(f'output_xmdt\{id_fb}.jpg', 'rb'), 'image/jpeg'))
+                            ]
+                            response = requests.request("POST", params, headers=headers, data=payload, files=files)
+                            if response.text.__contains__('Review requested'):
+                                return json.dumps({
+                                    'status': 200,
+                                    'message': 'XMDT thành công!',
+                                })
+                            else:
+                                return json.dumps({
+                                    'status': 200,
+                                    'message': 'XMDT thất bại!',
+                                })
                         else:
                             return json.dumps({
-                                'status': 200,
-                                'message': 'XMDT thất bại!',
+                                'status': 404,
+                                'message': 'Lỗi tạo phôi'
                             })
                     else:
                         return json.dumps({
                             'status': 404,
-                            'message': 'Lỗi tạo phôi'
+                            'message': 'Lỗi up avatar!'
                         })
-
                 else:
                     return json.dumps({
                         'status': 404,
@@ -937,4 +955,165 @@ class request_fb:
             return json.dumps({
                 'status': 404,
                 'message': 'Lỗi lấy thông tin facebook!'
+            })
+
+    def up_avatar(self, cookie, user_agent, id_fb):
+        try:
+            response = self.make_request('https://www.facebook.com/profile.php?id=' + id_fb, 'GET',
+                                         'www.facebook.com', 'https://www.facebook.com', False,
+                                         '', user_agent, cookie, False, '')
+
+            cookies = '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.cookies])
+            pattern = r'"token":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            lsd = matchs[1]
+            pattern = r'__a=(\d+)&__user=' + id_fb + '&__comet_req=(\d+)&jazoest=(\d+)'
+            matchs = re.findall(pattern, response.text)
+            a = matchs[0][0]
+            comet_req = matchs[0][1]
+            jazoest = matchs[0][2]
+            pattern = r'"haste_session":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            haste_session = matchs[0]
+            pattern = r'"connectionClass":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            ccg = matchs[0]
+            pattern = r'"server_revision":\s*(\d+)'
+            matchs = re.findall(pattern, response.text)
+            rev = matchs[0]
+            pattern = r'"hsi":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            hsi = matchs[0]
+            pattern = r'"__spin_r":\s*(\d+)'
+            matchs = re.findall(pattern, response.text)
+            spin_r = matchs[0]
+            pattern = r'"__spin_b":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            spin_b = matchs[0]
+            pattern = r'"__spin_t":\s*(\d+)'
+            matchs = re.findall(pattern, response.text)
+            spin_t = matchs[0]
+            pattern = r'"token":\s*"(.*?)"'
+            matchs = re.findall(pattern, response.text)
+            fb_dtsg = matchs[0]
+
+            headers = {
+                'authority': 'www.facebook.com',
+                'accept': '*/*',
+                'accept-language': 'en-US,en;q=0.9',
+                'cache-control': 'max-age=0',
+                'cookie': cookie,
+                'origin': 'https://www.facebook.com',
+                'referer': 'https://www.facebook.com/profile.php?id=' + id_fb,
+                'sec-ch-ua-mobile': '?0',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'same-origin',
+                'user-agent': user_agent,
+                'x-asbd-id': '129477',
+                'x-fb-lsd': lsd,
+                'accept-encoding': 'gzip, deflate, br',
+                'connection': 'keep-alive',
+            }
+
+            params = {
+                'profile_id': str(id_fb),
+                'photo_source': '57',
+                'av': str(id_fb),
+                '__user': str(id_fb),
+                '__a': str(a),
+                '__req': 'v',
+                '__hs': str(haste_session),
+                'dpr': '1',
+                '__ccg': str(ccg),
+                '__rev': str(rev),
+                '__s': '7srr4p:hs04x2:4qetvn',
+                '__hsi': str(hsi),
+                '__dyn': '7AzHJ16UW5Eb8ng5K8G6EjBWobVo66u2i5U4e2C17xt3odEnz8K361twYwJyE24wJwpUe8hwaG0Z82_CxS320om78bbwto88422y11xmfz83WwgEcEhwGxu782lwv89kbxS2218wc61axe3S7Udo5qfK0zEkxe2GewyDwkUtxGm2SUbElxm3y3aexfxmu3W3y261eBx_y88E3qxWm2Sq2-azo2NwwwOg2cwMwhEkxe3u364UrwFg662S269wkopg6C',
+                '__csr': 'gthAX34DaG7vtTqsCzigxlqN4RqOYyiSD4Oh6yky4t95jivRBjZOuqUyiBHJkQl4QExTBQaGHDjmnJ4iBhrgy-9GCq8AUyi48G_yapKqmFu8ADqWBCz9pFXGmKmXDCBzaCoyF9K8heeXDByAbGUy6UakfihS49ogy5UgGEnxyvUx3-4e8wgoLDgOim6Eyim48hgriwFxXyWCmUnyQ79p8f8C5p8ydxjxa9zVojUrxe2Gm3GeK224rUa85OfyA5U8U8o5XyUyiiq4E8E6-3e2iexq8xa01_owcXw0sGE04YS0ru2S0g2z02EE1kpU3Pw4tgbpUW4Ee82Dw8S1Tx63qEeo4q0w810o0aAj0dB03bo0rlwam2q2yeU0Aq5o1zEhwBgaeq2K0eVS0om03uF015K0HU0TSlwEyZHg3Lw61w4CwJVk4YM5p2o4V03rUhg1aE',
+                '__comet_req': str(comet_req),
+                'fb_dtsg': str(fb_dtsg),
+                'jazoest': str(jazoest),
+                'lsd': str(lsd),
+                '__spin_r': str(spin_r),
+                '__spin_b': str(spin_b),
+                '__spin_t': str(spin_t),
+            }
+
+            payload = {}
+            files = [
+                ('file', (
+                    f'{id_fb}.jpg', open(f'input_avatar\{id_fb}.jpg', 'rb'),
+                    'image/jpeg'))
+            ]
+
+            response = requests.request('POST', 'https://www.facebook.com/profile/picture/upload/', params=params,
+                                        headers=headers, data=payload, files=files, allow_redirects=True)
+            response = json.loads(response.text.replace('for (;;);', ''))
+            existing_photo_id = response['payload']['fbid']
+
+            headers = {
+                'authority': 'www.facebook.com',
+                'accept': '*/*',
+                'accept-language': 'en-US,en;q=0.9',
+                'cache-control': 'max-age=0',
+                'content-type': 'application/x-www-form-urlencoded',
+                'cookie': cookie,
+                'origin': 'https://www.facebook.com',
+                'referer': 'https://www.facebook.com/profile.php?id=' + id_fb,
+                'sec-ch-ua-mobile': '?0',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'same-origin',
+                'user-agent': user_agent,
+                'x-asbd-id': '129477',
+                'x-fb-friendly-name': 'ProfileCometProfilePictureSetMutation',
+                'x-fb-lsd': lsd,
+                'accept-encoding': 'gzip, deflate, br',
+                'connection': 'keep-alive',
+            }
+
+            data = {
+                'av': str(id_fb),
+                '__user': str(id_fb),
+                '__a': str(a),
+                '__req': 'v',
+                '__hs': str(haste_session),
+                'dpr': '1',
+                '__ccg': str(ccg),
+                '__rev': str(rev),
+                '__s': '7srr4p:hs04x2:4qetvn',
+                '__hsi': '7247427489860976625',
+                '__dyn': '7AzHJ16UW5Eb8ng5K8G6EjBWobVo66u2i5U4e2C17xt3odEnz8K361twYwJyE24wJwpUe8hwaG0Z82_CxS320om78bbwto88422y11xmfz83WwgEcEhwGxu782lwv89kbxS2218wc61axe3S7Udo5qfK0zEkxe2GewyDwkUtxGm2SUbElxm3y3aexfxmu3W3y261eBx_y88E3qxWm2Sq2-azo2NwwwOg2cwMwhEkxe3u364UrwFg662S269wkopg6C',
+                '__csr': 'gthAX34DaG7vtTqsCzigxlqN4RqOYyiSD4Oh6yky4t95jivRBjZOuqUyiBHJkQl4QExTBQaGHDjmnJ4iBhrgy-9GCq8AUyi48G_yapKqmFu8ADqWBCz9pFXGmKmXDCBzaCoyF9K8heeXDByAbGUy6UakfihS49ogy5UgGEnxyvUx3-4e8wgoLDgOim6Eyim48hgriwFxXyWCmUnyQ79p8f8C5p8ydxjxa9zVojUrxe2Gm3GeK224rUa85OfyA5U8U8o5XyUyiiq4E8E6-3e2iexq8xa01_owcXw0sGE04YS0ru2S0g2z02EE1kpU3Pw4tgbpUW4Ee82Dw8S1Tx63qEeo4q0w810o0aAj0dB03bo0rlwam2q2yeU0Aq5o1zEhwBgaeq2K0eVS0om03uF015K0HU0TSlwEyZHg3Lw61w4CwJVk4YM5p2o4V03rUhg1aE',
+                '__comet_req': str(comet_req),
+                'fb_dtsg': str(fb_dtsg),
+                'jazoest': str(jazoest),
+                'lsd': str(lsd),
+                '__spin_r': str(spin_r),
+                '__spin_b': str(spin_b),
+                '__spin_t': str(spin_t),
+                'fb_api_caller_class': 'RelayModern',
+                'fb_api_req_friendly_name': 'ProfileCometProfilePictureSetMutation',
+                'variables': '{"input":{"attribution_id_v2":"ProfileCometTimelineListViewRoot.react,comet.profile.timeline.list,via_cold_start,1687423206551,708471,190055527696468,","caption":"","existing_photo_id":"' + existing_photo_id + '","expiration_time":null,"profile_id":"' + id_fb + '","profile_pic_method":"EXISTING","profile_pic_source":"TIMELINE","scaled_crop_rect":{"height":1,"width":1,"x":0,"y":0},"skip_cropping":true,"actor_id":"' + id_fb + '","client_mutation_id":"1"},"isPage":false,"isProfile":true,"sectionToken":"UNKNOWN","collectionToken":"UNKNOWN","scale":1}',
+                'server_timestamps': 'true',
+                'doc_id': '6421204037917926',
+            }
+
+            response = requests.request('POST', 'https://www.facebook.com/api/graphql/', headers=headers, data=data,
+                                        allow_redirects=True)
+            if response.text.__contains__(str(id_fb)):
+                return json.dumps({
+                    'status': 200,
+                    'message': 'Up avatar thành công'
+                })
+            else:
+                return json.dumps({
+                    'status': 404,
+                    'message': 'Lỗi up avatar!'
+                })
+        except Exception as e:
+            return json.dumps({
+                'status': 404,
+                'message': 'Lỗi server!'
             })
