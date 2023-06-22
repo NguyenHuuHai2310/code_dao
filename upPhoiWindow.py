@@ -12,8 +12,15 @@ class UpPhoiWindow(QMainWindow):
         self.ui  = Ui_UpPhoiWindow()
         self.ui.setupUi(self)
         self.centerWindow()
+        # Get the screen geometry
+        screen_rect = QDesktopWidget().screenGeometry()
+
+        # Set the window size based on the screen size
+        window_width = screen_rect.width() * 0.8  # Set the desired width (e.g., 80% of the screen width)
+        window_height = screen_rect.height() * 0.8  # Set the desired height (e.g., 80% of the screen height)
+        self.resize(window_width, window_height)
         # Disable moving the window out of the screen boundaries
-        self.setFixedSize(self.size())
+        # self.setFixedSize(self.size())
         self.ui.pushButton.clicked.connect(self.browser_images)
         # Get the list of available font families
         font_families = QFontDatabase().families()
