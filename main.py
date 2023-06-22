@@ -62,9 +62,9 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setFixedSize(self.size())
-
+        self.centerWindow()
         self.ui.toolBox_3.currentChanged.connect(self.menuChanged)
-        self.ui.BtnListMail.clicked.connect(self.openFileDialog)
+        # self.ui.BtnListMail.clicked.connect(self.openFileDialog)
         self.data = []
         myHeader = MyHeader(Qt.Horizontal, self.ui.tableWidget)
         myHeader.setTableWidget(self.ui.tableWidget)
@@ -130,7 +130,7 @@ class MainWindow(QMainWindow):
     def centerWindow(self):
         # Get the screen's geometry
         screen = QDesktopWidget().screenGeometry()
-
+        print(screen.width(), screen.height())
         # Calculate the center point of the screen
         center_x = screen.width() // 2
         center_y = screen.height() // 2
@@ -138,7 +138,8 @@ class MainWindow(QMainWindow):
         # Calculate the top-left position of the window
         window_x = center_x - self.width() // 2
         window_y = center_y - self.height() // 2
-
+        print(self.width() , self.height())
+        print(window_x, window_y)
         # Set the window's position
         self.move(window_x, window_y)
 
@@ -153,11 +154,11 @@ class MainWindow(QMainWindow):
         elif self.ui.toolBox_3.currentIndex() == 3:
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_contact)
 
-    def openFileDialog(self):
-        fname = QFileDialog.getOpenFileName(self, "Open File", "", "Text files (*.txt)")
-        if fname:
-            self.ui.BtnListMail.setText(str(fname).replace("Text files (*.txt)", "")[2:-6])
-        return 0
+    # def openFileDialog(self):
+    #     fname = QFileDialog.getOpenFileName(self, "Open File", "", "Text files (*.txt)")
+    #     if fname:
+    #         self.ui.BtnListMail.setText(str(fname).replace("Text files (*.txt)", "")[2:-6])
+    #     return 0
 
     def openUpPhoiWindow(self):
         if self.ui.comboBox_12.currentIndex() == 1:

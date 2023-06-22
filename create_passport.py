@@ -1,5 +1,3 @@
-import json
-
 from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkRequest, QNetworkReply
 from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform
 from PyQt5.QtCore import Qt, QUrl, QSettings
