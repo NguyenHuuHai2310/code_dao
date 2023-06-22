@@ -267,7 +267,7 @@ class MainWindow(QMainWindow):
                 generator_thread = NumberGeneratorThread(i, i * 10 + 1, self.delay_time)
                 generator_thread.setObjectName('Thread ' + str(i))
                 generator_thread.do_work.connect(self.handle_do_work)
-                generator_thread.number_generated.connect(self.handle_number_generated)
+                # generator_thread.number_generated.connect(self.handle_number_generated)
                 generator_thread.thread_finished.connect(self.handle_thread_finished)
                 self.generator_threads.append(generator_thread)
         # print( "len(self.generator_threads): " , len(self.generator_threads))
