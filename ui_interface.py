@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceSEvlFW.ui'
+## Form generated from reading UI file 'interfaceDJdXVZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,7 +17,6 @@ from Custom_Widgets.Widgets import QCustomSlideMenu
 import resources_rc
 
 class Ui_MainWindow(object):
-
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -446,14 +445,6 @@ class Ui_MainWindow(object):
         self.comboBox_19 = QComboBox(self.frame_7)
         self.comboBox_19.addItem("")
         self.comboBox_19.addItem("")
-        self.comboBox_19.addItem("")
-        self.comboBox_19.addItem("")
-        self.comboBox_19.addItem("")
-        self.comboBox_19.addItem("")
-        self.comboBox_19.addItem("")
-        self.comboBox_19.addItem("")
-        self.comboBox_19.addItem("")
-        self.comboBox_19.addItem("")
         self.comboBox_19.setObjectName(u"comboBox_19")
         self.comboBox_19.setGeometry(QRect(36, 16, 350, 40))
         self.comboBox_19.setMinimumSize(QSize(350, 40))
@@ -491,7 +482,7 @@ class Ui_MainWindow(object):
         self.comboBox_8.addItem("")
         self.comboBox_8.addItem("")
         self.comboBox_8.setObjectName(u"comboBox_8")
-        self.comboBox_8.setGeometry(QRect(110, 170, 461, 40))
+        self.comboBox_8.setGeometry(QRect(110, 170, 791, 40))
         self.comboBox_8.setMinimumSize(QSize(0, 40))
         self.comboBox_8.setMaximumSize(QSize(16777215, 40))
         self.comboBox_8.setSizeIncrement(QSize(0, 0))
@@ -506,25 +497,10 @@ class Ui_MainWindow(object):
         self.comboBox_9.setSizeIncrement(QSize(0, 0))
         self.comboBox_9.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
 "")
-        self.comboBox_14 = QComboBox(self.frame_6)
-        self.comboBox_14.addItem("")
-        self.comboBox_14.addItem("")
-        self.comboBox_14.setObjectName(u"comboBox_14")
-        self.comboBox_14.setGeometry(QRect(580, 170, 321, 40))
-        self.comboBox_14.setMinimumSize(QSize(0, 40))
-        self.comboBox_14.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_14.setSizeIncrement(QSize(0, 0))
-        self.comboBox_14.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"")
         self.label_15 = QLabel(self.frame_6)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setGeometry(QRect(10, 330, 81, 17))
         self.comboBox_15 = QComboBox(self.frame_6)
-        self.comboBox_15.addItem("")
-        self.comboBox_15.addItem("")
-        self.comboBox_15.addItem("")
-        self.comboBox_15.addItem("")
-        self.comboBox_15.addItem("")
         self.comboBox_15.addItem("")
         self.comboBox_15.setObjectName(u"comboBox_15")
         self.comboBox_15.setGeometry(QRect(110, 320, 791, 40))
@@ -539,12 +515,9 @@ class Ui_MainWindow(object):
         self.label_17 = QLabel(self.frame_6)
         self.label_17.setObjectName(u"label_17")
         self.label_17.setGeometry(QRect(10, 380, 81, 17))
-        self.label_18 = QLabel(self.frame_6)
-        self.label_18.setObjectName(u"label_18")
-        self.label_18.setGeometry(QRect(10, 430, 81, 17))
         self.label_19 = QLabel(self.frame_6)
         self.label_19.setObjectName(u"label_19")
-        self.label_19.setGeometry(QRect(10, 480, 81, 17))
+        self.label_19.setGeometry(QRect(10, 430, 81, 17))
         self.comboBox_16 = QComboBox(self.frame_6)
         self.comboBox_16.addItem("")
         self.comboBox_16.addItem("")
@@ -552,25 +525,17 @@ class Ui_MainWindow(object):
         self.comboBox_16.addItem("")
         self.comboBox_16.addItem("")
         self.comboBox_16.setObjectName(u"comboBox_16")
-        self.comboBox_16.setGeometry(QRect(110, 470, 791, 40))
+        self.comboBox_16.setGeometry(QRect(110, 420, 791, 40))
         self.comboBox_16.setMinimumSize(QSize(0, 40))
         self.comboBox_16.setMaximumSize(QSize(16777215, 40))
         self.comboBox_16.setSizeIncrement(QSize(0, 0))
         self.comboBox_16.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
 "")
-        self.comboBox_6 = QComboBox(self.frame_6)
-        self.comboBox_6.addItem("")
-        self.comboBox_6.addItem("")
-        self.comboBox_6.setObjectName(u"comboBox_6")
-        self.comboBox_6.setGeometry(QRect(580, 70, 321, 40))
-        self.comboBox_6.setMinimumSize(QSize(0, 40))
-        self.comboBox_6.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_6.setStyleSheet(u"background-color: rgb(46, 52, 54);")
         self.comboBox_11 = QComboBox(self.frame_6)
         self.comboBox_11.addItem("")
         self.comboBox_11.addItem("")
         self.comboBox_11.setObjectName(u"comboBox_11")
-        self.comboBox_11.setGeometry(QRect(110, 120, 461, 40))
+        self.comboBox_11.setGeometry(QRect(110, 120, 791, 40))
         self.comboBox_11.setMinimumSize(QSize(0, 40))
         self.comboBox_11.setMaximumSize(QSize(16777215, 40))
         self.comboBox_11.setStyleSheet(u"background-color: rgb(46, 52, 54);")
@@ -581,7 +546,6 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(10, 80, 81, 17))
         self.comboBox_7 = QComboBox(self.frame_6)
-        self.comboBox_7.addItem("")
         self.comboBox_7.addItem("")
         self.comboBox_7.setObjectName(u"comboBox_7")
         self.comboBox_7.setGeometry(QRect(110, 20, 791, 40))
@@ -594,71 +558,26 @@ class Ui_MainWindow(object):
         self.comboBox_12.addItem("")
         self.comboBox_12.addItem("")
         self.comboBox_12.setObjectName(u"comboBox_12")
-        self.comboBox_12.setGeometry(QRect(110, 70, 461, 40))
+        self.comboBox_12.setGeometry(QRect(110, 70, 791, 40))
         self.comboBox_12.setMinimumSize(QSize(0, 40))
         self.comboBox_12.setMaximumSize(QSize(16777215, 40))
         self.comboBox_12.setStyleSheet(u"background-color: rgb(46, 52, 54);")
         self.label_5 = QLabel(self.frame_6)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(10, 30, 81, 17))
-        self.comboBox_13 = QComboBox(self.frame_6)
-        self.comboBox_13.addItem("")
-        self.comboBox_13.addItem("")
-        self.comboBox_13.addItem("")
-        self.comboBox_13.addItem("")
-        self.comboBox_13.addItem("")
-        self.comboBox_13.addItem("")
-        self.comboBox_13.setObjectName(u"comboBox_13")
-        self.comboBox_13.setGeometry(QRect(580, 120, 321, 40))
-        self.comboBox_13.setMinimumSize(QSize(0, 40))
-        self.comboBox_13.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_13.setStyleSheet(u"background-color: rgb(46, 52, 54);")
-        self.BtnListMail = QPushButton(self.frame_6)
-        self.BtnListMail.setObjectName(u"BtnListMail")
-        self.BtnListMail.setGeometry(QRect(109, 420, 791, 40))
-        self.BtnListMail.setMinimumSize(QSize(0, 40))
-        self.BtnListMail.setMaximumSize(QSize(16777215, 40))
-        self.BtnListMail.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"text-align: left;")
         self.frame_14 = QFrame(self.frame_6)
         self.frame_14.setObjectName(u"frame_14")
-        self.frame_14.setGeometry(QRect(110, 270, 791, 34))
+        self.frame_14.setGeometry(QRect(110, 270, 791, 40))
+        self.frame_14.setStyleSheet(u"background-color: rgb(46, 52, 54);")
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_9 = QHBoxLayout(self.frame_14)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.radioButton_7 = QRadioButton(self.frame_14)
-        self.radioButton_7.setObjectName(u"radioButton_7")
-        self.radioButton_7.setStyleSheet(u"selection-color: rgb(138, 226, 52);")
-
-        self.horizontalLayout_9.addWidget(self.radioButton_7)
-
         self.radioButton_8 = QRadioButton(self.frame_14)
         self.radioButton_8.setObjectName(u"radioButton_8")
+        self.radioButton_8.setChecked(True)
 
         self.horizontalLayout_9.addWidget(self.radioButton_8)
-
-        self.radioButton_9 = QRadioButton(self.frame_14)
-        self.radioButton_9.setObjectName(u"radioButton_9")
-
-        self.horizontalLayout_9.addWidget(self.radioButton_9)
-
-        self.radioButton_10 = QRadioButton(self.frame_14)
-        self.radioButton_10.setObjectName(u"radioButton_10")
-        self.radioButton_10.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"")
-
-        self.horizontalLayout_9.addWidget(self.radioButton_10)
-
-        self.radioButton_11 = QRadioButton(self.frame_14)
-        self.radioButton_11.setObjectName(u"radioButton_11")
-
-        self.horizontalLayout_9.addWidget(self.radioButton_11)
-
-        self.radioButton_12 = QRadioButton(self.frame_14)
-        self.radioButton_12.setObjectName(u"radioButton_12")
-
-        self.horizontalLayout_9.addWidget(self.radioButton_12)
 
         self.keyCapcha = QPlainTextEdit(self.frame_6)
         self.keyCapcha.setObjectName(u"keyCapcha")
@@ -754,21 +673,13 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"@Tr\u1ea1ng th\u00e1i", None));
         ___qtablewidgetitem4 = self.tableWidget.horizontalHeaderItem(5)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"@Limit", None));
-        self.comboBox_20.setItemText(0, QCoreApplication.translate("MainWindow", u"https://m.facebook.com/", None))
-        self.comboBox_20.setItemText(1, QCoreApplication.translate("MainWindow", u"https://mbasic.facebook.com/", None))
+        self.comboBox_20.setItemText(0, QCoreApplication.translate("MainWindow", u"https://mbasic.facebook.com/", None))
+        self.comboBox_20.setItemText(1, QCoreApplication.translate("MainWindow", u"https://m.facebook.com/", None))
         self.comboBox_20.setItemText(2, QCoreApplication.translate("MainWindow", u"https://www.facebook.com/", None))
 
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"Login", None))
-        self.comboBox_19.setItemText(0, QCoreApplication.translate("MainWindow", u"911", None))
-        self.comboBox_19.setItemText(1, QCoreApplication.translate("MainWindow", u"Http", None))
-        self.comboBox_19.setItemText(2, QCoreApplication.translate("MainWindow", u"Sock4", None))
-        self.comboBox_19.setItemText(3, QCoreApplication.translate("MainWindow", u"Sock5", None))
-        self.comboBox_19.setItemText(4, QCoreApplication.translate("MainWindow", u"None", None))
-        self.comboBox_19.setItemText(5, QCoreApplication.translate("MainWindow", u"Proxy-Tinsoft", None))
-        self.comboBox_19.setItemText(6, QCoreApplication.translate("MainWindow", u"Proxy-Tm", None))
-        self.comboBox_19.setItemText(7, QCoreApplication.translate("MainWindow", u"Proxy-Minproxy", None))
-        self.comboBox_19.setItemText(8, QCoreApplication.translate("MainWindow", u"Dcom", None))
-        self.comboBox_19.setItemText(9, QCoreApplication.translate("MainWindow", u"Proxy-Shoplike", None))
+        self.comboBox_19.setItemText(0, QCoreApplication.translate("MainWindow", u"None", None))
+        self.comboBox_19.setItemText(1, QCoreApplication.translate("MainWindow", u"Proxy-Shoplike", None))
 
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"IP:", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Up Avatar:", None))
@@ -779,20 +690,11 @@ class Ui_MainWindow(object):
 
         self.comboBox_9.setItemText(0, QCoreApplication.translate("MainWindow", u"Anycapcha", None))
 
-        self.comboBox_14.setItemText(0, QCoreApplication.translate("MainWindow", u"2Captcha", None))
-        self.comboBox_14.setItemText(1, QCoreApplication.translate("MainWindow", u"Anycaptcha", None))
-
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Nh\u00e0 m\u1ea1ng:", None))
-        self.comboBox_15.setItemText(0, QCoreApplication.translate("MainWindow", u"Mobi", None))
-        self.comboBox_15.setItemText(1, QCoreApplication.translate("MainWindow", u"Vina", None))
-        self.comboBox_15.setItemText(2, QCoreApplication.translate("MainWindow", u"Viettel", None))
-        self.comboBox_15.setItemText(3, QCoreApplication.translate("MainWindow", u"VNMB", None))
-        self.comboBox_15.setItemText(4, QCoreApplication.translate("MainWindow", u"Itelecom", None))
-        self.comboBox_15.setItemText(5, QCoreApplication.translate("MainWindow", u"T\u1ea5t c\u1ea3", None))
+        self.comboBox_15.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u1ea5t c\u1ea3", None))
 
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"Key:", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"Key OTP:", None))
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"List mail:", None))
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"Get s\u1ed1, mail:", None))
         self.comboBox_16.setItemText(0, QCoreApplication.translate("MainWindow", u"1 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
         self.comboBox_16.setItemText(1, QCoreApplication.translate("MainWindow", u"2 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
@@ -800,34 +702,17 @@ class Ui_MainWindow(object):
         self.comboBox_16.setItemText(3, QCoreApplication.translate("MainWindow", u"4 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
         self.comboBox_16.setItemText(4, QCoreApplication.translate("MainWindow", u"5 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
 
-        self.comboBox_6.setItemText(0, QCoreApplication.translate("MainWindow", u"G\u1eedi 902 up ph\u00f4i", None))
-        self.comboBox_6.setItemText(1, QCoreApplication.translate("MainWindow", u"G\u1eedi 902 ch\u1ecdn d\u00f2ng(b\u1ecf qua b\u01b0\u1edbc up ph\u00f4i)", None))
-
         self.comboBox_11.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u1ea3i online", None))
         self.comboBox_11.setItemText(1, QCoreApplication.translate("MainWindow", u"D\u00f9ng \u1ea3nh c\u00f3 s\u1eb5n", None))
 
         self.label_21.setText(QCoreApplication.translate("MainWindow", u"\u1ea2nh \u1edf ph\u00f4i", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Ch\u1ecdn ph\u00f4i", None))
-        self.comboBox_7.setItemText(0, QCoreApplication.translate("MainWindow", u"XMDT th\u1eb3ng & 902", None))
-        self.comboBox_7.setItemText(1, QCoreApplication.translate("MainWindow", u"XMDT share 273", None))
+        self.comboBox_7.setItemText(0, QCoreApplication.translate("MainWindow", u"XMDT th\u1eb3ng ", None))
 
         self.comboBox_12.setItemText(0, QCoreApplication.translate("MainWindow", u"L\u1ea5y ph\u00f4i \u1edf tool(C\u00f3 fake th\u00f4ng tin theo Via)", None))
         self.comboBox_12.setItemText(1, QCoreApplication.translate("MainWindow", u"T\u1ea3i l\u00ean ph\u00f4i(Ch\u1ec9nh s\u1eeda ph\u00f4i t\u1ef1 \u0111\u1ed9ng)", None))
 
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Ki\u1ec3u XMDT", None))
-        self.comboBox_13.setItemText(0, QCoreApplication.translate("MainWindow", u"1. Ph\u00f4i US", None))
-        self.comboBox_13.setItemText(1, QCoreApplication.translate("MainWindow", u"2. Ph\u00f4i UK", None))
-        self.comboBox_13.setItemText(2, QCoreApplication.translate("MainWindow", u"3. Ph\u00f4i Vi\u1ec7t Nam - CMND", None))
-        self.comboBox_13.setItemText(3, QCoreApplication.translate("MainWindow", u"4. Ph\u00f4i Philippines", None))
-        self.comboBox_13.setItemText(4, QCoreApplication.translate("MainWindow", u"5. Ph\u00f4i Thailand", None))
-        self.comboBox_13.setItemText(5, QCoreApplication.translate("MainWindow", u"6. Ph\u00f4i Vi\u1ec7t Nam - B\u1eb1ng l\u00e1i A1", None))
-
-        self.BtnListMail.setText(QCoreApplication.translate("MainWindow", u"Nh\u1eadp mail list", None))
-        self.radioButton_7.setText(QCoreApplication.translate("MainWindow", u"Chothuesimcode", None))
         self.radioButton_8.setText(QCoreApplication.translate("MainWindow", u"Viotp.com", None))
-        self.radioButton_9.setText(QCoreApplication.translate("MainWindow", u"Otpmm", None))
-        self.radioButton_10.setText(QCoreApplication.translate("MainWindow", u"Codetextnow", None))
-        self.radioButton_11.setText(QCoreApplication.translate("MainWindow", u"Tempsms.com", None))
-        self.radioButton_12.setText(QCoreApplication.translate("MainWindow", u"Primeotp", None))
     # retranslateUi
-        
+

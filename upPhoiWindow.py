@@ -136,6 +136,8 @@ class UpPhoiWindow(QMainWindow):
             img_path = str(fname).replace("Image Files (*.png *.jpg *.jpeg *.bmp)","")[2:-6]
             self.ui.textEdit.setText(img_path)
             self.background_image = QPixmap(img_path)
+            self.org_w = self.background_image.width()
+            self.org_h = self.background_image.height()
             self.foreground_image = QPixmap("phoi/a.png")
            
             if self.ui.spinBox.value() > 0 and self.ui.spinBox_2.value() > 0:
@@ -252,6 +254,7 @@ class UpPhoiWindow(QMainWindow):
 
         # # Create a label and set the pixmap
         label = QLabel()
+        self.combined_image = self.combined_image.scaled(self.org_w, self.org_h, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         label.setPixmap(self.combined_image)
         self.preview_window.setCentralWidget(label)
         # Show the new window

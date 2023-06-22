@@ -16,7 +16,7 @@ app = QApplication(sys.argv)
 manager = QNetworkAccessManager()
 
 # Define a function to handle network replies
-def handle_network_response(reply, url):
+def handle_network_response(reply, url, fb_id):
     if reply.error() == QNetworkReply.NoError:
         # Read the data from the reply
         data = reply.readAll()
@@ -26,7 +26,7 @@ def handle_network_response(reply, url):
         pixmap.loadFromData(data)
 
         # Save the pixmap as a PNG file
-        file_path = "input_avatar/image.jpg"
+        file_path = f"input_avatar/{fb_id}.jpg"
         pixmap.save(file_path, "JPG")
 
         print("Image saved successfully.")
@@ -39,59 +39,51 @@ def handle_network_response(reply, url):
         app.quit()
 def save_url_image(facebook_id, options,  image_url, image, 
                    givenname, surname, birthday, gender, address):
-        if options == 1:
+        # if options == 1:
             # Make a network request
-            url = QUrl(image_url)
-            request = QNetworkRequest(url)
-            reply = manager.get(request)
+        url = QUrl(image_url)
+        request = QNetworkRequest(url)
+        reply = manager.get(request)
 
             # Wait for the reply to finish
-            loop = QEventLoop()
-            reply.finished.connect(loop.quit)
-            loop.exec_()
+        loop = QEventLoop()
+        reply.finished.connect(loop.quit)
+        loop.exec_()
+        handle_network_response(reply, url, facebook_id)
+        avt = QPixmap(f"input_avatar/{facebook_id}.jpg")
+        from configparser import ConfigParser
 
-            # Handle the network response
-            handle_network_response(reply, url)
+        configur = ConfigParser()
+        configur.read('output/config.ini')
 
-            # Retrieve the pixmap from the handle_network_response function
-            avt = QPixmap("input_avatar/image.jpg")
-            avt.save(f"input_avatar/{facebook_id}.jpg", "JPG")
-        elif options == 2:
-            image.save(f"input_avatar/{facebook_id}.jpg", "JPG")
-            avt = image
-
-
-        settings = QSettings('output/config.ini', QSettings.IniFormat)
         defaultValue = 0
 
-        settings.beginGroup(f'section{options}')
-        # load values from .ini fill
-        avt_w = int(settings.value("Foreground_Width", defaultValue))
-        avt_h = int(settings.value("Foreground_Height", defaultValue))
-        avt_x = int(settings.value("Foreground_x", defaultValue))
-        avt_y = int(settings.value("Foreground_y", defaultValue))
-        avt_a = int(settings.value("Foreground_Angle", defaultValue))
-        font_size  = int(settings.value("Font_Size", defaultValue))
-        font_family = settings.value("Font_Family", "")
-        GivenName_x = int(settings.value("GivenName_x", defaultValue))
-        GivenName_y = int(settings.value("GivenName_y", defaultValue))
-        GivenName_Angle =int(settings.value("GivenName_Angle", defaultValue))
-        FirstName_x = int(settings.value("FirstName_x", defaultValue))
-        FirstName_y = int(settings.value("FirstName_y", defaultValue))
-        FirstName_Angle = int(settings.value("FirstName_Angle", defaultValue))
-        Birthday_x = int(settings.value("Birthday_x", defaultValue))
-        Birthday_y= int(settings.value("Birthday_y", defaultValue))
-        Birthday_Angle = int(settings.value("Birthday_Angle", defaultValue))
-        Gender_x = int(settings.value("Gender_x", defaultValue))
-        Gender_y = int(settings.value("Gender_y", defaultValue))
-        Gender_Angle = int(settings.value("Gender_Angle", defaultValue))
-        Address_x = int(settings.value("Address_x", defaultValue))
-        Address_y = int(settings.value("Address_y", defaultValue))
-        Address_Angle = int(settings.value("Address_Angle", defaultValue))
+        avt_w = int(configur.get('section2', 'Foreground_Width', fallback=defaultValue))
+        avt_h = int(configur.get('section2', 'Foreground_Height', fallback=defaultValue))
+        avt_x = int(configur.get('section2', 'Foreground_x', fallback=defaultValue))
+        avt_y = int(configur.get('section2', 'Foreground_y', fallback=defaultValue))
+        avt_a = int(configur.get('section2', 'Foreground_Angle', fallback=defaultValue))
+        font_size = int(configur.get('section2', 'Font_Size', fallback=defaultValue))
+        font_family = configur.get('section2', 'Font_Family', fallback="")
+        GivenName_x = int(configur.get('section2', 'GivenName_x', fallback=defaultValue))
+        GivenName_y = int(configur.get('section2', 'GivenName_y', fallback=defaultValue))
+        GivenName_Angle = int(configur.get('section2', 'GivenName_Angle', fallback=defaultValue))
+        FirstName_x = int(configur.get('section2', 'FirstName_x', fallback=defaultValue))
+        FirstName_y = int(configur.get('section2', 'FirstName_y', fallback=defaultValue))
+        FirstName_Angle = int(configur.get('section2', 'FirstName_Angle', fallback=defaultValue))
+        Birthday_x = int(configur.get('section2', 'Birthday_x', fallback=defaultValue))
+        Birthday_y = int(configur.get('section2', 'Birthday_y', fallback=defaultValue))
+        Birthday_Angle = int(configur.get('section2', 'Birthday_Angle', fallback=defaultValue))
+        Gender_x = int(configur.get('section2', 'Gender_x', fallback=defaultValue))
+        Gender_y = int(configur.get('section2', 'Gender_y', fallback=defaultValue))
+        Gender_Angle = int(configur.get('section2', 'Gender_Angle', fallback=defaultValue))
+        Address_x = int(configur.get('section2', 'Address_x', fallback=defaultValue))
+        Address_y = int(configur.get('section2', 'Address_y', fallback=defaultValue))
+        Address_Angle = int(configur.get('section2', 'Address_Angle', fallback=defaultValue))
         if options==1:
-            URL_Phoi = settings.value("URL_Phoi", "")
-        settings.endGroup()
-        # print(URL_Phoi)
+            URL_Phoi = ""
+        else: 
+            URL_Phoi = configur.get('section2', 'URL_Phoi', fallback="").replace("/","\\")
         painter = QPainter()
         is_bold = True
         font = QFont()
@@ -174,7 +166,7 @@ def save_url_image(facebook_id, options,  image_url, image,
     
 
 
-save_url_image( '231284214', 1,  'https://ozgrozer.github.io/100k-faces/0/2/002764.jpg', None, 
+save_url_image( '231284214', 2,  'https://ozgrozer.github.io/100k-faces/0/2/002764.jpg', None, 
                        'givenname', 'surname', 'birthday', 'gender', 'address')
 
 # Start the application event loop

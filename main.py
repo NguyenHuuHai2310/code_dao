@@ -56,7 +56,7 @@ class MainWindow(QMainWindow):
         self.setFixedSize(self.size())
 
         self.ui.toolBox_3.currentChanged.connect(self.menuChanged)
-        self.ui.BtnListMail.clicked.connect(self.openFileDialog)
+        # self.ui.BtnListMail.clicked.connect(self.openFileDialog)
         self.data = []
         myHeader = MyHeader(Qt.Horizontal, self.ui.tableWidget)
         myHeader.setTableWidget(self.ui.tableWidget)
@@ -125,11 +125,11 @@ class MainWindow(QMainWindow):
         elif self.ui.toolBox_3.currentIndex() == 3:
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_contact)
 
-    def openFileDialog(self):
-        fname = QFileDialog.getOpenFileName(self, "Open File", "", "Text files (*.txt)")
-        if fname:
-            self.ui.BtnListMail.setText(str(fname).replace("Text files (*.txt)", "")[2:-6])
-        return 0
+    # def openFileDialog(self):
+    #     fname = QFileDialog.getOpenFileName(self, "Open File", "", "Text files (*.txt)")
+    #     if fname:
+    #         self.ui.BtnListMail.setText(str(fname).replace("Text files (*.txt)", "")[2:-6])
+    #     return 0
 
     def openUpPhoiWindow(self):
         if  self.ui.comboBox_12.currentIndex() == 1:
