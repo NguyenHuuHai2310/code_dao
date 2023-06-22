@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceSEvlFW.ui'
+## Form generated from reading UI file 'interfaceCqjUkx.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -12,12 +12,9 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from Custom_Widgets.Widgets import QCustomSlideMenu
-
 import resources_rc
 
 class Ui_MainWindow(object):
-
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -146,28 +143,26 @@ class Ui_MainWindow(object):
         self.main_body.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.main_body)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.side_menu = QCustomSlideMenu(self.main_body)
+        self.side_menu = QFrame(self.main_body)
         self.side_menu.setObjectName(u"side_menu")
-        self.side_menu.setMinimumSize(QSize(200, 0))
-        self.side_menu.setLayoutDirection(Qt.LeftToRight)
-        self.vboxLayout = QVBoxLayout(self.side_menu)
-        self.vboxLayout.setSpacing(6)
-        self.vboxLayout.setObjectName(u"vboxLayout")
-        self.vboxLayout.setContentsMargins(0, 0, 0, 0)
-        self.frame = QFrame(self.side_menu)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.frame_9 = QFrame(self.frame)
+        self.side_menu.setFrameShape(QFrame.StyledPanel)
+        self.side_menu.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.side_menu)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.frame_9 = QFrame(self.side_menu)
         self.frame_9.setObjectName(u"frame_9")
         self.frame_9.setFrameShape(QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.frame_9)
+        self.verticalLayout_2 = QVBoxLayout(self.frame_9)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.frame_10 = QFrame(self.frame_9)
+        self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setFrameShape(QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_10)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.toolBox_3 = QToolBox(self.frame_9)
+        self.toolBox_3 = QToolBox(self.frame_10)
         self.toolBox_3.setObjectName(u"toolBox_3")
         sizePolicy.setHeightForWidth(self.toolBox_3.sizePolicy().hasHeightForWidth())
         self.toolBox_3.setSizePolicy(sizePolicy)
@@ -226,10 +221,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.addWidget(self.toolBox_3, 0, Qt.AlignLeft|Qt.AlignTop)
 
 
-        self.verticalLayout_2.addWidget(self.frame_9)
+        self.verticalLayout_2.addWidget(self.frame_10, 0, Qt.AlignLeft|Qt.AlignTop)
 
 
-        self.vboxLayout.addWidget(self.frame, 0, Qt.AlignLeft|Qt.AlignTop)
+        self.verticalLayout_6.addWidget(self.frame_9, 0, Qt.AlignLeft|Qt.AlignTop)
 
 
         self.horizontalLayout_3.addWidget(self.side_menu, 0, Qt.AlignLeft|Qt.AlignTop)
@@ -830,4 +825,4 @@ class Ui_MainWindow(object):
         self.radioButton_11.setText(QCoreApplication.translate("MainWindow", u"Tempsms.com", None))
         self.radioButton_12.setText(QCoreApplication.translate("MainWindow", u"Primeotp", None))
     # retranslateUi
-        
+

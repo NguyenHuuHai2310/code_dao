@@ -1,9 +1,11 @@
 import json
 import time
+import os
 
 from request import request_fb
 from ui_interface import *
 import sys
+
 from PyQt5.QtWidgets import QApplication, QWidget, \
     QInputDialog, QLineEdit, \
     QFileDialog, QTableWidget, \
@@ -25,7 +27,11 @@ class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
         self.isOn = False
-        self.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        self.setStyleSheet("QHeaderView::section { background-color: rgb(46, 52, 54); }")
+        # palette = self.palette()
+        # palette.setColor(QPalette.ColorGroup.Normal, QPalette.ColorRole.Background, QColor("red"))  # Đặt màu sắc header trực tiếp
+        # self.setPalette(palette)
+        # self.setStyle(QStyleFactory.create("Fusion"))
 
     def setTableWidget(self, tableWidget):
         self.tableWidget = tableWidget
@@ -81,7 +87,7 @@ class MainWindow(QMainWindow):
             item.setCheckState(Qt.Unchecked)
             item2 = QTableWidgetItem(str(row + 1))
             self.ui.tableWidget.setVerticalHeaderItem(row, item2)
-            self.ui.tableWidget.setItem(row, 0, item)
+            # self.ui.tableWidget.setItem(row, 0, item)
 
         self.ui.start_button.clicked.connect(self.start_generation)
         self.ui.stop_button.clicked.connect(self.stop_generation)
@@ -92,20 +98,22 @@ class MainWindow(QMainWindow):
         self.ui.keyCapcha.textChanged.connect(self.save_values)
         self.ui.keyOtp.textChanged.connect(self.save_values)
         self.show()
+
     def save_values(self):
-            settings = QSettings(f"output/config.ini", QSettings.IniFormat)
-            settings.beginGroup('section2')
-            settings.setValue("KeyOtp", self.ui.keyOtp.toPlainText())
-            settings.setValue("KeyCapcha",self.ui.keyCapcha.toPlainText())
-            settings.sync()
-            settings.endGroup()
-            
+        settings = QSettings(f"output/config.ini", QSettings.IniFormat)
+        settings.beginGroup('section2')
+        settings.setValue("KeyOtp", self.ui.keyOtp.toPlainText())
+        settings.setValue("KeyCapcha", self.ui.keyCapcha.toPlainText())
+        settings.sync()
+        settings.endGroup()
+
     def get_values(self):
         settings = QSettings(f"output/config.ini", QSettings.IniFormat)
         settings.beginGroup('section2')
         self.ui.keyCapcha.setPlainText(settings.value("KeyCapcha", ""))
         self.ui.keyOtp.setPlainText(settings.value("KeyOtp", ""))
         settings.endGroup()
+
     def centerWindow(self):
         # Get the screen's geometry
         screen = QDesktopWidget().screenGeometry()
@@ -139,7 +147,7 @@ class MainWindow(QMainWindow):
         return 0
 
     def openUpPhoiWindow(self):
-        if  self.ui.comboBox_12.currentIndex() == 1:
+        if self.ui.comboBox_12.currentIndex() == 1:
             self.window2 = UpPhoiWindow()
             self.window2.show()
 
@@ -149,7 +157,7 @@ class MainWindow(QMainWindow):
         y = 269
         w = self.ui.tableWidget.width()
         h = self.ui.tableWidget.height()
-        if (event.y() >y and event.y() <y+h and event.x() >  x and event.x() < x + w):
+        if (event.y() > y and event.y() < y + h and event.x() > x and event.x() < x + w):
             menu = QMenu(self)
 
             paste_delete_action = QAction("Paste tài khoản [Xóa tài khoản cũ]", self)
@@ -165,11 +173,11 @@ class MainWindow(QMainWindow):
             menu.addAction(click_selected_account_action)
 
             menu.setStyleSheet("QMenu { background-color: rgb(46, 52, 54); }"
-                            "QMenu::item {   background-color: rgb(46, 52, 54); color: white; \
+                               "QMenu::item {   background-color: rgb(46, 52, 54); color: white; \
                                                 padding: 4px solid rgb(46, 52, 54);\
                                                 padding-left: 2px solid rgb(46, 52, 54);\
                                                 border: 1px solid rgb(46, 52, 54); }"
-                            "QMenu::item:selected { background-color: blue; }")
+                               "QMenu::item:selected { background-color: blue; }")
 
             menu.exec_(event.globalPos())
             event.accept()
@@ -299,15 +307,22 @@ class MainWindow(QMainWindow):
         print("Stop all Threads!")
 
     def handle_do_work(self, thread_id, cookie_login_success):
+        # Get option XMDT
+        option_choise_Phoi = self.ui.comboBox_12.currentIndex()
+        option_XMDT = {
+            "option_choise_Phoi": option_choise_Phoi,
+        }
         # Get acc fb
         info_acc = self.ui.tableWidget.item(thread_id, 1).text()
         info_acc_arr = str(info_acc).split('|')
         id_fb = info_acc_arr[0]
         pass_fb = info_acc_arr[1]
         code_2fa = info_acc_arr[2]
+        access_token_fb = info_acc_arr[3]
         client_token = self.ui.keyCapcha.toPlainText()
         token = self.ui.keyOtp.toPlainText()
-        request = request_fb(client_token, token)
+
+        request = request_fb(client_token, token, access_token_fb, option_XMDT)
         response = request.get_cookie_before_login_facebook_mbasic(self.default_user_agent)
         response = json.loads(response)
         if response['status'] != 200:
@@ -362,22 +377,30 @@ class MainWindow(QMainWindow):
                             response = json.loads(response)
                             if (response['status'] == 200) and (response['acc_is_restricted'] == True):
                                 self.handle_write_table(thread_id, 4, response['message'])
-                                response = request.get_view_checkpoint_282(cookie_login_success, self.default_user_agent)
+                                response = request.get_view_checkpoint_282(cookie_login_success,
+                                                                           self.default_user_agent)
                                 response = json.loads(response)
                                 if (response['status'] == 200) and (response['action'] == 'action_proceed'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_continue_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
+                                    response = request.submit_continue_checkpoint(response['number_checkpoint'],
+                                                                                  cookie_login_success,
+                                                                                  self.default_user_agent)
                                 elif (response['status'] == 200) and (response['action'] == 'captcha'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_code_checkpoint(response['number_checkpoint'], cookie_login_success, self.default_user_agent, client_token)
+                                    response = request.submit_code_checkpoint(response['number_checkpoint'],
+                                                                              cookie_login_success,
+                                                                              self.default_user_agent, client_token)
                                 elif (response['status'] == 200) and (response['action'] == 'add_phone_number'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_phone_number(response['number_checkpoint'], cookie_login_success, self.default_user_agent, token, 7)
+                                    response = request.submit_phone_number(response['number_checkpoint'],
+                                                                           cookie_login_success,
+                                                                           self.default_user_agent, token, 7)
                                 elif (response['status'] == 200) and (response['action'] == 'upload_your_id'):
                                     self.handle_write_table(thread_id, 4, response['message'])
-                                    response = request.submit_your_id(response['number_checkpoint'], cookie_login_success, self.default_user_agent)
+                                    response = request.submit_your_id(response['number_checkpoint'],
+                                                                      cookie_login_success, self.default_user_agent,
+                                                                      access_token_fb, option_XMDT['option_choise_Phoi'])
                                 else:
-                                    response = json.loads(response)
                                     self.handle_write_table(thread_id, 4, response['message'])
                                 response = json.loads(response)
                                 self.handle_write_table(thread_id, 4, response['message'])
@@ -435,6 +458,9 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == '__main__':
+    os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
+    os.environ["QT_SCREEN_SCALE_FACTORS"] = "<list_of_screen_scale_factors>"
+    os.environ["QT_SCALE_FACTOR"] = "<global_scale_factor>"
     app = QApplication(sys.argv)
     window = MainWindow()
     # window = UpPhoiWindow()

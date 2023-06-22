@@ -1,7 +1,11 @@
 import base64
 import json
+import random
 import re
 from urllib.parse import urlencode, quote
+
+from GenAvatar import GenFace100K
+from create_passport import passport
 from captcha import anycaptcha
 from PhoneNumber import viotp
 
@@ -13,10 +17,12 @@ import requests
 
 class request_fb:
 
-    def __init__(self, client_key, token) -> None:
+    def __init__(self, client_key, token, access_token_fb, option_XMDT) -> None:
         super().__init__()
         self.client_key = client_key
         self.token = token
+        self.access_token_fb = access_token_fb
+        self.option_XMDT = option_XMDT
 
     def make_request(self, params, method, authority, origin, is_referer, referer, user_agent, cookie, is_body, body,
                      is_header=True):
@@ -549,13 +555,6 @@ class request_fb:
 
     def get_view_checkpoint_282(self, cookie, user_agent):
         try:
-            # response = self.make_request(
-            #     'https://www.facebook.com/',
-            #     'GET',
-            #     'www.facebook.com', 'https://www.facebook.com/', False, '',
-            #     user_agent, cookie, False, '')
-            # cookies = '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.cookies])
-            # cookie = cookie + '; ' + cookies
             response = self.make_request(
                 'https://www.facebook.com/accountquality/advertising_access/?callsite=15&enforcement=1&intent=1',
                 'GET',
@@ -675,7 +674,8 @@ class request_fb:
             action_submit_bot_captcha_response = matchs[0]
             pattern = r'https:\/\/mbasic\.facebook\.com\/captcha\/tfbimage\.php\?captcha_challenge_code=([a-zA-Z0-9_-]+)&amp;captcha_challenge_hash=([a-zA-Z0-9_-]+)'
             matchs = re.findall(pattern, response.text)
-            url_image_captcha = 'https://mbasic.facebook.com/captcha/tfbimage.php?captcha_challenge_code=' + matchs[0][0] + '&captcha_challenge_hash=' + matchs[0][1]
+            url_image_captcha = 'https://mbasic.facebook.com/captcha/tfbimage.php?captcha_challenge_code=' + matchs[0][
+                0] + '&captcha_challenge_hash=' + matchs[0][1]
             response = self.make_request(url_image_captcha, 'GET',
                                          'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
                                          referer, user_agent, cookie, False, '')
@@ -791,7 +791,8 @@ class request_fb:
                         response = self.make_request(params,
                                                      'POST', 'mbasic.facebook.com', 'https://mbasic.facebook.com', True,
                                                      referer, user_agent, cookie, True, body)
-                        return self.submit_your_id(number_checkpoint, cookie, user_agent)
+                        return self.submit_your_id(number_checkpoint, cookie, user_agent, self.access_token_fb,
+                                                   self.option_XMDT['option_choise_Phoi'])
                     else:
                         return json.dumps({
                             'status': 404,
@@ -813,7 +814,7 @@ class request_fb:
                 'message': 'Lỗi server!'
             })
 
-    def submit_your_id(self, number_checkpoint, cookie, user_agent):
+    def submit_your_id(self, number_checkpoint, cookie, user_agent, access_token_fb, option_choise_Phoi):
         try:
             response = self.make_request(
                 'https://m.facebook.com/checkpoint/1501092823525282/' + number_checkpoint + '/?next=%2Faccountquality%2F',
@@ -851,27 +852,89 @@ class request_fb:
                 'user-agent': user_agent,
             }
 
-            payload = {'fb_dtsg': fb_dtsg,
-                       'jazoest': jazoest,
-                       'action_upload_image': action_upload_image}
-            files = [
-                ('mobile_image_data',
-                 ('004515.jpg', open('D:\Tool FB\Phoi_XMDT\photo_6172328012985513199_y.jpg', 'rb'), 'image/jpeg'))
-            ]
-            response = requests.request("POST", params, headers=headers, data=payload, files=files)
-            if response.text.__contains__('Review requested'):
-                return json.dumps({
-                    'status': 200,
-                    'message': 'XMDT thành công!',
-                })
+            # Get info facebook
+            response_info_fb = self.get_info_fb(access_token_fb)
+            response_info_fb = json.loads(response_info_fb)
+            gen_face_100k = GenFace100K()
+            response_gen_avatar = gen_face_100k.get_random_url_avatar()
+            response_gen_avatar = json.loads(response_gen_avatar)
+            if response_info_fb['status'] == 200:
+                pass_port = passport()
+                if response_gen_avatar['status'] == 200:
+                    id_fb = response_info_fb['id']
+                    response = pass_port.save_url_image(id_fb, option_choise_Phoi+1, response_gen_avatar['url'],
+                                             response_info_fb['first_name'], response_info_fb['last_name'],
+                                             response_info_fb['birthday'], response_info_fb['gender'], 'HN')
+                    response = json.loads(response)
+                    if response['status'] == 200:
+                        payload = {'fb_dtsg': fb_dtsg,
+                                   'jazoest': jazoest,
+                                   'action_upload_image': action_upload_image}
+                        files = [
+                            ('mobile_image_data',
+                             (f'{id_fb}.jpg',
+                              open(f'output_xmdt\{id_fb}.jpg', 'rb'), 'image/jpeg'))
+                        ]
+                        response = requests.request("POST", params, headers=headers, data=payload, files=files)
+                        if response.text.__contains__('Review requested'):
+                            return json.dumps({
+                                'status': 200,
+                                'message': 'XMDT thành công!',
+                            })
+                        else:
+                            return json.dumps({
+                                'status': 200,
+                                'message': 'XMDT thất bại!',
+                            })
+                    else:
+                        return json.dumps({
+                            'status': 404,
+                            'message': 'Lỗi tạo phôi'
+                        })
+
+                else:
+                    return json.dumps({
+                        'status': 404,
+                        'message': 'Lỗi tạo avatar'
+                    })
+
             else:
                 return json.dumps({
-                    'status': 200,
-                    'message': 'XMDT thất bại!',
+                    'status': 404,
+                    'message': 'Lỗi lấy thông tin facebook!'
                 })
 
         except Exception as e:
             return json.dumps({
                 'status': 404,
                 'message': 'Lỗi server!'
+            })
+
+    def get_info_fb(self, access_token):
+        try:
+            url = "https://graph.facebook.com/v17.0/me?fields=id%2Cname%2Cfirst_name%2Clast_name%2Cbirthday%2Cgender&access_token=" + access_token
+
+            payload = {}
+            headers = {}
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+            response = json.loads(response.text)
+            gender = random.randrange(0, 2)
+            if gender == 0:
+                response['gender'] = 'male'
+            else:
+                response['gender'] = 'female'
+            return json.dumps({
+                'status': 200,
+                'id': response['id'],
+                'first_name': response['first_name'],
+                'last_name': response['last_name'],
+                'birthday': response['birthday'],
+                'gender': response['gender'],
+                'message': 'Lấy thông tin facebook thành công!',
+            })
+        except Exception as e:
+            return json.dumps({
+                'status': 404,
+                'message': 'Lỗi lấy thông tin facebook!'
             })
