@@ -27,7 +27,7 @@ class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
         self.isOn = False
-        # self.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        # self.setStyleSheet("QHeaderView::section { background-color: rgb(46, 52, 54); }")
 
     def setTableWidget(self, tableWidget):
         self.tableWidget = tableWidget
@@ -71,7 +71,6 @@ class MainWindow(QMainWindow):
         myHeader.setStretchLastSection(True)
         self.get_values()
         self.ui.tableWidget.setHorizontalHeader(myHeader)
-
 
         # Đặt stylesheet để thay đổi màu nền cho QTableWidget
         self.ui.tableWidget.setStyleSheet("""
@@ -131,7 +130,7 @@ class MainWindow(QMainWindow):
     def centerWindow(self):
         # Get the screen's geometry
         screen = QDesktopWidget().screenGeometry()
-        print(screen.width(), screen.height())
+
         # Calculate the center point of the screen
         center_x = screen.width() // 2
         center_y = screen.height() // 2
@@ -139,8 +138,7 @@ class MainWindow(QMainWindow):
         # Calculate the top-left position of the window
         window_x = center_x - self.width() // 2
         window_y = center_y - self.height() // 2
-        print(self.width(), self.height())
-        print(window_x, window_y)
+
         # Set the window's position
         self.move(window_x, window_y)
 
@@ -267,7 +265,7 @@ class MainWindow(QMainWindow):
                 generator_thread = NumberGeneratorThread(i, i * 10 + 1, self.delay_time)
                 generator_thread.setObjectName('Thread ' + str(i))
                 generator_thread.do_work.connect(self.handle_do_work)
-                # generator_thread.number_generated.connect(self.handle_number_generated)
+                generator_thread.number_generated.connect(self.handle_number_generated)
                 generator_thread.thread_finished.connect(self.handle_thread_finished)
                 self.generator_threads.append(generator_thread)
         # print( "len(self.generator_threads): " , len(self.generator_threads))
@@ -291,10 +289,35 @@ class MainWindow(QMainWindow):
             for j in range(index_loop * self.num_threads, len(self.generator_threads)):
                 (self.generator_threads[j]).start()
 
+        # if (len(self.generator_threads) % self.num_threads) == 0:
+        #     for i in range(0, int(self.count_loop)):
+        #         for j in range(i * self.num_threads, i * self.num_threads + self.num_threads):
+        #             (self.generator_threads[j]).start()
+        #         time.sleep(self.delay_time)
+        # else:
+        #     for i in range(0, int(self.count_loop) + 1):
+        #         if i != self.count_loop:
+        #             for j in range(i * self.num_threads, i * self.num_threads + self.num_threads):
+        #                 (self.generator_threads[j]).start()
+        #             time.sleep(self.delay_time)
+        #         else:
+        #             for j in range(i * self.num_threads, len(self.generator_threads)):
+        #                 (self.generator_threads[j]).start()
+
+        # num_threads_to_run = min(len(self.generator_threads) - self.current_thread_index, self.num_threads)
+        # # import ipdb; ipdb.set_trace();
+        # if num_threads_to_run > 0:
+        #     for i in range(num_threads_to_run):
+        #         generator_thread = self.generator_threads[self.current_thread_index]
+        #         generator_thread.start()
+        #         # if i == num_threads_to_run-1:
+        #         self.current_thread_index += 1
+
     def stop_generation(self):
         self.ui.start_button.setEnabled(True)
         for generator_thread in self.generator_threads:
             generator_thread.requestInterruption()
+        print("Stop all Threads!")
 
     def handle_do_work(self, thread_id, cookie_login_success):
         # Get option XMDT
