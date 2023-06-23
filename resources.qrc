@@ -1,6 +1,8 @@
 <RCC>
   <qresource prefix="icons">
     <file>icons/analysis.png</file>
+    <file>icons/user-3295.svg</file>
+    <file>icons/user.png</file>
     <file>icons/calendar.png</file>
     <file>icons/check.png</file>
     <file>icons/clock.png</file>

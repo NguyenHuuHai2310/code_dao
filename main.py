@@ -1,20 +1,20 @@
 from ui_interface import *
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, \
-                            QInputDialog, QLineEdit,\
-                            QFileDialog, QTableWidget, \
-                            QTableWidgetItem, QMessageBox, \
+from PyQt5.QtWidgets import QApplication,\
+                            QTableWidgetItem, \
                             QHeaderView, QStyle, QStyleOptionButton,QAction,  \
-                            QCheckBox, QVBoxLayout, QMenu,QDesktopWidget
+                             QMenu,QDesktopWidget
 
-from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform, QDesktopServices, QClipboard
-from PyQt5.QtCore import Qt, QRect, QUrl
+from PyQt5.QtGui import QPainter, QPixmap
+from PyQt5.QtCore import Qt, QRect
 from Custom_Widgets.Widgets import *
 from PyQt5 import QtWidgets
 from functions import * 
 from ui_upPhoiWindow import *
 from upPhoiWindow import UpPhoiWindow
-from PyQt5.QtWidgets import QTextEdit
+from ui_login import *
+from PyQt5.QtWidgets import QTextEdit, QMessageBox
+from qtpy.QtCore import Signal
 class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
@@ -46,6 +46,7 @@ class MyHeader(QHeaderView):
                     item.setCheckState(Qt.Checked if self.isOn else Qt.Unchecked)
 
         super().mousePressEvent(event)
+
 
 
 class MainWindow(QMainWindow):
@@ -101,19 +102,11 @@ class MainWindow(QMainWindow):
         self.ui.keyOtp.setPlainText(settings.value("KeyOtp", ""))
         settings.endGroup()
     def centerWindow(self):
-        # Get the screen's geometry
         screen = QDesktopWidget().screenGeometry()
-        print(screen.width(), screen.height())
-        # Calculate the center point of the screen
         center_x = screen.width() // 2
         center_y = screen.height() // 2
-
-        # Calculate the top-left position of the window
         window_x = center_x - self.width() // 2
         window_y = center_y - self.height() // 2
-        print(self.width() , self.height())
-        print(window_x, window_y)
-        # Set the window's position
         self.move(window_x, window_y)
     def menuChanged(self):
         if self.ui.toolBox_3.currentIndex() == 0:
@@ -287,10 +280,35 @@ class MainWindow(QMainWindow):
         for row in range(self.ui.tableWidget.rowCount()):
             item = QTableWidgetItem("")
             self.ui.tableWidget.setItem(row, 4, item)
+class Login(QMainWindow):
 
+    def __init__(self, parent=None):
+        QMainWindow.__init__(self)
+        self.ui = Ui_Login()
+        self.ui.setupUi(self)
+        self.setFixedSize(self.size())
+        self.centerWindow()
+        pixmap = QPixmap("icons/icons8-male-user-94.png")
+        pixmap = pixmap.scaled(200,200, Qt.AspectRatioMode.KeepAspectRatio, Qt.SmoothTransformation)
+        self.ui.logo.setPixmap(pixmap)
+        self.ui.logo.setAlignment(Qt.AlignCenter)
+        self.ui.loginBtn.clicked.connect(self.openMainWindow)
+    def centerWindow(self):
+        screen = QDesktopWidget().screenGeometry()
+        center_x = screen.width() // 2
+        center_y = screen.height() // 2
+        window_x = center_x - self.width() // 2
+        window_y = center_y - self.height() // 2
+        self.move(window_x, window_y)
+    def openMainWindow(self):
+        if (self.ui.username.text() == "admin" and self.ui.password.text()=="admin"):
+            self.main_window = MainWindow()
+            self.hide()
+            self.main_window.show()
+        else:
+           self.ui.label.setText('Invalid username or password.')
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = MainWindow()
-    # window = UpPhoiWindow()
-    window.show()
+    login_window = Login()
+    login_window.show()
     sys.exit(app.exec_())
