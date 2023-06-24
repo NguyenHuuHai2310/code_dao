@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="logi_container">
     <property name="geometry">
@@ -24,7 +27,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #071e26;</string>
+     <string notr="true"/>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -61,7 +64,7 @@
      <item>
       <widget class="QFrame" name="frame">
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::NoFrame</enum>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
@@ -70,7 +73,7 @@
         <item>
          <widget class="QFrame" name="frame_2">
           <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+           <enum>QFrame::NoFrame</enum>
           </property>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
@@ -93,8 +96,7 @@
              <property name="styleSheet">
               <string notr="true">border: 1px solid rgba(0,0,0,0);
 border-bottom-color: rgba(46,82,101,255);
-color: rgb(255,255,255);
-</string>
+color: rgb(120, 120, 120);</string>
              </property>
              <property name="placeholderText">
               <string>Username</string>
@@ -107,7 +109,7 @@ color: rgb(255,255,255);
         <item>
          <widget class="QFrame" name="frame_3">
           <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+           <enum>QFrame::NoFrame</enum>
           </property>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
@@ -130,7 +132,7 @@ color: rgb(255,255,255);
              <property name="styleSheet">
               <string notr="true">border: 1px solid rgba(0,0,0,0);
 border-bottom-color: rgba(46,82,101,255);
-color: rgb(255,255,255);
+color: rgb(120, 120, 120);
 </string>
              </property>
              <property name="placeholderText">
@@ -147,7 +149,7 @@ color: rgb(255,255,255);
            <string notr="true">color: rgb(255, 3, 62);</string>
           </property>
           <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+           <enum>QFrame::NoFrame</enum>
           </property>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>

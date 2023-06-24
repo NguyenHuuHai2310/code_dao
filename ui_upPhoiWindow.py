@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowPiMWAo.ui'
+## Form generated from reading UI file 'upPhoiWindowUxbYUm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_UpPhoiWindow(object):
         if not UpPhoiWindow.objectName():
             UpPhoiWindow.setObjectName(u"UpPhoiWindow")
         UpPhoiWindow.resize(1845, 917)
-        UpPhoiWindow.setStyleSheet(u"background-color: #040f13;")
+        UpPhoiWindow.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.centralwidget = QWidget(UpPhoiWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setMaximumSize(QSize(16777215, 16777215))
@@ -35,20 +35,21 @@ class Ui_UpPhoiWindow(object):
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setMinimumSize(QSize(0, 0))
         self.frame_5.setMaximumSize(QSize(420, 16777215))
+        self.frame_5.setStyleSheet(u"")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame_5)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.frame_9 = QFrame(self.frame_5)
         self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShape(QFrame.NoFrame)
         self.frame_9.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.frame_9)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.label_3 = QLabel(self.frame_9)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMaximumSize(QSize(16777215, 20))
-        self.label_3.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_3.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.verticalLayout_4.addWidget(self.label_3)
 
@@ -62,7 +63,7 @@ class Ui_UpPhoiWindow(object):
         self.label_4 = QLabel(self.frame_10)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMaximumSize(QSize(16777215, 20))
-        self.label_4.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_4.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.verticalLayout_5.addWidget(self.label_4)
 
@@ -74,8 +75,8 @@ class Ui_UpPhoiWindow(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.spinBox = QSpinBox(self.frame_12)
         self.spinBox.setObjectName(u"spinBox")
-        self.spinBox.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox.setMaximum(99999999)
 
         self.horizontalLayout_3.addWidget(self.spinBox)
@@ -83,14 +84,14 @@ class Ui_UpPhoiWindow(object):
         self.label_9 = QLabel(self.frame_12)
         self.label_9.setObjectName(u"label_9")
         self.label_9.setMaximumSize(QSize(20, 16777215))
-        self.label_9.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_9.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_3.addWidget(self.label_9)
+        self.horizontalLayout_3.addWidget(self.label_9, 0, Qt.AlignHCenter)
 
         self.spinBox_2 = QSpinBox(self.frame_12)
         self.spinBox_2.setObjectName(u"spinBox_2")
-        self.spinBox_2.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_2.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_2.setMaximum(999999)
 
         self.horizontalLayout_3.addWidget(self.spinBox_2)
@@ -111,7 +112,7 @@ class Ui_UpPhoiWindow(object):
         self.label_5 = QLabel(self.frame_11)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setMaximumSize(QSize(16777215, 20))
-        self.label_5.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_5.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.verticalLayout_6.addWidget(self.label_5)
 
@@ -123,36 +124,36 @@ class Ui_UpPhoiWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.spinBox_3 = QSpinBox(self.frame_13)
         self.spinBox_3.setObjectName(u"spinBox_3")
-        self.spinBox_3.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_3.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_3.setMaximum(999999)
 
         self.horizontalLayout_4.addWidget(self.spinBox_3)
 
         self.label_10 = QLabel(self.frame_13)
         self.label_10.setObjectName(u"label_10")
-        self.label_10.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_10.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_4.addWidget(self.label_10)
+        self.horizontalLayout_4.addWidget(self.label_10, 0, Qt.AlignHCenter)
 
         self.spinBox_4 = QSpinBox(self.frame_13)
         self.spinBox_4.setObjectName(u"spinBox_4")
-        self.spinBox_4.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_4.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_4.setMaximum(999999)
 
         self.horizontalLayout_4.addWidget(self.spinBox_4)
 
         self.label_11 = QLabel(self.frame_13)
         self.label_11.setObjectName(u"label_11")
-        self.label_11.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_11.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_4.addWidget(self.label_11)
+        self.horizontalLayout_4.addWidget(self.label_11, 0, Qt.AlignHCenter)
 
         self.spinBox_5 = QSpinBox(self.frame_13)
         self.spinBox_5.setObjectName(u"spinBox_5")
-        self.spinBox_5.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_5.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_5.setMinimum(-360)
         self.spinBox_5.setMaximum(360)
 
@@ -169,7 +170,7 @@ class Ui_UpPhoiWindow(object):
 
         self.frame_7 = QFrame(self.frame_5)
         self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShape(QFrame.NoFrame)
         self.frame_7.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame_7)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -183,7 +184,7 @@ class Ui_UpPhoiWindow(object):
         self.label_31 = QLabel(self.frame_8)
         self.label_31.setObjectName(u"label_31")
         self.label_31.setMaximumSize(QSize(16777215, 20))
-        self.label_31.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_31.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.verticalLayout_7.addWidget(self.label_31)
 
@@ -197,14 +198,14 @@ class Ui_UpPhoiWindow(object):
         self.label_32 = QLabel(self.frame_14)
         self.label_32.setObjectName(u"label_32")
         self.label_32.setMaximumSize(QSize(16777215, 16777215))
-        self.label_32.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_32.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_5.addWidget(self.label_32)
 
         self.comboBox_2 = QComboBox(self.frame_14)
         self.comboBox_2.setObjectName(u"comboBox_2")
-        self.comboBox_2.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: rgb(255, 255, 255);")
+        self.comboBox_2.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
 
         self.horizontalLayout_5.addWidget(self.comboBox_2)
 
@@ -220,14 +221,14 @@ class Ui_UpPhoiWindow(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.label_33 = QLabel(self.frame_15)
         self.label_33.setObjectName(u"label_33")
-        self.label_33.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_33.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_6.addWidget(self.label_33)
 
         self.comboBox_3 = QComboBox(self.frame_15)
         self.comboBox_3.setObjectName(u"comboBox_3")
-        self.comboBox_3.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: rgb(255, 255, 255);")
+        self.comboBox_3.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
 
         self.horizontalLayout_6.addWidget(self.comboBox_3)
 
@@ -242,14 +243,14 @@ class Ui_UpPhoiWindow(object):
 
         self.frame_6 = QFrame(self.frame_5)
         self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShape(QFrame.NoFrame)
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.verticalLayout_8 = QVBoxLayout(self.frame_6)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.label_15 = QLabel(self.frame_6)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setMaximumSize(QSize(16777215, 20))
-        self.label_15.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_15.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.verticalLayout_8.addWidget(self.label_15)
 
@@ -262,42 +263,42 @@ class Ui_UpPhoiWindow(object):
         self.label_20 = QLabel(self.frame_18)
         self.label_20.setObjectName(u"label_20")
         self.label_20.setMinimumSize(QSize(60, 0))
-        self.label_20.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_20.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_7.addWidget(self.label_20)
 
         self.spinBox_23 = QSpinBox(self.frame_18)
         self.spinBox_23.setObjectName(u"spinBox_23")
-        self.spinBox_23.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_23.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_23.setMaximum(9999999)
 
         self.horizontalLayout_7.addWidget(self.spinBox_23)
 
         self.label_29 = QLabel(self.frame_18)
         self.label_29.setObjectName(u"label_29")
-        self.label_29.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_29.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_7.addWidget(self.label_29)
 
         self.spinBox_25 = QSpinBox(self.frame_18)
         self.spinBox_25.setObjectName(u"spinBox_25")
-        self.spinBox_25.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_25.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_25.setMaximum(9999999)
 
         self.horizontalLayout_7.addWidget(self.spinBox_25)
 
         self.label_30 = QLabel(self.frame_18)
         self.label_30.setObjectName(u"label_30")
-        self.label_30.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_30.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_7.addWidget(self.label_30)
+        self.horizontalLayout_7.addWidget(self.label_30, 0, Qt.AlignHCenter)
 
         self.spinBox_24 = QSpinBox(self.frame_18)
         self.spinBox_24.setObjectName(u"spinBox_24")
-        self.spinBox_24.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_24.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_24.setMinimum(-360)
         self.spinBox_24.setMaximum(360)
 
@@ -316,42 +317,42 @@ class Ui_UpPhoiWindow(object):
         self.label_16 = QLabel(self.frame_16)
         self.label_16.setObjectName(u"label_16")
         self.label_16.setMinimumSize(QSize(60, 0))
-        self.label_16.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_16.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_8.addWidget(self.label_16)
 
         self.spinBox_15 = QSpinBox(self.frame_16)
         self.spinBox_15.setObjectName(u"spinBox_15")
-        self.spinBox_15.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_15.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_15.setMaximum(9999999)
 
         self.horizontalLayout_8.addWidget(self.spinBox_15)
 
         self.label_24 = QLabel(self.frame_16)
         self.label_24.setObjectName(u"label_24")
-        self.label_24.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_24.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_8.addWidget(self.label_24)
+        self.horizontalLayout_8.addWidget(self.label_24, 0, Qt.AlignHCenter)
 
         self.spinBox_14 = QSpinBox(self.frame_16)
         self.spinBox_14.setObjectName(u"spinBox_14")
-        self.spinBox_14.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_14.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_14.setMaximum(9999999)
 
         self.horizontalLayout_8.addWidget(self.spinBox_14)
 
         self.label_23 = QLabel(self.frame_16)
         self.label_23.setObjectName(u"label_23")
-        self.label_23.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_23.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_8.addWidget(self.label_23)
+        self.horizontalLayout_8.addWidget(self.label_23, 0, Qt.AlignHCenter)
 
         self.spinBox_16 = QSpinBox(self.frame_16)
         self.spinBox_16.setObjectName(u"spinBox_16")
-        self.spinBox_16.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_16.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_16.setMinimum(-360)
         self.spinBox_16.setMaximum(360)
 
@@ -370,42 +371,42 @@ class Ui_UpPhoiWindow(object):
         self.label_17 = QLabel(self.frame_17)
         self.label_17.setObjectName(u"label_17")
         self.label_17.setMinimumSize(QSize(60, 0))
-        self.label_17.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_17.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_9.addWidget(self.label_17)
 
         self.spinBox_18 = QSpinBox(self.frame_17)
         self.spinBox_18.setObjectName(u"spinBox_18")
-        self.spinBox_18.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_18.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_18.setMaximum(9999999)
 
         self.horizontalLayout_9.addWidget(self.spinBox_18)
 
         self.label_26 = QLabel(self.frame_17)
         self.label_26.setObjectName(u"label_26")
-        self.label_26.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_26.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_9.addWidget(self.label_26)
 
         self.spinBox_17 = QSpinBox(self.frame_17)
         self.spinBox_17.setObjectName(u"spinBox_17")
-        self.spinBox_17.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_17.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_17.setMaximum(9999999)
 
         self.horizontalLayout_9.addWidget(self.spinBox_17)
 
         self.label_25 = QLabel(self.frame_17)
         self.label_25.setObjectName(u"label_25")
-        self.label_25.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_25.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_9.addWidget(self.label_25)
 
         self.spinBox_19 = QSpinBox(self.frame_17)
         self.spinBox_19.setObjectName(u"spinBox_19")
-        self.spinBox_19.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_19.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_19.setMinimum(-360)
         self.spinBox_19.setMaximum(360)
 
@@ -423,42 +424,42 @@ class Ui_UpPhoiWindow(object):
         self.label_18 = QLabel(self.frame_19)
         self.label_18.setObjectName(u"label_18")
         self.label_18.setMinimumSize(QSize(60, 0))
-        self.label_18.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_18.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_10.addWidget(self.label_18)
 
         self.spinBox_12 = QSpinBox(self.frame_19)
         self.spinBox_12.setObjectName(u"spinBox_12")
-        self.spinBox_12.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_12.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_12.setMaximum(9999999)
 
         self.horizontalLayout_10.addWidget(self.spinBox_12)
 
         self.label_22 = QLabel(self.frame_19)
         self.label_22.setObjectName(u"label_22")
-        self.label_22.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_22.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_10.addWidget(self.label_22)
 
         self.spinBox_11 = QSpinBox(self.frame_19)
         self.spinBox_11.setObjectName(u"spinBox_11")
-        self.spinBox_11.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_11.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_11.setMaximum(9999999)
 
         self.horizontalLayout_10.addWidget(self.spinBox_11)
 
         self.label_21 = QLabel(self.frame_19)
         self.label_21.setObjectName(u"label_21")
-        self.label_21.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_21.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_10.addWidget(self.label_21)
 
         self.spinBox_13 = QSpinBox(self.frame_19)
         self.spinBox_13.setObjectName(u"spinBox_13")
-        self.spinBox_13.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: #fff")
+        self.spinBox_13.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
         self.spinBox_13.setMinimum(-360)
         self.spinBox_13.setMaximum(360)
 
@@ -485,9 +486,7 @@ class Ui_UpPhoiWindow(object):
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setMinimumSize(QSize(400, 0))
         self.frame_3.setMaximumSize(QSize(700, 16777215))
-        self.frame_3.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"\n"
-"background-color: rgb(31, 31, 31);")
+        self.frame_3.setStyleSheet(u"")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.verticalLayout_9 = QVBoxLayout(self.frame_3)
@@ -499,6 +498,7 @@ class Ui_UpPhoiWindow(object):
 
         self.scrollArea = QScrollArea(self.frame_3)
         self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setFrameShape(QFrame.StyledPanel)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
@@ -517,7 +517,7 @@ class Ui_UpPhoiWindow(object):
         self.frame_20 = QFrame(self.frame_3)
         self.frame_20.setObjectName(u"frame_20")
         self.frame_20.setMaximumSize(QSize(16777215, 50))
-        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShape(QFrame.NoFrame)
         self.frame_20.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_11 = QHBoxLayout(self.frame_20)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
@@ -530,7 +530,8 @@ class Ui_UpPhoiWindow(object):
 
         self.pushButton = QPushButton(self.frame_20)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        self.pushButton.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
 
         self.horizontalLayout_11.addWidget(self.pushButton)
 
@@ -543,24 +544,24 @@ class Ui_UpPhoiWindow(object):
         self.frame_4 = QFrame(self.frame_2)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setMinimumSize(QSize(400, 0))
-        self.frame_4.setStyleSheet(u"\n"
-"background-color: rgb(31, 31, 31);")
+        self.frame_4.setStyleSheet(u"")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.verticalLayout_11 = QVBoxLayout(self.frame_4)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.label_2 = QLabel(self.frame_4)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_2.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.verticalLayout_11.addWidget(self.label_2)
 
         self.scrollArea_2 = QScrollArea(self.frame_4)
         self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setFrameShape(QFrame.StyledPanel)
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 686, 785))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 688, 778))
         self.verticalLayout_12 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.label_img = QLabel(self.scrollAreaWidgetContents_2)
@@ -574,16 +575,17 @@ class Ui_UpPhoiWindow(object):
 
         self.frame_21 = QFrame(self.frame_4)
         self.frame_21.setObjectName(u"frame_21")
+        self.frame_21.setMinimumSize(QSize(0, 50))
         self.frame_21.setMaximumSize(QSize(16777215, 50))
-        self.frame_21.setFrameShape(QFrame.StyledPanel)
+        self.frame_21.setFrameShape(QFrame.NoFrame)
         self.frame_21.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_12 = QHBoxLayout(self.frame_21)
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.btn_preview = QPushButton(self.frame_21)
         self.btn_preview.setObjectName(u"btn_preview")
         self.btn_preview.setMaximumSize(QSize(90, 16777215))
-        self.btn_preview.setStyleSheet(u"background-color: rgb(46, 52, 54);\n"
-"color: rgb(255, 255, 255);")
+        self.btn_preview.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
+"color: rgb(255,255,255);")
 
         self.horizontalLayout_12.addWidget(self.btn_preview)
 

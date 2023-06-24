@@ -19,7 +19,7 @@ class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
         self.isOn = False
-        self.setStyleSheet(u"background-color: rgb(46, 52, 54);")
+        self.setStyleSheet(u"background-color: #fffaeb;color: #000000;")
         
     def setTableWidget(self, tableWidget):
         self.tableWidget = tableWidget
@@ -90,16 +90,16 @@ class MainWindow(QMainWindow):
     def save_values(self):
             settings = QSettings(f"output/config.ini", QSettings.IniFormat)
             settings.beginGroup('section2')
-            settings.setValue("KeyOtp", self.ui.keyOtp.toPlainText())
-            settings.setValue("KeyCapcha",self.ui.keyCapcha.toPlainText())
+            settings.setValue("KeyOtp", self.ui.keyOtp.text())
+            settings.setValue("KeyCapcha",self.ui.keyCapcha.text())
             settings.sync()
             settings.endGroup()
             
     def get_values(self):
         settings = QSettings(f"output/config.ini", QSettings.IniFormat)
         settings.beginGroup('section2')
-        self.ui.keyCapcha.setPlainText(settings.value("KeyCapcha", ""))
-        self.ui.keyOtp.setPlainText(settings.value("KeyOtp", ""))
+        self.ui.keyCapcha.setText(settings.value("KeyCapcha", ""))
+        self.ui.keyOtp.setText(settings.value("KeyOtp", ""))
         settings.endGroup()
     def centerWindow(self):
         screen = QDesktopWidget().screenGeometry()
@@ -151,12 +151,12 @@ class MainWindow(QMainWindow):
             click_selected_account_action.triggered.connect(self.clickSelectedAccount)
             menu.addAction(click_selected_account_action)
 
-            menu.setStyleSheet("QMenu { background-color: rgb(46, 52, 54); }"
-                            "QMenu::item {   background-color: rgb(46, 52, 54); color: white; \
-                                                padding: 4px solid rgb(46, 52, 54);\
-                                                padding-left: 2px solid rgb(46, 52, 54);\
-                                                border: 1px solid rgb(46, 52, 54); }"
-                            "QMenu::item:selected { background-color: blue; }")
+            menu.setStyleSheet("QMenu { background-color: rgb(255, 255, 255); }"
+                            "QMenu::item {   background-color: #fffaeb; color: black; \
+                                                padding: 4px solid #fffaeb;\
+                                                padding-left: 2px solid #fffaeb;\
+                                                border: 1px solid #fffaeb; }"
+                            "QMenu::item:selected { background-color: blue; color: white; }")
 
             menu.exec_(event.globalPos())
             event.accept()
@@ -288,11 +288,19 @@ class Login(QMainWindow):
         self.ui.setupUi(self)
         self.setFixedSize(self.size())
         self.centerWindow()
+        
         pixmap = QPixmap("icons/icons8-male-user-94.png")
         pixmap = pixmap.scaled(200,200, Qt.AspectRatioMode.KeepAspectRatio, Qt.SmoothTransformation)
         self.ui.logo.setPixmap(pixmap)
         self.ui.logo.setAlignment(Qt.AlignCenter)
         self.ui.loginBtn.clicked.connect(self.openMainWindow)
+        self.ui.username.returnPressed.connect(self.keyPressEvent)
+        self.ui.password.returnPressed.connect(self.keyPressEvent)
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Return or  event.key() == Qt.Key_Enter:
+            self.openMainWindow()
+        else:
+            super().keyPressEvent(event)
     def centerWindow(self):
         screen = QDesktopWidget().screenGeometry()
         center_x = screen.width() // 2

@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #040f13;</string>
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="maximumSize">
@@ -59,6 +59,9 @@
            <height>16777215</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -69,7 +72,7 @@
           <item>
            <widget class="QFrame" name="frame_9">
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::NoFrame</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
@@ -84,7 +87,7 @@
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);</string>
+                <string notr="true">color: rgb(0, 0, 0);</string>
                </property>
                <property name="text">
                 <string>Thiết lập ảnh phôi</string>
@@ -112,7 +115,7 @@
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>Kích thước ảnh 1</string>
@@ -131,15 +134,15 @@
                    <item>
                     <widget class="QSpinBox" name="spinBox">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                      <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                      </property>
                      <property name="maximum">
                       <number>99999999</number>
                      </property>
                     </widget>
                    </item>
-                   <item>
+                   <item alignment="Qt::AlignHCenter">
                     <widget class="QLabel" name="label_9">
                      <property name="maximumSize">
                       <size>
@@ -148,7 +151,7 @@ color: #fff</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(255, 255, 255);</string>
+                      <string notr="true">color: rgb(0, 0, 0);</string>
                      </property>
                      <property name="text">
                       <string>X</string>
@@ -158,8 +161,8 @@ color: #fff</string>
                    <item>
                     <widget class="QSpinBox" name="spinBox_2">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                      <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                      </property>
                      <property name="maximum">
                       <number>999999</number>
@@ -193,7 +196,7 @@ color: #fff</string>
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>Vị trí đặt vào phôi</string>
@@ -212,18 +215,18 @@ color: #fff</string>
                    <item>
                     <widget class="QSpinBox" name="spinBox_3">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                      <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                      </property>
                      <property name="maximum">
                       <number>999999</number>
                      </property>
                     </widget>
                    </item>
-                   <item>
+                   <item alignment="Qt::AlignHCenter">
                     <widget class="QLabel" name="label_10">
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(255, 255, 255);</string>
+                      <string notr="true">color: rgb(0, 0, 0);</string>
                      </property>
                      <property name="text">
                       <string>X</string>
@@ -233,18 +236,18 @@ color: #fff</string>
                    <item>
                     <widget class="QSpinBox" name="spinBox_4">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                      <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                      </property>
                      <property name="maximum">
                       <number>999999</number>
                      </property>
                     </widget>
                    </item>
-                   <item>
+                   <item alignment="Qt::AlignHCenter">
                     <widget class="QLabel" name="label_11">
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(255, 255, 255);</string>
+                      <string notr="true">color: rgb(0, 0, 0);</string>
                      </property>
                      <property name="text">
                       <string>X</string>
@@ -254,8 +257,8 @@ color: #fff</string>
                    <item>
                     <widget class="QSpinBox" name="spinBox_5">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                      <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                      </property>
                      <property name="minimum">
                       <number>-360</number>
@@ -277,7 +280,7 @@ color: #fff</string>
           <item>
            <widget class="QFrame" name="frame_7">
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::NoFrame</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
@@ -304,7 +307,7 @@ color: #fff</string>
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>Thiết lập</string>
@@ -332,7 +335,7 @@ color: #fff</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(255, 255, 255);</string>
+                      <string notr="true">color: rgb(0, 0, 0);</string>
                      </property>
                      <property name="text">
                       <string>Kích cỡ chữ</string>
@@ -342,8 +345,8 @@ color: #fff</string>
                    <item>
                     <widget class="QComboBox" name="comboBox_2">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-color: rgb(255, 255, 255);</string>
+                      <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                      </property>
                     </widget>
                    </item>
@@ -365,7 +368,7 @@ color: rgb(255, 255, 255);</string>
                    <item>
                     <widget class="QLabel" name="label_33">
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(255, 255, 255);</string>
+                      <string notr="true">color: rgb(0, 0, 0);</string>
                      </property>
                      <property name="text">
                       <string>Kiểu chữ</string>
@@ -375,8 +378,8 @@ color: rgb(255, 255, 255);</string>
                    <item>
                     <widget class="QComboBox" name="comboBox_3">
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-color: rgb(255, 255, 255);</string>
+                      <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                      </property>
                     </widget>
                    </item>
@@ -392,7 +395,7 @@ color: rgb(255, 255, 255);</string>
           <item>
            <widget class="QFrame" name="frame_6">
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::NoFrame</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
@@ -407,7 +410,7 @@ color: rgb(255, 255, 255);</string>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);</string>
+                <string notr="true">color: rgb(0, 0, 0);</string>
                </property>
                <property name="text">
                 <string>Vị trí[CHIỀU NGANG X CHIỀU DỌC X XOAY CHIỀU]</string>
@@ -432,7 +435,7 @@ color: rgb(255, 255, 255);</string>
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>Tên</string>
@@ -442,8 +445,8 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_23">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -453,7 +456,7 @@ color: #fff</string>
                 <item>
                  <widget class="QLabel" name="label_29">
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>X</string>
@@ -463,18 +466,18 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_25">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
                   </property>
                  </widget>
                 </item>
-                <item>
+                <item alignment="Qt::AlignHCenter">
                  <widget class="QLabel" name="label_30">
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>X</string>
@@ -484,8 +487,8 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_24">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="minimum">
                    <number>-360</number>
@@ -519,7 +522,7 @@ color: #fff</string>
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>Họ </string>
@@ -529,18 +532,18 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_15">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
                   </property>
                  </widget>
                 </item>
-                <item>
+                <item alignment="Qt::AlignHCenter">
                  <widget class="QLabel" name="label_24">
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>X</string>
@@ -550,18 +553,18 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_14">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
                   </property>
                  </widget>
                 </item>
-                <item>
+                <item alignment="Qt::AlignHCenter">
                  <widget class="QLabel" name="label_23">
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>X</string>
@@ -571,8 +574,8 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_16">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="minimum">
                    <number>-360</number>
@@ -606,7 +609,7 @@ color: #fff</string>
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>Ngày sinh</string>
@@ -616,8 +619,8 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_18">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -627,7 +630,7 @@ color: #fff</string>
                 <item>
                  <widget class="QLabel" name="label_26">
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>X</string>
@@ -637,8 +640,8 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_17">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -648,7 +651,7 @@ color: #fff</string>
                 <item>
                  <widget class="QLabel" name="label_25">
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>X</string>
@@ -658,8 +661,8 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_19">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="minimum">
                    <number>-360</number>
@@ -690,7 +693,7 @@ color: #fff</string>
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>Code</string>
@@ -700,8 +703,8 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_12">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -711,7 +714,7 @@ color: #fff</string>
                 <item>
                  <widget class="QLabel" name="label_22">
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>X</string>
@@ -721,8 +724,8 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_11">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="maximum">
                    <number>9999999</number>
@@ -732,7 +735,7 @@ color: #fff</string>
                 <item>
                  <widget class="QLabel" name="label_21">
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(255, 255, 255);</string>
+                   <string notr="true">color: rgb(0, 0, 0);</string>
                   </property>
                   <property name="text">
                    <string>X</string>
@@ -742,8 +745,8 @@ color: #fff</string>
                 <item>
                  <widget class="QSpinBox" name="spinBox_13">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: #fff</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="minimum">
                    <number>-360</number>
@@ -798,9 +801,7 @@ color: #fff</string>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-
-background-color: rgb(31, 31, 31);</string>
+             <string notr="true"/>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -818,6 +819,9 @@ background-color: rgb(31, 31, 31);</string>
              </item>
              <item>
               <widget class="QScrollArea" name="scrollArea">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
                <property name="widgetResizable">
                 <bool>true</bool>
                </property>
@@ -851,7 +855,7 @@ background-color: rgb(31, 31, 31);</string>
                 </size>
                </property>
                <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
+                <enum>QFrame::NoFrame</enum>
                </property>
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
@@ -868,7 +872,8 @@ color: rgb(0, 0, 0);</string>
                 <item>
                  <widget class="QPushButton" name="pushButton">
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="text">
                    <string>Browse</string>
@@ -890,8 +895,7 @@ color: rgb(0, 0, 0);</string>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">
-background-color: rgb(31, 31, 31);</string>
+             <string notr="true"/>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -903,7 +907,7 @@ background-color: rgb(31, 31, 31);</string>
              <item>
               <widget class="QLabel" name="label_2">
                <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);</string>
+                <string notr="true">color: rgb(0, 0, 0);</string>
                </property>
                <property name="text">
                 <string>Phôi chỉnh sửa</string>
@@ -912,6 +916,9 @@ background-color: rgb(31, 31, 31);</string>
              </item>
              <item>
               <widget class="QScrollArea" name="scrollArea_2">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
                <property name="widgetResizable">
                 <bool>true</bool>
                </property>
@@ -920,8 +927,8 @@ background-color: rgb(31, 31, 31);</string>
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>686</width>
-                  <height>785</height>
+                  <width>688</width>
+                  <height>778</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -938,6 +945,12 @@ background-color: rgb(31, 31, 31);</string>
              </item>
              <item>
               <widget class="QFrame" name="frame_21">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
                <property name="maximumSize">
                 <size>
                  <width>16777215</width>
@@ -945,7 +958,7 @@ background-color: rgb(31, 31, 31);</string>
                 </size>
                </property>
                <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
+                <enum>QFrame::NoFrame</enum>
                </property>
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
@@ -960,8 +973,8 @@ background-color: rgb(31, 31, 31);</string>
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(46, 52, 54);
-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(75, 114, 255);
+color: rgb(255,255,255);</string>
                   </property>
                   <property name="text">
                    <string>Preview</string>

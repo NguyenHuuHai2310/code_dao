@@ -23,29 +23,32 @@
 	color: #ffffff;
 }
 #centralwidget{
-	background-color: #040f13;
+	background-color: #ffffff;
 }
 #header{
-background-color: #040f13;
+background-color: #ffffff;
+	color: rgb(255, 250, 235);
 }
 #side_menu{
-	background-color: #071e26;
+	background-color: #fffaeb;
 	border-radius: 20px;
 }
 QPushButton{
 	padding: 10px;
-	background-color: #040f13;
+	background-color: #fffaeb;
 	border-radius: 5px;
+color: rgb(0,0,0);
 
 }
 QComboBox{
 	padding: 10px;
-	background-color: #040f13;
+	background-color: #ffffff;
 	border-radius: 5px;
+	color: rgb(0,0,0);
 
 }
 #main_body{
-	background-color: #071e26;
+	background-color: #fffaeb;
 	border-radius: 10px;
 }
 #pushButton_view{
@@ -117,22 +120,7 @@ QComboBox{
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <property name="spacing">
-        <number>6</number>
-       </property>
-       <property name="leftMargin">
-        <number>9</number>
-       </property>
-       <property name="topMargin">
-        <number>9</number>
-       </property>
-       <property name="rightMargin">
-        <number>9</number>
-       </property>
-       <property name="bottomMargin">
-        <number>9</number>
-       </property>
-       <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+       <item alignment="Qt::AlignLeft">
         <widget class="QFrame" name="frame_3">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -160,18 +148,18 @@ QComboBox{
            <widget class="QPushButton" name="menuButton">
             <property name="minimumSize">
              <size>
-              <width>0</width>
+              <width>210</width>
               <height>30</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>210</width>
               <height>50</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
+             <string notr="true">color: rgb(0, 0, 0);
 font: 75 15pt &quot;Ubuntu Condensed&quot;;</string>
             </property>
             <property name="text">
@@ -196,37 +184,19 @@ font: 75 15pt &quot;Ubuntu Condensed&quot;;</string>
            <height>0</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label">
-          <property name="geometry">
-           <rect>
-            <x>210</x>
-            <y>10</y>
-            <width>71</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>15</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
          <widget class="QLabel" name="label_2">
           <property name="geometry">
            <rect>
-            <x>360</x>
+            <x>450</x>
             <y>10</y>
             <width>121</width>
             <height>21</height>
@@ -352,13 +322,15 @@ font: 75 15pt &quot;Ubuntu Condensed&quot;;</string>
                       <string notr="true">QToolBox{
 icon-size: 32px;
 border-top:5px;
-background-color: #071e26;
+background-color: #fffaeb;
 border-top:15px;
+color: #000000;
 }
 QToolBox::tab{
 icon-size: 32px;
 border-top:15px;
-background-color: #040f13;
+background-color: #ffffff;
+color: #000000;
 }</string>
                      </property>
                      <property name="currentIndex">
@@ -386,8 +358,8 @@ background-color: #040f13;
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>117</width>
-                        <height>40</height>
+                        <width>200</width>
+                        <height>68</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -419,7 +391,8 @@ background-color: #040f13;
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">text-align: left;</string>
+                          <string notr="true">text-align: left;
+background-color: rgb(255, 255, 255);</string>
                          </property>
                          <property name="text">
                           <string>Gửi XMDT</string>
@@ -443,8 +416,8 @@ background-color: #040f13;
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>200</width>
+                        <height>68</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -460,8 +433,8 @@ background-color: #040f13;
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>200</width>
+                        <height>68</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -492,7 +465,8 @@ background-color: #040f13;
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">background-color: #fffaeb;
+color: #000000;</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -540,11 +514,11 @@ background-color: #040f13;
                 <item>
                  <widget class="QStackedWidget" name="stackedWidget">
                   <property name="styleSheet">
-                   <string notr="true">
-background-color: rgb(4, 15, 19);</string>
+                   <string notr="true">background-color: #fffaeb;
+color: #000000;</string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="page_view">
                    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -561,6 +535,9 @@ background-color: rgb(4, 15, 19);</string>
                         <width>16777215</width>
                         <height>16777215</height>
                        </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(255, 255, 255);</string>
                       </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
@@ -585,7 +562,7 @@ background-color: rgb(4, 15, 19);</string>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background-color: rgb(85, 0, 255);
-
+color: rgb(255, 255, 255);
 </string>
                        </property>
                        <property name="text">
@@ -619,6 +596,7 @@ background-color: rgb(4, 15, 19);</string>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background-color: rgb(255, 99, 102);
+color: rgb(255, 255, 255);
 </string>
                        </property>
                        <property name="text">
@@ -692,6 +670,9 @@ background-color: rgb(4, 15, 19);</string>
                          <width>130</width>
                          <height>62</height>
                         </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(0, 0, 0);</string>
                        </property>
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
@@ -772,7 +753,9 @@ background-color: rgb(4, 15, 19);</string>
                         </size>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(46, 52, 54);</string>
+                        <string notr="true">
+background-color: rgb(164, 203, 255);
+color: rgb(0, 0, 0);</string>
                        </property>
                        <property name="maximum">
                         <number>999</number>
@@ -809,7 +792,9 @@ background-color: rgb(4, 15, 19);</string>
                         </size>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(46, 52, 54);</string>
+                        <string notr="true">color:rgb(0,0,0);
+background-color: rgb(164, 203, 255);
+</string>
                        </property>
                        <property name="maximum">
                         <number>999999999</number>
@@ -850,6 +835,9 @@ background-color: rgb(4, 15, 19);</string>
                          <height>62</height>
                         </rect>
                        </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(0, 0, 0);</string>
+                       </property>
                        <property name="text">
                         <string>62</string>
                        </property>
@@ -886,6 +874,9 @@ background-color: rgb(4, 15, 19);</string>
                          <height>62</height>
                         </rect>
                        </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(0, 0, 0);</string>
+                       </property>
                        <property name="text">
                         <string>2</string>
                        </property>
@@ -893,7 +884,7 @@ background-color: rgb(4, 15, 19);</string>
                       <widget class="QTableWidget" name="tableWidget">
                        <property name="geometry">
                         <rect>
-                         <x>0</x>
+                         <x>10</x>
                          <y>170</y>
                          <width>934</width>
                          <height>421</height>
@@ -912,10 +903,12 @@ background-color: rgb(4, 15, 19);</string>
                         </size>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(46, 52, 54);</string>
+                        <string notr="true">background-color: #fffaeb;
+color: rgb(0, 0, 0);
+border-color: rgb(0, 0, 0);</string>
                        </property>
                        <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
+                        <enum>QFrame::Box</enum>
                        </property>
                        <property name="frameShadow">
                         <enum>QFrame::Sunken</enum>
@@ -1040,150 +1033,147 @@ background-color: rgb(4, 15, 19);</string>
                    </layout>
                   </widget>
                   <widget class="QWidget" name="page_config">
-                   <widget class="QFrame" name="frame_7">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>30</y>
-                      <width>901</width>
-                      <height>531</height>
-                     </rect>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(4, 15, 19);</string>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <widget class="QComboBox" name="comboBox_20">
-                     <property name="geometry">
-                      <rect>
-                       <x>492</x>
-                       <y>16</y>
-                       <width>401</width>
-                       <height>40</height>
-                      </rect>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
-                     </property>
-                     <item>
-                      <property name="text">
-                       <string>https://mbasic.facebook.com/</string>
+                   <layout class="QVBoxLayout" name="verticalLayout_9">
+                    <item>
+                     <widget class="QFrame" name="frame_7">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0,0,0);</string>
                       </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>https://m.facebook.com/</string>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
                       </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>https://www.facebook.com/</string>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
                       </property>
-                     </item>
-                    </widget>
-                    <widget class="QLabel" name="label_24">
-                     <property name="geometry">
-                      <rect>
-                       <x>420</x>
-                       <y>10</y>
-                       <width>50</width>
-                       <height>53</height>
-                      </rect>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>40</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>50</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Login</string>
-                     </property>
-                    </widget>
-                    <widget class="QComboBox" name="comboBox_19">
-                     <property name="geometry">
-                      <rect>
-                       <x>36</x>
-                       <y>16</y>
-                       <width>350</width>
-                       <height>40</height>
-                      </rect>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>350</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>350</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
-                     </property>
-                     <item>
-                      <property name="text">
-                       <string>None</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>Proxy-Shoplike</string>
-                      </property>
-                     </item>
-                    </widget>
-                    <widget class="QLabel" name="label_23">
-                     <property name="geometry">
-                      <rect>
-                       <x>10</x>
-                       <y>10</y>
-                       <width>20</width>
-                       <height>53</height>
-                      </rect>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>20</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>20</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>IP:</string>
-                     </property>
-                    </widget>
-                   </widget>
+                      <widget class="QComboBox" name="comboBox_20">
+                       <property name="geometry">
+                        <rect>
+                         <x>492</x>
+                         <y>16</y>
+                         <width>401</width>
+                         <height>40</height>
+                        </rect>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: #fffaeb;</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>https://mbasic.facebook.com/</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>https://m.facebook.com/</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>https://www.facebook.com/</string>
+                        </property>
+                       </item>
+                      </widget>
+                      <widget class="QLabel" name="label_24">
+                       <property name="geometry">
+                        <rect>
+                         <x>420</x>
+                         <y>10</y>
+                         <width>50</width>
+                         <height>53</height>
+                        </rect>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>40</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>50</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>Login</string>
+                       </property>
+                      </widget>
+                      <widget class="QComboBox" name="comboBox_19">
+                       <property name="geometry">
+                        <rect>
+                         <x>36</x>
+                         <y>16</y>
+                         <width>350</width>
+                         <height>40</height>
+                        </rect>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>350</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>350</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: #fffaeb;</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>None</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Proxy-Shoplike</string>
+                        </property>
+                       </item>
+                      </widget>
+                      <widget class="QLabel" name="label_23">
+                       <property name="geometry">
+                        <rect>
+                         <x>10</x>
+                         <y>10</y>
+                         <width>20</width>
+                         <height>53</height>
+                        </rect>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>20</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>20</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>IP:</string>
+                       </property>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                   <widget class="QWidget" name="page_function">
                    <property name="styleSheet">
@@ -1192,10 +1182,10 @@ background-color: rgb(4, 15, 19);</string>
                    <widget class="QFrame" name="frame_6">
                     <property name="geometry">
                      <rect>
-                      <x>0</x>
-                      <y>30</y>
-                      <width>921</width>
-                      <height>531</height>
+                      <x>-1</x>
+                      <y>-1</y>
+                      <width>961</width>
+                      <height>591</height>
                      </rect>
                     </property>
                     <property name="minimumSize">
@@ -1211,8 +1201,8 @@ background-color: rgb(4, 15, 19);</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">
-color: rgb(255, 255, 255);
+                     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 </string>
                     </property>
                     <property name="frameShape">
@@ -1288,8 +1278,8 @@ color: rgb(255, 255, 255);
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-</string>
+                      <string notr="true">background-color: #fffaeb;
+color: #000000;</string>
                      </property>
                      <item>
                       <property name="text">
@@ -1330,8 +1320,8 @@ color: rgb(255, 255, 255);
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-</string>
+                      <string notr="true">background-color: #fffaeb;
+color: #000000;</string>
                      </property>
                      <item>
                       <property name="text">
@@ -1380,8 +1370,8 @@ color: rgb(255, 255, 255);
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
-</string>
+                      <string notr="true">background-color: #fffaeb;
+color: #000000;</string>
                      </property>
                      <item>
                       <property name="text">
@@ -1456,7 +1446,8 @@ color: rgb(255, 255, 255);
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);
+                      <string notr="true">background-color: #fffaeb;
+color: #000000;
 </string>
                      </property>
                      <item>
@@ -1507,7 +1498,8 @@ color: rgb(255, 255, 255);
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
+                      <string notr="true">background-color: #fffaeb;
+color: #000000;</string>
                      </property>
                      <item>
                       <property name="text">
@@ -1568,8 +1560,8 @@ color: rgb(255, 255, 255);
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">
-background-color: rgb(46, 52, 54);
+                      <string notr="true">background-color: #fffaeb;
+color: #000000;
 </string>
                      </property>
                      <item>
@@ -1600,7 +1592,8 @@ background-color: rgb(46, 52, 54);
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
+                      <string notr="true">background-color: #fffaeb;
+color: #000000;</string>
                      </property>
                      <item>
                       <property name="text">
@@ -1657,7 +1650,7 @@ background-color: rgb(46, 52, 54);
                       </item>
                      </layout>
                     </widget>
-                    <widget class="QPlainTextEdit" name="keyCapcha">
+                    <widget class="QLineEdit" name="keyCapcha">
                      <property name="geometry">
                       <rect>
                        <x>430</x>
@@ -1666,29 +1659,24 @@ background-color: rgb(46, 52, 54);
                        <height>40</height>
                       </rect>
                      </property>
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
-                       <height>0</height>
+                       <height>40</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>40</height>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
-                     </property>
-                     <property name="verticalScrollBarPolicy">
-                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                     </property>
-                     <property name="lineWrapMode">
-                      <enum>QPlainTextEdit::WidgetWidth</enum>
+                      <string notr="true">background-color: #fffaeb;
+color: #000000;</string>
                      </property>
                     </widget>
-                    <widget class="QPlainTextEdit" name="keyOtp">
+                    <widget class="QLineEdit" name="keyOtp">
                      <property name="geometry">
                       <rect>
                        <x>110</x>
@@ -1697,59 +1685,44 @@ background-color: rgb(46, 52, 54);
                        <height>40</height>
                       </rect>
                      </property>
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>1</verstretch>
-                      </sizepolicy>
-                     </property>
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
                        <height>40</height>
                       </size>
                      </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>40</height>
+                      </size>
+                     </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(46, 52, 54);</string>
-                     </property>
-                     <property name="verticalScrollBarPolicy">
-                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                     </property>
-                     <property name="horizontalScrollBarPolicy">
-                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                     </property>
-                     <property name="sizeAdjustPolicy">
-                      <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
-                     </property>
-                     <property name="lineWrapMode">
-                      <enum>QPlainTextEdit::NoWrap</enum>
+                      <string notr="true">background-color: #fffaeb;
+color: #000000;</string>
                      </property>
                     </widget>
                    </widget>
                   </widget>
                   <widget class="QWidget" name="page_contact">
-                   <widget class="QFrame" name="frame_8">
-                    <property name="geometry">
-                     <rect>
-                      <x>20</x>
-                      <y>40</y>
-                      <width>891</width>
-                      <height>521</height>
-                     </rect>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(4, 15, 19);
+                   <layout class="QVBoxLayout" name="verticalLayout_8">
+                    <item>
+                     <widget class="QFrame" name="frame_8">
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
 </string>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_7"/>
-                   </widget>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_7"/>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </widget>
                 </item>
