@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowUxbYUm.ui'
+## Form generated from reading UI file 'upPhoiWindowTpDvVL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -75,8 +75,8 @@ class Ui_UpPhoiWindow(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.spinBox = QSpinBox(self.frame_12)
         self.spinBox.setObjectName(u"spinBox")
-        self.spinBox.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox.setMaximum(99999999)
 
         self.horizontalLayout_3.addWidget(self.spinBox)
@@ -90,8 +90,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_2 = QSpinBox(self.frame_12)
         self.spinBox_2.setObjectName(u"spinBox_2")
-        self.spinBox_2.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_2.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_2.setMaximum(999999)
 
         self.horizontalLayout_3.addWidget(self.spinBox_2)
@@ -124,8 +124,8 @@ class Ui_UpPhoiWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.spinBox_3 = QSpinBox(self.frame_13)
         self.spinBox_3.setObjectName(u"spinBox_3")
-        self.spinBox_3.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_3.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_3.setMaximum(999999)
 
         self.horizontalLayout_4.addWidget(self.spinBox_3)
@@ -138,8 +138,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_4 = QSpinBox(self.frame_13)
         self.spinBox_4.setObjectName(u"spinBox_4")
-        self.spinBox_4.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_4.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_4.setMaximum(999999)
 
         self.horizontalLayout_4.addWidget(self.spinBox_4)
@@ -152,8 +152,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_5 = QSpinBox(self.frame_13)
         self.spinBox_5.setObjectName(u"spinBox_5")
-        self.spinBox_5.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_5.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_5.setMinimum(-360)
         self.spinBox_5.setMaximum(360)
 
@@ -204,8 +204,8 @@ class Ui_UpPhoiWindow(object):
 
         self.comboBox_2 = QComboBox(self.frame_14)
         self.comboBox_2.setObjectName(u"comboBox_2")
-        self.comboBox_2.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.comboBox_2.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
 
         self.horizontalLayout_5.addWidget(self.comboBox_2)
 
@@ -227,8 +227,8 @@ class Ui_UpPhoiWindow(object):
 
         self.comboBox_3 = QComboBox(self.frame_15)
         self.comboBox_3.setObjectName(u"comboBox_3")
-        self.comboBox_3.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.comboBox_3.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
 
         self.horizontalLayout_6.addWidget(self.comboBox_3)
 
@@ -269,8 +269,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_23 = QSpinBox(self.frame_18)
         self.spinBox_23.setObjectName(u"spinBox_23")
-        self.spinBox_23.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_23.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_23.setMaximum(9999999)
 
         self.horizontalLayout_7.addWidget(self.spinBox_23)
@@ -283,8 +283,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_25 = QSpinBox(self.frame_18)
         self.spinBox_25.setObjectName(u"spinBox_25")
-        self.spinBox_25.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_25.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_25.setMaximum(9999999)
 
         self.horizontalLayout_7.addWidget(self.spinBox_25)
@@ -297,8 +297,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_24 = QSpinBox(self.frame_18)
         self.spinBox_24.setObjectName(u"spinBox_24")
-        self.spinBox_24.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_24.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_24.setMinimum(-360)
         self.spinBox_24.setMaximum(360)
 
@@ -323,8 +323,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_15 = QSpinBox(self.frame_16)
         self.spinBox_15.setObjectName(u"spinBox_15")
-        self.spinBox_15.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_15.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_15.setMaximum(9999999)
 
         self.horizontalLayout_8.addWidget(self.spinBox_15)
@@ -337,8 +337,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_14 = QSpinBox(self.frame_16)
         self.spinBox_14.setObjectName(u"spinBox_14")
-        self.spinBox_14.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_14.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_14.setMaximum(9999999)
 
         self.horizontalLayout_8.addWidget(self.spinBox_14)
@@ -351,8 +351,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_16 = QSpinBox(self.frame_16)
         self.spinBox_16.setObjectName(u"spinBox_16")
-        self.spinBox_16.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_16.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_16.setMinimum(-360)
         self.spinBox_16.setMaximum(360)
 
@@ -377,8 +377,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_18 = QSpinBox(self.frame_17)
         self.spinBox_18.setObjectName(u"spinBox_18")
-        self.spinBox_18.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_18.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_18.setMaximum(9999999)
 
         self.horizontalLayout_9.addWidget(self.spinBox_18)
@@ -391,8 +391,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_17 = QSpinBox(self.frame_17)
         self.spinBox_17.setObjectName(u"spinBox_17")
-        self.spinBox_17.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_17.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_17.setMaximum(9999999)
 
         self.horizontalLayout_9.addWidget(self.spinBox_17)
@@ -405,8 +405,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_19 = QSpinBox(self.frame_17)
         self.spinBox_19.setObjectName(u"spinBox_19")
-        self.spinBox_19.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_19.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_19.setMinimum(-360)
         self.spinBox_19.setMaximum(360)
 
@@ -430,8 +430,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_12 = QSpinBox(self.frame_19)
         self.spinBox_12.setObjectName(u"spinBox_12")
-        self.spinBox_12.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_12.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_12.setMaximum(9999999)
 
         self.horizontalLayout_10.addWidget(self.spinBox_12)
@@ -444,8 +444,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_11 = QSpinBox(self.frame_19)
         self.spinBox_11.setObjectName(u"spinBox_11")
-        self.spinBox_11.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_11.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_11.setMaximum(9999999)
 
         self.horizontalLayout_10.addWidget(self.spinBox_11)
@@ -458,8 +458,8 @@ class Ui_UpPhoiWindow(object):
 
         self.spinBox_13 = QSpinBox(self.frame_19)
         self.spinBox_13.setObjectName(u"spinBox_13")
-        self.spinBox_13.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.spinBox_13.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
         self.spinBox_13.setMinimum(-360)
         self.spinBox_13.setMaximum(360)
 
@@ -530,8 +530,8 @@ class Ui_UpPhoiWindow(object):
 
         self.pushButton = QPushButton(self.frame_20)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.pushButton.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
 
         self.horizontalLayout_11.addWidget(self.pushButton)
 
@@ -584,8 +584,8 @@ class Ui_UpPhoiWindow(object):
         self.btn_preview = QPushButton(self.frame_21)
         self.btn_preview.setObjectName(u"btn_preview")
         self.btn_preview.setMaximumSize(QSize(90, 16777215))
-        self.btn_preview.setStyleSheet(u"background-color: rgb(75, 114, 255);\n"
-"color: rgb(255,255,255);")
+        self.btn_preview.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
 
         self.horizontalLayout_12.addWidget(self.btn_preview)
 

@@ -215,7 +215,9 @@ class MainWindow(QMainWindow):
         pass
     def start_generation(self):
         self.ui.start_button.setEnabled(False)
+        self.ui.start_button.setStyleSheet("QPushButton {background-color: #c6c7c1;}")
         self.ui.stop_button.setEnabled(True)
+        self.ui.stop_button.setStyleSheet("QPushButton {background-color: rgb(255, 99, 102);}")
         self.clearRow()
         self.num_threads = self.ui.num_threads.value()
         self.delay_time = self.ui.delay_time.value()
@@ -265,7 +267,9 @@ class MainWindow(QMainWindow):
 
     def finish_generation(self):
         self.ui.stop_button.setEnabled(False)
+        self.ui.stop_button.setStyleSheet("QPushButton {background-color: #c6c7c1; }")
         self.ui.start_button.setEnabled(True)
+        self.ui.start_button.setStyleSheet("QPushButton {background-color: rgba(85, 0, 255, 240);}")
         self.current_thread_index = 0
 
         for generator_thread in self.generator_threads:
