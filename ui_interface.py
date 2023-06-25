@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacevAogct.ui'
+## Form generated from reading UI file 'interfacefRPdxI.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -102,7 +102,7 @@ class Ui_MainWindow(object):
         self.menuButton.setObjectName(u"menuButton")
         self.menuButton.setMinimumSize(QSize(210, 30))
         self.menuButton.setMaximumSize(QSize(210, 50))
-        self.menuButton.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.menuButton.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);\n"
 "font: 75 15pt \"Ubuntu Condensed\";")
         self.menuButton.setIconSize(QSize(32, 32))
@@ -135,7 +135,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.main_body = QFrame(self.frame_2)
         self.main_body.setObjectName(u"main_body")
-        self.main_body.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.main_body.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.main_body.setFrameShape(QFrame.StyledPanel)
         self.main_body.setFrameShadow(QFrame.Raised)
@@ -173,7 +173,7 @@ class Ui_MainWindow(object):
         self.toolBox_3.setStyleSheet(u"QToolBox{\n"
 "icon-size: 32px;\n"
 "border-top:5px;\n"
-"background-color: #d6d5d1;\n"
+"background-color: #edeef0;\n"
 "border-top:15px;\n"
 "color: #000000;\n"
 "}\n"
@@ -268,7 +268,8 @@ class Ui_MainWindow(object):
         self.frame_11.setObjectName(u"frame_11")
         self.frame_11.setMinimumSize(QSize(0, 200))
         self.frame_11.setMaximumSize(QSize(16777215, 16777215))
-        self.frame_11.setStyleSheet(u"background-color: #d6d5d1;")
+        self.frame_11.setStyleSheet(u"background-color: #edeef0;\n"
+"")
         self.frame_11.setFrameShape(QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QFrame.Raised)
         self.start_button = QPushButton(self.frame_11)
@@ -451,7 +452,7 @@ class Ui_MainWindow(object):
         self.comboBox_20.setGeometry(QRect(492, 16, 401, 40))
         self.comboBox_20.setMinimumSize(QSize(0, 40))
         self.comboBox_20.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_20.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_20.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.label_24 = QLabel(self.frame_7)
         self.label_24.setObjectName(u"label_24")
@@ -465,7 +466,7 @@ class Ui_MainWindow(object):
         self.comboBox_19.setGeometry(QRect(36, 16, 350, 40))
         self.comboBox_19.setMinimumSize(QSize(350, 40))
         self.comboBox_19.setMaximumSize(QSize(350, 40))
-        self.comboBox_19.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_19.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.label_23 = QLabel(self.frame_7)
         self.label_23.setObjectName(u"label_23")
@@ -506,7 +507,7 @@ class Ui_MainWindow(object):
         self.comboBox_8.setMinimumSize(QSize(0, 40))
         self.comboBox_8.setMaximumSize(QSize(16777215, 40))
         self.comboBox_8.setSizeIncrement(QSize(0, 0))
-        self.comboBox_8.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_8.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.comboBox_9 = QComboBox(self.frame_6)
         self.comboBox_9.addItem("")
@@ -515,7 +516,7 @@ class Ui_MainWindow(object):
         self.comboBox_9.setMinimumSize(QSize(0, 40))
         self.comboBox_9.setMaximumSize(QSize(16777215, 40))
         self.comboBox_9.setSizeIncrement(QSize(0, 0))
-        self.comboBox_9.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_9.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.label_15 = QLabel(self.frame_6)
         self.label_15.setObjectName(u"label_15")
@@ -527,7 +528,7 @@ class Ui_MainWindow(object):
         self.comboBox_15.setMinimumSize(QSize(0, 40))
         self.comboBox_15.setMaximumSize(QSize(16777215, 40))
         self.comboBox_15.setSizeIncrement(QSize(30, 0))
-        self.comboBox_15.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_15.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.label_16 = QLabel(self.frame_6)
         self.label_16.setObjectName(u"label_16")
@@ -549,7 +550,7 @@ class Ui_MainWindow(object):
         self.comboBox_16.setMinimumSize(QSize(0, 40))
         self.comboBox_16.setMaximumSize(QSize(16777215, 40))
         self.comboBox_16.setSizeIncrement(QSize(0, 0))
-        self.comboBox_16.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_16.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.comboBox_11 = QComboBox(self.frame_6)
         self.comboBox_11.addItem("")
@@ -558,7 +559,7 @@ class Ui_MainWindow(object):
         self.comboBox_11.setGeometry(QRect(110, 120, 791, 40))
         self.comboBox_11.setMinimumSize(QSize(0, 40))
         self.comboBox_11.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_11.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_11.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.label_21 = QLabel(self.frame_6)
         self.label_21.setObjectName(u"label_21")
@@ -572,7 +573,7 @@ class Ui_MainWindow(object):
         self.comboBox_7.setGeometry(QRect(110, 20, 791, 40))
         self.comboBox_7.setMinimumSize(QSize(0, 40))
         self.comboBox_7.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_7.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_7.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);\n"
 "")
         self.comboBox_12 = QComboBox(self.frame_6)
@@ -582,7 +583,7 @@ class Ui_MainWindow(object):
         self.comboBox_12.setGeometry(QRect(110, 70, 791, 40))
         self.comboBox_12.setMinimumSize(QSize(0, 40))
         self.comboBox_12.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_12.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_12.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.label_5 = QLabel(self.frame_6)
         self.label_5.setObjectName(u"label_5")
@@ -606,14 +607,14 @@ class Ui_MainWindow(object):
         self.keyCapcha.setGeometry(QRect(430, 220, 471, 40))
         self.keyCapcha.setMinimumSize(QSize(0, 40))
         self.keyCapcha.setMaximumSize(QSize(16777215, 40))
-        self.keyCapcha.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.keyCapcha.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.keyOtp = QLineEdit(self.frame_6)
         self.keyOtp.setObjectName(u"keyOtp")
         self.keyOtp.setGeometry(QRect(110, 370, 791, 40))
         self.keyOtp.setMinimumSize(QSize(0, 40))
         self.keyOtp.setMaximumSize(QSize(16777215, 40))
-        self.keyOtp.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.keyOtp.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
         self.stackedWidget.addWidget(self.page_function)
         self.page_contact = QWidget()
@@ -653,7 +654,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.toolBox_3.setCurrentIndex(0)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

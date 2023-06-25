@@ -159,7 +159,7 @@ QComboBox{
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: #d6d5d1;
+             <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);
 font: 75 15pt &quot;Ubuntu Condensed&quot;;</string>
             </property>
@@ -224,7 +224,7 @@ font: 75 15pt &quot;Ubuntu Condensed&quot;;</string>
        <item>
         <widget class="QFrame" name="main_body">
          <property name="styleSheet">
-          <string notr="true">background-color: #d6d5d1;
+          <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
          </property>
          <property name="frameShape">
@@ -327,7 +327,7 @@ color: rgb(0,0,0);</string>
                       <string notr="true">QToolBox{
 icon-size: 32px;
 border-top:5px;
-background-color: #d6d5d1;
+background-color: #edeef0;
 border-top:15px;
 color: #000000;
 }
@@ -523,7 +523,7 @@ color: rgb(0,0,0);</string>
 color: rgb(0,0,0);</string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="page_view">
                    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -542,7 +542,8 @@ color: rgb(0,0,0);</string>
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: #d6d5d1;</string>
+                       <string notr="true">background-color: #edeef0;
+</string>
                       </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
@@ -1073,7 +1074,7 @@ color: rgb(0,0,0);</string>
                         </size>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: #d6d5d1;
+                        <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                        </property>
                        <item>
@@ -1139,7 +1140,7 @@ color: rgb(0,0,0);</string>
                         </size>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: #d6d5d1;
+                        <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                        </property>
                        <item>
@@ -1285,7 +1286,7 @@ color: rgb(0, 0, 0);
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: #d6d5d1;
+                      <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                      </property>
                      <item>
@@ -1327,7 +1328,7 @@ color: rgb(0,0,0);</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: #d6d5d1;
+                      <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                      </property>
                      <item>
@@ -1377,7 +1378,7 @@ color: rgb(0,0,0);</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: #d6d5d1;
+                      <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                      </property>
                      <item>
@@ -1453,7 +1454,7 @@ color: rgb(0,0,0);</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: #d6d5d1;
+                      <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                      </property>
                      <item>
@@ -1504,7 +1505,7 @@ color: rgb(0,0,0);</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: #d6d5d1;
+                      <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                      </property>
                      <item>
@@ -1566,7 +1567,7 @@ color: rgb(0,0,0);</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: #d6d5d1;
+                      <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);
 </string>
                      </property>
@@ -1598,7 +1599,7 @@ color: rgb(0,0,0);
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: #d6d5d1;
+                      <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                      </property>
                      <item>
@@ -1678,7 +1679,7 @@ color: rgb(0,0,0);</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: #d6d5d1;
+                      <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                      </property>
                     </widget>
@@ -1704,7 +1705,7 @@ color: rgb(0,0,0);</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: #d6d5d1;
+                      <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);</string>
                      </property>
                     </widget>
