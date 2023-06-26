@@ -84,7 +84,7 @@ class request_fb:
 
     def get_approvals_code(self, url):
         try:
-            response = requests.request('GET', url, allow_redirects=True, verify=False)
+            response = requests.request('GET', url, allow_redirects=True)
             return response
         except Exception as e:
             return json.dumps({
@@ -330,6 +330,11 @@ class request_fb:
                     'submit_name': submit_name,
                     'submit_value': submit_value,
                     'message': 'Đang đăng nhập...',
+                })
+            elif response.text.__contains__('Disagree With Decision'):
+                return json.dumps({
+                    'status': 404,
+                    'message': 'Tài khoản bị checkpoint!'
                 })
             else:
                 previous_cookie = '; '.join([f"{cookie.name}={cookie.value}" for cookie in response.history[0].cookies])

@@ -2,6 +2,7 @@ import json
 import time
 import os
 
+from multi_thread import WorkerSignals, Worker_Multi_Thread
 from request import request_fb
 from ui_interface import *
 import sys
@@ -17,7 +18,6 @@ from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform, QDe
 from PyQt5.QtCore import Qt, QRect, QUrl
 from Custom_Widgets.Widgets import *
 from PyQt5 import QtWidgets
-from functions import *
 from ui_upPhoiWindow import *
 from upPhoiWindow import UpPhoiWindow
 from PyQt5.QtWidgets import QTextEdit
@@ -73,19 +73,19 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget.setHorizontalHeader(myHeader)
 
         # Đặt stylesheet để thay đổi màu nền cho QTableWidget
-        self.ui.tableWidget.setStyleSheet("""
-            QTableWidget {
-                background-color: rgb(46, 52, 54);  /* Đổi màu nền của QTableWidget */
-                color: rgb(255, 255, 255);  /* Đổi màu văn bản của QTableWidget */
-            }
-            QTableWidget::item {
-                background-color: rgb(46, 52, 54);  /* Đổi màu nền của các item (cell) */
-            }
-            QHeaderView::section {
-                background-color: rgb(46, 52, 54);  /* Đổi màu nền của header */
-                color: rgb(255, 255, 255);  /* Đổi màu văn bản của header */
-            }
-        """)
+        # self.ui.tableWidget.setStyleSheet("""
+        #     QTableWidget {
+        #         background-color: rgb(46, 52, 54);  /* Đổi màu nền của QTableWidget */
+        #         color: rgb(255, 255, 255);  /* Đổi màu văn bản của QTableWidget */
+        #     }
+        #     QTableWidget::item {
+        #         background-color: rgb(46, 52, 54);  /* Đổi màu nền của các item (cell) */
+        #     }
+        #     QHeaderView::section {
+        #         background-color: rgb(46, 52, 54);  /* Đổi màu nền của header */
+        #         color: rgb(255, 255, 255);  /* Đổi màu văn bản của header */
+        #     }
+        # """)
 
         self.ui.tableWidget.setColumnWidth(0, 5)
         self.ui.tableWidget.setColumnWidth(1, 200)
@@ -102,8 +102,8 @@ class MainWindow(QMainWindow):
             self.ui.tableWidget.setVerticalHeaderItem(row, item2)
             # self.ui.tableWidget.setItem(row, 0, item)
 
-        self.ui.start_button.clicked.connect(self.start_generation)
-        self.ui.stop_button.clicked.connect(self.stop_generation)
+        self.ui.start_button.clicked.connect(self.start_process)
+        self.ui.stop_button.clicked.connect(self.stop_process)
         self.ui.stop_button.setEnabled(False)
         self.generator_threads = []
         self.count = 0
@@ -115,16 +115,16 @@ class MainWindow(QMainWindow):
     def save_values(self):
         settings = QSettings(f"output/config.ini", QSettings.IniFormat)
         settings.beginGroup('section2')
-        settings.setValue("KeyOtp", self.ui.keyOtp.toPlainText())
-        settings.setValue("KeyCapcha", self.ui.keyCapcha.toPlainText())
+        settings.setValue("KeyOtp", self.ui.keyOtp.text())
+        settings.setValue("KeyCapcha", self.ui.keyCapcha.text())
         settings.sync()
         settings.endGroup()
 
     def get_values(self):
         settings = QSettings(f"output/config.ini", QSettings.IniFormat)
         settings.beginGroup('section2')
-        self.ui.keyCapcha.setPlainText(settings.value("KeyCapcha", ""))
-        self.ui.keyOtp.setPlainText(settings.value("KeyOtp", ""))
+        self.ui.keyCapcha.setText(settings.value("KeyCapcha", ""))
+        self.ui.keyOtp.setText(settings.value("KeyOtp", ""))
         settings.endGroup()
 
     def centerWindow(self):
@@ -226,6 +226,8 @@ class MainWindow(QMainWindow):
             self.ui.tableWidget.setVerticalHeaderItem(row, item2)
             self.ui.tableWidget.setItem(row, 0, item)
 
+        self.ui.label_3.setText(str(self.ui.tableWidget.rowCount()))
+
     def pasteNoDeleteAccount(self):
         if self.ui.tableWidget.rowCount() > 0:
             start_row = self.ui.tableWidget.rowCount()
@@ -247,11 +249,13 @@ class MainWindow(QMainWindow):
             self.ui.tableWidget.setVerticalHeaderItem(row, item2)
             self.ui.tableWidget.setItem(row, 0, item)
 
+        self.ui.label_3.setText(str(self.ui.tableWidget.rowCount()))
+
     def clickSelectedAccount(self):
         # QMessageBox.information(self, "Custom Action", "Click vào tài khoản đã bôi đen clicked!")
         pass
 
-    def start_generation(self):
+    def start_process(self):
         self.ui.start_button.setEnabled(False)
         self.ui.stop_button.setEnabled(True)
         self.clearRow()
@@ -259,65 +263,46 @@ class MainWindow(QMainWindow):
         self.delay_time = self.ui.delay_time.value()
         self.checked_rows = self.get_checked_rows()
         self.num_threads = min(len(self.checked_rows), self.num_threads)
-        # Create threads
-        for i in range(0, self.ui.tableWidget.rowCount()):  # Create 4 generator threads
-            if i in self.checked_rows:
-                generator_thread = NumberGeneratorThread(i, i * 10 + 1, self.delay_time)
-                generator_thread.setObjectName('Thread ' + str(i))
-                generator_thread.do_work.connect(self.handle_do_work)
-                generator_thread.number_generated.connect(self.handle_number_generated)
-                generator_thread.thread_finished.connect(self.handle_thread_finished)
-                self.generator_threads.append(generator_thread)
+
         # print( "len(self.generator_threads): " , len(self.generator_threads))
         self.current_thread_index = 0
         self.index_loop = 0
         self.count_thread_done = 0
         self.default_user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.48'
-        # So vong lap de chay het
-        if self.num_threads != 0:
-            if (len(self.generator_threads) % self.num_threads) == 0:
-                self.count_loop = int(len(self.generator_threads) / self.num_threads)
-            else:
-                self.count_loop = int(len(self.generator_threads) / self.num_threads) + 1
-            self.run_next_threads(self.index_loop)
 
-    def run_next_threads(self, index_loop):
-        if (index_loop + 1) != self.count_loop:
-            for j in range(index_loop * self.num_threads, index_loop * self.num_threads + self.num_threads):
-                (self.generator_threads[j]).start()
-        else:
-            for j in range(index_loop * self.num_threads, len(self.generator_threads)):
-                (self.generator_threads[j]).start()
+        # Get option XMDT, info_acc_list, client_token, token
+        option_choise_Phoi = self.ui.comboBox_12.currentIndex()
+        option_XMDT = {
+            "option_choise_Phoi": option_choise_Phoi,
+        }
+        client_token = self.ui.keyCapcha.toPlainText()
+        token = self.ui.keyOtp.toPlainText()
 
-        # if (len(self.generator_threads) % self.num_threads) == 0:
-        #     for i in range(0, int(self.count_loop)):
-        #         for j in range(i * self.num_threads, i * self.num_threads + self.num_threads):
-        #             (self.generator_threads[j]).start()
-        #         time.sleep(self.delay_time)
-        # else:
-        #     for i in range(0, int(self.count_loop) + 1):
-        #         if i != self.count_loop:
-        #             for j in range(i * self.num_threads, i * self.num_threads + self.num_threads):
-        #                 (self.generator_threads[j]).start()
-        #             time.sleep(self.delay_time)
-        #         else:
-        #             for j in range(i * self.num_threads, len(self.generator_threads)):
-        #                 (self.generator_threads[j]).start()
 
-        # num_threads_to_run = min(len(self.generator_threads) - self.current_thread_index, self.num_threads)
-        # # import ipdb; ipdb.set_trace();
-        # if num_threads_to_run > 0:
-        #     for i in range(num_threads_to_run):
-        #         generator_thread = self.generator_threads[self.current_thread_index]
-        #         generator_thread.start()
-        #         # if i == num_threads_to_run-1:
-        #         self.current_thread_index += 1
+        # Tạo và chạy các tiến trình
+        # Tạo QThreadPool
+        self.threadPool = QThreadPool()
+        # Kết nối tín hiệu từ Worker với phương thức updateTableWidget
+        self.worker = Worker_Multi_Thread(self.checked_rows, len(self.checked_rows), self.num_threads, self.delay_time, option_XMDT, self.ui.tableWidget, client_token, token)
+        self.worker.signals.resultReady.connect(self.updateTableWidget)  # Kết nối tín hiệu của Worker với phương thức
+        self.worker.signals_fineshed.result_fineshed.connect(self.update_result_fineshed)
+        self.threadPool.start(self.worker)
 
-    def stop_generation(self):
+    def stop_process(self):
         self.ui.start_button.setEnabled(True)
-        for generator_thread in self.generator_threads:
-            generator_thread.requestInterruption()
-        print("Stop all Threads!")
+        self.threadPool.clear()
+        self.worker.woker_stop_threading()
+
+    def updateTableWidget(self, row, column, result):
+        # Xử lý kết quả từ tiến trình và cập nhật lên tableWidget
+        item = QTableWidgetItem()
+        item.setText(str(result))
+        self.ui.tableWidget.setItem(row, column, item)
+        QApplication.processEvents()  # Đồng bộ hóa giao diện
+
+    def update_result_fineshed(self):
+        self.ui.start_button.setEnabled(True)
+        self.ui.stop_button.setEnabled(False)
 
     def handle_do_work(self, thread_id, cookie_login_success):
         # Get option XMDT
@@ -475,50 +460,6 @@ class MainWindow(QMainWindow):
                 QMessageBox.warning(None, 'WARNING', 'Chưa điền Key Captcha')
             elif token == '':
                 QMessageBox.warning(None, 'WARNING', 'Chưa điền Key OTP')
-
-    def handle_write_table(self, row, column, content):
-        item = QTableWidgetItem()
-        item.setText(str(content))
-        self.ui.tableWidget.setItem(row, column, item)
-        QApplication.processEvents()  # Đồng bộ hóa giao diện
-
-    def handle_number_generated(self, number, thread_id):
-        # print(f"Thread {thread_id}: {number}")
-        item = QTableWidgetItem()
-        item.setText(str(number))
-        self.ui.tableWidget.setItem(thread_id, 4, item)
-
-    def handle_thread_finished(self, thread_id):
-        print(f"Thread {thread_id} finished")
-        self.count_thread_done += 1
-        if (self.count_thread_done % self.num_threads) == 0 and self.count_thread_done != len(self.generator_threads):
-            self.index_loop += 1
-            time.sleep(self.delay_time / 1000)
-            self.run_next_threads(self.index_loop)
-        elif self.count_thread_done == len(self.generator_threads):
-            self.finish_generation()
-
-        # print('current_thread_index: ', self.current_thread_index)
-        # import ipdb; ipdb.set_trace();
-        # if self.current_thread_index < len(self.generator_threads):
-        #     if thread_id % self.num_threads == 0:
-        #         self.run_next_threads()
-        # else:
-        #     self.finish_generation()
-
-    def finish_generation(self):
-        self.ui.stop_button.setEnabled(False)
-        self.ui.start_button.setEnabled(True)
-        self.current_thread_index = 0
-
-        for generator_thread in self.generator_threads:
-            generator_thread.requestInterruption()
-            generator_thread.quit()
-            generator_thread.wait()
-        self.generator_threads = []
-
-        # self.start_generation()
-        print("All threads finished")
 
     def clearRow(self):
         for row in range(self.ui.tableWidget.rowCount()):
