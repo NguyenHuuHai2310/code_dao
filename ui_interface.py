@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacepBvewX.ui'
+## Form generated from reading UI file 'interfacesVKufI.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1301, 877)
+        MainWindow.resize(1375, 877)
         MainWindow.setCursor(QCursor(Qt.ArrowCursor))
         MainWindow.setStyleSheet(u"*{\n"
 "	border: none;\n"
@@ -114,7 +114,7 @@ class Ui_MainWindow(object):
         self.comboBox_7.addItem("")
         self.comboBox_7.setObjectName(u"comboBox_7")
         self.comboBox_7.setMinimumSize(QSize(0, 40))
-        self.comboBox_7.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_7.setMaximumSize(QSize(272, 40))
         self.comboBox_7.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);\n"
 "")
@@ -156,7 +156,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.comboBox_11)
 
 
-        self.verticalLayout_2.addWidget(self.frame_4)
+        self.verticalLayout_2.addWidget(self.frame_4, 0, Qt.AlignVCenter)
 
         self.frame_5 = QFrame(self.frame)
         self.frame_5.setObjectName(u"frame_5")
@@ -167,6 +167,7 @@ class Ui_MainWindow(object):
         self.label_6 = QLabel(self.frame_5)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setMinimumSize(QSize(80, 0))
+        self.label_6.setMaximumSize(QSize(80, 16777215))
 
         self.horizontalLayout_3.addWidget(self.label_6)
 
@@ -226,6 +227,7 @@ class Ui_MainWindow(object):
         self.label_14 = QLabel(self.frame_6)
         self.label_14.setObjectName(u"label_14")
         self.label_14.setMinimumSize(QSize(80, 0))
+        self.label_14.setMaximumSize(QSize(80, 16777215))
 
         self.horizontalLayout_4.addWidget(self.label_14)
 
@@ -300,7 +302,7 @@ class Ui_MainWindow(object):
         self.comboBox_16.addItem("")
         self.comboBox_16.setObjectName(u"comboBox_16")
         self.comboBox_16.setMinimumSize(QSize(0, 40))
-        self.comboBox_16.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_16.setMaximumSize(QSize(268, 40))
         self.comboBox_16.setSizeIncrement(QSize(0, 0))
         self.comboBox_16.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
@@ -355,6 +357,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.pushButton_3 = QPushButton(self.frame_3)
         self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMinimumSize(QSize(120, 0))
+        self.pushButton_3.setMaximumSize(QSize(120, 16777215))
         self.pushButton_3.setStyleSheet(u"text-align: left;")
         icon = QIcon()
         icon.addFile(u":/icons/icons/calendar.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -365,8 +369,8 @@ class Ui_MainWindow(object):
 
         self.num_threads = QSpinBox(self.frame_3)
         self.num_threads.setObjectName(u"num_threads")
-        self.num_threads.setMinimumSize(QSize(50, 40))
-        self.num_threads.setMaximumSize(QSize(150, 16777215))
+        self.num_threads.setMinimumSize(QSize(113, 40))
+        self.num_threads.setMaximumSize(QSize(113, 16777215))
         self.num_threads.setSizeIncrement(QSize(0, 40))
         self.num_threads.setStyleSheet(u"\n"
 "background-color: rgba(225,231,250,255);\n"
@@ -378,6 +382,8 @@ class Ui_MainWindow(object):
 
         self.pushButton_4 = QPushButton(self.frame_3)
         self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setMinimumSize(QSize(113, 0))
+        self.pushButton_4.setMaximumSize(QSize(113, 16777215))
         icon1 = QIcon()
         icon1.addFile(u":/icons/icons/clock.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_4.setIcon(icon1)
@@ -387,8 +393,8 @@ class Ui_MainWindow(object):
 
         self.delay_time = QSpinBox(self.frame_3)
         self.delay_time.setObjectName(u"delay_time")
-        self.delay_time.setMinimumSize(QSize(50, 40))
-        self.delay_time.setMaximumSize(QSize(150, 16777215))
+        self.delay_time.setMinimumSize(QSize(113, 40))
+        self.delay_time.setMaximumSize(QSize(113, 16777215))
         self.delay_time.setSizeIncrement(QSize(0, 40))
         self.delay_time.setStyleSheet(u"color:rgb(0,0,0);\n"
 "background-color: rgba(225,231,250,255);\n"
@@ -400,7 +406,8 @@ class Ui_MainWindow(object):
 
         self.start_button = QPushButton(self.frame_3)
         self.start_button.setObjectName(u"start_button")
-        self.start_button.setMinimumSize(QSize(160, 40))
+        self.start_button.setMinimumSize(QSize(113, 40))
+        self.start_button.setMaximumSize(QSize(113, 16777215))
         self.start_button.setStyleSheet(u"background-color: rgba(85, 0, 255, 240);\n"
 "color: rgb(255, 255, 255);\n"
 "")
@@ -413,7 +420,8 @@ class Ui_MainWindow(object):
 
         self.stop_button = QPushButton(self.frame_3)
         self.stop_button.setObjectName(u"stop_button")
-        self.stop_button.setMinimumSize(QSize(160, 40))
+        self.stop_button.setMinimumSize(QSize(113, 40))
+        self.stop_button.setMaximumSize(QSize(113, 16777215))
         self.stop_button.setStyleSheet(u"background-color: rgb(255, 99, 102);\n"
 "color: rgb(255, 255, 255);\n"
 "")
@@ -426,6 +434,8 @@ class Ui_MainWindow(object):
 
         self.pushButton_5 = QPushButton(self.frame_3)
         self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_5.setMinimumSize(QSize(113, 0))
+        self.pushButton_5.setMaximumSize(QSize(113, 16777215))
         icon4 = QIcon()
         icon4.addFile(u":/icons/icons/list.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_5.setIcon(icon4)
@@ -435,13 +445,16 @@ class Ui_MainWindow(object):
 
         self.label_3 = QLabel(self.frame_3)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setMaximumSize(QSize(50, 16777215))
+        self.label_3.setMinimumSize(QSize(30, 0))
+        self.label_3.setMaximumSize(QSize(30, 16777215))
         self.label_3.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_6.addWidget(self.label_3)
 
         self.pushButton_6 = QPushButton(self.frame_3)
         self.pushButton_6.setObjectName(u"pushButton_6")
+        self.pushButton_6.setMinimumSize(QSize(113, 0))
+        self.pushButton_6.setMaximumSize(QSize(113, 16777215))
         icon5 = QIcon()
         icon5.addFile(u":/icons/icons/check.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_6.setIcon(icon5)
@@ -451,13 +464,16 @@ class Ui_MainWindow(object):
 
         self.label_8 = QLabel(self.frame_3)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setMaximumSize(QSize(50, 16777215))
+        self.label_8.setMinimumSize(QSize(30, 0))
+        self.label_8.setMaximumSize(QSize(30, 16777215))
         self.label_8.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.horizontalLayout_6.addWidget(self.label_8)
 
         self.label_2 = QLabel(self.frame_3)
         self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(113, 0))
+        self.label_2.setMaximumSize(QSize(113, 16777215))
 
         self.horizontalLayout_6.addWidget(self.label_2)
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowiOUqfG.ui'
+## Form generated from reading UI file 'upPhoiWindowcfXmWS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,7 +17,7 @@ class Ui_UpPhoiWindow(object):
     def setupUi(self, UpPhoiWindow):
         if not UpPhoiWindow.objectName():
             UpPhoiWindow.setObjectName(u"UpPhoiWindow")
-        UpPhoiWindow.resize(1845, 917)
+        UpPhoiWindow.resize(1070, 917)
         UpPhoiWindow.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.centralwidget = QWidget(UpPhoiWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -482,65 +482,6 @@ class Ui_UpPhoiWindow(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.frame_2)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.frame_3 = QFrame(self.frame_2)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setMinimumSize(QSize(400, 0))
-        self.frame_3.setMaximumSize(QSize(700, 16777215))
-        self.frame_3.setStyleSheet(u"")
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_9 = QVBoxLayout(self.frame_3)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.label = QLabel(self.frame_3)
-        self.label.setObjectName(u"label")
-
-        self.verticalLayout_9.addWidget(self.label)
-
-        self.scrollArea = QScrollArea(self.frame_3)
-        self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setFrameShape(QFrame.StyledPanel)
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 678, 778))
-        self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents)
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.image_label = QLabel(self.scrollAreaWidgetContents)
-        self.image_label.setObjectName(u"image_label")
-
-        self.verticalLayout_10.addWidget(self.image_label)
-
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-
-        self.verticalLayout_9.addWidget(self.scrollArea)
-
-        self.frame_20 = QFrame(self.frame_3)
-        self.frame_20.setObjectName(u"frame_20")
-        self.frame_20.setMaximumSize(QSize(16777215, 50))
-        self.frame_20.setFrameShape(QFrame.NoFrame)
-        self.frame_20.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_11 = QHBoxLayout(self.frame_20)
-        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.textEdit = QTextEdit(self.frame_20)
-        self.textEdit.setObjectName(u"textEdit")
-        self.textEdit.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-
-        self.horizontalLayout_11.addWidget(self.textEdit)
-
-        self.pushButton = QPushButton(self.frame_20)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-
-        self.horizontalLayout_11.addWidget(self.pushButton)
-
-
-        self.verticalLayout_9.addWidget(self.frame_20)
-
-
-        self.horizontalLayout.addWidget(self.frame_3)
-
         self.frame_4 = QFrame(self.frame_2)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setMinimumSize(QSize(400, 0))
@@ -561,7 +502,7 @@ class Ui_UpPhoiWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 688, 778))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 619, 778))
         self.verticalLayout_12 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.label_img = QLabel(self.scrollAreaWidgetContents_2)
@@ -581,6 +522,13 @@ class Ui_UpPhoiWindow(object):
         self.frame_21.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_12 = QHBoxLayout(self.frame_21)
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.textEdit = QTextEdit(self.frame_21)
+        self.textEdit.setObjectName(u"textEdit")
+        self.textEdit.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);")
+
+        self.horizontalLayout_12.addWidget(self.textEdit)
+
         self.btn_preview = QPushButton(self.frame_21)
         self.btn_preview.setObjectName(u"btn_preview")
         self.btn_preview.setMaximumSize(QSize(90, 16777215))
@@ -589,13 +537,12 @@ class Ui_UpPhoiWindow(object):
 
         self.horizontalLayout_12.addWidget(self.btn_preview)
 
-        self.label_36 = QLabel(self.frame_21)
-        self.label_36.setObjectName(u"label_36")
-        self.label_36.setStyleSheet(u"\n"
-"color: rgb(0, 85, 255);\n"
-"text-decoration: underline;")
+        self.pushButton = QPushButton(self.frame_21)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
 
-        self.horizontalLayout_12.addWidget(self.label_36, 0, Qt.AlignRight)
+        self.horizontalLayout_12.addWidget(self.pushButton)
 
 
         self.verticalLayout_11.addWidget(self.frame_21)
@@ -640,12 +587,9 @@ class Ui_UpPhoiWindow(object):
         self.label_18.setText(QCoreApplication.translate("UpPhoiWindow", u"Code", None))
         self.label_22.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_21.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
-        self.label.setText(QCoreApplication.translate("UpPhoiWindow", u"Ph\u00f4i g\u1ed1c", None))
-        self.image_label.setText("")
-        self.pushButton.setText(QCoreApplication.translate("UpPhoiWindow", u"Browse", None))
         self.label_2.setText(QCoreApplication.translate("UpPhoiWindow", u"Ph\u00f4i ch\u1ec9nh s\u1eeda", None))
         self.label_img.setText("")
-        self.btn_preview.setText(QCoreApplication.translate("UpPhoiWindow", u"Preview", None))
-        self.label_36.setText(QCoreApplication.translate("UpPhoiWindow", u"Video h\u01b0\u1edbng d\u1eabn", None))
+        self.btn_preview.setText(QCoreApplication.translate("UpPhoiWindow", u"L\u01b0u c\u1ea5u h\u00ecnh", None))
+        self.pushButton.setText(QCoreApplication.translate("UpPhoiWindow", u"Browse", None))
     # retranslateUi
 

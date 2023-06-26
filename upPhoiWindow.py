@@ -36,18 +36,10 @@ class UpPhoiWindow(QMainWindow):
         self.ui.comboBox_3.addItems(font_families)
         for num in range(6, 96):
             self.ui.comboBox_2.addItem(str(num))
-        self.ui.label_36.setText('<a href="https://www.youtube.com">Video hướng dẫn</a>')
-        self.ui.label_36.setOpenExternalLinks(True)  # Allow opening the link in an external browser
         self.ui.btn_preview.clicked.connect(self.show_preview)
-        # Connect the link clicked signal to a slot
-        self.ui.label_36.linkActivated.connect(lambda url: QDesktopServices.openUrl(QUrl(url)))
         self.load_value('output/config.ini')
-        
-        # self.ui.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        # self.ui.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        # self.ui.scrollArea.setWidgetResizable(True)
         self.ui.label_img.setScaledContents(True)
-        self.ui.image_label.setScaledContents(True)
+       
         self.show()
     def paint_images(self, background_image, foreground_image, 
                      givenname,surname,birthday,code, 
@@ -73,7 +65,7 @@ class UpPhoiWindow(QMainWindow):
         transform = QTransform()
         transform.rotate(rotation_angle)
         rotated_image = foreground_image.transformed(transform)
-        self.ui.image_label.setPixmap(background_image)
+        # self.ui.image_label.setPixmap(background_image)
         # print(background_image.width(), background_image.height())
 
         self.ui.spinBox.setValue(img_width)

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1301</width>
+    <width>1375</width>
     <height>877</height>
    </rect>
   </property>
@@ -127,7 +127,7 @@ color: rgb(0,0,0);</string>
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
-             <item>
+             <item alignment="Qt::AlignVCenter">
               <widget class="QFrame" name="frame_4">
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
@@ -159,7 +159,7 @@ color: rgb(0,0,0);</string>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>16777215</width>
+                    <width>272</width>
                     <height>40</height>
                    </size>
                   </property>
@@ -279,6 +279,12 @@ color: rgb(0,0,0);</string>
                    <size>
                     <width>80</width>
                     <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>80</width>
+                    <height>16777215</height>
                    </size>
                   </property>
                   <property name="text">
@@ -417,6 +423,12 @@ color: rgb(0,0,0);</string>
                    <size>
                     <width>80</width>
                     <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>80</width>
+                    <height>16777215</height>
                    </size>
                   </property>
                   <property name="text">
@@ -561,7 +573,7 @@ color: rgb(0,0,0);</string>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>16777215</width>
+                    <width>268</width>
                     <height>40</height>
                    </size>
                   </property>
@@ -719,6 +731,18 @@ color: rgb(0,0,0);</string>
                <layout class="QHBoxLayout" name="horizontalLayout_6">
                 <item>
                  <widget class="QPushButton" name="pushButton_3">
+                  <property name="minimumSize">
+                   <size>
+                    <width>120</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>120</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">text-align: left;</string>
                   </property>
@@ -741,13 +765,13 @@ color: rgb(0,0,0);</string>
                  <widget class="QSpinBox" name="num_threads">
                   <property name="minimumSize">
                    <size>
-                    <width>50</width>
+                    <width>113</width>
                     <height>40</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>150</width>
+                    <width>113</width>
                     <height>16777215</height>
                    </size>
                   </property>
@@ -772,6 +796,18 @@ color: rgb(0, 0, 0);</string>
                 </item>
                 <item>
                  <widget class="QPushButton" name="pushButton_4">
+                  <property name="minimumSize">
+                   <size>
+                    <width>113</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>113</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>Delay</string>
                   </property>
@@ -791,13 +827,13 @@ color: rgb(0, 0, 0);</string>
                  <widget class="QSpinBox" name="delay_time">
                   <property name="minimumSize">
                    <size>
-                    <width>50</width>
+                    <width>113</width>
                     <height>40</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>150</width>
+                    <width>113</width>
                     <height>16777215</height>
                    </size>
                   </property>
@@ -824,8 +860,14 @@ background-color: rgba(225,231,250,255);
                  <widget class="QPushButton" name="start_button">
                   <property name="minimumSize">
                    <size>
-                    <width>160</width>
+                    <width>113</width>
                     <height>40</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>113</width>
+                    <height>16777215</height>
                    </size>
                   </property>
                   <property name="styleSheet">
@@ -852,8 +894,14 @@ color: rgb(255, 255, 255);
                  <widget class="QPushButton" name="stop_button">
                   <property name="minimumSize">
                    <size>
-                    <width>160</width>
+                    <width>113</width>
                     <height>40</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>113</width>
+                    <height>16777215</height>
                    </size>
                   </property>
                   <property name="styleSheet">
@@ -878,6 +926,18 @@ color: rgb(255, 255, 255);
                 </item>
                 <item>
                  <widget class="QPushButton" name="pushButton_5">
+                  <property name="minimumSize">
+                   <size>
+                    <width>113</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>113</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>Tất cả:</string>
                   </property>
@@ -895,9 +955,15 @@ color: rgb(255, 255, 255);
                 </item>
                 <item>
                  <widget class="QLabel" name="label_3">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="maximumSize">
                    <size>
-                    <width>50</width>
+                    <width>30</width>
                     <height>16777215</height>
                    </size>
                   </property>
@@ -911,6 +977,18 @@ color: rgb(255, 255, 255);
                 </item>
                 <item>
                  <widget class="QPushButton" name="pushButton_6">
+                  <property name="minimumSize">
+                   <size>
+                    <width>113</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>113</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>Đã chọn</string>
                   </property>
@@ -928,9 +1006,15 @@ color: rgb(255, 255, 255);
                 </item>
                 <item>
                  <widget class="QLabel" name="label_8">
+                  <property name="minimumSize">
+                   <size>
+                    <width>30</width>
+                    <height>0</height>
+                   </size>
+                  </property>
                   <property name="maximumSize">
                    <size>
-                    <width>50</width>
+                    <width>30</width>
                     <height>16777215</height>
                    </size>
                   </property>
@@ -944,6 +1028,18 @@ color: rgb(255, 255, 255);
                 </item>
                 <item>
                  <widget class="QLabel" name="label_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>113</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>113</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>HSD: Vĩnh viễn</string>
                   </property>
