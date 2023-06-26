@@ -54,10 +54,22 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.setFixedSize(self.size())
-        self.centerWindow()
-        # self.ui.toolBox_3.currentChanged.connect(self.menuChanged)
-        # self.ui.BtnListMail.clicked.connect(self.openFileDialog)
+        screen = QDesktopWidget().screenGeometry()
+        # Calculate the center point of the screen
+        center_x = screen.width() // 2
+        center_y = screen.height() // 2
+
+        
+        # self.setFixedSize(self.size())
+        # self.centerWindow()
+        # Get the screen geometry
+        screen_rect = QDesktopWidget().screenGeometry()
+
+        # Set the window size based on the screen size
+        window_width = screen_rect.width() * 0.8  # Set the desired width (e.g., 80% of the screen width)
+        window_height = screen_rect.height() * 0.8  # Set the desired height (e.g., 80% of the screen height)
+        self.resize(window_width, window_height)
+        self.move(center_x -window_width//2, center_y - window_height//2)
         self.data = []
         myHeader = MyHeader(Qt.Horizontal, self.ui.tableWidget)
         myHeader.setTableWidget(self.ui.tableWidget)
