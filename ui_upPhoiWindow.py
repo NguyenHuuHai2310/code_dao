@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowcfXmWS.ui'
+## Form generated from reading UI file 'upPhoiWindowhkissA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -187,6 +187,31 @@ class Ui_UpPhoiWindow(object):
         self.label_31.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.verticalLayout_7.addWidget(self.label_31)
+
+        self.frame_3 = QFrame(self.frame_8)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_11 = QHBoxLayout(self.frame_3)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.label_34 = QLabel(self.frame_3)
+        self.label_34.setObjectName(u"label_34")
+        self.label_34.setMaximumSize(QSize(16777215, 16777215))
+        self.label_34.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.horizontalLayout_11.addWidget(self.label_34)
+
+        self.comboBox_4 = QComboBox(self.frame_3)
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.setObjectName(u"comboBox_4")
+        self.comboBox_4.setStyleSheet(u"background-color: #d6d5d1;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_11.addWidget(self.comboBox_4)
+
+
+        self.verticalLayout_7.addWidget(self.frame_3)
 
         self.frame_14 = QFrame(self.frame_8)
         self.frame_14.setObjectName(u"frame_14")
@@ -572,6 +597,10 @@ class Ui_UpPhoiWindow(object):
         self.label_10.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_11.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_31.setText(QCoreApplication.translate("UpPhoiWindow", u"Thi\u1ebft l\u1eadp", None))
+        self.label_34.setText(QCoreApplication.translate("UpPhoiWindow", u"H\u1ecd t\u00ean", None))
+        self.comboBox_4.setItemText(0, QCoreApplication.translate("UpPhoiWindow", u"H\u1ecd t\u00ean \u0111\u1ea7y \u0111\u1ee7", None))
+        self.comboBox_4.setItemText(1, QCoreApplication.translate("UpPhoiWindow", u"T\u00e1ch ri\u00eang H\u1ecd, T\u00ean", None))
+
         self.label_32.setText(QCoreApplication.translate("UpPhoiWindow", u"K\u00edch c\u1ee1 ch\u1eef", None))
         self.label_33.setText(QCoreApplication.translate("UpPhoiWindow", u"Ki\u1ec3u ch\u1eef", None))
         self.label_15.setText(QCoreApplication.translate("UpPhoiWindow", u"V\u1ecb tr\u00ed[CHI\u1ec0U NGANG X CHI\u1ec0U D\u1eccC X XOAY CHI\u1ec0U]", None))

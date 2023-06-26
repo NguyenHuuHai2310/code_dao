@@ -315,6 +315,52 @@ color: rgb(0,0,0);</string>
                  </widget>
                 </item>
                 <item>
+                 <widget class="QFrame" name="frame_3">
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_11">
+                   <item>
+                    <widget class="QLabel" name="label_34">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(0, 0, 0);</string>
+                     </property>
+                     <property name="text">
+                      <string>Họ tên</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox_4">
+                     <property name="styleSheet">
+                      <string notr="true">background-color: #d6d5d1;
+color: rgb(0,0,0);</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>Họ tên đầy đủ</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Tách riêng Họ, Tên</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
                  <widget class="QFrame" name="frame_14">
                   <property name="styleSheet">
                    <string notr="true"/>

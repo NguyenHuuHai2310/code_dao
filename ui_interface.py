@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacesVKufI.ui'
+## Form generated from reading UI file 'interfaceDznBVF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1375, 877)
+        MainWindow.resize(1309, 877)
         MainWindow.setCursor(QCursor(Qt.ArrowCursor))
         MainWindow.setStyleSheet(u"*{\n"
 "	border: none;\n"
@@ -96,266 +96,397 @@ class Ui_MainWindow(object):
         self.frame.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.frame_4 = QFrame(self.frame)
+        self.verticalLayout_12 = QVBoxLayout(self.frame)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.frame_21 = QFrame(self.frame)
+        self.frame_21.setObjectName(u"frame_21")
+        self.frame_21.setFrameShape(QFrame.StyledPanel)
+        self.frame_21.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_8 = QVBoxLayout(self.frame_21)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.frame_3 = QFrame(self.frame_21)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.frame_3)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.frame_4 = QFrame(self.frame_3)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_2 = QHBoxLayout(self.frame_4)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.label_5 = QLabel(self.frame_4)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setMaximumSize(QSize(80, 16777215))
-
-        self.horizontalLayout_2.addWidget(self.label_5)
-
-        self.comboBox_7 = QComboBox(self.frame_4)
-        self.comboBox_7.addItem("")
-        self.comboBox_7.setObjectName(u"comboBox_7")
-        self.comboBox_7.setMinimumSize(QSize(0, 40))
-        self.comboBox_7.setMaximumSize(QSize(272, 40))
-        self.comboBox_7.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);\n"
-"")
-
-        self.horizontalLayout_2.addWidget(self.comboBox_7)
-
-        self.label_4 = QLabel(self.frame_4)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMaximumSize(QSize(80, 16777215))
-
-        self.horizontalLayout_2.addWidget(self.label_4)
-
-        self.comboBox_12 = QComboBox(self.frame_4)
-        self.comboBox_12.addItem("")
-        self.comboBox_12.addItem("")
-        self.comboBox_12.setObjectName(u"comboBox_12")
-        self.comboBox_12.setMinimumSize(QSize(0, 40))
-        self.comboBox_12.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_12.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-
-        self.horizontalLayout_2.addWidget(self.comboBox_12)
-
-        self.label_21 = QLabel(self.frame_4)
-        self.label_21.setObjectName(u"label_21")
-        self.label_21.setMaximumSize(QSize(80, 16777215))
-
-        self.horizontalLayout_2.addWidget(self.label_21)
-
-        self.comboBox_11 = QComboBox(self.frame_4)
-        self.comboBox_11.addItem("")
-        self.comboBox_11.addItem("")
-        self.comboBox_11.setObjectName(u"comboBox_11")
-        self.comboBox_11.setMinimumSize(QSize(0, 40))
-        self.comboBox_11.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_11.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-
-        self.horizontalLayout_2.addWidget(self.comboBox_11)
-
-
-        self.verticalLayout_2.addWidget(self.frame_4, 0, Qt.AlignVCenter)
-
-        self.frame_5 = QFrame(self.frame)
+        self.verticalLayout_2 = QVBoxLayout(self.frame_4)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.frame_5 = QFrame(self.frame_4)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_3 = QHBoxLayout(self.frame_5)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.label_6 = QLabel(self.frame_5)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setMinimumSize(QSize(80, 0))
-        self.label_6.setMaximumSize(QSize(80, 16777215))
+        self.horizontalLayout_15 = QHBoxLayout(self.frame_5)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.label_8 = QLabel(self.frame_5)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMinimumSize(QSize(80, 0))
+        self.label_8.setMaximumSize(QSize(80, 16777215))
 
-        self.horizontalLayout_3.addWidget(self.label_6)
+        self.horizontalLayout_15.addWidget(self.label_8)
 
-        self.comboBox_8 = QComboBox(self.frame_5)
-        self.comboBox_8.addItem("")
-        self.comboBox_8.addItem("")
-        self.comboBox_8.setObjectName(u"comboBox_8")
-        self.comboBox_8.setMinimumSize(QSize(0, 40))
-        self.comboBox_8.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_8.setSizeIncrement(QSize(0, 0))
-        self.comboBox_8.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
+        self.comboBox_18 = QComboBox(self.frame_5)
+        self.comboBox_18.addItem("")
+        self.comboBox_18.setObjectName(u"comboBox_18")
+        self.comboBox_18.setMinimumSize(QSize(0, 40))
+        self.comboBox_18.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_18.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);\n"
+"")
 
-        self.horizontalLayout_3.addWidget(self.comboBox_8)
-
-        self.label_9 = QLabel(self.frame_5)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setMinimumSize(QSize(80, 0))
-
-        self.horizontalLayout_3.addWidget(self.label_9)
-
-        self.comboBox_10 = QComboBox(self.frame_5)
-        self.comboBox_10.addItem("")
-        self.comboBox_10.setObjectName(u"comboBox_10")
-        self.comboBox_10.setMinimumSize(QSize(0, 40))
-        self.comboBox_10.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_10.setSizeIncrement(QSize(0, 0))
-        self.comboBox_10.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-
-        self.horizontalLayout_3.addWidget(self.comboBox_10)
-
-        self.label_16 = QLabel(self.frame_5)
-        self.label_16.setObjectName(u"label_16")
-        self.label_16.setMinimumSize(QSize(80, 0))
-
-        self.horizontalLayout_3.addWidget(self.label_16)
-
-        self.keyCapcha = QLineEdit(self.frame_5)
-        self.keyCapcha.setObjectName(u"keyCapcha")
-        self.keyCapcha.setMinimumSize(QSize(0, 40))
-        self.keyCapcha.setMaximumSize(QSize(16777215, 40))
-        self.keyCapcha.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-
-        self.horizontalLayout_3.addWidget(self.keyCapcha)
+        self.horizontalLayout_15.addWidget(self.comboBox_18)
 
 
         self.verticalLayout_2.addWidget(self.frame_5)
 
-        self.frame_6 = QFrame(self.frame)
-        self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setFrameShape(QFrame.StyledPanel)
-        self.frame_6.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_4 = QHBoxLayout(self.frame_6)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.label_14 = QLabel(self.frame_6)
+        self.frame_9 = QFrame(self.frame_4)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.frame_9)
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.label_13 = QLabel(self.frame_9)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setMinimumSize(QSize(80, 0))
+        self.label_13.setMaximumSize(QSize(80, 16777215))
+
+        self.horizontalLayout_16.addWidget(self.label_13)
+
+        self.comboBox_19 = QComboBox(self.frame_9)
+        self.comboBox_19.addItem("")
+        self.comboBox_19.addItem("")
+        self.comboBox_19.setObjectName(u"comboBox_19")
+        self.comboBox_19.setMinimumSize(QSize(0, 40))
+        self.comboBox_19.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_19.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_16.addWidget(self.comboBox_19)
+
+
+        self.verticalLayout_2.addWidget(self.frame_9)
+
+        self.frame_19 = QFrame(self.frame_4)
+        self.frame_19.setObjectName(u"frame_19")
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_17 = QHBoxLayout(self.frame_19)
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.label_24 = QLabel(self.frame_19)
+        self.label_24.setObjectName(u"label_24")
+        self.label_24.setMinimumSize(QSize(80, 0))
+        self.label_24.setMaximumSize(QSize(80, 16777215))
+
+        self.horizontalLayout_17.addWidget(self.label_24)
+
+        self.comboBox_20 = QComboBox(self.frame_19)
+        self.comboBox_20.addItem("")
+        self.comboBox_20.addItem("")
+        self.comboBox_20.setObjectName(u"comboBox_20")
+        self.comboBox_20.setMinimumSize(QSize(0, 40))
+        self.comboBox_20.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_20.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_17.addWidget(self.comboBox_20)
+
+
+        self.verticalLayout_2.addWidget(self.frame_19)
+
+
+        self.horizontalLayout_6.addWidget(self.frame_4)
+
+        self.frame_20 = QFrame(self.frame_3)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_9 = QVBoxLayout(self.frame_20)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.frame_22 = QFrame(self.frame_20)
+        self.frame_22.setObjectName(u"frame_22")
+        self.frame_22.setFrameShape(QFrame.StyledPanel)
+        self.frame_22.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_22)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.label_14 = QLabel(self.frame_22)
         self.label_14.setObjectName(u"label_14")
         self.label_14.setMinimumSize(QSize(80, 0))
         self.label_14.setMaximumSize(QSize(80, 16777215))
 
-        self.horizontalLayout_4.addWidget(self.label_14)
+        self.horizontalLayout_18.addWidget(self.label_14)
 
-        self.frame_14 = QFrame(self.frame_6)
-        self.frame_14.setObjectName(u"frame_14")
-        self.frame_14.setStyleSheet(u"")
-        self.frame_14.setFrameShape(QFrame.StyledPanel)
-        self.frame_14.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_10 = QHBoxLayout(self.frame_14)
-        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.radioButton_9 = QRadioButton(self.frame_14)
-        self.radioButton_9.setObjectName(u"radioButton_9")
-        self.radioButton_9.setChecked(True)
-
-        self.horizontalLayout_10.addWidget(self.radioButton_9)
-
-
-        self.horizontalLayout_4.addWidget(self.frame_14)
-
-        self.label_15 = QLabel(self.frame_6)
-        self.label_15.setObjectName(u"label_15")
-        self.label_15.setMinimumSize(QSize(80, 0))
-
-        self.horizontalLayout_4.addWidget(self.label_15)
-
-        self.comboBox_15 = QComboBox(self.frame_6)
-        self.comboBox_15.addItem("")
-        self.comboBox_15.setObjectName(u"comboBox_15")
-        self.comboBox_15.setMinimumSize(QSize(0, 40))
-        self.comboBox_15.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_15.setSizeIncrement(QSize(30, 0))
-        self.comboBox_15.setStyleSheet(u"background-color: #edeef0;\n"
+        self.comboBox_21 = QComboBox(self.frame_22)
+        self.comboBox_21.addItem("")
+        self.comboBox_21.addItem("")
+        self.comboBox_21.setObjectName(u"comboBox_21")
+        self.comboBox_21.setMinimumSize(QSize(0, 40))
+        self.comboBox_21.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_21.setSizeIncrement(QSize(0, 0))
+        self.comboBox_21.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
-        self.horizontalLayout_4.addWidget(self.comboBox_15)
+        self.horizontalLayout_18.addWidget(self.comboBox_21)
 
-        self.label_17 = QLabel(self.frame_6)
+
+        self.verticalLayout_9.addWidget(self.frame_22)
+
+        self.frame_23 = QFrame(self.frame_20)
+        self.frame_23.setObjectName(u"frame_23")
+        self.frame_23.setFrameShape(QFrame.StyledPanel)
+        self.frame_23.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.frame_23)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.label_17 = QLabel(self.frame_23)
         self.label_17.setObjectName(u"label_17")
         self.label_17.setMinimumSize(QSize(80, 0))
+        self.label_17.setMaximumSize(QSize(80, 16777215))
 
-        self.horizontalLayout_4.addWidget(self.label_17)
+        self.horizontalLayout_19.addWidget(self.label_17)
 
-        self.keyOtp = QLineEdit(self.frame_6)
+        self.keyCapcha_2 = QLineEdit(self.frame_23)
+        self.keyCapcha_2.setObjectName(u"keyCapcha_2")
+        self.keyCapcha_2.setMinimumSize(QSize(0, 40))
+        self.keyCapcha_2.setMaximumSize(QSize(16777215, 40))
+        self.keyCapcha_2.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_19.addWidget(self.keyCapcha_2)
+
+
+        self.verticalLayout_9.addWidget(self.frame_23)
+
+        self.frame_24 = QFrame(self.frame_20)
+        self.frame_24.setObjectName(u"frame_24")
+        self.frame_24.setFrameShape(QFrame.StyledPanel)
+        self.frame_24.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_20 = QHBoxLayout(self.frame_24)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.label_15 = QLabel(self.frame_24)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setMinimumSize(QSize(80, 0))
+        self.label_15.setMaximumSize(QSize(80, 16777215))
+
+        self.horizontalLayout_20.addWidget(self.label_15)
+
+        self.comboBox_22 = QComboBox(self.frame_24)
+        self.comboBox_22.addItem("")
+        self.comboBox_22.setObjectName(u"comboBox_22")
+        self.comboBox_22.setMinimumSize(QSize(0, 40))
+        self.comboBox_22.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_22.setSizeIncrement(QSize(0, 0))
+        self.comboBox_22.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_20.addWidget(self.comboBox_22)
+
+
+        self.verticalLayout_9.addWidget(self.frame_24)
+
+
+        self.horizontalLayout_6.addWidget(self.frame_20)
+
+        self.frame_25 = QFrame(self.frame_3)
+        self.frame_25.setObjectName(u"frame_25")
+        self.frame_25.setFrameShape(QFrame.StyledPanel)
+        self.frame_25.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_10 = QVBoxLayout(self.frame_25)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.frame_26 = QFrame(self.frame_25)
+        self.frame_26.setObjectName(u"frame_26")
+        self.frame_26.setFrameShape(QFrame.StyledPanel)
+        self.frame_26.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_21 = QHBoxLayout(self.frame_26)
+        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
+        self.label_18 = QLabel(self.frame_26)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setMinimumSize(QSize(80, 0))
+        self.label_18.setMaximumSize(QSize(80, 16777215))
+
+        self.horizontalLayout_21.addWidget(self.label_18)
+
+        self.comboBox_23 = QComboBox(self.frame_26)
+        self.comboBox_23.addItem("")
+        self.comboBox_23.setObjectName(u"comboBox_23")
+        self.comboBox_23.setMinimumSize(QSize(0, 40))
+        self.comboBox_23.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_23.setSizeIncrement(QSize(30, 0))
+        self.comboBox_23.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_21.addWidget(self.comboBox_23)
+
+
+        self.verticalLayout_10.addWidget(self.frame_26)
+
+        self.frame_27 = QFrame(self.frame_25)
+        self.frame_27.setObjectName(u"frame_27")
+        self.frame_27.setFrameShape(QFrame.StyledPanel)
+        self.frame_27.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_22 = QHBoxLayout(self.frame_27)
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.label_20 = QLabel(self.frame_27)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setMinimumSize(QSize(80, 0))
+        self.label_20.setMaximumSize(QSize(80, 16777215))
+
+        self.horizontalLayout_22.addWidget(self.label_20)
+
+        self.frame_28 = QFrame(self.frame_27)
+        self.frame_28.setObjectName(u"frame_28")
+        self.frame_28.setStyleSheet(u"")
+        self.frame_28.setFrameShape(QFrame.StyledPanel)
+        self.frame_28.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_23 = QHBoxLayout(self.frame_28)
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.radioButton_10 = QRadioButton(self.frame_28)
+        self.radioButton_10.setObjectName(u"radioButton_10")
+        self.radioButton_10.setChecked(True)
+
+        self.horizontalLayout_23.addWidget(self.radioButton_10)
+
+
+        self.horizontalLayout_22.addWidget(self.frame_28)
+
+
+        self.verticalLayout_10.addWidget(self.frame_27)
+
+        self.frame_29 = QFrame(self.frame_25)
+        self.frame_29.setObjectName(u"frame_29")
+        self.frame_29.setFrameShape(QFrame.StyledPanel)
+        self.frame_29.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_24 = QHBoxLayout(self.frame_29)
+        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
+        self.label_25 = QLabel(self.frame_29)
+        self.label_25.setObjectName(u"label_25")
+        self.label_25.setMinimumSize(QSize(80, 0))
+        self.label_25.setMaximumSize(QSize(80, 16777215))
+
+        self.horizontalLayout_24.addWidget(self.label_25)
+
+        self.keyOtp = QLineEdit(self.frame_29)
         self.keyOtp.setObjectName(u"keyOtp")
         self.keyOtp.setMinimumSize(QSize(0, 40))
         self.keyOtp.setMaximumSize(QSize(16777215, 40))
         self.keyOtp.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
-        self.horizontalLayout_4.addWidget(self.keyOtp)
+        self.horizontalLayout_24.addWidget(self.keyOtp)
 
 
-        self.verticalLayout_2.addWidget(self.frame_6)
+        self.verticalLayout_10.addWidget(self.frame_29)
 
-        self.frame_7 = QFrame(self.frame)
-        self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setFrameShape(QFrame.StyledPanel)
-        self.frame_7.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_5 = QHBoxLayout(self.frame_7)
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.label_19 = QLabel(self.frame_7)
+
+        self.horizontalLayout_6.addWidget(self.frame_25)
+
+        self.frame_30 = QFrame(self.frame_3)
+        self.frame_30.setObjectName(u"frame_30")
+        self.frame_30.setFrameShape(QFrame.StyledPanel)
+        self.frame_30.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_11 = QVBoxLayout(self.frame_30)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.frame_31 = QFrame(self.frame_30)
+        self.frame_31.setObjectName(u"frame_31")
+        self.frame_31.setFrameShape(QFrame.StyledPanel)
+        self.frame_31.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_25 = QHBoxLayout(self.frame_31)
+        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
+        self.label_19 = QLabel(self.frame_31)
         self.label_19.setObjectName(u"label_19")
+        self.label_19.setMinimumSize(QSize(80, 0))
         self.label_19.setMaximumSize(QSize(80, 16777215))
 
-        self.horizontalLayout_5.addWidget(self.label_19)
+        self.horizontalLayout_25.addWidget(self.label_19)
 
-        self.comboBox_16 = QComboBox(self.frame_7)
-        self.comboBox_16.addItem("")
-        self.comboBox_16.addItem("")
-        self.comboBox_16.addItem("")
-        self.comboBox_16.addItem("")
-        self.comboBox_16.addItem("")
-        self.comboBox_16.setObjectName(u"comboBox_16")
-        self.comboBox_16.setMinimumSize(QSize(0, 40))
-        self.comboBox_16.setMaximumSize(QSize(268, 40))
-        self.comboBox_16.setSizeIncrement(QSize(0, 0))
-        self.comboBox_16.setStyleSheet(u"background-color: #edeef0;\n"
+        self.comboBox_24 = QComboBox(self.frame_31)
+        self.comboBox_24.addItem("")
+        self.comboBox_24.addItem("")
+        self.comboBox_24.addItem("")
+        self.comboBox_24.addItem("")
+        self.comboBox_24.addItem("")
+        self.comboBox_24.setObjectName(u"comboBox_24")
+        self.comboBox_24.setMinimumSize(QSize(0, 40))
+        self.comboBox_24.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_24.setSizeIncrement(QSize(0, 0))
+        self.comboBox_24.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
-        self.horizontalLayout_5.addWidget(self.comboBox_16)
+        self.horizontalLayout_25.addWidget(self.comboBox_24)
 
-        self.label_23 = QLabel(self.frame_7)
-        self.label_23.setObjectName(u"label_23")
-        self.label_23.setMinimumSize(QSize(20, 0))
-        self.label_23.setMaximumSize(QSize(80, 16777215))
 
-        self.horizontalLayout_5.addWidget(self.label_23)
+        self.verticalLayout_11.addWidget(self.frame_31)
 
-        self.comboBox_19 = QComboBox(self.frame_7)
-        self.comboBox_19.addItem("")
-        self.comboBox_19.addItem("")
-        self.comboBox_19.setObjectName(u"comboBox_19")
-        self.comboBox_19.setMinimumSize(QSize(0, 40))
-        self.comboBox_19.setMaximumSize(QSize(350, 40))
-        self.comboBox_19.setStyleSheet(u"background-color: #edeef0;\n"
+        self.frame_32 = QFrame(self.frame_30)
+        self.frame_32.setObjectName(u"frame_32")
+        self.frame_32.setFrameShape(QFrame.StyledPanel)
+        self.frame_32.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_26 = QHBoxLayout(self.frame_32)
+        self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.label_26 = QLabel(self.frame_32)
+        self.label_26.setObjectName(u"label_26")
+        self.label_26.setMinimumSize(QSize(80, 0))
+        self.label_26.setMaximumSize(QSize(80, 16777215))
+
+        self.horizontalLayout_26.addWidget(self.label_26)
+
+        self.comboBox_25 = QComboBox(self.frame_32)
+        self.comboBox_25.addItem("")
+        self.comboBox_25.addItem("")
+        self.comboBox_25.addItem("")
+        self.comboBox_25.setObjectName(u"comboBox_25")
+        self.comboBox_25.setMinimumSize(QSize(0, 40))
+        self.comboBox_25.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_25.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
-        self.horizontalLayout_5.addWidget(self.comboBox_19)
+        self.horizontalLayout_26.addWidget(self.comboBox_25)
 
-        self.label_25 = QLabel(self.frame_7)
-        self.label_25.setObjectName(u"label_25")
-        self.label_25.setMinimumSize(QSize(40, 0))
-        self.label_25.setMaximumSize(QSize(80, 16777215))
 
-        self.horizontalLayout_5.addWidget(self.label_25)
+        self.verticalLayout_11.addWidget(self.frame_32)
 
-        self.comboBox_21 = QComboBox(self.frame_7)
-        self.comboBox_21.addItem("")
-        self.comboBox_21.addItem("")
-        self.comboBox_21.addItem("")
-        self.comboBox_21.setObjectName(u"comboBox_21")
-        self.comboBox_21.setMinimumSize(QSize(0, 40))
-        self.comboBox_21.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_21.setStyleSheet(u"background-color: #edeef0;\n"
+        self.frame_33 = QFrame(self.frame_30)
+        self.frame_33.setObjectName(u"frame_33")
+        self.frame_33.setFrameShape(QFrame.StyledPanel)
+        self.frame_33.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_27 = QHBoxLayout(self.frame_33)
+        self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
+        self.label_27 = QLabel(self.frame_33)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setMinimumSize(QSize(80, 0))
+        self.label_27.setMaximumSize(QSize(80, 16777215))
+
+        self.horizontalLayout_27.addWidget(self.label_27)
+
+        self.comboBox_26 = QComboBox(self.frame_33)
+        self.comboBox_26.addItem("")
+        self.comboBox_26.addItem("")
+        self.comboBox_26.setObjectName(u"comboBox_26")
+        self.comboBox_26.setMinimumSize(QSize(0, 40))
+        self.comboBox_26.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_26.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
-        self.horizontalLayout_5.addWidget(self.comboBox_21)
+        self.horizontalLayout_27.addWidget(self.comboBox_26)
 
 
-        self.verticalLayout_2.addWidget(self.frame_7)
+        self.verticalLayout_11.addWidget(self.frame_33)
 
-        self.frame_3 = QFrame(self.frame)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_6 = QHBoxLayout(self.frame_3)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.pushButton_3 = QPushButton(self.frame_3)
+
+        self.horizontalLayout_6.addWidget(self.frame_30)
+
+
+        self.verticalLayout_8.addWidget(self.frame_3)
+
+        self.frame_34 = QFrame(self.frame_21)
+        self.frame_34.setObjectName(u"frame_34")
+        self.frame_34.setFrameShape(QFrame.StyledPanel)
+        self.frame_34.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_28 = QHBoxLayout(self.frame_34)
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.pushButton_3 = QPushButton(self.frame_34)
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setMinimumSize(QSize(120, 0))
         self.pushButton_3.setMaximumSize(QSize(120, 16777215))
@@ -365,9 +496,9 @@ class Ui_MainWindow(object):
         self.pushButton_3.setIcon(icon)
         self.pushButton_3.setIconSize(QSize(24, 24))
 
-        self.horizontalLayout_6.addWidget(self.pushButton_3)
+        self.horizontalLayout_28.addWidget(self.pushButton_3)
 
-        self.num_threads = QSpinBox(self.frame_3)
+        self.num_threads = QSpinBox(self.frame_34)
         self.num_threads.setObjectName(u"num_threads")
         self.num_threads.setMinimumSize(QSize(113, 40))
         self.num_threads.setMaximumSize(QSize(113, 16777215))
@@ -378,9 +509,9 @@ class Ui_MainWindow(object):
         self.num_threads.setMaximum(999)
         self.num_threads.setValue(2)
 
-        self.horizontalLayout_6.addWidget(self.num_threads)
+        self.horizontalLayout_28.addWidget(self.num_threads)
 
-        self.pushButton_4 = QPushButton(self.frame_3)
+        self.pushButton_4 = QPushButton(self.frame_34)
         self.pushButton_4.setObjectName(u"pushButton_4")
         self.pushButton_4.setMinimumSize(QSize(113, 0))
         self.pushButton_4.setMaximumSize(QSize(113, 16777215))
@@ -389,9 +520,9 @@ class Ui_MainWindow(object):
         self.pushButton_4.setIcon(icon1)
         self.pushButton_4.setIconSize(QSize(24, 24))
 
-        self.horizontalLayout_6.addWidget(self.pushButton_4)
+        self.horizontalLayout_28.addWidget(self.pushButton_4)
 
-        self.delay_time = QSpinBox(self.frame_3)
+        self.delay_time = QSpinBox(self.frame_34)
         self.delay_time.setObjectName(u"delay_time")
         self.delay_time.setMinimumSize(QSize(113, 40))
         self.delay_time.setMaximumSize(QSize(113, 16777215))
@@ -402,9 +533,9 @@ class Ui_MainWindow(object):
         self.delay_time.setMaximum(999999999)
         self.delay_time.setValue(0)
 
-        self.horizontalLayout_6.addWidget(self.delay_time)
+        self.horizontalLayout_28.addWidget(self.delay_time)
 
-        self.start_button = QPushButton(self.frame_3)
+        self.start_button = QPushButton(self.frame_34)
         self.start_button.setObjectName(u"start_button")
         self.start_button.setMinimumSize(QSize(113, 40))
         self.start_button.setMaximumSize(QSize(113, 16777215))
@@ -416,9 +547,9 @@ class Ui_MainWindow(object):
         self.start_button.setIcon(icon2)
         self.start_button.setIconSize(QSize(24, 24))
 
-        self.horizontalLayout_6.addWidget(self.start_button)
+        self.horizontalLayout_28.addWidget(self.start_button)
 
-        self.stop_button = QPushButton(self.frame_3)
+        self.stop_button = QPushButton(self.frame_34)
         self.stop_button.setObjectName(u"stop_button")
         self.stop_button.setMinimumSize(QSize(113, 40))
         self.stop_button.setMaximumSize(QSize(113, 16777215))
@@ -430,9 +561,9 @@ class Ui_MainWindow(object):
         self.stop_button.setIcon(icon3)
         self.stop_button.setIconSize(QSize(24, 24))
 
-        self.horizontalLayout_6.addWidget(self.stop_button)
+        self.horizontalLayout_28.addWidget(self.stop_button)
 
-        self.pushButton_5 = QPushButton(self.frame_3)
+        self.pushButton_5 = QPushButton(self.frame_34)
         self.pushButton_5.setObjectName(u"pushButton_5")
         self.pushButton_5.setMinimumSize(QSize(113, 0))
         self.pushButton_5.setMaximumSize(QSize(113, 16777215))
@@ -441,17 +572,17 @@ class Ui_MainWindow(object):
         self.pushButton_5.setIcon(icon4)
         self.pushButton_5.setIconSize(QSize(24, 24))
 
-        self.horizontalLayout_6.addWidget(self.pushButton_5)
+        self.horizontalLayout_28.addWidget(self.pushButton_5)
 
-        self.label_3 = QLabel(self.frame_3)
+        self.label_3 = QLabel(self.frame_34)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMinimumSize(QSize(30, 0))
         self.label_3.setMaximumSize(QSize(30, 16777215))
         self.label_3.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_6.addWidget(self.label_3)
+        self.horizontalLayout_28.addWidget(self.label_3)
 
-        self.pushButton_6 = QPushButton(self.frame_3)
+        self.pushButton_6 = QPushButton(self.frame_34)
         self.pushButton_6.setObjectName(u"pushButton_6")
         self.pushButton_6.setMinimumSize(QSize(113, 0))
         self.pushButton_6.setMaximumSize(QSize(113, 16777215))
@@ -460,25 +591,28 @@ class Ui_MainWindow(object):
         self.pushButton_6.setIcon(icon5)
         self.pushButton_6.setIconSize(QSize(24, 24))
 
-        self.horizontalLayout_6.addWidget(self.pushButton_6)
+        self.horizontalLayout_28.addWidget(self.pushButton_6)
 
-        self.label_8 = QLabel(self.frame_3)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setMinimumSize(QSize(30, 0))
-        self.label_8.setMaximumSize(QSize(30, 16777215))
-        self.label_8.setStyleSheet(u"color: rgb(0, 0, 0);")
+        self.label_28 = QLabel(self.frame_34)
+        self.label_28.setObjectName(u"label_28")
+        self.label_28.setMinimumSize(QSize(30, 0))
+        self.label_28.setMaximumSize(QSize(30, 16777215))
+        self.label_28.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_6.addWidget(self.label_8)
+        self.horizontalLayout_28.addWidget(self.label_28)
 
-        self.label_2 = QLabel(self.frame_3)
+        self.label_2 = QLabel(self.frame_34)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(113, 0))
         self.label_2.setMaximumSize(QSize(113, 16777215))
 
-        self.horizontalLayout_6.addWidget(self.label_2)
+        self.horizontalLayout_28.addWidget(self.label_2)
 
 
-        self.verticalLayout_2.addWidget(self.frame_3)
+        self.verticalLayout_8.addWidget(self.frame_34)
+
+
+        self.verticalLayout_12.addWidget(self.frame_21)
 
 
         self.verticalLayout_3.addWidget(self.frame)
@@ -593,46 +727,46 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Ki\u1ec3u XMDT", None))
-        self.comboBox_7.setItemText(0, QCoreApplication.translate("MainWindow", u"XMDT th\u1eb3ng ", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Ki\u1ec3u XMDT", None))
+        self.comboBox_18.setItemText(0, QCoreApplication.translate("MainWindow", u"XMDT th\u1eb3ng ", None))
 
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Ch\u1ecdn ph\u00f4i", None))
-        self.comboBox_12.setItemText(0, QCoreApplication.translate("MainWindow", u"L\u1ea5y ph\u00f4i \u1edf tool(C\u00f3 fake th\u00f4ng tin theo Via)", None))
-        self.comboBox_12.setItemText(1, QCoreApplication.translate("MainWindow", u"T\u1ea3i l\u00ean ph\u00f4i(Ch\u1ec9nh s\u1eeda ph\u00f4i t\u1ef1 \u0111\u1ed9ng)", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Ch\u1ecdn ph\u00f4i", None))
+        self.comboBox_19.setItemText(0, QCoreApplication.translate("MainWindow", u"L\u1ea5y ph\u00f4i \u1edf tool(C\u00f3 fake th\u00f4ng tin theo Via)", None))
+        self.comboBox_19.setItemText(1, QCoreApplication.translate("MainWindow", u"T\u1ea3i l\u00ean ph\u00f4i(Ch\u1ec9nh s\u1eeda ph\u00f4i t\u1ef1 \u0111\u1ed9ng)", None))
 
-        self.label_21.setText(QCoreApplication.translate("MainWindow", u"\u1ea2nh \u1edf ph\u00f4i", None))
-        self.comboBox_11.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u1ea3i online", None))
-        self.comboBox_11.setItemText(1, QCoreApplication.translate("MainWindow", u"D\u00f9ng \u1ea3nh c\u00f3 s\u1eb5n", None))
+        self.label_24.setText(QCoreApplication.translate("MainWindow", u"\u1ea2nh \u1edf ph\u00f4i", None))
+        self.comboBox_20.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u1ea3i online", None))
+        self.comboBox_20.setItemText(1, QCoreApplication.translate("MainWindow", u"D\u00f9ng \u1ea3nh c\u00f3 s\u1eb5n", None))
 
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Up Avatar:", None))
-        self.comboBox_8.setItemText(0, QCoreApplication.translate("MainWindow", u"C\u00f3", None))
-        self.comboBox_8.setItemText(1, QCoreApplication.translate("MainWindow", u"Kh\u00f4ng", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Up Avatar:", None))
+        self.comboBox_21.setItemText(0, QCoreApplication.translate("MainWindow", u"C\u00f3", None))
+        self.comboBox_21.setItemText(1, QCoreApplication.translate("MainWindow", u"Kh\u00f4ng", None))
 
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Capcha:", None))
-        self.comboBox_10.setItemText(0, QCoreApplication.translate("MainWindow", u"Anycapcha", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Key:", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Capcha:", None))
+        self.comboBox_22.setItemText(0, QCoreApplication.translate("MainWindow", u"Anycapcha", None))
 
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Key:", None))
-        self.label_14.setText(QCoreApplication.translate("MainWindow", u"OTP Phone:", None))
-        self.radioButton_9.setText(QCoreApplication.translate("MainWindow", u"Viotp.com", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Nh\u00e0 m\u1ea1ng:", None))
-        self.comboBox_15.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u1ea5t c\u1ea3", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Nh\u00e0 m\u1ea1ng:", None))
+        self.comboBox_23.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u1ea5t c\u1ea3", None))
 
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Key OTP:", None))
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"OTP Phone:", None))
+        self.radioButton_10.setText(QCoreApplication.translate("MainWindow", u"Viotp.com", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Key OTP:", None))
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"Get s\u1ed1, mail:", None))
-        self.comboBox_16.setItemText(0, QCoreApplication.translate("MainWindow", u"1 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
-        self.comboBox_16.setItemText(1, QCoreApplication.translate("MainWindow", u"2 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
-        self.comboBox_16.setItemText(2, QCoreApplication.translate("MainWindow", u"3 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
-        self.comboBox_16.setItemText(3, QCoreApplication.translate("MainWindow", u"4 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
-        self.comboBox_16.setItemText(4, QCoreApplication.translate("MainWindow", u"5 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
+        self.comboBox_24.setItemText(0, QCoreApplication.translate("MainWindow", u"1 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
+        self.comboBox_24.setItemText(1, QCoreApplication.translate("MainWindow", u"2 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
+        self.comboBox_24.setItemText(2, QCoreApplication.translate("MainWindow", u"3 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
+        self.comboBox_24.setItemText(3, QCoreApplication.translate("MainWindow", u"4 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
+        self.comboBox_24.setItemText(4, QCoreApplication.translate("MainWindow", u"5 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
 
-        self.label_23.setText(QCoreApplication.translate("MainWindow", u"IP:", None))
-        self.comboBox_19.setItemText(0, QCoreApplication.translate("MainWindow", u"None", None))
-        self.comboBox_19.setItemText(1, QCoreApplication.translate("MainWindow", u"Proxy-Shoplike", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Login", None))
+        self.comboBox_25.setItemText(0, QCoreApplication.translate("MainWindow", u"https://mbasic.facebook.com/", None))
+        self.comboBox_25.setItemText(1, QCoreApplication.translate("MainWindow", u"https://m.facebook.com/", None))
+        self.comboBox_25.setItemText(2, QCoreApplication.translate("MainWindow", u"https://www.facebook.com/", None))
 
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Login", None))
-        self.comboBox_21.setItemText(0, QCoreApplication.translate("MainWindow", u"https://mbasic.facebook.com/", None))
-        self.comboBox_21.setItemText(1, QCoreApplication.translate("MainWindow", u"https://m.facebook.com/", None))
-        self.comboBox_21.setItemText(2, QCoreApplication.translate("MainWindow", u"https://www.facebook.com/", None))
+        self.label_27.setText(QCoreApplication.translate("MainWindow", u"IP:", None))
+        self.comboBox_26.setItemText(0, QCoreApplication.translate("MainWindow", u"None", None))
+        self.comboBox_26.setItemText(1, QCoreApplication.translate("MainWindow", u"Proxy-Shoplike", None))
 
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Lu\u1ed3ng ch\u1ea1y", None))
         self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Delay", None))
@@ -641,7 +775,7 @@ class Ui_MainWindow(object):
         self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"T\u1ea5t c\u1ea3:", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"\u0110\u00e3 ch\u1ecdn", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.label_28.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"HSD: V\u0129nh vi\u1ec5n", None))
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(1)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"@T\u00e0i kho\u1ea3n[Id|Pw|2Fa]", None));

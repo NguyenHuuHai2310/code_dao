@@ -47,7 +47,37 @@ class MyHeader(QHeaderView):
 
         super().mousePressEvent(event)
 
+from PySide2.QtWidgets import QApplication, QMainWindow, QLabel, QTextEdit, QPushButton, QVBoxLayout, QWidget, QLineEdit
 
+class ShopLike(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("Window")
+
+        self.label = QLabel("Token:")
+        self.textEdit = QLineEdit()
+        self.saveButton = QPushButton("Save")
+        self.saveButton.clicked.connect(self.saveText)
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.label)
+        layout.addWidget(self.textEdit)
+        layout.addWidget(self.saveButton)
+
+        widget = QWidget()
+        widget.setLayout(layout)
+
+        self.setCentralWidget(widget)
+
+    def saveText(self):
+        text = self.textEdit.text()
+        settings = QSettings(f"output/config.ini", QSettings.IniFormat)
+        settings.beginGroup('section2')
+        settings.setValue("token_shoplike", text)
+        settings.sync()
+        settings.endGroup()
+        # self.hide()
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -95,10 +125,17 @@ class MainWindow(QMainWindow):
         self.ui.stop_button.setEnabled(False)
         self.generator_threads = []
         self.count = 0
-        self.ui.comboBox_12.activated.connect(self.openUpPhoiWindow)
-        self.ui.keyCapcha.textChanged.connect(self.save_values)
+        self.ui.comboBox_19.activated.connect(self.openUpPhoiWindow)
+        self.ui.keyCapcha_2.textChanged.connect(self.save_values)
         self.ui.keyOtp.textChanged.connect(self.save_values)
+        self.ui.comboBox_26.activated.connect(self.save_shoplikes)
         self.show()
+    def save_shoplikes(self):
+        print(self.ui.comboBox_26.currentIndex())
+        if (self.ui.comboBox_26.currentIndex() == 1):
+            self.shoplike_window = ShopLike()
+            self.shoplike_window.show()
+
     def save_values(self):
             settings = QSettings(f"output/config.ini", QSettings.IniFormat)
             settings.beginGroup('section2')
@@ -110,7 +147,7 @@ class MainWindow(QMainWindow):
     def get_values(self):
         settings = QSettings(f"output/config.ini", QSettings.IniFormat)
         settings.beginGroup('section2')
-        self.ui.keyCapcha.setText(settings.value("KeyCapcha", ""))
+        self.ui.keyCapcha_2.setText(settings.value("KeyCapcha", ""))
         self.ui.keyOtp.setText(settings.value("KeyOtp", ""))
         settings.endGroup()
     def centerWindow(self):
@@ -317,6 +354,6 @@ class Login(QMainWindow):
            self.ui.label.setText('Invalid username or password.')
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    login_window = Login()
+    login_window = MainWindow()
     login_window.show()
     sys.exit(app.exec_())

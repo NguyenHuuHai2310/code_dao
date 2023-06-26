@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QFileDialog, QDesktopWidget
+from PyQt5.QtWidgets import QFileDialog, QDesktopWidget, QMessageBox
 
 from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform, QDesktopServices, QClipboard, QPdfWriter
 from PyQt5.QtCore import Qt, QUrl,  QSettings
@@ -250,32 +250,33 @@ class UpPhoiWindow(QMainWindow):
                                 text_color ="Black", font_size = int(font_size))
         return 0
     def show_preview(self):
-        self.preview_window = QMainWindow()
-        self.preview_window.setWindowTitle("Image Preview")
+        # self.preview_window = QMainWindow()
+        # self.preview_window.setWindowTitle("Image Preview")
 
-        # # Create a label and set the pixmap
-        label = QLabel()
-        # print(self.org_w, self.org_h)
-        # print(self.combined_image.width(), self.combined_image.height())
-        # self.combined_image = self.combined_image.scaled(self.org_w, self.org_h, Qt.KeepAspectRatio, Qt.SmoothTransformation)
-        label.setPixmap(self.combined_image)
-        # Create a widget to hold the label
-        widget = QWidget()
-        layout = QVBoxLayout(widget)
-        layout.addWidget(label)
-        widget.setLayout(layout)
-        # Create a scroll area and set the widget as its content
-        scroll_area = QScrollArea()
-        scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        scroll_area.setWidgetResizable(True)
-        scroll_area.setWidget(widget)
+        # # # Create a label and set the pixmap
+        # label = QLabel()
+        # # print(self.org_w, self.org_h)
+        # # print(self.combined_image.width(), self.combined_image.height())
+        # # self.combined_image = self.combined_image.scaled(self.org_w, self.org_h, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        # label.setPixmap(self.combined_image)
+        # # Create a widget to hold the label
+        # widget = QWidget()
+        # layout = QVBoxLayout(widget)
+        # layout.addWidget(label)
+        # widget.setLayout(layout)
+        # # Create a scroll area and set the widget as its content
+        # scroll_area = QScrollArea()
+        # scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        # scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        # scroll_area.setWidgetResizable(True)
+        # scroll_area.setWidget(widget)
 
-        self.preview_window.setCentralWidget(scroll_area)
-        # Show the new window
-        self.preview_window.show()
+        # self.preview_window.setCentralWidget(scroll_area)
+        # # Show the new window
+        # self.preview_window.show()
         self.save_as_jpg(self.combined_image)
         self.save_value()
+        QMessageBox.information(self, "Notification", "Config save!")
         # self.load_value("/home/baoanh/Desktop/qt5_application/app_v1/output/config.ini")
     def save_as_jpg(self,   image):
         image.save("output/preview.jpg", "JPG")
@@ -292,6 +293,7 @@ class UpPhoiWindow(QMainWindow):
         self.ui.spinBox_5.setValue(int(settings.value("Foreground_Angle", defaultValue)))
         self.ui.comboBox_2.setCurrentText(settings.value("Font_Size", defaultValue))
         self.ui.comboBox_3.setCurrentText(settings.value("Font_Family", defaultValue))
+        self.ui.comboBox_4.setCurrentText(settings.value("Split_Name", defaultValue))
         self.ui.spinBox_23.setValue(int(settings.value("GivenName_x", defaultValue)))
         self.ui.spinBox_25.setValue(int(settings.value("GivenName_y", defaultValue)))
         self.ui.spinBox_24.setValue(int(settings.value("GivenName_Angle", defaultValue)))
@@ -335,6 +337,7 @@ class UpPhoiWindow(QMainWindow):
 
         settings.setValue("Font_Size", self.ui.comboBox_2.currentText())
         settings.setValue("Font_Family", self.ui.comboBox_3.currentText())
+        settings.setValue("Split_Name", self.ui.comboBox_4.currentText())
 
         
         settings.setValue("GivenName_x", self.ui.spinBox_23.value())
