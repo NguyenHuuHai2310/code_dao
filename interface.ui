@@ -104,13 +104,13 @@ QComboBox{
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>60</height>
+        <height>70</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>60</height>
+        <height>70</height>
        </size>
       </property>
       <property name="frameShape">
@@ -119,97 +119,175 @@ QComboBox{
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item alignment="Qt::AlignLeft">
-        <widget class="QFrame" name="frame_3">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="menuButton">
-            <property name="minimumSize">
-             <size>
-              <width>210</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>210</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: #edeef0;
+      <widget class="QFrame" name="frame_3">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>9</y>
+         <width>211</width>
+         <height>62</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="styleSheet">
+           <string notr="true">background-color: #edeef0;
 color: rgb(0,0,0);
 font: 75 15pt &quot;Ubuntu Condensed&quot;;</string>
-            </property>
-            <property name="text">
-             <string>MENU</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_5">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QLabel" name="label_2">
-          <property name="geometry">
-           <rect>
-            <x>450</x>
-            <y>10</y>
-            <width>121</width>
-            <height>21</height>
-           </rect>
           </property>
+          <property name="text">
+           <string>MENU</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QFrame" name="frame_5">
+       <property name="geometry">
+        <rect>
+         <x>1080</x>
+         <y>20</y>
+         <width>108</width>
+         <height>33</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
           <property name="text">
            <string>HSD: Vĩnh viễn</string>
           </property>
          </widget>
-        </widget>
-       </item>
-      </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QFrame" name="frame_15">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>10</y>
+         <width>771</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="stop_button">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>10</y>
+          <width>201</width>
+          <height>40</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 99, 102);
+color: rgb(255, 255, 255);
+</string>
+        </property>
+        <property name="text">
+         <string>Tạm dừng</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/icons/stop.png</normaloff>:/icons/icons/stop.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="start_button">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>10</y>
+          <width>201</width>
+          <height>40</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(85, 0, 255, 240);
+color: rgb(255, 255, 255);
+</string>
+        </property>
+        <property name="text">
+         <string>Bắt đầu</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/icons/play.png</normaloff>:/icons/icons/play.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
     <item>
@@ -363,8 +441,8 @@ color: #000000;
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>117</width>
-                        <height>40</height>
+                        <width>200</width>
+                        <height>68</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -421,8 +499,8 @@ background-color: rgb(255, 255, 255);</string>
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>200</width>
+                        <height>68</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -438,8 +516,8 @@ background-color: rgb(255, 255, 255);</string>
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>200</width>
+                        <height>68</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -551,79 +629,11 @@ color: rgb(0,0,0);</string>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <widget class="QPushButton" name="start_button">
-                       <property name="geometry">
-                        <rect>
-                         <x>130</x>
-                         <y>70</y>
-                         <width>201</width>
-                         <height>40</height>
-                        </rect>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>40</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgba(85, 0, 255, 240);
-color: rgb(255, 255, 255);
-</string>
-                       </property>
-                       <property name="text">
-                        <string>Bắt đầu</string>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="resources.qrc">
-                         <normaloff>:/icons/icons/play.png</normaloff>:/icons/icons/play.png</iconset>
-                       </property>
-                       <property name="iconSize">
-                        <size>
-                         <width>24</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                      </widget>
-                      <widget class="QPushButton" name="stop_button">
-                       <property name="geometry">
-                        <rect>
-                         <x>340</x>
-                         <y>70</y>
-                         <width>201</width>
-                         <height>40</height>
-                        </rect>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>40</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(255, 99, 102);
-color: rgb(255, 255, 255);
-</string>
-                       </property>
-                       <property name="text">
-                        <string>Tạm dừng</string>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="resources.qrc">
-                         <normaloff>:/icons/icons/stop.png</normaloff>:/icons/icons/stop.png</iconset>
-                       </property>
-                       <property name="iconSize">
-                        <size>
-                         <width>24</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                      </widget>
                       <widget class="QPushButton" name="pushButton_3">
                        <property name="geometry">
                         <rect>
-                         <x>120</x>
-                         <y>20</y>
+                         <x>30</x>
+                         <y>10</y>
                          <width>131</width>
                          <height>41</height>
                         </rect>
@@ -648,8 +658,8 @@ color: rgb(255, 255, 255);
                       <widget class="QPushButton" name="pushButton_4">
                        <property name="geometry">
                         <rect>
-                         <x>330</x>
-                         <y>20</y>
+                         <x>280</x>
+                         <y>10</y>
                          <width>91</width>
                          <height>41</height>
                         </rect>
@@ -668,74 +678,11 @@ color: rgb(255, 255, 255);
                         </size>
                        </property>
                       </widget>
-                      <widget class="QFrame" name="frame_12">
-                       <property name="geometry">
-                        <rect>
-                         <x>590</x>
-                         <y>0</y>
-                         <width>130</width>
-                         <height>62</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color: rgb(0, 0, 0);</string>
-                       </property>
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_6">
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                       </layout>
-                      </widget>
-                      <widget class="QFrame" name="frame_13">
-                       <property name="geometry">
-                        <rect>
-                         <x>590</x>
-                         <y>60</y>
-                         <width>130</width>
-                         <height>62</height>
-                        </rect>
-                       </property>
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_8">
-                        <property name="spacing">
-                         <number>0</number>
-                        </property>
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                       </layout>
-                      </widget>
                       <widget class="QSpinBox" name="num_threads">
                        <property name="geometry">
                         <rect>
-                         <x>250</x>
-                         <y>20</y>
+                         <x>160</x>
+                         <y>10</y>
                          <width>81</width>
                          <height>40</height>
                         </rect>
@@ -773,8 +720,8 @@ color: rgb(0, 0, 0);</string>
                       <widget class="QSpinBox" name="delay_time">
                        <property name="geometry">
                         <rect>
-                         <x>460</x>
-                         <y>20</y>
+                         <x>410</x>
+                         <y>10</y>
                          <width>81</width>
                          <height>40</height>
                         </rect>
@@ -812,8 +759,8 @@ background-color: rgba(225,231,250,255);
                       <widget class="QPushButton" name="pushButton_6">
                        <property name="geometry">
                         <rect>
-                         <x>730</x>
-                         <y>70</y>
+                         <x>750</x>
+                         <y>10</y>
                          <width>98</width>
                          <height>44</height>
                         </rect>
@@ -832,50 +779,11 @@ background-color: rgba(225,231,250,255);
                         </size>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="label_3">
-                       <property name="geometry">
-                        <rect>
-                         <x>826</x>
-                         <y>1</y>
-                         <width>34</width>
-                         <height>62</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color: rgb(0, 0, 0);</string>
-                       </property>
-                       <property name="text">
-                        <string>62</string>
-                       </property>
-                      </widget>
-                      <widget class="QPushButton" name="pushButton_5">
-                       <property name="geometry">
-                        <rect>
-                         <x>730</x>
-                         <y>10</y>
-                         <width>90</width>
-                         <height>44</height>
-                        </rect>
-                       </property>
-                       <property name="text">
-                        <string>Tất cả:</string>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="resources.qrc">
-                         <normaloff>:/icons/icons/list.png</normaloff>:/icons/icons/list.png</iconset>
-                       </property>
-                       <property name="iconSize">
-                        <size>
-                         <width>24</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                      </widget>
                       <widget class="QLabel" name="label_8">
                        <property name="geometry">
                         <rect>
-                         <x>828</x>
-                         <y>61</y>
+                         <x>848</x>
+                         <y>1</y>
                          <width>23</width>
                          <height>62</height>
                         </rect>
@@ -891,9 +799,9 @@ background-color: rgba(225,231,250,255);
                        <property name="geometry">
                         <rect>
                          <x>3</x>
-                         <y>140</y>
+                         <y>80</y>
                          <width>931</width>
-                         <height>421</height>
+                         <height>481</height>
                         </rect>
                        </property>
                        <property name="sizePolicy">
@@ -1033,6 +941,45 @@ border-color: rgb(0, 0, 0);</string>
                          <string>@Limit</string>
                         </property>
                        </column>
+                      </widget>
+                      <widget class="QPushButton" name="pushButton_5">
+                       <property name="geometry">
+                        <rect>
+                         <x>570</x>
+                         <y>10</y>
+                         <width>90</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="text">
+                        <string>Tất cả:</string>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="resources.qrc">
+                         <normaloff>:/icons/icons/list.png</normaloff>:/icons/icons/list.png</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="label_3">
+                       <property name="geometry">
+                        <rect>
+                         <x>666</x>
+                         <y>10</y>
+                         <width>34</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(0, 0, 0);</string>
+                       </property>
+                       <property name="text">
+                        <string>62</string>
+                       </property>
                       </widget>
                      </widget>
                     </item>
