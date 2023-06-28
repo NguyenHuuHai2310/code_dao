@@ -6,9 +6,10 @@ from PyQt5.QtWidgets import QApplication,\
                              QMenu,QDesktopWidget
 
 from PyQt5.QtGui import QPainter, QPixmap
-from PyQt5.QtCore import Qt, QRect
+from PyQt5.QtCore import Qt, QRect, QMimeData
 from Custom_Widgets.Widgets import *
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtGui
+from PySide2.QtWidgets import QApplication, QMainWindow, QLabel, QTextEdit, QPushButton, QVBoxLayout, QWidget, QLineEdit
 from functions import * 
 from ui_upPhoiWindow import *
 from upPhoiWindow import UpPhoiWindow
@@ -47,7 +48,6 @@ class MyHeader(QHeaderView):
 
         super().mousePressEvent(event)
 
-from PySide2.QtWidgets import QApplication, QMainWindow, QLabel, QTextEdit, QPushButton, QVBoxLayout, QWidget, QLineEdit
 
 class ShopLike(QMainWindow):
     def __init__(self):
@@ -84,17 +84,9 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        screen = QDesktopWidget().screenGeometry()
-        # Calculate the center point of the screen
-        center_x = screen.width() // 2
-        center_y = screen.height() // 2
-
-        
-        # self.setFixedSize(self.size())
-        # self.centerWindow()
-        # Get the screen geometry
-        screen_rect = QDesktopWidget().screenGeometry()
-
+        screen_rect = QtGui.QGuiApplication.primaryScreen().availableGeometry()
+        center_x = screen_rect.x() + screen_rect.width() // 2
+        center_y = screen_rect.y() + screen_rect.height() // 2
         # Set the window size based on the screen size
         window_width = screen_rect.width() * 0.8  # Set the desired width (e.g., 80% of the screen width)
         window_height = screen_rect.height() * 0.8  # Set the desired height (e.g., 80% of the screen height)
@@ -140,7 +132,19 @@ class MainWindow(QMainWindow):
             settings = QSettings(f"output/config.ini", QSettings.IniFormat)
             settings.beginGroup('section2')
             settings.setValue("KeyOtp", self.ui.keyOtp.text())
-            settings.setValue("KeyCapcha",self.ui.keyCapcha.text())
+            settings.setValue("KeyCaptcha",self.ui.keyCapcha.text())
+            settings.setValue("Kieu_XMDT",self.ui.comboBox_18.currentIndex())
+            settings.setValue("Chon_Phoi", self.ui.comboBox_19.currentIndex())
+            settings.setValue("Anh_Phoi",self.ui.comboBox_19.currentIndex())
+            settings.setValue("Up_Avatar",self.ui.comboBox_21.currentIndex())
+            if self.radioButton_10.isChecked():
+                settings.setValue("Otp_Phone", self.ui.radioButton_10.data())
+            settings.setValue("Nha_Mang",self.ui.comboBox_23.currentIndex())
+            settings.setValue("Captcha",self.ui.comboBox_22.currentIndex())
+            settings.setValue("Get_So_Mail", self.ui.comboBox_24.currentIndex())
+            settings.setValue("Login",self.ui.comboBox_25.currentIndex())
+            settings.setValue("Ip",self.ui.comboBox_26.currentIndex())
+
             settings.sync()
             settings.endGroup()
             
@@ -150,16 +154,42 @@ class MainWindow(QMainWindow):
         self.ui.keyCapcha_2.setText(settings.value("KeyCapcha", ""))
         self.ui.keyOtp.setText(settings.value("KeyOtp", ""))
         settings.endGroup()
-    def centerWindow(self):
-        screen = QDesktopWidget().screenGeometry()
-        center_x = screen.width() // 2
-        center_y = screen.height() // 2
-        window_x = center_x - self.width() // 2
-        window_y = center_y - self.height() // 2
-        self.move(window_x, window_y)
+    
+    # def loadSettingsValues(self):
+    #     settings = QSettings("output/config.ini", QSettings.IniFormat)
+    #     settings.beginGroup('section2')
+        
+    #     # Load values from the settings file
+    #     keyOtp = settings.value("KeyOtp")
+    #     keyCaptcha = settings.value("KeyCaptcha")
+    #     kieuXMDT = settings.value("Kieu_XMDT")
+    #     chonPhoi = settings.value("Chon_Phoi")
+    #     anhPhoi = settings.value("Anh_Phoi")
+    #     upAvatar = settings.value("Up_Avatar")
+    #     otpPhone = settings.value("Otp_Phone")
+    #     nhaMang = settings.value("Nha_Mang")
+    #     captcha = settings.value("Captcha")
+    #     getSoMail = settings.value("Get_So_Mail")
+    #     login = settings.value("Login")
+    #     ip = settings.value("Ip")
+        
+    #     # Set values in the UI elements
+    #     self.ui.keyOtp.setText(keyOtp)
+    #     self.ui.keyCapcha.setText(keyCaptcha)
+    #     self.ui.comboBox_18.setCurrentIndex(int(kieuXMDT))
+    #     self.ui.comboBox_19.setCurrentIndex(int(chonPhoi))
+    #     self.ui.comboBox_20.setCurrentIndex(int(anhPhoi))
+    #     self.ui.comboBox_21.setCurrentIndex(int(upAvatar))
+    #     if otpPhone == self.ui.radioButton_10.data():
+    #         self.ui.radioButton_10.setChecked(True)
+    #     self.ui.comboBox_23.setCurrentIndex(int(nhaMang))
+    #     self.ui.comboBox_22.setCurrentIndex(int(captcha))
+    #     self.ui.comboBox_24.setCurrentIndex(int(getSoMail))
+    #     self.ui.comboBox_25.setCurrentIndex(int(login))
+    #     self.ui.comboBox_26.setCurrentIndex(int(ip))
 
     def openUpPhoiWindow(self):
-        if  self.ui.comboBox_12.currentIndex() == 1:
+        if  self.ui.comboBox_19.currentIndex() == 1:
             self.window2 = UpPhoiWindow()
             self.window2.show()
             
@@ -244,8 +274,20 @@ class MainWindow(QMainWindow):
             self.ui.tableWidget.setVerticalHeaderItem(row, item2)
             self.ui.tableWidget.setItem(row, 0, item)
     def clickSelectedAccount(self):
+        clipboard = QApplication.clipboard()
+        mimeData = QMimeData()
+        selectedText = ""
         # QMessageBox.information(self, "Custom Action", "Click vào tài khoản đã bôi đen clicked!")
-        pass
+        for row in range(self.ui.tableWidget.rowCount()):
+            item = self.ui.tableWidget.item(row, 0)
+            if item.checkState() == Qt.Checked:
+                cell_text = self.ui.tableWidget.item(row, 1).text()
+                selectedText += cell_text + "\n"
+                # print(cell_text)
+        mimeData.setText(selectedText)
+        clipboard.setMimeData(mimeData)
+
+
     def start_generation(self):
         self.ui.start_button.setEnabled(False)
         self.ui.start_button.setStyleSheet("QPushButton {background-color: #c6c7c1;}")

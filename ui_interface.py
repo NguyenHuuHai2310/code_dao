@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceDznBVF.ui'
+## Form generated from reading UI file 'interfacehcscOd.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,105 +18,43 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1309, 877)
-        MainWindow.setCursor(QCursor(Qt.ArrowCursor))
-        MainWindow.setStyleSheet(u"*{\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"	color: #ffffff;\n"
-"}\n"
-"#centralwidget{\n"
-"	background-color: #ffffff;\n"
-"}\n"
-"#header{\n"
-"background-color: #ffffff;\n"
-"	color: rgb(255, 250, 235);\n"
-"}\n"
-"#side_menu{\n"
-"	background-color: #fffaeb;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"QPushButton{\n"
-"	padding: 10px;\n"
-"	background-color: #fffaeb;\n"
-"	border-radius: 5px;\n"
-"color: rgb(0,0,0);\n"
-"\n"
-"}\n"
-"QComboBox{\n"
-"	padding: 10px;\n"
-"	background-color: #ffffff;\n"
-"	border-radius: 5px;\n"
-"	color: rgb(0,0,0);\n"
-"\n"
-"}\n"
-"#main_body{\n"
-"	background-color: #fffaeb;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"#pushButton_view{\n"
-"	text-align: left;\n"
-"}\n"
-"#pushButton_contact{\n"
-"	text-align: left;\n"
-"}\n"
-"#pushButton_config{\n"
-"	text-align: left;\n"
-"}\n"
-"#comboBox{\n"
-"	text-align: left;\n"
-"}\n"
-"#pushButton_xmdt{\n"
-"	text-align: left;\n"
-"}")
+        MainWindow.resize(1209, 849)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setMaximumSize(QSize(16777215, 16777215))
-        self.centralwidget.setStyleSheet(u"")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.frame_2 = QFrame(self.centralwidget)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setFrameShape(QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout = QHBoxLayout(self.frame_2)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.main_body = QFrame(self.frame_2)
-        self.main_body.setObjectName(u"main_body")
-        self.main_body.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-        self.main_body.setFrameShape(QFrame.StyledPanel)
-        self.main_body.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.main_body)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.frame = QFrame(self.main_body)
+        self.frame = QFrame(self.centralwidget)
         self.frame.setObjectName(u"frame")
-        self.frame.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_12 = QVBoxLayout(self.frame)
-        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-        self.frame_21 = QFrame(self.frame)
-        self.frame_21.setObjectName(u"frame_21")
-        self.frame_21.setFrameShape(QFrame.StyledPanel)
-        self.frame_21.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_8 = QVBoxLayout(self.frame_21)
+        self.verticalLayout_8 = QVBoxLayout(self.frame)
+        self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.frame_3 = QFrame(self.frame_21)
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.frame_2 = QFrame(self.frame)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setMaximumSize(QSize(16777215, 240))
+        self.frame_2.setStyleSheet(u"background-color: #edeef0;")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_2)
+        self.verticalLayout_5.setSpacing(0)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.frame_3 = QFrame(self.frame_2)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_6 = QHBoxLayout(self.frame_3)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.frame_4 = QFrame(self.frame_3)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame_4)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.frame_5 = QFrame(self.frame_4)
+        self.horizontalLayout = QHBoxLayout(self.frame_3)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.groupBox_3 = QGroupBox(self.frame_3)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.verticalLayout_4 = QVBoxLayout(self.groupBox_3)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.frame_5 = QFrame(self.groupBox_3)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
@@ -126,14 +64,18 @@ class Ui_MainWindow(object):
         self.label_8.setObjectName(u"label_8")
         self.label_8.setMinimumSize(QSize(80, 0))
         self.label_8.setMaximumSize(QSize(80, 16777215))
+        font = QFont()
+        font.setPointSize(8)
+        self.label_8.setFont(font)
 
         self.horizontalLayout_15.addWidget(self.label_8)
 
         self.comboBox_18 = QComboBox(self.frame_5)
         self.comboBox_18.addItem("")
         self.comboBox_18.setObjectName(u"comboBox_18")
-        self.comboBox_18.setMinimumSize(QSize(0, 40))
-        self.comboBox_18.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_18.setMinimumSize(QSize(0, 30))
+        self.comboBox_18.setMaximumSize(QSize(16777215, 30))
+        self.comboBox_18.setFont(font)
         self.comboBox_18.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);\n"
 "")
@@ -141,9 +83,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_15.addWidget(self.comboBox_18)
 
 
-        self.verticalLayout_2.addWidget(self.frame_5)
+        self.verticalLayout_4.addWidget(self.frame_5)
 
-        self.frame_9 = QFrame(self.frame_4)
+        self.frame_9 = QFrame(self.groupBox_3)
         self.frame_9.setObjectName(u"frame_9")
         self.frame_9.setFrameShape(QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QFrame.Raised)
@@ -153,6 +95,7 @@ class Ui_MainWindow(object):
         self.label_13.setObjectName(u"label_13")
         self.label_13.setMinimumSize(QSize(80, 0))
         self.label_13.setMaximumSize(QSize(80, 16777215))
+        self.label_13.setFont(font)
 
         self.horizontalLayout_16.addWidget(self.label_13)
 
@@ -160,17 +103,18 @@ class Ui_MainWindow(object):
         self.comboBox_19.addItem("")
         self.comboBox_19.addItem("")
         self.comboBox_19.setObjectName(u"comboBox_19")
-        self.comboBox_19.setMinimumSize(QSize(0, 40))
-        self.comboBox_19.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_19.setMinimumSize(QSize(0, 30))
+        self.comboBox_19.setMaximumSize(QSize(16777215, 30))
+        self.comboBox_19.setFont(font)
         self.comboBox_19.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
         self.horizontalLayout_16.addWidget(self.comboBox_19)
 
 
-        self.verticalLayout_2.addWidget(self.frame_9)
+        self.verticalLayout_4.addWidget(self.frame_9)
 
-        self.frame_19 = QFrame(self.frame_4)
+        self.frame_19 = QFrame(self.groupBox_3)
         self.frame_19.setObjectName(u"frame_19")
         self.frame_19.setFrameShape(QFrame.StyledPanel)
         self.frame_19.setFrameShadow(QFrame.Raised)
@@ -180,6 +124,7 @@ class Ui_MainWindow(object):
         self.label_24.setObjectName(u"label_24")
         self.label_24.setMinimumSize(QSize(80, 0))
         self.label_24.setMaximumSize(QSize(80, 16777215))
+        self.label_24.setFont(font)
 
         self.horizontalLayout_17.addWidget(self.label_24)
 
@@ -187,26 +132,18 @@ class Ui_MainWindow(object):
         self.comboBox_20.addItem("")
         self.comboBox_20.addItem("")
         self.comboBox_20.setObjectName(u"comboBox_20")
-        self.comboBox_20.setMinimumSize(QSize(0, 40))
-        self.comboBox_20.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_20.setMinimumSize(QSize(0, 30))
+        self.comboBox_20.setMaximumSize(QSize(16777215, 30))
+        self.comboBox_20.setFont(font)
         self.comboBox_20.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
         self.horizontalLayout_17.addWidget(self.comboBox_20)
 
 
-        self.verticalLayout_2.addWidget(self.frame_19)
+        self.verticalLayout_4.addWidget(self.frame_19)
 
-
-        self.horizontalLayout_6.addWidget(self.frame_4)
-
-        self.frame_20 = QFrame(self.frame_3)
-        self.frame_20.setObjectName(u"frame_20")
-        self.frame_20.setFrameShape(QFrame.StyledPanel)
-        self.frame_20.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_9 = QVBoxLayout(self.frame_20)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.frame_22 = QFrame(self.frame_20)
+        self.frame_22 = QFrame(self.groupBox_3)
         self.frame_22.setObjectName(u"frame_22")
         self.frame_22.setFrameShape(QFrame.StyledPanel)
         self.frame_22.setFrameShadow(QFrame.Raised)
@@ -216,6 +153,7 @@ class Ui_MainWindow(object):
         self.label_14.setObjectName(u"label_14")
         self.label_14.setMinimumSize(QSize(80, 0))
         self.label_14.setMaximumSize(QSize(80, 16777215))
+        self.label_14.setFont(font)
 
         self.horizontalLayout_18.addWidget(self.label_14)
 
@@ -223,108 +161,30 @@ class Ui_MainWindow(object):
         self.comboBox_21.addItem("")
         self.comboBox_21.addItem("")
         self.comboBox_21.setObjectName(u"comboBox_21")
-        self.comboBox_21.setMinimumSize(QSize(0, 40))
-        self.comboBox_21.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_21.setMinimumSize(QSize(0, 30))
+        self.comboBox_21.setMaximumSize(QSize(16777215, 30))
         self.comboBox_21.setSizeIncrement(QSize(0, 0))
+        self.comboBox_21.setFont(font)
         self.comboBox_21.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
         self.horizontalLayout_18.addWidget(self.comboBox_21)
 
 
-        self.verticalLayout_9.addWidget(self.frame_22)
-
-        self.frame_23 = QFrame(self.frame_20)
-        self.frame_23.setObjectName(u"frame_23")
-        self.frame_23.setFrameShape(QFrame.StyledPanel)
-        self.frame_23.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_19 = QHBoxLayout(self.frame_23)
-        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
-        self.label_17 = QLabel(self.frame_23)
-        self.label_17.setObjectName(u"label_17")
-        self.label_17.setMinimumSize(QSize(80, 0))
-        self.label_17.setMaximumSize(QSize(80, 16777215))
-
-        self.horizontalLayout_19.addWidget(self.label_17)
-
-        self.keyCapcha_2 = QLineEdit(self.frame_23)
-        self.keyCapcha_2.setObjectName(u"keyCapcha_2")
-        self.keyCapcha_2.setMinimumSize(QSize(0, 40))
-        self.keyCapcha_2.setMaximumSize(QSize(16777215, 40))
-        self.keyCapcha_2.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-
-        self.horizontalLayout_19.addWidget(self.keyCapcha_2)
+        self.verticalLayout_4.addWidget(self.frame_22)
 
 
-        self.verticalLayout_9.addWidget(self.frame_23)
+        self.horizontalLayout.addWidget(self.groupBox_3)
 
-        self.frame_24 = QFrame(self.frame_20)
-        self.frame_24.setObjectName(u"frame_24")
-        self.frame_24.setFrameShape(QFrame.StyledPanel)
-        self.frame_24.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_20 = QHBoxLayout(self.frame_24)
-        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
-        self.label_15 = QLabel(self.frame_24)
-        self.label_15.setObjectName(u"label_15")
-        self.label_15.setMinimumSize(QSize(80, 0))
-        self.label_15.setMaximumSize(QSize(80, 16777215))
-
-        self.horizontalLayout_20.addWidget(self.label_15)
-
-        self.comboBox_22 = QComboBox(self.frame_24)
-        self.comboBox_22.addItem("")
-        self.comboBox_22.setObjectName(u"comboBox_22")
-        self.comboBox_22.setMinimumSize(QSize(0, 40))
-        self.comboBox_22.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_22.setSizeIncrement(QSize(0, 0))
-        self.comboBox_22.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-
-        self.horizontalLayout_20.addWidget(self.comboBox_22)
-
-
-        self.verticalLayout_9.addWidget(self.frame_24)
-
-
-        self.horizontalLayout_6.addWidget(self.frame_20)
-
-        self.frame_25 = QFrame(self.frame_3)
-        self.frame_25.setObjectName(u"frame_25")
-        self.frame_25.setFrameShape(QFrame.StyledPanel)
-        self.frame_25.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_10 = QVBoxLayout(self.frame_25)
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.frame_26 = QFrame(self.frame_25)
-        self.frame_26.setObjectName(u"frame_26")
-        self.frame_26.setFrameShape(QFrame.StyledPanel)
-        self.frame_26.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_21 = QHBoxLayout(self.frame_26)
-        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
-        self.label_18 = QLabel(self.frame_26)
-        self.label_18.setObjectName(u"label_18")
-        self.label_18.setMinimumSize(QSize(80, 0))
-        self.label_18.setMaximumSize(QSize(80, 16777215))
-
-        self.horizontalLayout_21.addWidget(self.label_18)
-
-        self.comboBox_23 = QComboBox(self.frame_26)
-        self.comboBox_23.addItem("")
-        self.comboBox_23.setObjectName(u"comboBox_23")
-        self.comboBox_23.setMinimumSize(QSize(0, 40))
-        self.comboBox_23.setMaximumSize(QSize(16777215, 40))
-        self.comboBox_23.setSizeIncrement(QSize(30, 0))
-        self.comboBox_23.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-
-        self.horizontalLayout_21.addWidget(self.comboBox_23)
-
-
-        self.verticalLayout_10.addWidget(self.frame_26)
-
-        self.frame_27 = QFrame(self.frame_25)
+        self.groupBox_2 = QGroupBox(self.frame_3)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.verticalLayout_2 = QVBoxLayout(self.groupBox_2)
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.frame_27 = QFrame(self.groupBox_2)
         self.frame_27.setObjectName(u"frame_27")
-        self.frame_27.setFrameShape(QFrame.StyledPanel)
+        self.frame_27.setFrameShape(QFrame.NoFrame)
         self.frame_27.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_22 = QHBoxLayout(self.frame_27)
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
@@ -332,18 +192,24 @@ class Ui_MainWindow(object):
         self.label_20.setObjectName(u"label_20")
         self.label_20.setMinimumSize(QSize(80, 0))
         self.label_20.setMaximumSize(QSize(80, 16777215))
+        self.label_20.setFont(font)
 
         self.horizontalLayout_22.addWidget(self.label_20)
 
         self.frame_28 = QFrame(self.frame_27)
         self.frame_28.setObjectName(u"frame_28")
+        self.frame_28.setMinimumSize(QSize(0, 35))
         self.frame_28.setStyleSheet(u"")
-        self.frame_28.setFrameShape(QFrame.StyledPanel)
+        self.frame_28.setFrameShape(QFrame.NoFrame)
         self.frame_28.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_23 = QHBoxLayout(self.frame_28)
         self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
         self.radioButton_10 = QRadioButton(self.frame_28)
         self.radioButton_10.setObjectName(u"radioButton_10")
+        font1 = QFont()
+        font1.setFamily(u"Sans Serif")
+        font1.setPointSize(8)
+        self.radioButton_10.setFont(font1)
         self.radioButton_10.setChecked(True)
 
         self.horizontalLayout_23.addWidget(self.radioButton_10)
@@ -352,11 +218,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_22.addWidget(self.frame_28)
 
 
-        self.verticalLayout_10.addWidget(self.frame_27)
+        self.verticalLayout_2.addWidget(self.frame_27)
 
-        self.frame_29 = QFrame(self.frame_25)
+        self.frame_29 = QFrame(self.groupBox_2)
         self.frame_29.setObjectName(u"frame_29")
-        self.frame_29.setFrameShape(QFrame.StyledPanel)
+        self.frame_29.setFrameShape(QFrame.NoFrame)
         self.frame_29.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_24 = QHBoxLayout(self.frame_29)
         self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
@@ -364,31 +230,145 @@ class Ui_MainWindow(object):
         self.label_25.setObjectName(u"label_25")
         self.label_25.setMinimumSize(QSize(80, 0))
         self.label_25.setMaximumSize(QSize(80, 16777215))
+        self.label_25.setFont(font)
 
         self.horizontalLayout_24.addWidget(self.label_25)
 
         self.keyOtp = QLineEdit(self.frame_29)
         self.keyOtp.setObjectName(u"keyOtp")
-        self.keyOtp.setMinimumSize(QSize(0, 40))
-        self.keyOtp.setMaximumSize(QSize(16777215, 40))
+        self.keyOtp.setMinimumSize(QSize(0, 30))
+        self.keyOtp.setMaximumSize(QSize(16777215, 30))
+        self.keyOtp.setFont(font)
         self.keyOtp.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
         self.horizontalLayout_24.addWidget(self.keyOtp)
 
 
-        self.verticalLayout_10.addWidget(self.frame_29)
+        self.verticalLayout_2.addWidget(self.frame_29)
+
+        self.frame_26 = QFrame(self.groupBox_2)
+        self.frame_26.setObjectName(u"frame_26")
+        self.frame_26.setFrameShape(QFrame.NoFrame)
+        self.frame_26.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_21 = QHBoxLayout(self.frame_26)
+        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
+        self.label_18 = QLabel(self.frame_26)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setMinimumSize(QSize(80, 0))
+        self.label_18.setMaximumSize(QSize(80, 16777215))
+        self.label_18.setFont(font)
+
+        self.horizontalLayout_21.addWidget(self.label_18)
+
+        self.comboBox_23 = QComboBox(self.frame_26)
+        self.comboBox_23.addItem("")
+        self.comboBox_23.setObjectName(u"comboBox_23")
+        self.comboBox_23.setMinimumSize(QSize(0, 30))
+        self.comboBox_23.setMaximumSize(QSize(16777215, 30))
+        self.comboBox_23.setSizeIncrement(QSize(30, 0))
+        self.comboBox_23.setFont(font)
+        self.comboBox_23.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_21.addWidget(self.comboBox_23)
 
 
-        self.horizontalLayout_6.addWidget(self.frame_25)
+        self.verticalLayout_2.addWidget(self.frame_26)
 
-        self.frame_30 = QFrame(self.frame_3)
-        self.frame_30.setObjectName(u"frame_30")
-        self.frame_30.setFrameShape(QFrame.StyledPanel)
-        self.frame_30.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_11 = QVBoxLayout(self.frame_30)
-        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-        self.frame_31 = QFrame(self.frame_30)
+
+        self.horizontalLayout.addWidget(self.groupBox_2)
+
+        self.frame_6 = QFrame(self.frame_3)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_3 = QVBoxLayout(self.frame_6)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.groupBox = QGroupBox(self.frame_6)
+        self.groupBox.setObjectName(u"groupBox")
+        self.verticalLayout_9 = QVBoxLayout(self.groupBox)
+        self.verticalLayout_9.setSpacing(0)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.frame_24 = QFrame(self.groupBox)
+        self.frame_24.setObjectName(u"frame_24")
+        self.frame_24.setFrameShape(QFrame.NoFrame)
+        self.frame_24.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_20 = QHBoxLayout(self.frame_24)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.label_15 = QLabel(self.frame_24)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setMinimumSize(QSize(80, 0))
+        self.label_15.setMaximumSize(QSize(80, 16777215))
+        self.label_15.setFont(font)
+
+        self.horizontalLayout_20.addWidget(self.label_15)
+
+        self.comboBox_22 = QComboBox(self.frame_24)
+        self.comboBox_22.addItem("")
+        self.comboBox_22.setObjectName(u"comboBox_22")
+        self.comboBox_22.setMinimumSize(QSize(0, 30))
+        self.comboBox_22.setMaximumSize(QSize(16777215, 30))
+        self.comboBox_22.setSizeIncrement(QSize(0, 0))
+        self.comboBox_22.setFont(font)
+        self.comboBox_22.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_20.addWidget(self.comboBox_22)
+
+
+        self.verticalLayout_9.addWidget(self.frame_24)
+
+        self.frame_23 = QFrame(self.groupBox)
+        self.frame_23.setObjectName(u"frame_23")
+        self.frame_23.setFrameShape(QFrame.NoFrame)
+        self.frame_23.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.frame_23)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.label_17 = QLabel(self.frame_23)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setMinimumSize(QSize(80, 0))
+        self.label_17.setMaximumSize(QSize(80, 16777215))
+        self.label_17.setFont(font)
+
+        self.horizontalLayout_19.addWidget(self.label_17)
+
+        self.keyCapcha_2 = QLineEdit(self.frame_23)
+        self.keyCapcha_2.setObjectName(u"keyCapcha_2")
+        self.keyCapcha_2.setMinimumSize(QSize(0, 30))
+        self.keyCapcha_2.setMaximumSize(QSize(16777215, 30))
+        self.keyCapcha_2.setFont(font)
+        self.keyCapcha_2.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_19.addWidget(self.keyCapcha_2)
+
+
+        self.verticalLayout_9.addWidget(self.frame_23)
+
+        self.frame_7 = QFrame(self.groupBox)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setFrameShape(QFrame.NoFrame)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_9.addWidget(self.frame_7)
+
+
+        self.verticalLayout_3.addWidget(self.groupBox)
+
+
+        self.horizontalLayout.addWidget(self.frame_6)
+
+        self.groupBox_4 = QGroupBox(self.frame_3)
+        self.groupBox_4.setObjectName(u"groupBox_4")
+        self.verticalLayout_6 = QVBoxLayout(self.groupBox_4)
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.frame_31 = QFrame(self.groupBox_4)
         self.frame_31.setObjectName(u"frame_31")
         self.frame_31.setFrameShape(QFrame.StyledPanel)
         self.frame_31.setFrameShadow(QFrame.Raised)
@@ -398,6 +378,7 @@ class Ui_MainWindow(object):
         self.label_19.setObjectName(u"label_19")
         self.label_19.setMinimumSize(QSize(80, 0))
         self.label_19.setMaximumSize(QSize(80, 16777215))
+        self.label_19.setFont(font)
 
         self.horizontalLayout_25.addWidget(self.label_19)
 
@@ -408,18 +389,19 @@ class Ui_MainWindow(object):
         self.comboBox_24.addItem("")
         self.comboBox_24.addItem("")
         self.comboBox_24.setObjectName(u"comboBox_24")
-        self.comboBox_24.setMinimumSize(QSize(0, 40))
-        self.comboBox_24.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_24.setMinimumSize(QSize(0, 30))
+        self.comboBox_24.setMaximumSize(QSize(16777215, 30))
         self.comboBox_24.setSizeIncrement(QSize(0, 0))
+        self.comboBox_24.setFont(font)
         self.comboBox_24.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
         self.horizontalLayout_25.addWidget(self.comboBox_24)
 
 
-        self.verticalLayout_11.addWidget(self.frame_31)
+        self.verticalLayout_6.addWidget(self.frame_31)
 
-        self.frame_32 = QFrame(self.frame_30)
+        self.frame_32 = QFrame(self.groupBox_4)
         self.frame_32.setObjectName(u"frame_32")
         self.frame_32.setFrameShape(QFrame.StyledPanel)
         self.frame_32.setFrameShadow(QFrame.Raised)
@@ -429,6 +411,7 @@ class Ui_MainWindow(object):
         self.label_26.setObjectName(u"label_26")
         self.label_26.setMinimumSize(QSize(80, 0))
         self.label_26.setMaximumSize(QSize(80, 16777215))
+        self.label_26.setFont(font)
 
         self.horizontalLayout_26.addWidget(self.label_26)
 
@@ -437,17 +420,18 @@ class Ui_MainWindow(object):
         self.comboBox_25.addItem("")
         self.comboBox_25.addItem("")
         self.comboBox_25.setObjectName(u"comboBox_25")
-        self.comboBox_25.setMinimumSize(QSize(0, 40))
-        self.comboBox_25.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_25.setMinimumSize(QSize(0, 30))
+        self.comboBox_25.setMaximumSize(QSize(16777215, 30))
+        self.comboBox_25.setFont(font)
         self.comboBox_25.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
         self.horizontalLayout_26.addWidget(self.comboBox_25)
 
 
-        self.verticalLayout_11.addWidget(self.frame_32)
+        self.verticalLayout_6.addWidget(self.frame_32)
 
-        self.frame_33 = QFrame(self.frame_30)
+        self.frame_33 = QFrame(self.groupBox_4)
         self.frame_33.setObjectName(u"frame_33")
         self.frame_33.setFrameShape(QFrame.StyledPanel)
         self.frame_33.setFrameShadow(QFrame.Raised)
@@ -457,6 +441,7 @@ class Ui_MainWindow(object):
         self.label_27.setObjectName(u"label_27")
         self.label_27.setMinimumSize(QSize(80, 0))
         self.label_27.setMaximumSize(QSize(80, 16777215))
+        self.label_27.setFont(font)
 
         self.horizontalLayout_27.addWidget(self.label_27)
 
@@ -464,24 +449,26 @@ class Ui_MainWindow(object):
         self.comboBox_26.addItem("")
         self.comboBox_26.addItem("")
         self.comboBox_26.setObjectName(u"comboBox_26")
-        self.comboBox_26.setMinimumSize(QSize(0, 40))
-        self.comboBox_26.setMaximumSize(QSize(16777215, 40))
+        self.comboBox_26.setMinimumSize(QSize(0, 30))
+        self.comboBox_26.setMaximumSize(QSize(16777215, 30))
+        self.comboBox_26.setFont(font)
         self.comboBox_26.setStyleSheet(u"background-color: #edeef0;\n"
 "color: rgb(0,0,0);")
 
         self.horizontalLayout_27.addWidget(self.comboBox_26)
 
 
-        self.verticalLayout_11.addWidget(self.frame_33)
+        self.verticalLayout_6.addWidget(self.frame_33)
 
 
-        self.horizontalLayout_6.addWidget(self.frame_30)
+        self.horizontalLayout.addWidget(self.groupBox_4)
 
 
-        self.verticalLayout_8.addWidget(self.frame_3)
+        self.verticalLayout_5.addWidget(self.frame_3)
 
-        self.frame_34 = QFrame(self.frame_21)
+        self.frame_34 = QFrame(self.frame_2)
         self.frame_34.setObjectName(u"frame_34")
+        self.frame_34.setMaximumSize(QSize(16777215, 50))
         self.frame_34.setFrameShape(QFrame.StyledPanel)
         self.frame_34.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_28 = QHBoxLayout(self.frame_34)
@@ -490,7 +477,10 @@ class Ui_MainWindow(object):
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setMinimumSize(QSize(120, 0))
         self.pushButton_3.setMaximumSize(QSize(120, 16777215))
-        self.pushButton_3.setStyleSheet(u"text-align: left;")
+        self.pushButton_3.setFont(font)
+        self.pushButton_3.setStyleSheet(u"text-align: left;\n"
+"background-color: #edeef0;\n"
+"border: none;")
         icon = QIcon()
         icon.addFile(u":/icons/icons/calendar.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_3.setIcon(icon)
@@ -500,9 +490,10 @@ class Ui_MainWindow(object):
 
         self.num_threads = QSpinBox(self.frame_34)
         self.num_threads.setObjectName(u"num_threads")
-        self.num_threads.setMinimumSize(QSize(113, 40))
-        self.num_threads.setMaximumSize(QSize(113, 16777215))
+        self.num_threads.setMinimumSize(QSize(113, 30))
+        self.num_threads.setMaximumSize(QSize(113, 30))
         self.num_threads.setSizeIncrement(QSize(0, 40))
+        self.num_threads.setFont(font)
         self.num_threads.setStyleSheet(u"\n"
 "background-color: rgba(225,231,250,255);\n"
 "color: rgb(0, 0, 0);")
@@ -515,6 +506,10 @@ class Ui_MainWindow(object):
         self.pushButton_4.setObjectName(u"pushButton_4")
         self.pushButton_4.setMinimumSize(QSize(113, 0))
         self.pushButton_4.setMaximumSize(QSize(113, 16777215))
+        self.pushButton_4.setFont(font)
+        self.pushButton_4.setStyleSheet(u"text-align: left;\n"
+"background-color: #edeef0;\n"
+"border: none;")
         icon1 = QIcon()
         icon1.addFile(u":/icons/icons/clock.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_4.setIcon(icon1)
@@ -524,9 +519,10 @@ class Ui_MainWindow(object):
 
         self.delay_time = QSpinBox(self.frame_34)
         self.delay_time.setObjectName(u"delay_time")
-        self.delay_time.setMinimumSize(QSize(113, 40))
-        self.delay_time.setMaximumSize(QSize(113, 16777215))
+        self.delay_time.setMinimumSize(QSize(113, 30))
+        self.delay_time.setMaximumSize(QSize(113, 30))
         self.delay_time.setSizeIncrement(QSize(0, 40))
+        self.delay_time.setFont(font)
         self.delay_time.setStyleSheet(u"color:rgb(0,0,0);\n"
 "background-color: rgba(225,231,250,255);\n"
 "")
@@ -537,10 +533,12 @@ class Ui_MainWindow(object):
 
         self.start_button = QPushButton(self.frame_34)
         self.start_button.setObjectName(u"start_button")
-        self.start_button.setMinimumSize(QSize(113, 40))
-        self.start_button.setMaximumSize(QSize(113, 16777215))
+        self.start_button.setMinimumSize(QSize(113, 30))
+        self.start_button.setMaximumSize(QSize(113, 35))
+        self.start_button.setFont(font)
         self.start_button.setStyleSheet(u"background-color: rgba(85, 0, 255, 240);\n"
 "color: rgb(255, 255, 255);\n"
+"border: none;\n"
 "")
         icon2 = QIcon()
         icon2.addFile(u":/icons/icons/play.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -551,11 +549,12 @@ class Ui_MainWindow(object):
 
         self.stop_button = QPushButton(self.frame_34)
         self.stop_button.setObjectName(u"stop_button")
-        self.stop_button.setMinimumSize(QSize(113, 40))
-        self.stop_button.setMaximumSize(QSize(113, 16777215))
+        self.stop_button.setMinimumSize(QSize(113, 30))
+        self.stop_button.setMaximumSize(QSize(113, 35))
+        self.stop_button.setFont(font)
         self.stop_button.setStyleSheet(u"background-color: rgb(255, 99, 102);\n"
 "color: rgb(255, 255, 255);\n"
-"")
+"border: none;")
         icon3 = QIcon()
         icon3.addFile(u":/icons/icons/stop.png", QSize(), QIcon.Normal, QIcon.Off)
         self.stop_button.setIcon(icon3)
@@ -567,10 +566,15 @@ class Ui_MainWindow(object):
         self.pushButton_5.setObjectName(u"pushButton_5")
         self.pushButton_5.setMinimumSize(QSize(113, 0))
         self.pushButton_5.setMaximumSize(QSize(113, 16777215))
+        self.pushButton_5.setFont(font)
+        self.pushButton_5.setStyleSheet(u"text-align: left;\n"
+"background-color: #edeef0;\n"
+"border: none;")
         icon4 = QIcon()
         icon4.addFile(u":/icons/icons/list.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_5.setIcon(icon4)
         self.pushButton_5.setIconSize(QSize(24, 24))
+        self.pushButton_5.setAutoDefault(False)
 
         self.horizontalLayout_28.addWidget(self.pushButton_5)
 
@@ -586,6 +590,10 @@ class Ui_MainWindow(object):
         self.pushButton_6.setObjectName(u"pushButton_6")
         self.pushButton_6.setMinimumSize(QSize(113, 0))
         self.pushButton_6.setMaximumSize(QSize(113, 16777215))
+        self.pushButton_6.setFont(font)
+        self.pushButton_6.setStyleSheet(u"text-align: left;\n"
+"background-color: #edeef0;\n"
+"border: none;")
         icon5 = QIcon()
         icon5.addFile(u":/icons/icons/check.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_6.setIcon(icon5)
@@ -605,19 +613,23 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(113, 0))
         self.label_2.setMaximumSize(QSize(113, 16777215))
+        self.label_2.setFont(font)
 
         self.horizontalLayout_28.addWidget(self.label_2)
 
 
-        self.verticalLayout_8.addWidget(self.frame_34)
+        self.verticalLayout_5.addWidget(self.frame_34)
 
 
-        self.verticalLayout_12.addWidget(self.frame_21)
+        self.verticalLayout_8.addWidget(self.frame_2)
 
-
-        self.verticalLayout_3.addWidget(self.frame)
-
-        self.tableWidget = QTableWidget(self.main_body)
+        self.frame_4 = QFrame(self.frame)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.frame_4)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.tableWidget = QTableWidget(self.frame_4)
         if (self.tableWidget.columnCount() < 6):
             self.tableWidget.setColumnCount(6)
         __qtablewidgetitem = QTableWidgetItem()
@@ -675,7 +687,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem25 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(19, __qtablewidgetitem25)
         self.tableWidget.setObjectName(u"tableWidget")
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
@@ -708,15 +720,15 @@ class Ui_MainWindow(object):
         self.tableWidget.verticalHeader().setCascadingSectionResizes(True)
         self.tableWidget.verticalHeader().setHighlightSections(True)
         self.tableWidget.verticalHeader().setProperty("showSortIndicator", True)
-        self.tableWidget.verticalHeader().setStretchLastSection(True)
+        self.tableWidget.verticalHeader().setStretchLastSection(False)
 
-        self.verticalLayout_3.addWidget(self.tableWidget)
-
-
-        self.horizontalLayout.addWidget(self.main_body)
+        self.verticalLayout_7.addWidget(self.tableWidget)
 
 
-        self.verticalLayout.addWidget(self.frame_2)
+        self.verticalLayout_8.addWidget(self.frame_4)
+
+
+        self.verticalLayout.addWidget(self.frame)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -727,6 +739,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.groupBox_3.setTitle("")
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Ki\u1ec3u XMDT", None))
         self.comboBox_18.setItemText(0, QCoreApplication.translate("MainWindow", u"XMDT th\u1eb3ng ", None))
 
@@ -742,16 +755,19 @@ class Ui_MainWindow(object):
         self.comboBox_21.setItemText(0, QCoreApplication.translate("MainWindow", u"C\u00f3", None))
         self.comboBox_21.setItemText(1, QCoreApplication.translate("MainWindow", u"Kh\u00f4ng", None))
 
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Key:", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Capcha:", None))
-        self.comboBox_22.setItemText(0, QCoreApplication.translate("MainWindow", u"Anycapcha", None))
-
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Nh\u00e0 m\u1ea1ng:", None))
-        self.comboBox_23.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u1ea5t c\u1ea3", None))
-
+        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Sim config", None))
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"OTP Phone:", None))
         self.radioButton_10.setText(QCoreApplication.translate("MainWindow", u"Viotp.com", None))
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"Key OTP:", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Nh\u00e0 m\u1ea1ng:", None))
+        self.comboBox_23.setItemText(0, QCoreApplication.translate("MainWindow", u"T\u1ea5t c\u1ea3", None))
+
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Capcha config", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Captcha:", None))
+        self.comboBox_22.setItemText(0, QCoreApplication.translate("MainWindow", u"Anycaptcha", None))
+
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Key:", None))
+        self.groupBox_4.setTitle("")
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"Get s\u1ed1, mail:", None))
         self.comboBox_24.setItemText(0, QCoreApplication.translate("MainWindow", u"1 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))
         self.comboBox_24.setItemText(1, QCoreApplication.translate("MainWindow", u"2 l\u1ea7n khi Code OTP kh\u00f4ng v\u1ec1", None))

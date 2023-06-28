@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowhkissA.ui'
+## Form generated from reading UI file 'upPhoiWindowjsgSzs.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,7 +17,7 @@ class Ui_UpPhoiWindow(object):
     def setupUi(self, UpPhoiWindow):
         if not UpPhoiWindow.objectName():
             UpPhoiWindow.setObjectName(u"UpPhoiWindow")
-        UpPhoiWindow.resize(1070, 917)
+        UpPhoiWindow.resize(1108, 917)
         UpPhoiWindow.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.centralwidget = QWidget(UpPhoiWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -31,32 +31,37 @@ class Ui_UpPhoiWindow(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(9, 9, 0, -1)
         self.frame_5 = QFrame(self.frame)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setMinimumSize(QSize(0, 0))
-        self.frame_5.setMaximumSize(QSize(420, 16777215))
+        self.frame_5.setMaximumSize(QSize(520, 16777215))
         self.frame_5.setStyleSheet(u"")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame_5)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.frame_9 = QFrame(self.frame_5)
         self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setMaximumSize(QSize(16777215, 150))
         self.frame_9.setFrameShape(QFrame.NoFrame)
         self.frame_9.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.frame_9)
+        self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.label_3 = QLabel(self.frame_9)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMaximumSize(QSize(16777215, 20))
-        self.label_3.setStyleSheet(u"color: rgb(0, 0, 0);")
-
-        self.verticalLayout_4.addWidget(self.label_3)
-
-        self.frame_10 = QFrame(self.frame_9)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.groupBox = QGroupBox(self.frame_9)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setMaximumSize(QSize(16777215, 150))
+        self.verticalLayout_9 = QVBoxLayout(self.groupBox)
+        self.verticalLayout_9.setSpacing(0)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.frame_10 = QFrame(self.groupBox)
         self.frame_10.setObjectName(u"frame_10")
         self.frame_10.setStyleSheet(u"")
-        self.frame_10.setFrameShape(QFrame.StyledPanel)
+        self.frame_10.setFrameShape(QFrame.NoFrame)
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.frame_10)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -69,10 +74,11 @@ class Ui_UpPhoiWindow(object):
 
         self.frame_12 = QFrame(self.frame_10)
         self.frame_12.setObjectName(u"frame_12")
-        self.frame_12.setFrameShape(QFrame.StyledPanel)
+        self.frame_12.setFrameShape(QFrame.NoFrame)
         self.frame_12.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.frame_12)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.spinBox = QSpinBox(self.frame_12)
         self.spinBox.setObjectName(u"spinBox")
         self.spinBox.setStyleSheet(u"background-color: #edeef0;\n"
@@ -100,12 +106,12 @@ class Ui_UpPhoiWindow(object):
         self.verticalLayout_5.addWidget(self.frame_12)
 
 
-        self.verticalLayout_4.addWidget(self.frame_10)
+        self.verticalLayout_9.addWidget(self.frame_10)
 
-        self.frame_11 = QFrame(self.frame_9)
+        self.frame_11 = QFrame(self.groupBox)
         self.frame_11.setObjectName(u"frame_11")
         self.frame_11.setStyleSheet(u"")
-        self.frame_11.setFrameShape(QFrame.StyledPanel)
+        self.frame_11.setFrameShape(QFrame.NoFrame)
         self.frame_11.setFrameShadow(QFrame.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.frame_11)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
@@ -118,10 +124,12 @@ class Ui_UpPhoiWindow(object):
 
         self.frame_13 = QFrame(self.frame_11)
         self.frame_13.setObjectName(u"frame_13")
-        self.frame_13.setFrameShape(QFrame.StyledPanel)
+        self.frame_13.setFrameShape(QFrame.NoFrame)
         self.frame_13.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.frame_13)
+        self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.spinBox_3 = QSpinBox(self.frame_13)
         self.spinBox_3.setObjectName(u"spinBox_3")
         self.spinBox_3.setStyleSheet(u"background-color: #edeef0;\n"
@@ -163,24 +171,33 @@ class Ui_UpPhoiWindow(object):
         self.verticalLayout_6.addWidget(self.frame_13)
 
 
-        self.verticalLayout_4.addWidget(self.frame_11)
+        self.verticalLayout_9.addWidget(self.frame_11)
+
+
+        self.verticalLayout_4.addWidget(self.groupBox)
 
 
         self.verticalLayout_3.addWidget(self.frame_9)
 
         self.frame_7 = QFrame(self.frame_5)
         self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setMaximumSize(QSize(16777215, 250))
         self.frame_7.setFrameShape(QFrame.NoFrame)
         self.frame_7.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame_7)
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.frame_8 = QFrame(self.frame_7)
         self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setMaximumSize(QSize(16777215, 250))
         self.frame_8.setStyleSheet(u"")
-        self.frame_8.setFrameShape(QFrame.StyledPanel)
+        self.frame_8.setFrameShape(QFrame.NoFrame)
         self.frame_8.setFrameShadow(QFrame.Raised)
         self.verticalLayout_7 = QVBoxLayout(self.frame_8)
+        self.verticalLayout_7.setSpacing(0)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.label_31 = QLabel(self.frame_8)
         self.label_31.setObjectName(u"label_31")
         self.label_31.setMaximumSize(QSize(16777215, 20))
@@ -188,35 +205,33 @@ class Ui_UpPhoiWindow(object):
 
         self.verticalLayout_7.addWidget(self.label_31)
 
-        self.frame_3 = QFrame(self.frame_8)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_11 = QHBoxLayout(self.frame_3)
-        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.label_34 = QLabel(self.frame_3)
-        self.label_34.setObjectName(u"label_34")
-        self.label_34.setMaximumSize(QSize(16777215, 16777215))
-        self.label_34.setStyleSheet(u"color: rgb(0, 0, 0);")
+        self.frame_time_format = QFrame(self.frame_8)
+        self.frame_time_format.setObjectName(u"frame_time_format")
+        self.frame_time_format.setFrameShape(QFrame.NoFrame)
+        self.frame_time_format.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_13 = QHBoxLayout(self.frame_time_format)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.label = QLabel(self.frame_time_format)
+        self.label.setObjectName(u"label")
 
-        self.horizontalLayout_11.addWidget(self.label_34)
+        self.horizontalLayout_13.addWidget(self.label)
 
-        self.comboBox_4 = QComboBox(self.frame_3)
-        self.comboBox_4.addItem("")
-        self.comboBox_4.addItem("")
-        self.comboBox_4.setObjectName(u"comboBox_4")
-        self.comboBox_4.setStyleSheet(u"background-color: #d6d5d1;\n"
+        self.comboBox_time_format = QComboBox(self.frame_time_format)
+        self.comboBox_time_format.addItem("")
+        self.comboBox_time_format.addItem("")
+        self.comboBox_time_format.setObjectName(u"comboBox_time_format")
+        self.comboBox_time_format.setStyleSheet(u"background-color: #d6d5d1;\n"
 "color: rgb(0,0,0);")
 
-        self.horizontalLayout_11.addWidget(self.comboBox_4)
+        self.horizontalLayout_13.addWidget(self.comboBox_time_format)
 
 
-        self.verticalLayout_7.addWidget(self.frame_3)
+        self.verticalLayout_7.addWidget(self.frame_time_format)
 
         self.frame_14 = QFrame(self.frame_8)
         self.frame_14.setObjectName(u"frame_14")
         self.frame_14.setStyleSheet(u"")
-        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShape(QFrame.NoFrame)
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_14)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
@@ -240,7 +255,7 @@ class Ui_UpPhoiWindow(object):
         self.frame_15 = QFrame(self.frame_8)
         self.frame_15.setObjectName(u"frame_15")
         self.frame_15.setStyleSheet(u"")
-        self.frame_15.setFrameShape(QFrame.StyledPanel)
+        self.frame_15.setFrameShape(QFrame.NoFrame)
         self.frame_15.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_15)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
@@ -271,7 +286,9 @@ class Ui_UpPhoiWindow(object):
         self.frame_6.setFrameShape(QFrame.NoFrame)
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.verticalLayout_8 = QVBoxLayout(self.frame_6)
+        self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.label_15 = QLabel(self.frame_6)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setMaximumSize(QSize(16777215, 20))
@@ -279,9 +296,62 @@ class Ui_UpPhoiWindow(object):
 
         self.verticalLayout_8.addWidget(self.label_15)
 
+        self.frame_20 = QFrame(self.frame_6)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setFrameShape(QFrame.NoFrame)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_14 = QHBoxLayout(self.frame_20)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.label_27 = QLabel(self.frame_20)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setMinimumSize(QSize(60, 0))
+        self.label_27.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.horizontalLayout_14.addWidget(self.label_27)
+
+        self.spinBox_26 = QSpinBox(self.frame_20)
+        self.spinBox_26.setObjectName(u"spinBox_26")
+        self.spinBox_26.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+        self.spinBox_26.setMaximum(9999999)
+
+        self.horizontalLayout_14.addWidget(self.spinBox_26)
+
+        self.label_36 = QLabel(self.frame_20)
+        self.label_36.setObjectName(u"label_36")
+        self.label_36.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.horizontalLayout_14.addWidget(self.label_36)
+
+        self.spinBox_27 = QSpinBox(self.frame_20)
+        self.spinBox_27.setObjectName(u"spinBox_27")
+        self.spinBox_27.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+        self.spinBox_27.setMaximum(9999999)
+
+        self.horizontalLayout_14.addWidget(self.spinBox_27)
+
+        self.label_35 = QLabel(self.frame_20)
+        self.label_35.setObjectName(u"label_35")
+        self.label_35.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.horizontalLayout_14.addWidget(self.label_35)
+
+        self.spinBox_28 = QSpinBox(self.frame_20)
+        self.spinBox_28.setObjectName(u"spinBox_28")
+        self.spinBox_28.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+        self.spinBox_28.setMinimum(-360)
+        self.spinBox_28.setMaximum(360)
+
+        self.horizontalLayout_14.addWidget(self.spinBox_28)
+
+
+        self.verticalLayout_8.addWidget(self.frame_20)
+
         self.frame_18 = QFrame(self.frame_6)
         self.frame_18.setObjectName(u"frame_18")
-        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShape(QFrame.NoFrame)
         self.frame_18.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_18)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
@@ -335,7 +405,7 @@ class Ui_UpPhoiWindow(object):
         self.frame_16 = QFrame(self.frame_6)
         self.frame_16.setObjectName(u"frame_16")
         self.frame_16.setStyleSheet(u"")
-        self.frame_16.setFrameShape(QFrame.StyledPanel)
+        self.frame_16.setFrameShape(QFrame.NoFrame)
         self.frame_16.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_8 = QHBoxLayout(self.frame_16)
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
@@ -389,7 +459,7 @@ class Ui_UpPhoiWindow(object):
         self.frame_17 = QFrame(self.frame_6)
         self.frame_17.setObjectName(u"frame_17")
         self.frame_17.setStyleSheet(u"")
-        self.frame_17.setFrameShape(QFrame.StyledPanel)
+        self.frame_17.setFrameShape(QFrame.NoFrame)
         self.frame_17.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_9 = QHBoxLayout(self.frame_17)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
@@ -442,7 +512,7 @@ class Ui_UpPhoiWindow(object):
 
         self.frame_19 = QFrame(self.frame_6)
         self.frame_19.setObjectName(u"frame_19")
-        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShape(QFrame.NoFrame)
         self.frame_19.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_10 = QHBoxLayout(self.frame_19)
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
@@ -527,7 +597,7 @@ class Ui_UpPhoiWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 619, 778))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 704, 778))
         self.verticalLayout_12 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.label_img = QLabel(self.scrollAreaWidgetContents_2)
@@ -554,6 +624,13 @@ class Ui_UpPhoiWindow(object):
 
         self.horizontalLayout_12.addWidget(self.textEdit)
 
+        self.pushButton = QPushButton(self.frame_21)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+
+        self.horizontalLayout_12.addWidget(self.pushButton)
+
         self.btn_preview = QPushButton(self.frame_21)
         self.btn_preview.setObjectName(u"btn_preview")
         self.btn_preview.setMaximumSize(QSize(90, 16777215))
@@ -561,13 +638,6 @@ class Ui_UpPhoiWindow(object):
 "color: rgb(0,0,0);")
 
         self.horizontalLayout_12.addWidget(self.btn_preview)
-
-        self.pushButton = QPushButton(self.frame_21)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setStyleSheet(u"background-color: #edeef0;\n"
-"color: rgb(0,0,0);")
-
-        self.horizontalLayout_12.addWidget(self.pushButton)
 
 
         self.verticalLayout_11.addWidget(self.frame_21)
@@ -590,20 +660,23 @@ class Ui_UpPhoiWindow(object):
 
     def retranslateUi(self, UpPhoiWindow):
         UpPhoiWindow.setWindowTitle(QCoreApplication.translate("UpPhoiWindow", u"MainWindow", None))
-        self.label_3.setText(QCoreApplication.translate("UpPhoiWindow", u"Thi\u1ebft l\u1eadp \u1ea3nh ph\u00f4i", None))
+        self.groupBox.setTitle(QCoreApplication.translate("UpPhoiWindow", u"Thi\u1ebft l\u1eadp \u1ea3nh ph\u00f4i", None))
         self.label_4.setText(QCoreApplication.translate("UpPhoiWindow", u"K\u00edch th\u01b0\u1edbc \u1ea3nh 1", None))
         self.label_9.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_5.setText(QCoreApplication.translate("UpPhoiWindow", u"V\u1ecb tr\u00ed \u0111\u1eb7t v\u00e0o ph\u00f4i", None))
         self.label_10.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_11.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_31.setText(QCoreApplication.translate("UpPhoiWindow", u"Thi\u1ebft l\u1eadp", None))
-        self.label_34.setText(QCoreApplication.translate("UpPhoiWindow", u"H\u1ecd t\u00ean", None))
-        self.comboBox_4.setItemText(0, QCoreApplication.translate("UpPhoiWindow", u"H\u1ecd t\u00ean \u0111\u1ea7y \u0111\u1ee7", None))
-        self.comboBox_4.setItemText(1, QCoreApplication.translate("UpPhoiWindow", u"T\u00e1ch ri\u00eang H\u1ecd, T\u00ean", None))
+        self.label.setText(QCoreApplication.translate("UpPhoiWindow", u"\u0110\u1ecbnh d\u1ea1ng th\u1eddi gian", None))
+        self.comboBox_time_format.setItemText(0, QCoreApplication.translate("UpPhoiWindow", u"29/6/2023", None))
+        self.comboBox_time_format.setItemText(1, QCoreApplication.translate("UpPhoiWindow", u"29 June 2023", None))
 
         self.label_32.setText(QCoreApplication.translate("UpPhoiWindow", u"K\u00edch c\u1ee1 ch\u1eef", None))
         self.label_33.setText(QCoreApplication.translate("UpPhoiWindow", u"Ki\u1ec3u ch\u1eef", None))
         self.label_15.setText(QCoreApplication.translate("UpPhoiWindow", u"V\u1ecb tr\u00ed[CHI\u1ec0U NGANG X CHI\u1ec0U D\u1eccC X XOAY CHI\u1ec0U]", None))
+        self.label_27.setText(QCoreApplication.translate("UpPhoiWindow", u"H\u1ecd v\u00e0 t\u00ean", None))
+        self.label_36.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
+        self.label_35.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_20.setText(QCoreApplication.translate("UpPhoiWindow", u"T\u00ean", None))
         self.label_29.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_30.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
@@ -618,7 +691,7 @@ class Ui_UpPhoiWindow(object):
         self.label_21.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_2.setText(QCoreApplication.translate("UpPhoiWindow", u"Ph\u00f4i ch\u1ec9nh s\u1eeda", None))
         self.label_img.setText("")
-        self.btn_preview.setText(QCoreApplication.translate("UpPhoiWindow", u"L\u01b0u c\u1ea5u h\u00ecnh", None))
         self.pushButton.setText(QCoreApplication.translate("UpPhoiWindow", u"Browse", None))
+        self.btn_preview.setText(QCoreApplication.translate("UpPhoiWindow", u"L\u01b0u c\u1ea5u h\u00ecnh", None))
     # retranslateUi
 
