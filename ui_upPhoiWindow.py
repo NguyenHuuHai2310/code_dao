@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowjsgSzs.ui'
+## Form generated from reading UI file 'upPhoiWindowRZUKkQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -289,6 +289,11 @@ class Ui_UpPhoiWindow(object):
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.groupBox_2 = QGroupBox(self.frame_6)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+
+        self.verticalLayout_8.addWidget(self.groupBox_2)
+
         self.label_15 = QLabel(self.frame_6)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setMaximumSize(QSize(16777215, 20))
@@ -300,14 +305,14 @@ class Ui_UpPhoiWindow(object):
         self.frame_20.setObjectName(u"frame_20")
         self.frame_20.setFrameShape(QFrame.NoFrame)
         self.frame_20.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_14 = QHBoxLayout(self.frame_20)
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.horizontalLayout_11 = QHBoxLayout(self.frame_20)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.label_27 = QLabel(self.frame_20)
         self.label_27.setObjectName(u"label_27")
         self.label_27.setMinimumSize(QSize(60, 0))
         self.label_27.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_14.addWidget(self.label_27)
+        self.horizontalLayout_11.addWidget(self.label_27)
 
         self.spinBox_26 = QSpinBox(self.frame_20)
         self.spinBox_26.setObjectName(u"spinBox_26")
@@ -315,13 +320,13 @@ class Ui_UpPhoiWindow(object):
 "color: rgb(0,0,0);")
         self.spinBox_26.setMaximum(9999999)
 
-        self.horizontalLayout_14.addWidget(self.spinBox_26)
+        self.horizontalLayout_11.addWidget(self.spinBox_26)
 
         self.label_36 = QLabel(self.frame_20)
         self.label_36.setObjectName(u"label_36")
         self.label_36.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_14.addWidget(self.label_36)
+        self.horizontalLayout_11.addWidget(self.label_36)
 
         self.spinBox_27 = QSpinBox(self.frame_20)
         self.spinBox_27.setObjectName(u"spinBox_27")
@@ -329,13 +334,13 @@ class Ui_UpPhoiWindow(object):
 "color: rgb(0,0,0);")
         self.spinBox_27.setMaximum(9999999)
 
-        self.horizontalLayout_14.addWidget(self.spinBox_27)
+        self.horizontalLayout_11.addWidget(self.spinBox_27)
 
         self.label_35 = QLabel(self.frame_20)
         self.label_35.setObjectName(u"label_35")
         self.label_35.setStyleSheet(u"color: rgb(0, 0, 0);")
 
-        self.horizontalLayout_14.addWidget(self.label_35)
+        self.horizontalLayout_11.addWidget(self.label_35)
 
         self.spinBox_28 = QSpinBox(self.frame_20)
         self.spinBox_28.setObjectName(u"spinBox_28")
@@ -344,7 +349,7 @@ class Ui_UpPhoiWindow(object):
         self.spinBox_28.setMinimum(-360)
         self.spinBox_28.setMaximum(360)
 
-        self.horizontalLayout_14.addWidget(self.spinBox_28)
+        self.horizontalLayout_11.addWidget(self.spinBox_28)
 
 
         self.verticalLayout_8.addWidget(self.frame_20)
@@ -563,6 +568,13 @@ class Ui_UpPhoiWindow(object):
 
         self.verticalLayout_8.addWidget(self.frame_19)
 
+        self.groupBox_2.raise_()
+        self.label_15.raise_()
+        self.frame_20.raise_()
+        self.frame_18.raise_()
+        self.frame_16.raise_()
+        self.frame_17.raise_()
+        self.frame_19.raise_()
 
         self.verticalLayout_3.addWidget(self.frame_6)
 
@@ -668,11 +680,12 @@ class Ui_UpPhoiWindow(object):
         self.label_11.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_31.setText(QCoreApplication.translate("UpPhoiWindow", u"Thi\u1ebft l\u1eadp", None))
         self.label.setText(QCoreApplication.translate("UpPhoiWindow", u"\u0110\u1ecbnh d\u1ea1ng th\u1eddi gian", None))
-        self.comboBox_time_format.setItemText(0, QCoreApplication.translate("UpPhoiWindow", u"29/6/2023", None))
-        self.comboBox_time_format.setItemText(1, QCoreApplication.translate("UpPhoiWindow", u"29 June 2023", None))
+        self.comboBox_time_format.setItemText(0, QCoreApplication.translate("UpPhoiWindow", u"dd/mm/yyyy", None))
+        self.comboBox_time_format.setItemText(1, QCoreApplication.translate("UpPhoiWindow", u"dd Month yyyy", None))
 
         self.label_32.setText(QCoreApplication.translate("UpPhoiWindow", u"K\u00edch c\u1ee1 ch\u1eef", None))
         self.label_33.setText(QCoreApplication.translate("UpPhoiWindow", u"Ki\u1ec3u ch\u1eef", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("UpPhoiWindow", u"Enable/Disable", None))
         self.label_15.setText(QCoreApplication.translate("UpPhoiWindow", u"V\u1ecb tr\u00ed[CHI\u1ec0U NGANG X CHI\u1ec0U D\u1eccC X XOAY CHI\u1ec0U]", None))
         self.label_27.setText(QCoreApplication.translate("UpPhoiWindow", u"H\u1ecd v\u00e0 t\u00ean", None))
         self.label_36.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))

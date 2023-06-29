@@ -1,10 +1,10 @@
 import sys
 from PyQt5.QtWidgets import QFileDialog, QDesktopWidget, QMessageBox
-
-from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform, QDesktopServices, QClipboard, QPdfWriter
-from PyQt5.QtCore import Qt, QUrl,  QSettings
+from qtwidgets import Toggle
+from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform
+from PyQt5.QtCore import Qt, QSettings
 from Custom_Widgets.Widgets import *
-from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkRequest, QNetworkReply
+from PySide2.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout
 from ui_upPhoiWindow import *
 class UpPhoiWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -39,12 +39,17 @@ class UpPhoiWindow(QMainWindow):
         self.ui.btn_preview.clicked.connect(self.show_preview)
         self.load_value('output/config.ini')
         self.ui.label_img.setScaledContents(True)
+        self.toggle_fullname = Toggle()
+        self.toggle_fullname.setFixedSize(60, 40)
+        self.ui.groupBox_2.addWidget(self.toggle_fullname)
+
        
         self.show()
-    def paint_images(self, background_image, foreground_image, 
+    def paint_images(self, background_image, foreground_image, fullname, 
                      givenname,surname,birthday,code, 
                      img_x, img_y, rotation_angle, img_width, img_height,
-                     givenname_x, givenname_y, surname_x, surname_y,birthday_x, birthday_y,code_x, code_y,
+                     fullname_x, fullname_y,givenname_x, givenname_y, surname_x, surname_y,
+                     birthday_x, birthday_y,code_x, code_y,
                      font_family, is_bold, 
                      text_color, font_size):
         
@@ -58,15 +63,11 @@ class UpPhoiWindow(QMainWindow):
         self.ui.spinBox_3.setValue(img_x)
         self.ui.spinBox_4.setValue(img_y)
 
-        # width = 591  # desired width
-        # height = 361  # desired height
-        # background_image = background_image.scaled(width, height)
         foreground_image = foreground_image.scaled(img_width, img_height)
         transform = QTransform()
         transform.rotate(rotation_angle)
         rotated_image = foreground_image.transformed(transform)
-        # self.ui.image_label.setPixmap(background_image)
-        # print(background_image.width(), background_image.height())
+
 
         self.ui.spinBox.setValue(img_width)
         self.ui.spinBox_2.setValue(img_height)
@@ -84,7 +85,7 @@ class UpPhoiWindow(QMainWindow):
         angle_surname = self.ui.spinBox_16.value()
         angle_birthday = self.ui.spinBox_19.value()
         angle_code = self.ui.spinBox_13.value()
-        # angle_address = self.ui.spinBox_22.value()
+        angle_fullname = self.ui.spinBox_28.value()
 
         # Create a transformation matrix for the rotation angle around the center
         transform_1 = QTransform()
@@ -107,10 +108,10 @@ class UpPhoiWindow(QMainWindow):
         transform_4.rotate(angle_code)
         transform_4.translate(-code_x, -code_y)
           # Create a transformation matrix for the rotation angle around the center
-        # transform_5 = QTransform()
-        # transform_5.translate(address_x, address_y)
-        # transform_5.rotate(angle_address)
-        # transform_5.translate(-address_x, -address_y)
+        transform_5 = QTransform()
+        transform_5.translate(fullname_x, fullname_y)
+        transform_5.rotate(angle_fullname)
+        transform_5.translate(-fullname_x, -fullname_y)
 
         painter.setTransform(transform_1)
         painter.drawText(givenname_x, givenname_y, givenname)
@@ -124,8 +125,8 @@ class UpPhoiWindow(QMainWindow):
         painter.setTransform(transform_4)
         painter.drawText(code_x, code_y, code)
 
-        # painter.setTransform(transform_5)
-        # painter.drawText(address_x, address_y, address)
+        painter.setTransform(transform_5)
+        painter.drawText(fullname_x, fullname_y, fullname)
 
         self.combined_image = combined_image
         self.ui.label_img.setPixmap(combined_image)
@@ -159,9 +160,13 @@ class UpPhoiWindow(QMainWindow):
             # is_bold = self.ui.comboBox_4.currentText()=="Bold"
             # current_index = self.ui.comboBox_4.currentIndex()
             # text_color = self.ui.comboBox_4.currentText()
+            self.fullname = " Full name"
             self.givenname = "First Name"
             self.surname = "Last Name"
-            self.birthday = "dd/mm/yyyy"
+            if self.ui.comboBox_time_format.currentIndex() == 0:
+                self.birthday = "dd/mm/yyyy"
+            else:
+                self.birthday = "dd Month yyyy"
             self.code = "1234567890"
             # self.address = "Address"
             givenname_x = self.ui.spinBox_23.value()
@@ -176,17 +181,19 @@ class UpPhoiWindow(QMainWindow):
             code_x = self.ui.spinBox_12.value()
             code_y = self.ui.spinBox_11.value()
 
-            # address_x = self.ui.spinBox_21.value()
-            # address_y = self.ui.spinBox_20.value()
+            fullname_x = self.ui.spinBox_26.value()
+            fullname_y = self.ui.spinBox_27.value()
 
-            self.paint_images(self.background_image, self.foreground_image, 
+            self.paint_images(self.background_image, self.foreground_image, self.fullname,
                               self.givenname,self.surname,self.birthday,self.code,
                                 img_x=self.ui.spinBox_3.value(), img_y=self.ui.spinBox_4.value(), rotation_angle = self.ui.spinBox_5.value(),
                                 img_width =w , img_height = h,
+                                fullname_x= fullname_x, fullname_y= fullname_y,
                                 givenname_x = givenname_x, givenname_y= givenname_y, surname_x= surname_x, surname_y=surname_y,
                                 birthday_x= birthday_x, birthday_y= birthday_y,code_x= code_x, code_y= code_y,
                                 font_family=font_family, is_bold=True, 
                                 text_color ="Black", font_size = int(font_size))
+            
             self.ui.spinBox.valueChanged.connect(self.update)
             self.ui.spinBox_2.valueChanged.connect(self.update)
             self.ui.spinBox_3.valueChanged.connect(self.update)
@@ -212,12 +219,25 @@ class UpPhoiWindow(QMainWindow):
             self.ui.spinBox_16.valueChanged.connect(self.update)
             self.ui.spinBox_19.valueChanged.connect(self.update)
             self.ui.spinBox_13.valueChanged.connect(self.update)
-            # self.ui.comboBox_time_format.currentIndexChanged.connect(self.update)
+
+            self.ui.spinBox_26.valueChanged.connect(self.update)
+            self.ui.spinBox_27.valueChanged.connect(self.update)
+            self.ui.spinBox_28.valueChanged.connect(self.update)
+
+            self.ui.comboBox_time_format.currentIndexChanged.connect(self.update)
 
         return 0
     def update(self):
+        if self.ui.comboBox_time_format.currentIndex() == 0:
+            self.birthday = "dd/mm/yyyy"
+        else:
+            self.birthday = "dd Month yyyy"
         font_family = self.ui.comboBox_3.currentText()
         font_size = self.ui.comboBox_2.currentText()
+
+        fullname_x = self.ui.spinBox_26.value()
+        fullname_y = self.ui.spinBox_27.value()
+ 
         givenname_x = self.ui.spinBox_23.value()
         givenname_y = self.ui.spinBox_25.value()
  
@@ -235,10 +255,12 @@ class UpPhoiWindow(QMainWindow):
         img_angle  = self.ui.spinBox_5.value()
         x = self.ui.spinBox_3.value()
         y = self.ui.spinBox_4.value()
-        self.paint_images(self.background_image, self.foreground_image,
+        
+        self.paint_images(self.background_image, self.foreground_image,self.fullname,
                           self.givenname,self.surname,self.birthday,self.code,
                                 img_x=x, img_y=y, rotation_angle = img_angle,
-                                img_width =w , img_height = h,
+                                img_width =w , img_height = h, 
+                                fullname_x=fullname_x, fullname_y=fullname_y,
                                 givenname_x = givenname_x, givenname_y= givenname_y, surname_x= surname_x, surname_y=surname_y,
                                 birthday_x= birthday_x, birthday_y= birthday_y,code_x= code_x, code_y= code_y, 
                                 font_family=font_family, is_bold=True, 
@@ -285,9 +307,9 @@ class UpPhoiWindow(QMainWindow):
         self.ui.spinBox_27.setValue(int(settings.value("Fullname_y", defaultValue)))
         self.ui.spinBox_28.setValue(int(settings.value("Fullname_Angle", defaultValue)))
         if settings.value("Time_format", defaultValue) == 0:
-            self.ui.comboBox_time_format.setValue("29/6/2023")
+            self.ui.comboBox_time_format.setCurrentText("dd/mm/yyyy")
         else:
-            self.ui.comboBox_time_format.setValue("29 June 2023")
+            self.ui.comboBox_time_format.setCurrentText("dd Month yyyy")
         settings.endGroup()
         print("Loading successfully!")
     def save_value(self):

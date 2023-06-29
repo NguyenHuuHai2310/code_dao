@@ -1,21 +1,18 @@
 from ui_interface import *
 import sys
-from PyQt5.QtWidgets import QApplication,\
-                            QTableWidgetItem, \
-                            QHeaderView, QStyle, QStyleOptionButton,QAction,  \
-                             QMenu,QDesktopWidget
+from PyQt5.QtWidgets import QApplication, QTableWidgetItem, QHeaderView, QStyle, QStyleOptionButton, QAction, \
+    QMenu, QDesktopWidget, QHBoxLayout, QTextEdit, QMessageBox, QMainWindow, QLabel, QPushButton, QVBoxLayout, \
+    QWidget, QLineEdit
 
 from PyQt5.QtGui import QPainter, QPixmap
-from PyQt5.QtCore import Qt, QRect, QMimeData
-from Custom_Widgets.Widgets import *
 from PyQt5 import QtWidgets, QtGui
-from PySide2.QtWidgets import QApplication, QMainWindow, QLabel, QTextEdit, QPushButton, QVBoxLayout, QWidget, QLineEdit
+
+from qtpy.QtCore import Signal
 from functions import * 
 from ui_upPhoiWindow import *
 from upPhoiWindow import UpPhoiWindow
 from ui_login import *
-from PyQt5.QtWidgets import QTextEdit, QMessageBox
-from qtpy.QtCore import Signal
+
 class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
@@ -48,7 +45,6 @@ class MyHeader(QHeaderView):
 
         super().mousePressEvent(event)
 
-
 class ShopLike(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -60,7 +56,7 @@ class ShopLike(QMainWindow):
         self.saveButton = QPushButton("Save")
         self.saveButton.clicked.connect(self.saveText)
 
-        layout = QVBoxLayout()
+        layout = QHBoxLayout()
         layout.addWidget(self.label)
         layout.addWidget(self.textEdit)
         layout.addWidget(self.saveButton)
@@ -69,6 +65,7 @@ class ShopLike(QMainWindow):
         widget.setLayout(layout)
 
         self.setCentralWidget(widget)
+        self.setFixedSize(300, 100)  # Set a fixed size for the window
 
     def saveText(self):
         text = self.textEdit.text()
@@ -112,6 +109,7 @@ class MainWindow(QMainWindow):
             self.ui.tableWidget.setVerticalHeaderItem(row, item2)
             self.ui.tableWidget.setItem(row, 0, item)
 
+
         self.ui.start_button.clicked.connect(self.start_generation)
         self.ui.stop_button.clicked.connect(self.stop_generation)
         self.ui.stop_button.setEnabled(False)
@@ -137,7 +135,7 @@ class MainWindow(QMainWindow):
             settings.setValue("Chon_Phoi", self.ui.comboBox_19.currentIndex())
             settings.setValue("Anh_Phoi",self.ui.comboBox_19.currentIndex())
             settings.setValue("Up_Avatar",self.ui.comboBox_21.currentIndex())
-            if self.radioButton_10.isChecked():
+            if self.ui.radioButton_10.isChecked():
                 settings.setValue("Otp_Phone", self.ui.radioButton_10.data())
             settings.setValue("Nha_Mang",self.ui.comboBox_23.currentIndex())
             settings.setValue("Captcha",self.ui.comboBox_22.currentIndex())
@@ -194,12 +192,13 @@ class MainWindow(QMainWindow):
             self.window2.show()
             
     def contextMenuEvent(self, event):
-        # print("Coordinate",event.x(), event.y())
-        x = 261
-        y = 269
+        global_pos = event.globalPos()
+        table_widget_pos = self.ui.tableWidget.mapFromGlobal(global_pos)
+        x = table_widget_pos.x()
+        y = table_widget_pos.y()
         w = self.ui.tableWidget.width()
         h = self.ui.tableWidget.height()
-        if (event.y() >y and event.y() <y+h and event.x() >  x and event.x() < x + w):
+        if y > 0 and y < h and x > 0 and x < w:
             menu = QMenu(self)
 
             paste_delete_action = QAction("Paste tài khoản [Xóa tài khoản cũ]", self)
@@ -233,25 +232,37 @@ class MainWindow(QMainWindow):
         return checked_rows
     def pasteDeleteAccount(self):
         if self.ui.tableWidget.rowCount() > 0:
-            # print(self.ui.tableWidget.rowCount())
             self.ui.tableWidget.clearContents()
-            # Add checkboxes to the table
+        
         clipboard = QApplication.clipboard()
         clipboard_texts = clipboard.text().split("\n")
+        
         self.ui.tableWidget.setRowCount(len(clipboard_texts))
+        self.data = []  # Clear the data list before adding new items
+        
         for item in clipboard_texts:
-            self.data.append(item)
+            item = item.strip()
+            if len(item) > 0:
+                self.data.append(item)
+        self.ui.tableWidget.setRowCount(len(self.data)) 
         if len(self.data) > 0:
             for row, item in enumerate(self.data):
                 table_item = QTableWidgetItem(item)
                 self.ui.tableWidget.setItem(row, 1, table_item)
-        for row in range(self.ui.tableWidget.rowCount()):
-            item = QTableWidgetItem()
-            item.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
-            item.setCheckState(Qt.Unchecked)
-            item2 = QTableWidgetItem(str(row + 1))
-            self.ui.tableWidget.setVerticalHeaderItem(row, item2)
-            self.ui.tableWidget.setItem(row, 0, item)
+                itemCheckbox = QTableWidgetItem()
+                itemCheckbox.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
+                itemCheckbox.setCheckState(Qt.Unchecked)
+                self.ui.tableWidget.setItem(row, 0, itemCheckbox)
+        
+        # for row in range(self.ui.tableWidget.rowCount()):
+        #     print(row)
+        #     item = QTableWidgetItem()
+        #     item.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
+        #     item.setCheckState(Qt.Unchecked)
+        #     # item2 = QTableWidgetItem(str(row + 1))
+        #     # self.ui.tableWidget.setVerticalHeaderItem(row, item2)
+        #     self.ui.tableWidget.setItem(row, 0, item)
+
 
     def pasteNoDeleteAccount(self):
         if self.ui.tableWidget.rowCount() > 0:
@@ -259,20 +270,23 @@ class MainWindow(QMainWindow):
         
         clipboard = QApplication.clipboard()
         clipboard_texts = clipboard.text().split("\n")
+
         self.ui.tableWidget.setRowCount(start_row + len(clipboard_texts))
+        self.data = [] 
+
         for item in clipboard_texts:
-            self.data.append(item)
+            item = item.strip()
+            if len(item) > 0:
+                self.data.append(item)
+        self.ui.tableWidget.setRowCount(start_row + len(self.data)) 
         if len(self.data) > 0:
             for row, item in enumerate(self.data):
                 table_item = QTableWidgetItem(item)
-                self.ui.tableWidget.setItem(start_row, 1, table_item)
-        for row in range(self.ui.tableWidget.rowCount()):
-            item = QTableWidgetItem()
-            item.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
-            item.setCheckState(Qt.Unchecked)
-            item2 = QTableWidgetItem(str(row + 1))
-            self.ui.tableWidget.setVerticalHeaderItem(row, item2)
-            self.ui.tableWidget.setItem(row, 0, item)
+                self.ui.tableWidget.setItem(start_row+row, 1, table_item)
+                itemCheckbox = QTableWidgetItem()
+                itemCheckbox.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
+                itemCheckbox.setCheckState(Qt.Unchecked)
+                self.ui.tableWidget.setItem(start_row+row, 0, itemCheckbox)
     def clickSelectedAccount(self):
         clipboard = QApplication.clipboard()
         mimeData = QMimeData()
@@ -286,7 +300,6 @@ class MainWindow(QMainWindow):
                 # print(cell_text)
         mimeData.setText(selectedText)
         clipboard.setMimeData(mimeData)
-
 
     def start_generation(self):
         self.ui.start_button.setEnabled(False)
@@ -396,6 +409,6 @@ class Login(QMainWindow):
            self.ui.label.setText('Invalid username or password.')
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    login_window = MainWindow()
+    login_window = UpPhoiWindow()
     login_window.show()
     sys.exit(app.exec_())

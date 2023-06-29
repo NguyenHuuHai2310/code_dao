@@ -463,12 +463,12 @@ color: rgb(0,0,0);</string>
                      </property>
                      <item>
                       <property name="text">
-                       <string>29/6/2023</string>
+                       <string>dd/mm/yyyy</string>
                       </property>
                      </item>
                      <item>
                       <property name="text">
-                       <string>29 June 2023</string>
+                       <string>dd Month yyyy</string>
                       </property>
                      </item>
                     </widget>
@@ -579,6 +579,13 @@ color: rgb(0,0,0);</string>
               <number>0</number>
              </property>
              <item>
+              <widget class="QGroupBox" name="groupBox_2">
+               <property name="title">
+                <string>Enable/Disable</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QLabel" name="label_15">
                <property name="maximumSize">
                 <size>
@@ -602,7 +609,7 @@ color: rgb(0,0,0);</string>
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_14">
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
                 <item>
                  <widget class="QLabel" name="label_27">
                   <property name="minimumSize">
@@ -1021,6 +1028,13 @@ color: rgb(0,0,0);</string>
               </widget>
              </item>
             </layout>
+            <zorder>groupBox_2</zorder>
+            <zorder>label_15</zorder>
+            <zorder>frame_20</zorder>
+            <zorder>frame_18</zorder>
+            <zorder>frame_16</zorder>
+            <zorder>frame_17</zorder>
+            <zorder>frame_19</zorder>
            </widget>
           </item>
          </layout>
