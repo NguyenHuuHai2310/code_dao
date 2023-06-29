@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QFileDialog, QDesktopWidget, QMessageBox
-from qtwidgets import Toggle
+
 from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform
 from PyQt5.QtCore import Qt, QSettings
 from Custom_Widgets.Widgets import *
@@ -39,9 +39,12 @@ class UpPhoiWindow(QMainWindow):
         self.ui.btn_preview.clicked.connect(self.show_preview)
         self.load_value('output/config.ini')
         self.ui.label_img.setScaledContents(True)
-        self.toggle_fullname = Toggle()
-        self.toggle_fullname.setFixedSize(60, 40)
-        self.ui.groupBox_2.addWidget(self.toggle_fullname)
+
+        # print(self.ui.checkBox_fullname.isChecked())
+        # print(self.ui.checkBox_code.isChecked())
+        # print(self.ui.checkBox_surname.isChecked())
+        # print(self.ui.checkBox_givenname.isChecked())
+        # print(self.ui.checkBox_birthday.isChecked())
 
        
         self.show()
@@ -52,7 +55,37 @@ class UpPhoiWindow(QMainWindow):
                      birthday_x, birthday_y,code_x, code_y,
                      font_family, is_bold, 
                      text_color, font_size):
-        
+        print("Status: =================================================================")
+        print(self.ui.checkBox_fullname.isChecked())
+        print(self.ui.checkBox_code.isChecked())
+        print(self.ui.checkBox_surname.isChecked())
+        print(self.ui.checkBox_givenname.isChecked())
+        print(self.ui.checkBox_birthday.isChecked())
+        if self.ui.checkBox_fullname.isChecked():
+            self.fullname = ""
+        else:
+            self.fullname = "Full name"
+        if self.ui.checkBox_code.isChecked():
+            self.code = ""
+        else:
+            self.code = "1234567890"
+        if self.ui.checkBox_givenname.isChecked():
+            self.givenname = ""
+        else:
+            self.givenname = "First Name"
+        if self.ui.checkBox_surname.isChecked():
+            self.surname = ""
+        else:
+            self.surname = "Last Name"
+        if self.ui.checkBox_birthday.isChecked():
+            self.birthday = ""
+        else:
+           
+            if self.ui.comboBox_time_format.currentIndex() == 0:
+                self.birthday = "dd/mm/yyyy"
+            else:
+                self.birthday = "dd Month yyyy"
+ 
         font = QFont()
         font.setFamily(font_family)
         font.setPointSize(font_size)
@@ -154,20 +187,30 @@ class UpPhoiWindow(QMainWindow):
             # current_index = self.ui.comboBox_3.currentIndex()
             font_family = self.ui.comboBox_3.currentText()
 
-
-            # current_index = self.ui.comboBox_4.currentIndex()
-
-            # is_bold = self.ui.comboBox_4.currentText()=="Bold"
-            # current_index = self.ui.comboBox_4.currentIndex()
-            # text_color = self.ui.comboBox_4.currentText()
-            self.fullname = " Full name"
-            self.givenname = "First Name"
-            self.surname = "Last Name"
-            if self.ui.comboBox_time_format.currentIndex() == 0:
-                self.birthday = "dd/mm/yyyy"
+            if self.ui.checkBox_fullname.isChecked():
+                self.fullname = ""
             else:
-                self.birthday = "dd Month yyyy"
-            self.code = "1234567890"
+                self.fullname = " Full name"
+            if self.ui.checkBox_code.isChecked():
+                self.code = ""
+            else:
+                self.code = "1234567890"
+            if self.ui.checkBox_givenname.isChecked():
+                self.givenname = ""
+            else:
+                self.givenname = "First Name"
+            if self.ui.checkBox_surname.isChecked():
+                self.surname = ""
+            else:
+                self.surname = "Last Name"
+            if self.ui.checkBox_birthday.isChecked():
+                self.birthday = ""
+            else:
+                if self.ui.comboBox_time_format.currentIndex() == 0:
+                    self.birthday = "dd/mm/yyyy"
+                else:
+                    self.birthday = "dd Month yyyy"
+
             # self.address = "Address"
             givenname_x = self.ui.spinBox_23.value()
             givenname_y = self.ui.spinBox_25.value()
@@ -223,15 +266,23 @@ class UpPhoiWindow(QMainWindow):
             self.ui.spinBox_26.valueChanged.connect(self.update)
             self.ui.spinBox_27.valueChanged.connect(self.update)
             self.ui.spinBox_28.valueChanged.connect(self.update)
+            self.ui.checkBox_birthday.clicked.connect(self.update)
+            self.ui.checkBox_fullname.clicked.connect(self.update)
+            self.ui.checkBox_givenname.clicked.connect(self.update)
+            self.ui.checkBox_surname.clicked.connect(self.update)
+            self.ui.checkBox_code.clicked.connect(self.update)
 
             self.ui.comboBox_time_format.currentIndexChanged.connect(self.update)
 
         return 0
     def update(self):
-        if self.ui.comboBox_time_format.currentIndex() == 0:
-            self.birthday = "dd/mm/yyyy"
+        if self.ui.checkBox_birthday.isChecked():
+                self.birthday = ""
         else:
-            self.birthday = "dd Month yyyy"
+            if self.ui.comboBox_time_format.currentIndex() == 0:
+                self.birthday = "dd/mm/yyyy"
+            else:
+                self.birthday = "dd Month yyyy"
         font_family = self.ui.comboBox_3.currentText()
         font_size = self.ui.comboBox_2.currentText()
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowRZUKkQ.ui'
+## Form generated from reading UI file 'upPhoiWindowIDnPcA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -289,11 +289,6 @@ class Ui_UpPhoiWindow(object):
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.groupBox_2 = QGroupBox(self.frame_6)
-        self.groupBox_2.setObjectName(u"groupBox_2")
-
-        self.verticalLayout_8.addWidget(self.groupBox_2)
-
         self.label_15 = QLabel(self.frame_6)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setMaximumSize(QSize(16777215, 20))
@@ -351,6 +346,42 @@ class Ui_UpPhoiWindow(object):
 
         self.horizontalLayout_11.addWidget(self.spinBox_28)
 
+        self.label_3 = QLabel(self.frame_20)
+        self.label_3.setObjectName(u"label_3")
+
+        self.horizontalLayout_11.addWidget(self.label_3)
+
+        self.checkBox_fullname = QCheckBox(self.frame_20)
+        self.checkBox_fullname.setObjectName(u"checkBox_fullname")
+        self.checkBox_fullname.setStyleSheet(u"    QCheckBox {\n"
+"        background-color: #3CAE3C;\n"
+"        padding: 0px;\n"
+"        border: none;\n"
+"        outline: none;\n"
+"        border-radius: 10%;\n"
+"        width: 20px;\n"
+"        height: 20px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator {\n"
+"        width:20px;\n"
+"        height: 20px;\n"
+"        background-color: #FFFFFF;\n"
+"        border-radius: 10%;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:checked {\n"
+"        background-color: #ffffff;\n"
+"        margin-left: 25px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:unchecked {\n"
+"        margin-left: 0px;\n"
+"		background-color: #d6d5d1;\n"
+"    }")
+
+        self.horizontalLayout_11.addWidget(self.checkBox_fullname)
+
 
         self.verticalLayout_8.addWidget(self.frame_20)
 
@@ -403,6 +434,42 @@ class Ui_UpPhoiWindow(object):
         self.spinBox_24.setMaximum(360)
 
         self.horizontalLayout_7.addWidget(self.spinBox_24)
+
+        self.label_6 = QLabel(self.frame_18)
+        self.label_6.setObjectName(u"label_6")
+
+        self.horizontalLayout_7.addWidget(self.label_6)
+
+        self.checkBox_givenname = QCheckBox(self.frame_18)
+        self.checkBox_givenname.setObjectName(u"checkBox_givenname")
+        self.checkBox_givenname.setStyleSheet(u"    QCheckBox {\n"
+"        background-color: #3CAE3C;\n"
+"        padding: 0px;\n"
+"        border: none;\n"
+"        outline: none;\n"
+"        border-radius: 10%;\n"
+"        width: 20px;\n"
+"        height: 20px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator {\n"
+"        width:20px;\n"
+"        height: 20px;\n"
+"        background-color: #FFFFFF;\n"
+"        border-radius: 10%;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:checked {\n"
+"        background-color: #ffffff;\n"
+"        margin-left: 25px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:unchecked {\n"
+"        margin-left: 0px;\n"
+"		background-color: #d6d5d1;\n"
+"    }")
+
+        self.horizontalLayout_7.addWidget(self.checkBox_givenname)
 
 
         self.verticalLayout_8.addWidget(self.frame_18)
@@ -458,6 +525,42 @@ class Ui_UpPhoiWindow(object):
 
         self.horizontalLayout_8.addWidget(self.spinBox_16)
 
+        self.label_8 = QLabel(self.frame_16)
+        self.label_8.setObjectName(u"label_8")
+
+        self.horizontalLayout_8.addWidget(self.label_8)
+
+        self.checkBox_surname = QCheckBox(self.frame_16)
+        self.checkBox_surname.setObjectName(u"checkBox_surname")
+        self.checkBox_surname.setStyleSheet(u"    QCheckBox {\n"
+"        background-color: #3CAE3C;\n"
+"        padding: 0px;\n"
+"        border: none;\n"
+"        outline: none;\n"
+"        border-radius: 10%;\n"
+"        width: 20px;\n"
+"        height: 20px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator {\n"
+"        width:20px;\n"
+"        height: 20px;\n"
+"        background-color: #FFFFFF;\n"
+"        border-radius: 10%;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:checked {\n"
+"        background-color: #ffffff;\n"
+"        margin-left: 25px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:unchecked {\n"
+"        margin-left: 0px;\n"
+"		background-color: #d6d5d1;\n"
+"    }")
+
+        self.horizontalLayout_8.addWidget(self.checkBox_surname)
+
 
         self.verticalLayout_8.addWidget(self.frame_16)
 
@@ -512,6 +615,42 @@ class Ui_UpPhoiWindow(object):
 
         self.horizontalLayout_9.addWidget(self.spinBox_19)
 
+        self.label_7 = QLabel(self.frame_17)
+        self.label_7.setObjectName(u"label_7")
+
+        self.horizontalLayout_9.addWidget(self.label_7)
+
+        self.checkBox_birthday = QCheckBox(self.frame_17)
+        self.checkBox_birthday.setObjectName(u"checkBox_birthday")
+        self.checkBox_birthday.setStyleSheet(u"    QCheckBox {\n"
+"        background-color: #3CAE3C;\n"
+"        padding: 0px;\n"
+"        border: none;\n"
+"        outline: none;\n"
+"        border-radius: 10%;\n"
+"        width: 20px;\n"
+"        height: 20px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator {\n"
+"        width:20px;\n"
+"        height: 20px;\n"
+"        background-color: #FFFFFF;\n"
+"        border-radius: 10%;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:checked {\n"
+"        background-color: #ffffff;\n"
+"        margin-left: 25px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:unchecked {\n"
+"        margin-left: 0px;\n"
+"		background-color: #d6d5d1;\n"
+"    }")
+
+        self.horizontalLayout_9.addWidget(self.checkBox_birthday)
+
 
         self.verticalLayout_8.addWidget(self.frame_17)
 
@@ -565,16 +704,45 @@ class Ui_UpPhoiWindow(object):
 
         self.horizontalLayout_10.addWidget(self.spinBox_13)
 
+        self.label_12 = QLabel(self.frame_19)
+        self.label_12.setObjectName(u"label_12")
+
+        self.horizontalLayout_10.addWidget(self.label_12)
+
+        self.checkBox_code = QCheckBox(self.frame_19)
+        self.checkBox_code.setObjectName(u"checkBox_code")
+        self.checkBox_code.setStyleSheet(u"    QCheckBox {\n"
+"        background-color: #3CAE3C;\n"
+"        padding: 0px;\n"
+"        border: none;\n"
+"        outline: none;\n"
+"        border-radius: 10%;\n"
+"        width: 20px;\n"
+"        height: 20px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator {\n"
+"        width:20px;\n"
+"        height: 20px;\n"
+"        background-color: #FFFFFF;\n"
+"        border-radius: 10%;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:checked {\n"
+"        background-color: #ffffff;\n"
+"        margin-left: 25px;\n"
+"    }\n"
+"\n"
+"    QCheckBox::indicator:unchecked {\n"
+"        margin-left: 0px;\n"
+"		background-color: #d6d5d1;\n"
+"    }")
+
+        self.horizontalLayout_10.addWidget(self.checkBox_code)
+
 
         self.verticalLayout_8.addWidget(self.frame_19)
 
-        self.groupBox_2.raise_()
-        self.label_15.raise_()
-        self.frame_20.raise_()
-        self.frame_18.raise_()
-        self.frame_16.raise_()
-        self.frame_17.raise_()
-        self.frame_19.raise_()
 
         self.verticalLayout_3.addWidget(self.frame_6)
 
@@ -609,7 +777,7 @@ class Ui_UpPhoiWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 704, 778))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 597, 778))
         self.verticalLayout_12 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.label_img = QLabel(self.scrollAreaWidgetContents_2)
@@ -685,23 +853,32 @@ class Ui_UpPhoiWindow(object):
 
         self.label_32.setText(QCoreApplication.translate("UpPhoiWindow", u"K\u00edch c\u1ee1 ch\u1eef", None))
         self.label_33.setText(QCoreApplication.translate("UpPhoiWindow", u"Ki\u1ec3u ch\u1eef", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("UpPhoiWindow", u"Enable/Disable", None))
         self.label_15.setText(QCoreApplication.translate("UpPhoiWindow", u"V\u1ecb tr\u00ed[CHI\u1ec0U NGANG X CHI\u1ec0U D\u1eccC X XOAY CHI\u1ec0U]", None))
         self.label_27.setText(QCoreApplication.translate("UpPhoiWindow", u"H\u1ecd v\u00e0 t\u00ean", None))
         self.label_36.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_35.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
+        self.label_3.setText(QCoreApplication.translate("UpPhoiWindow", u"Active:  ", None))
+        self.checkBox_fullname.setText("")
         self.label_20.setText(QCoreApplication.translate("UpPhoiWindow", u"T\u00ean", None))
         self.label_29.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_30.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
+        self.label_6.setText(QCoreApplication.translate("UpPhoiWindow", u"Active:  ", None))
+        self.checkBox_givenname.setText("")
         self.label_16.setText(QCoreApplication.translate("UpPhoiWindow", u"H\u1ecd ", None))
         self.label_24.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_23.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
+        self.label_8.setText(QCoreApplication.translate("UpPhoiWindow", u"Active:  ", None))
+        self.checkBox_surname.setText("")
         self.label_17.setText(QCoreApplication.translate("UpPhoiWindow", u"Ng\u00e0y sinh", None))
         self.label_26.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_25.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
+        self.label_7.setText(QCoreApplication.translate("UpPhoiWindow", u"Active:  ", None))
+        self.checkBox_birthday.setText("")
         self.label_18.setText(QCoreApplication.translate("UpPhoiWindow", u"Code", None))
         self.label_22.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_21.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
+        self.label_12.setText(QCoreApplication.translate("UpPhoiWindow", u"Active:  ", None))
+        self.checkBox_code.setText("")
         self.label_2.setText(QCoreApplication.translate("UpPhoiWindow", u"Ph\u00f4i ch\u1ec9nh s\u1eeda", None))
         self.label_img.setText("")
         self.pushButton.setText(QCoreApplication.translate("UpPhoiWindow", u"Browse", None))

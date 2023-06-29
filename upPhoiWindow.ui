@@ -579,13 +579,6 @@ color: rgb(0,0,0);</string>
               <number>0</number>
              </property>
              <item>
-              <widget class="QGroupBox" name="groupBox_2">
-               <property name="title">
-                <string>Enable/Disable</string>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QLabel" name="label_15">
                <property name="maximumSize">
                 <size>
@@ -682,6 +675,48 @@ color: rgb(0,0,0);</string>
                   </property>
                  </widget>
                 </item>
+                <item>
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Active:  </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_fullname">
+                  <property name="styleSheet">
+                   <string notr="true">    QCheckBox {
+        background-color: #3CAE3C;
+        padding: 0px;
+        border: none;
+        outline: none;
+        border-radius: 10%;
+        width: 20px;
+        height: 20px;
+    }
+
+    QCheckBox::indicator {
+        width:20px;
+        height: 20px;
+        background-color: #FFFFFF;
+        border-radius: 10%;
+    }
+
+    QCheckBox::indicator:checked {
+        background-color: #ffffff;
+        margin-left: 25px;
+    }
+
+    QCheckBox::indicator:unchecked {
+        margin-left: 0px;
+		background-color: #d6d5d1;
+    }</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
                </layout>
               </widget>
              </item>
@@ -763,6 +798,48 @@ color: rgb(0,0,0);</string>
                   </property>
                   <property name="maximum">
                    <number>360</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>Active:  </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_givenname">
+                  <property name="styleSheet">
+                   <string notr="true">    QCheckBox {
+        background-color: #3CAE3C;
+        padding: 0px;
+        border: none;
+        outline: none;
+        border-radius: 10%;
+        width: 20px;
+        height: 20px;
+    }
+
+    QCheckBox::indicator {
+        width:20px;
+        height: 20px;
+        background-color: #FFFFFF;
+        border-radius: 10%;
+    }
+
+    QCheckBox::indicator:checked {
+        background-color: #ffffff;
+        margin-left: 25px;
+    }
+
+    QCheckBox::indicator:unchecked {
+        margin-left: 0px;
+		background-color: #d6d5d1;
+    }</string>
+                  </property>
+                  <property name="text">
+                   <string/>
                   </property>
                  </widget>
                 </item>
@@ -853,6 +930,48 @@ color: rgb(0,0,0);</string>
                   </property>
                  </widget>
                 </item>
+                <item>
+                 <widget class="QLabel" name="label_8">
+                  <property name="text">
+                   <string>Active:  </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_surname">
+                  <property name="styleSheet">
+                   <string notr="true">    QCheckBox {
+        background-color: #3CAE3C;
+        padding: 0px;
+        border: none;
+        outline: none;
+        border-radius: 10%;
+        width: 20px;
+        height: 20px;
+    }
+
+    QCheckBox::indicator {
+        width:20px;
+        height: 20px;
+        background-color: #FFFFFF;
+        border-radius: 10%;
+    }
+
+    QCheckBox::indicator:checked {
+        background-color: #ffffff;
+        margin-left: 25px;
+    }
+
+    QCheckBox::indicator:unchecked {
+        margin-left: 0px;
+		background-color: #d6d5d1;
+    }</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
                </layout>
               </widget>
              </item>
@@ -940,6 +1059,48 @@ color: rgb(0,0,0);</string>
                   </property>
                  </widget>
                 </item>
+                <item>
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>Active:  </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_birthday">
+                  <property name="styleSheet">
+                   <string notr="true">    QCheckBox {
+        background-color: #3CAE3C;
+        padding: 0px;
+        border: none;
+        outline: none;
+        border-radius: 10%;
+        width: 20px;
+        height: 20px;
+    }
+
+    QCheckBox::indicator {
+        width:20px;
+        height: 20px;
+        background-color: #FFFFFF;
+        border-radius: 10%;
+    }
+
+    QCheckBox::indicator:checked {
+        background-color: #ffffff;
+        margin-left: 25px;
+    }
+
+    QCheckBox::indicator:unchecked {
+        margin-left: 0px;
+		background-color: #d6d5d1;
+    }</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
                </layout>
               </widget>
              </item>
@@ -1024,17 +1185,52 @@ color: rgb(0,0,0);</string>
                   </property>
                  </widget>
                 </item>
+                <item>
+                 <widget class="QLabel" name="label_12">
+                  <property name="text">
+                   <string>Active:  </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_code">
+                  <property name="styleSheet">
+                   <string notr="true">    QCheckBox {
+        background-color: #3CAE3C;
+        padding: 0px;
+        border: none;
+        outline: none;
+        border-radius: 10%;
+        width: 20px;
+        height: 20px;
+    }
+
+    QCheckBox::indicator {
+        width:20px;
+        height: 20px;
+        background-color: #FFFFFF;
+        border-radius: 10%;
+    }
+
+    QCheckBox::indicator:checked {
+        background-color: #ffffff;
+        margin-left: 25px;
+    }
+
+    QCheckBox::indicator:unchecked {
+        margin-left: 0px;
+		background-color: #d6d5d1;
+    }</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
                </layout>
               </widget>
              </item>
             </layout>
-            <zorder>groupBox_2</zorder>
-            <zorder>label_15</zorder>
-            <zorder>frame_20</zorder>
-            <zorder>frame_18</zorder>
-            <zorder>frame_16</zorder>
-            <zorder>frame_17</zorder>
-            <zorder>frame_19</zorder>
            </widget>
           </item>
          </layout>
@@ -1102,7 +1298,7 @@ color: rgb(0,0,0);</string>
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>704</width>
+                  <width>597</width>
                   <height>778</height>
                  </rect>
                 </property>
