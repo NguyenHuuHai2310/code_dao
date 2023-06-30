@@ -101,6 +101,7 @@ class UpPhoiWindow(QMainWindow):
             }
         ''')
         self.show()
+
     def enable_spinbox(self):
         if not self.ui.checkBox_fullname.isChecked():
             self.ui.spinBox_26.setEnabled(False)

@@ -41,10 +41,21 @@ class MyHeader(QHeaderView):
             self.update()
 
         if self.tableWidget:
-            for row in range(self.tableWidget.rowCount()):
-                item = self.tableWidget.item(row, 0)
-                if item:
-                    item.setCheckState(Qt.Checked if self.isOn else Qt.Unchecked)
+            selected_rows = []
+            for item in self.tableWidget.selectedItems():
+                row = item.row()
+                if row not in selected_rows:
+                    selected_rows.append(row)
+            if len(selected_rows) == 0:
+                for row in range(self.tableWidget.rowCount()):
+                    item = self.tableWidget.item(row, 0)
+                    if item:
+                        item.setCheckState(Qt.Checked if self.isOn else Qt.Unchecked)
+            else:
+                for row in selected_rows:
+                    item = self.tableWidget.item(row, 0)
+                    if item:
+                        item.setCheckState(Qt.Checked if self.isOn else Qt.Unchecked)
 
         super().mousePressEvent(event)
 
@@ -103,7 +114,7 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget.setColumnWidth(2, 100)
         self.ui.tableWidget.setColumnWidth(3, 100)
         self.ui.tableWidget.setColumnWidth(4, 100)
-        
+        # self.ui.tableWidget.itemSelectionChanged.connect(self.on_item_selection_changed)
         # Add checkboxes to the table
         for row in range(self.ui.tableWidget.rowCount()):
             item = QTableWidgetItem()
@@ -272,7 +283,8 @@ class MainWindow(QMainWindow):
     def pasteNoDeleteAccount(self):
         if self.ui.tableWidget.rowCount() > 0:
             start_row = self.ui.tableWidget.rowCount()  
-        
+        else:
+            start_row = 0
         clipboard = QApplication.clipboard()
         clipboard_texts = clipboard.text().split("\n")
 
@@ -423,6 +435,6 @@ class Login(QMainWindow):
            self.ui.label.setText('Invalid username or password.')
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    login_window = UpPhoiWindow()
+    login_window = MainWindow()
     login_window.show()
     sys.exit(app.exec_())
