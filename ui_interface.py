@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacetxnWcT.ui'
+## Form generated from reading UI file 'interfacePLOGsD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -708,8 +708,8 @@ class Ui_MainWindow(object):
         self.tableWidget.setDragDropMode(QAbstractItemView.NoDragDrop)
         self.tableWidget.setDefaultDropAction(Qt.IgnoreAction)
         self.tableWidget.setAlternatingRowColors(False)
-        self.tableWidget.setSelectionMode(QAbstractItemView.MultiSelection)
-        self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.tableWidget.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectItems)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setGridStyle(Qt.SolidLine)
         self.tableWidget.setSortingEnabled(False)

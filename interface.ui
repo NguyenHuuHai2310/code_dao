@@ -1563,10 +1563,10 @@ border-color: rgb(0, 0, 0);</string>
              <bool>false</bool>
             </property>
             <property name="selectionMode">
-             <enum>QAbstractItemView::MultiSelection</enum>
+             <enum>QAbstractItemView::ExtendedSelection</enum>
             </property>
             <property name="selectionBehavior">
-             <enum>QAbstractItemView::SelectRows</enum>
+             <enum>QAbstractItemView::SelectItems</enum>
             </property>
             <property name="showGrid">
              <bool>true</bool>

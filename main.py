@@ -2,7 +2,7 @@ from ui_interface import *
 import sys
 from PyQt5.QtWidgets import QApplication, QTableWidgetItem, QHeaderView, QStyle, QStyleOptionButton, QAction, \
     QMenu, QDesktopWidget, QHBoxLayout, QTextEdit, QMessageBox, QMainWindow, QLabel, QPushButton, QVBoxLayout, \
-    QWidget, QLineEdit
+    QWidget, QLineEdit, QTableWidgetSelectionRange
 
 from PyQt5.QtGui import QPainter, QPixmap
 from PyQt5 import QtWidgets, QtGui
@@ -103,7 +103,10 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget.setColumnWidth(2, 100)
         self.ui.tableWidget.setColumnWidth(3, 100)
         self.ui.tableWidget.setColumnWidth(4, 100)
+        self.ui.tableWidget.setSelectionMode(QTableWidget.ExtendedSelection)
         self.ui.tableWidget.itemSelectionChanged.connect(self.on_item_selection_changed)
+        # self.ui.tableWidget.cellClicked.connect(self.handleCellClicked)
+        self.ui.tableWidget.cellChanged.connect(self.handleCellChanged)
         # Add checkboxes to the table
         for row in range(self.ui.tableWidget.rowCount()):
             item = QTableWidgetItem()
@@ -131,6 +134,22 @@ class MainWindow(QMainWindow):
         self.ui.comboBox_25.activated.connect(self.save_values)
         self.ui.comboBox_26.activated.connect(self.save_shoplikes)
         self.show()
+    def handleCellChanged(self, row, column):
+        if column == 0:  # First column (checkbox column)
+            item = self.ui.tableWidget.item(row, column)
+            if item.checkState() == Qt.Checked:
+                # self.ui.tableWidget.setRangeSelected(QTableWidgetSelectionRange(row, 0, row, self.ui.tableWidget.columnCount() - 1), True)
+                for column in range(self.ui.tableWidget.columnCount()):
+                    item = self.ui.tableWidget.item(row, column)
+                    if item is not None:
+                        item.setBackground(QColor("#308cc6")) 
+            else:
+                # self.ui.tableWidget.setRangeSelected(QTableWidgetSelectionRange(row, 0, row, self.ui.tableWidget.columnCount() - 1), True)
+                for column in range(self.ui.tableWidget.columnCount()):
+                    item = self.ui.tableWidget.item(row, column)
+                    if item is not None:
+                        item.setBackground(QColor("#ffffff")) 
+
     def on_item_selection_changed(self):
         selected_rows = []
         for item in self.ui.tableWidget.selectedItems():
@@ -140,8 +159,9 @@ class MainWindow(QMainWindow):
 
         for row in range(self.ui.tableWidget.rowCount()):
             checkbox_item = self.ui.tableWidget.item(row, 0)
-            if checkbox_item and row in selected_rows:
-                checkbox_item.setCheckState(Qt.Checked)
+            if checkbox_item and row in selected_rows :
+                if len(selected_rows) > 1:
+                    checkbox_item.setCheckState(Qt.Checked)
             else:
                 checkbox_item.setCheckState(Qt.Unchecked)
 
@@ -316,19 +336,35 @@ class MainWindow(QMainWindow):
         selectedText = ""
         # QMessageBox.information(self, "Custom Action", "Click vào tài khoản đã bôi đen clicked!")
         for row in range(self.ui.tableWidget.rowCount()):
+            # print(row)
             item = self.ui.tableWidget.item(row, 0)
             if item.checkState() == Qt.Checked:
+                # self.ui.tableWidget.setRangeSelected(QTableWidgetSelectionRange(row, 0, row, self.ui.tableWidget.columnCount() - 1), True)
+
+                # Set the background color for the selected row
                 for column in range(self.ui.tableWidget.columnCount()):
-                    item2 = self.ui.tableWidget.item(row, column)
-                    if item2 is None:
-                        self.ui.tableWidget.setItem(row, column, QTableWidgetItem(" "))
-                    item2 = self.ui.tableWidget.item(row, column)
-                    item2.setBackground(QColor("#2689d7"))
+                    item = self.ui.tableWidget.item(row, column)
+                    if item is None:
+                        item = QTableWidgetItem()
+                        self.ui.tableWidget.setItem(row, column, item)
+                    item.setBackground(QColor("#308cc6"))
+
                 cell_text = self.ui.tableWidget.item(row, 1).text()
                 selectedText += cell_text + "\n"
+            else:
+                # Reset the background color for unchecked rows
+                for column in range(self.ui.tableWidget.columnCount()):
+                    item = self.ui.tableWidget.item(row, column)
+                    if item is not None:
+                        item.setBackground(QColor("#ffffff")) 
+
+                cell_text = self.ui.tableWidget.item(row, 1).text()
+                selectedText += cell_text + "\n"
+                
                 # print(cell_text)
         mimeData.setText(selectedText)
         clipboard.setMimeData(mimeData)
+        # self.on_item_selection_changed()
 
     def start_generation(self):
         self.ui.start_button.setEnabled(False)
