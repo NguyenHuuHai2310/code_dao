@@ -41,21 +41,10 @@ class MyHeader(QHeaderView):
             self.update()
 
         if self.tableWidget:
-            selected_rows = []
-            for item in self.tableWidget.selectedItems():
-                row = item.row()
-                if row not in selected_rows:
-                    selected_rows.append(row)
-            if len(selected_rows) == 0:
-                for row in range(self.tableWidget.rowCount()):
-                    item = self.tableWidget.item(row, 0)
-                    if item:
-                        item.setCheckState(Qt.Checked if self.isOn else Qt.Unchecked)
-            else:
-                for row in selected_rows:
-                    item = self.tableWidget.item(row, 0)
-                    if item:
-                        item.setCheckState(Qt.Checked if self.isOn else Qt.Unchecked)
+            for row in range(self.tableWidget.rowCount()):
+                item = self.tableWidget.item(row, 0)
+                if item:
+                    item.setCheckState(Qt.Checked if self.isOn else Qt.Unchecked)
 
         super().mousePressEvent(event)
 
@@ -114,7 +103,7 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget.setColumnWidth(2, 100)
         self.ui.tableWidget.setColumnWidth(3, 100)
         self.ui.tableWidget.setColumnWidth(4, 100)
-        # self.ui.tableWidget.itemSelectionChanged.connect(self.on_item_selection_changed)
+        self.ui.tableWidget.itemSelectionChanged.connect(self.on_item_selection_changed)
         # Add checkboxes to the table
         for row in range(self.ui.tableWidget.rowCount()):
             item = QTableWidgetItem()
@@ -142,6 +131,20 @@ class MainWindow(QMainWindow):
         self.ui.comboBox_25.activated.connect(self.save_values)
         self.ui.comboBox_26.activated.connect(self.save_shoplikes)
         self.show()
+    def on_item_selection_changed(self):
+        selected_rows = []
+        for item in self.ui.tableWidget.selectedItems():
+            row = item.row()
+            if row not in selected_rows:
+                selected_rows.append(row)
+
+        for row in range(self.ui.tableWidget.rowCount()):
+            checkbox_item = self.ui.tableWidget.item(row, 0)
+            if checkbox_item and row in selected_rows:
+                checkbox_item.setCheckState(Qt.Checked)
+            else:
+                checkbox_item.setCheckState(Qt.Unchecked)
+
     def save_shoplikes(self):
         print(self.ui.comboBox_26.currentIndex())
         if (self.ui.comboBox_26.currentIndex() == 1):
@@ -320,7 +323,7 @@ class MainWindow(QMainWindow):
                     if item2 is None:
                         self.ui.tableWidget.setItem(row, column, QTableWidgetItem(" "))
                     item2 = self.ui.tableWidget.item(row, column)
-                    item2.setBackground(QColor("#3bc7e3"))
+                    item2.setBackground(QColor("#2689d7"))
                 cell_text = self.ui.tableWidget.item(row, 1).text()
                 selectedText += cell_text + "\n"
                 # print(cell_text)

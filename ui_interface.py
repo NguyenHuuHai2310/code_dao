@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacejSamxc.ui'
+## Form generated from reading UI file 'interfacetxnWcT.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -71,6 +71,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_15.addWidget(self.label_8)
 
         self.comboBox_18 = QComboBox(self.frame_5)
+        self.comboBox_18.addItem("")
         self.comboBox_18.addItem("")
         self.comboBox_18.setObjectName(u"comboBox_18")
         self.comboBox_18.setMinimumSize(QSize(0, 30))
@@ -744,6 +745,7 @@ class Ui_MainWindow(object):
         self.groupBox_3.setTitle("")
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Ch\u1ee9c n\u0103ng", None))
         self.comboBox_18.setItemText(0, QCoreApplication.translate("MainWindow", u"XMDT th\u1eb3ng ", None))
+        self.comboBox_18.setItemText(1, QCoreApplication.translate("MainWindow", u"Check tr\u1ea1ng th\u00e1i XMDT", None))
 
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Ch\u1ecdn ph\u00f4i", None))
         self.comboBox_19.setItemText(0, QCoreApplication.translate("MainWindow", u"L\u1ea5y ph\u00f4i \u1edf tool(C\u00f3 fake th\u00f4ng tin theo Via)", None))

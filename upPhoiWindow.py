@@ -39,7 +39,7 @@ class UpPhoiWindow(QMainWindow):
         self.ui.btn_preview.clicked.connect(self.show_preview)
         self.load_value('output/config.ini')
         self.ui.label_img.setScaledContents(True)
-
+        self.enable_spinbox()
         self.ui.checkBox_birthday.clicked.connect(self.enable_spinbox)
         self.ui.checkBox_fullname.clicked.connect(self.enable_spinbox)
         self.ui.checkBox_givenname.clicked.connect(self.enable_spinbox)
@@ -310,32 +310,6 @@ class UpPhoiWindow(QMainWindow):
 
             # current_index = self.ui.comboBox_3.currentIndex()
             font_family = self.ui.comboBox_3.currentText()
-
-            # if not self.ui.checkBox_fullname.isChecked():
-            #     self.fullname = ""
-            # else:
-            #     self.fullname = "Full name"
-            # if not self.ui.checkBox_code.isChecked():
-            #     self.code = ""
-            # else:
-            #     self.code = "1234567890"
-            # if not self.ui.checkBox_givenname.isChecked():
-            #     self.givenname = ""
-            # else:
-            #     self.givenname = "First Name"
-            # if not self.ui.checkBox_surname.isChecked():
-            #     self.surname = ""
-            # else:
-            #     self.surname = "Last Name"
-            # if not self.ui.checkBox_birthday.isChecked():
-            #     self.birthday = ""
-            # else:
-            #     if self.ui.comboBox_time_format.currentIndex() == 0:
-            #         self.birthday = "dd/mm/yyyy"
-            #     else:
-            #         self.birthday = "dd Month yyyy"
-
-            # self.address = "Address"
             givenname_x = self.ui.spinBox_23.value()
             givenname_y = self.ui.spinBox_25.value()
 
@@ -479,6 +453,20 @@ class UpPhoiWindow(QMainWindow):
         self.ui.spinBox_26.setValue(int(settings.value("Fullname_x", defaultValue)))
         self.ui.spinBox_27.setValue(int(settings.value("Fullname_y", defaultValue)))
         self.ui.spinBox_28.setValue(int(settings.value("Fullname_Angle", defaultValue)))
+
+        fullname_active = settings.value("Active_Fullname", False, bool)
+        givenname_active = settings.value("Active_Givenname", False, bool)
+        surname_active = settings.value("Active_Surname", False, bool)
+        birthday_active = settings.value("Active_Birthday", False, bool)
+        code_active = settings.value("Active_Code", False, bool)
+
+        # Use the loaded values to set the checkbox states
+        self.ui.checkBox_fullname.setChecked(fullname_active)
+        self.ui.checkBox_givenname.setChecked(givenname_active)
+        self.ui.checkBox_surname.setChecked(surname_active)
+        self.ui.checkBox_birthday.setChecked(birthday_active)
+        self.ui.checkBox_code.setChecked(code_active)
+        
         if settings.value("Time_format", defaultValue) == 0:
             self.ui.comboBox_time_format.setCurrentText("dd/mm/yyyy")
         else:
@@ -522,6 +510,13 @@ class UpPhoiWindow(QMainWindow):
         settings.setValue("Fullname_y",  self.ui.spinBox_27.value())
         settings.setValue("Fullname_Angle", self.ui.spinBox_28.value())
         settings.setValue("Time_format", self.ui.comboBox_time_format.currentIndex())
+
+        settings.setValue("Active_Fullname", self.ui.checkBox_fullname.isChecked())
+        settings.setValue("Active_Givenname", self.ui.checkBox_givenname.isChecked())
+        settings.setValue("Active_Surname", self.ui.checkBox_surname.isChecked())
+        settings.setValue("Active_Birthday", self.ui.checkBox_birthday.isChecked())
+        settings.setValue("Active_Code", self.ui.checkBox_code.isChecked())
+
         settings.sync()
         settings.endGroup()
         print(f"All configuration is saved in output/config.ini")
