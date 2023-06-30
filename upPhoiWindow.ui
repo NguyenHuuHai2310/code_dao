@@ -684,36 +684,14 @@ color: rgb(0,0,0);</string>
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBox_fullname">
-                  <property name="styleSheet">
-                   <string notr="true">    QCheckBox {
-        background-color: #3CAE3C;
-        padding: 0px;
-        border: none;
-        outline: none;
-        border-radius: 10%;
-        width: 20px;
-        height: 20px;
-    }
-
-    QCheckBox::indicator {
-        width:20px;
-        height: 20px;
-        background-color: #FFFFFF;
-        border-radius: 10%;
-    }
-
-    QCheckBox::indicator:checked {
-        background-color: #ffffff;
-        margin-left: 25px;
-    }
-
-    QCheckBox::indicator:unchecked {
-        margin-left: 0px;
-		background-color: #d6d5d1;
-    }</string>
-                  </property>
                   <property name="text">
                    <string/>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                  <property name="tristate">
+                   <bool>false</bool>
                   </property>
                  </widget>
                 </item>
@@ -810,36 +788,11 @@ color: rgb(0,0,0);</string>
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBox_givenname">
-                  <property name="styleSheet">
-                   <string notr="true">    QCheckBox {
-        background-color: #3CAE3C;
-        padding: 0px;
-        border: none;
-        outline: none;
-        border-radius: 10%;
-        width: 20px;
-        height: 20px;
-    }
-
-    QCheckBox::indicator {
-        width:20px;
-        height: 20px;
-        background-color: #FFFFFF;
-        border-radius: 10%;
-    }
-
-    QCheckBox::indicator:checked {
-        background-color: #ffffff;
-        margin-left: 25px;
-    }
-
-    QCheckBox::indicator:unchecked {
-        margin-left: 0px;
-		background-color: #d6d5d1;
-    }</string>
-                  </property>
                   <property name="text">
                    <string/>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -939,36 +892,11 @@ color: rgb(0,0,0);</string>
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBox_surname">
-                  <property name="styleSheet">
-                   <string notr="true">    QCheckBox {
-        background-color: #3CAE3C;
-        padding: 0px;
-        border: none;
-        outline: none;
-        border-radius: 10%;
-        width: 20px;
-        height: 20px;
-    }
-
-    QCheckBox::indicator {
-        width:20px;
-        height: 20px;
-        background-color: #FFFFFF;
-        border-radius: 10%;
-    }
-
-    QCheckBox::indicator:checked {
-        background-color: #ffffff;
-        margin-left: 25px;
-    }
-
-    QCheckBox::indicator:unchecked {
-        margin-left: 0px;
-		background-color: #d6d5d1;
-    }</string>
-                  </property>
                   <property name="text">
                    <string/>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -1068,36 +996,11 @@ color: rgb(0,0,0);</string>
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBox_birthday">
-                  <property name="styleSheet">
-                   <string notr="true">    QCheckBox {
-        background-color: #3CAE3C;
-        padding: 0px;
-        border: none;
-        outline: none;
-        border-radius: 10%;
-        width: 20px;
-        height: 20px;
-    }
-
-    QCheckBox::indicator {
-        width:20px;
-        height: 20px;
-        background-color: #FFFFFF;
-        border-radius: 10%;
-    }
-
-    QCheckBox::indicator:checked {
-        background-color: #ffffff;
-        margin-left: 25px;
-    }
-
-    QCheckBox::indicator:unchecked {
-        margin-left: 0px;
-		background-color: #d6d5d1;
-    }</string>
-                  </property>
                   <property name="text">
                    <string/>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -1194,36 +1097,11 @@ color: rgb(0,0,0);</string>
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBox_code">
-                  <property name="styleSheet">
-                   <string notr="true">    QCheckBox {
-        background-color: #3CAE3C;
-        padding: 0px;
-        border: none;
-        outline: none;
-        border-radius: 10%;
-        width: 20px;
-        height: 20px;
-    }
-
-    QCheckBox::indicator {
-        width:20px;
-        height: 20px;
-        background-color: #FFFFFF;
-        border-radius: 10%;
-    }
-
-    QCheckBox::indicator:checked {
-        background-color: #ffffff;
-        margin-left: 25px;
-    }
-
-    QCheckBox::indicator:unchecked {
-        margin-left: 0px;
-		background-color: #d6d5d1;
-    }</string>
-                  </property>
                   <property name="text">
                    <string/>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -1298,7 +1176,7 @@ color: rgb(0,0,0);</string>
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>597</width>
+                  <width>629</width>
                   <height>778</height>
                  </rect>
                 </property>
@@ -1386,6 +1264,8 @@ color: rgb(0,0,0);</string>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

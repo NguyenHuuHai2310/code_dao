@@ -143,7 +143,7 @@
                       </font>
                      </property>
                      <property name="text">
-                      <string>Kiểu XMDT</string>
+                      <string>Chức năng</string>
                      </property>
                     </widget>
                    </item>
@@ -1537,22 +1537,28 @@ border-color: rgb(0, 0, 0);</string>
              <enum>QAbstractScrollArea::AdjustToContents</enum>
             </property>
             <property name="editTriggers">
-             <set>QAbstractItemView::AllEditTriggers</set>
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="showDropIndicator" stdset="0">
+             <bool>false</bool>
             </property>
             <property name="dragEnabled">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="dragDropOverwriteMode">
              <bool>false</bool>
             </property>
             <property name="dragDropMode">
-             <enum>QAbstractItemView::DragDrop</enum>
+             <enum>QAbstractItemView::NoDragDrop</enum>
             </property>
             <property name="defaultDropAction">
              <enum>Qt::IgnoreAction</enum>
             </property>
             <property name="alternatingRowColors">
              <bool>false</bool>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::MultiSelection</enum>
             </property>
             <property name="selectionBehavior">
              <enum>QAbstractItemView::SelectRows</enum>
@@ -1564,7 +1570,7 @@ border-color: rgb(0, 0, 0);</string>
              <enum>Qt::SolidLine</enum>
             </property>
             <property name="sortingEnabled">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -1579,13 +1585,13 @@ border-color: rgb(0, 0, 0);</string>
              <number>10</number>
             </attribute>
             <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-             <bool>true</bool>
+             <bool>false</bool>
             </attribute>
             <attribute name="horizontalHeaderStretchLastSection">
              <bool>true</bool>
             </attribute>
             <attribute name="verticalHeaderVisible">
-             <bool>false</bool>
+             <bool>true</bool>
             </attribute>
             <attribute name="verticalHeaderCascadingSectionResizes">
              <bool>true</bool>
@@ -1671,7 +1677,7 @@ border-color: rgb(0, 0, 0);</string>
             </row>
             <row>
              <property name="text">
-              <string>New Row</string>
+              <string/>
              </property>
             </row>
             <row>

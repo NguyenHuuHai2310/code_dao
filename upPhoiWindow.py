@@ -40,47 +40,170 @@ class UpPhoiWindow(QMainWindow):
         self.load_value('output/config.ini')
         self.ui.label_img.setScaledContents(True)
 
-        # print(self.ui.checkBox_fullname.isChecked())
-        # print(self.ui.checkBox_code.isChecked())
-        # print(self.ui.checkBox_surname.isChecked())
-        # print(self.ui.checkBox_givenname.isChecked())
-        # print(self.ui.checkBox_birthday.isChecked())
+        self.ui.checkBox_birthday.clicked.connect(self.enable_spinbox)
+        self.ui.checkBox_fullname.clicked.connect(self.enable_spinbox)
+        self.ui.checkBox_givenname.clicked.connect(self.enable_spinbox)
+        self.ui.checkBox_surname.clicked.connect(self.enable_spinbox)
+        self.ui.checkBox_code.clicked.connect(self.enable_spinbox)
+        self.ui.checkBox_code.setStyleSheet('''
 
-       
+
+            QCheckBox::indicator:checked {
+                image: url(icons/icons8-toggle-on-40.png);  /* Replace with your toggle-on image */
+            }
+
+            QCheckBox::indicator:unchecked {
+                image: url(icons/icons8-toggle-off-40.png);  /* Replace with your toggle-off image */
+            }
+        ''')
+        self.ui.checkBox_surname.setStyleSheet('''
+
+
+            QCheckBox::indicator:checked {
+                image: url(icons/icons8-toggle-on-40.png);  /* Replace with your toggle-on image */
+            }
+
+            QCheckBox::indicator:unchecked {
+                image: url(icons/icons8-toggle-off-40.png);  /* Replace with your toggle-off image */
+            }
+        ''')
+        self.ui.checkBox_givenname.setStyleSheet('''
+
+
+            QCheckBox::indicator:checked {
+                image: url(icons/icons8-toggle-on-40.png);  /* Replace with your toggle-on image */
+            }
+
+            QCheckBox::indicator:unchecked {
+                image: url(icons/icons8-toggle-off-40.png);  /* Replace with your toggle-off image */
+            }
+        ''')
+        self.ui.checkBox_fullname.setStyleSheet('''
+
+
+            QCheckBox::indicator:checked {
+                image: url(icons/icons8-toggle-on-40.png);  /* Replace with your toggle-on image */
+            }
+
+            QCheckBox::indicator:unchecked {
+                image: url(icons/icons8-toggle-off-40.png);  /* Replace with your toggle-off image */
+            }
+        ''')
+        self.ui.checkBox_birthday.setStyleSheet('''
+
+
+            QCheckBox::indicator:checked {
+                image: url(icons/icons8-toggle-on-40.png);  /* Replace with your toggle-on image */
+            }
+
+            QCheckBox::indicator:unchecked {
+                image: url(icons/icons8-toggle-off-40.png);  /* Replace with your toggle-off image */
+            }
+        ''')
         self.show()
-    def paint_images(self, background_image, foreground_image, fullname, 
-                     givenname,surname,birthday,code, 
+    def enable_spinbox(self):
+        if not self.ui.checkBox_fullname.isChecked():
+            self.ui.spinBox_26.setEnabled(False)
+            self.ui.spinBox_27.setEnabled(False)
+            self.ui.spinBox_28.setEnabled(False) 
+        else:
+            self.ui.spinBox_26.setEnabled(True)
+            self.ui.spinBox_27.setEnabled(True)
+            self.ui.spinBox_28.setEnabled(True) 
+        if not self.ui.checkBox_code.isChecked():
+            self.ui.spinBox_11.setEnabled(False)
+            self.ui.spinBox_12.setEnabled(False)
+            self.ui.spinBox_13.setEnabled(False) 
+        else:
+            self.ui.spinBox_11.setEnabled(True)
+            self.ui.spinBox_12.setEnabled(True)
+            self.ui.spinBox_13.setEnabled(True) 
+        if not self.ui.checkBox_givenname.isChecked():
+            self.ui.spinBox_23.setEnabled(False)
+            self.ui.spinBox_24.setEnabled(False)
+            self.ui.spinBox_25.setEnabled(False) 
+        else:
+            self.ui.spinBox_23.setEnabled(True)
+            self.ui.spinBox_24.setEnabled(True)
+            self.ui.spinBox_25.setEnabled(True) 
+        if not self.ui.checkBox_surname.isChecked():
+            self.ui.spinBox_14.setEnabled(False)
+            self.ui.spinBox_15.setEnabled(False)
+            self.ui.spinBox_16.setEnabled(False) 
+        else:
+            self.ui.spinBox_14.setEnabled(True)
+            self.ui.spinBox_15.setEnabled(True)
+            self.ui.spinBox_16.setEnabled(True) 
+        if not self.ui.checkBox_birthday.isChecked():
+            self.ui.spinBox_17.setEnabled(False)
+            self.ui.spinBox_18.setEnabled(False)
+            self.ui.spinBox_19.setEnabled(False) 
+        else:
+            self.ui.spinBox_17.setEnabled(True)
+            self.ui.spinBox_18.setEnabled(True)
+            self.ui.spinBox_19.setEnabled(True)
+    def paint_images(self, background_image, foreground_image,
                      img_x, img_y, rotation_angle, img_width, img_height,
                      fullname_x, fullname_y,givenname_x, givenname_y, surname_x, surname_y,
                      birthday_x, birthday_y,code_x, code_y,
                      font_family, is_bold, 
                      text_color, font_size):
-        print("Status: =================================================================")
+        # print("Status: =================================================================")
         print(self.ui.checkBox_fullname.isChecked())
-        print(self.ui.checkBox_code.isChecked())
-        print(self.ui.checkBox_surname.isChecked())
-        print(self.ui.checkBox_givenname.isChecked())
-        print(self.ui.checkBox_birthday.isChecked())
-        if self.ui.checkBox_fullname.isChecked():
+        # print(self.ui.checkBox_code.isChecked())
+        # print(self.ui.checkBox_surname.isChecked())
+        # print(self.ui.checkBox_givenname.isChecked())
+        # print(self.ui.checkBox_birthday.isChecked())
+        print("Paint images")
+        if not self.ui.checkBox_fullname.isChecked():
             self.fullname = ""
+            self.ui.spinBox_26.setEnabled(False)
+            self.ui.spinBox_27.setEnabled(False)
+            self.ui.spinBox_28.setEnabled(False) 
         else:
             self.fullname = "Full name"
-        if self.ui.checkBox_code.isChecked():
+            self.ui.spinBox_26.setEnabled(True)
+            self.ui.spinBox_27.setEnabled(True)
+            self.ui.spinBox_28.setEnabled(True) 
+        if not self.ui.checkBox_code.isChecked():
             self.code = ""
+            self.ui.spinBox_11.setEnabled(False)
+            self.ui.spinBox_12.setEnabled(False)
+            self.ui.spinBox_13.setEnabled(False) 
         else:
             self.code = "1234567890"
-        if self.ui.checkBox_givenname.isChecked():
+            self.ui.spinBox_11.setEnabled(True)
+            self.ui.spinBox_12.setEnabled(True)
+            self.ui.spinBox_13.setEnabled(True) 
+        if not self.ui.checkBox_givenname.isChecked():
             self.givenname = ""
+            self.ui.spinBox_23.setEnabled(False)
+            self.ui.spinBox_24.setEnabled(False)
+            self.ui.spinBox_25.setEnabled(False) 
         else:
             self.givenname = "First Name"
-        if self.ui.checkBox_surname.isChecked():
+            self.ui.spinBox_23.setEnabled(True)
+            self.ui.spinBox_24.setEnabled(True)
+            self.ui.spinBox_25.setEnabled(True) 
+        if not self.ui.checkBox_surname.isChecked():
             self.surname = ""
+            self.ui.spinBox_14.setEnabled(False)
+            self.ui.spinBox_15.setEnabled(False)
+            self.ui.spinBox_16.setEnabled(False) 
         else:
             self.surname = "Last Name"
-        if self.ui.checkBox_birthday.isChecked():
+            self.ui.spinBox_14.setEnabled(True)
+            self.ui.spinBox_15.setEnabled(True)
+            self.ui.spinBox_16.setEnabled(True) 
+        if not self.ui.checkBox_birthday.isChecked():
             self.birthday = ""
+            self.ui.spinBox_17.setEnabled(False)
+            self.ui.spinBox_18.setEnabled(False)
+            self.ui.spinBox_19.setEnabled(False) 
         else:
-           
+            self.ui.spinBox_17.setEnabled(True)
+            self.ui.spinBox_18.setEnabled(True)
+            self.ui.spinBox_19.setEnabled(True)
             if self.ui.comboBox_time_format.currentIndex() == 0:
                 self.birthday = "dd/mm/yyyy"
             else:
@@ -147,19 +270,19 @@ class UpPhoiWindow(QMainWindow):
         transform_5.translate(-fullname_x, -fullname_y)
 
         painter.setTransform(transform_1)
-        painter.drawText(givenname_x, givenname_y, givenname)
+        painter.drawText(givenname_x, givenname_y, self.givenname)
 
         painter.setTransform(transform_2)
-        painter.drawText(surname_x, surname_y, surname)
+        painter.drawText(surname_x, surname_y, self.surname)
 
         painter.setTransform(transform_3)
-        painter.drawText(birthday_x, birthday_y, birthday)
+        painter.drawText(birthday_x, birthday_y, self.birthday)
 
         painter.setTransform(transform_4)
-        painter.drawText(code_x, code_y, code)
+        painter.drawText(code_x, code_y, self.code)
 
         painter.setTransform(transform_5)
-        painter.drawText(fullname_x, fullname_y, fullname)
+        painter.drawText(fullname_x, fullname_y, self.fullname)
 
         self.combined_image = combined_image
         self.ui.label_img.setPixmap(combined_image)
@@ -187,29 +310,29 @@ class UpPhoiWindow(QMainWindow):
             # current_index = self.ui.comboBox_3.currentIndex()
             font_family = self.ui.comboBox_3.currentText()
 
-            if self.ui.checkBox_fullname.isChecked():
-                self.fullname = ""
-            else:
-                self.fullname = " Full name"
-            if self.ui.checkBox_code.isChecked():
-                self.code = ""
-            else:
-                self.code = "1234567890"
-            if self.ui.checkBox_givenname.isChecked():
-                self.givenname = ""
-            else:
-                self.givenname = "First Name"
-            if self.ui.checkBox_surname.isChecked():
-                self.surname = ""
-            else:
-                self.surname = "Last Name"
-            if self.ui.checkBox_birthday.isChecked():
-                self.birthday = ""
-            else:
-                if self.ui.comboBox_time_format.currentIndex() == 0:
-                    self.birthday = "dd/mm/yyyy"
-                else:
-                    self.birthday = "dd Month yyyy"
+            # if not self.ui.checkBox_fullname.isChecked():
+            #     self.fullname = ""
+            # else:
+            #     self.fullname = "Full name"
+            # if not self.ui.checkBox_code.isChecked():
+            #     self.code = ""
+            # else:
+            #     self.code = "1234567890"
+            # if not self.ui.checkBox_givenname.isChecked():
+            #     self.givenname = ""
+            # else:
+            #     self.givenname = "First Name"
+            # if not self.ui.checkBox_surname.isChecked():
+            #     self.surname = ""
+            # else:
+            #     self.surname = "Last Name"
+            # if not self.ui.checkBox_birthday.isChecked():
+            #     self.birthday = ""
+            # else:
+            #     if self.ui.comboBox_time_format.currentIndex() == 0:
+            #         self.birthday = "dd/mm/yyyy"
+            #     else:
+            #         self.birthday = "dd Month yyyy"
 
             # self.address = "Address"
             givenname_x = self.ui.spinBox_23.value()
@@ -227,8 +350,7 @@ class UpPhoiWindow(QMainWindow):
             fullname_x = self.ui.spinBox_26.value()
             fullname_y = self.ui.spinBox_27.value()
 
-            self.paint_images(self.background_image, self.foreground_image, self.fullname,
-                              self.givenname,self.surname,self.birthday,self.code,
+            self.paint_images(self.background_image, self.foreground_image,
                                 img_x=self.ui.spinBox_3.value(), img_y=self.ui.spinBox_4.value(), rotation_angle = self.ui.spinBox_5.value(),
                                 img_width =w , img_height = h,
                                 fullname_x= fullname_x, fullname_y= fullname_y,
@@ -276,7 +398,7 @@ class UpPhoiWindow(QMainWindow):
 
         return 0
     def update(self):
-        if self.ui.checkBox_birthday.isChecked():
+        if not self.ui.checkBox_birthday.isChecked():
                 self.birthday = ""
         else:
             if self.ui.comboBox_time_format.currentIndex() == 0:
@@ -307,8 +429,7 @@ class UpPhoiWindow(QMainWindow):
         x = self.ui.spinBox_3.value()
         y = self.ui.spinBox_4.value()
         
-        self.paint_images(self.background_image, self.foreground_image,self.fullname,
-                          self.givenname,self.surname,self.birthday,self.code,
+        self.paint_images(self.background_image, self.foreground_image,
                                 img_x=x, img_y=y, rotation_angle = img_angle,
                                 img_width =w , img_height = h, 
                                 fullname_x=fullname_x, fullname_y=fullname_y,

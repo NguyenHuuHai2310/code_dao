@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacehcscOd.ui'
+## Form generated from reading UI file 'interfacejSamxc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -700,23 +700,25 @@ class Ui_MainWindow(object):
         self.tableWidget.setFrameShadow(QFrame.Sunken)
         self.tableWidget.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         self.tableWidget.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.tableWidget.setEditTriggers(QAbstractItemView.AllEditTriggers)
-        self.tableWidget.setDragEnabled(True)
+        self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setProperty("showDropIndicator", False)
+        self.tableWidget.setDragEnabled(False)
         self.tableWidget.setDragDropOverwriteMode(False)
-        self.tableWidget.setDragDropMode(QAbstractItemView.DragDrop)
+        self.tableWidget.setDragDropMode(QAbstractItemView.NoDragDrop)
         self.tableWidget.setDefaultDropAction(Qt.IgnoreAction)
         self.tableWidget.setAlternatingRowColors(False)
+        self.tableWidget.setSelectionMode(QAbstractItemView.MultiSelection)
         self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setGridStyle(Qt.SolidLine)
-        self.tableWidget.setSortingEnabled(True)
+        self.tableWidget.setSortingEnabled(False)
         self.tableWidget.setWordWrap(True)
         self.tableWidget.setCornerButtonEnabled(True)
         self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
         self.tableWidget.horizontalHeader().setMinimumSectionSize(10)
-        self.tableWidget.horizontalHeader().setProperty("showSortIndicator", True)
+        self.tableWidget.horizontalHeader().setProperty("showSortIndicator", False)
         self.tableWidget.horizontalHeader().setStretchLastSection(True)
-        self.tableWidget.verticalHeader().setVisible(False)
+        self.tableWidget.verticalHeader().setVisible(True)
         self.tableWidget.verticalHeader().setCascadingSectionResizes(True)
         self.tableWidget.verticalHeader().setHighlightSections(True)
         self.tableWidget.verticalHeader().setProperty("showSortIndicator", True)
@@ -740,7 +742,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.groupBox_3.setTitle("")
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Ki\u1ec3u XMDT", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Ch\u1ee9c n\u0103ng", None))
         self.comboBox_18.setItemText(0, QCoreApplication.translate("MainWindow", u"XMDT th\u1eb3ng ", None))
 
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Ch\u1ecdn ph\u00f4i", None))
@@ -803,7 +805,5 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"@Tr\u1ea1ng th\u00e1i", None));
         ___qtablewidgetitem4 = self.tableWidget.horizontalHeaderItem(5)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"@Limit", None));
-        ___qtablewidgetitem5 = self.tableWidget.verticalHeaderItem(14)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
     # retranslateUi
 

@@ -13,6 +13,9 @@ from ui_upPhoiWindow import *
 from upPhoiWindow import UpPhoiWindow
 from ui_login import *
 
+from PySide2.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QStyledItemDelegate
+from PySide2.QtGui import QColor, QBrush, QPainter
+
 class MyHeader(QHeaderView):
     def __init__(self, orientation, parent=None):
         super().__init__(orientation, parent)
@@ -94,6 +97,7 @@ class MainWindow(QMainWindow):
         myHeader.setTableWidget(self.ui.tableWidget)
         myHeader.setStretchLastSection(True)
         self.get_values()
+        self.loadSettingsValues()
         self.ui.tableWidget.setHorizontalHeader(myHeader)
         self.ui.tableWidget.setColumnWidth(1, 300)
         self.ui.tableWidget.setColumnWidth(2, 100)
@@ -105,11 +109,10 @@ class MainWindow(QMainWindow):
             item = QTableWidgetItem()
             item.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
             item.setCheckState(Qt.Unchecked)
-            item2 = QTableWidgetItem(str(row + 1))
-            self.ui.tableWidget.setVerticalHeaderItem(row, item2)
+            index = QTableWidgetItem(str(row + 1))
+            self.ui.tableWidget.setVerticalHeaderItem(row, index)
             self.ui.tableWidget.setItem(row, 0, item)
-
-
+        # Set the custom delegate for the table widget
         self.ui.start_button.clicked.connect(self.start_generation)
         self.ui.stop_button.clicked.connect(self.stop_generation)
         self.ui.stop_button.setEnabled(False)
@@ -118,6 +121,14 @@ class MainWindow(QMainWindow):
         self.ui.comboBox_19.activated.connect(self.openUpPhoiWindow)
         self.ui.keyCapcha_2.textChanged.connect(self.save_values)
         self.ui.keyOtp.textChanged.connect(self.save_values)
+        self.ui.comboBox_18.activated.connect(self.save_values)
+        self.ui.comboBox_19.activated.connect(self.save_values)
+        self.ui.comboBox_20.activated.connect(self.save_values)
+        self.ui.comboBox_21.activated.connect(self.save_values)
+        self.ui.comboBox_23.activated.connect(self.save_values)
+        self.ui.comboBox_22.activated.connect(self.save_values)
+        self.ui.comboBox_24.activated.connect(self.save_values)
+        self.ui.comboBox_25.activated.connect(self.save_values)
         self.ui.comboBox_26.activated.connect(self.save_shoplikes)
         self.show()
     def save_shoplikes(self):
@@ -130,13 +141,12 @@ class MainWindow(QMainWindow):
             settings = QSettings(f"output/config.ini", QSettings.IniFormat)
             settings.beginGroup('section2')
             settings.setValue("KeyOtp", self.ui.keyOtp.text())
-            settings.setValue("KeyCaptcha",self.ui.keyCapcha.text())
+            settings.setValue("KeyCaptcha",self.ui.keyCapcha_2.text())
             settings.setValue("Kieu_XMDT",self.ui.comboBox_18.currentIndex())
             settings.setValue("Chon_Phoi", self.ui.comboBox_19.currentIndex())
-            settings.setValue("Anh_Phoi",self.ui.comboBox_19.currentIndex())
+            settings.setValue("Anh_Phoi",self.ui.comboBox_20.currentIndex())
             settings.setValue("Up_Avatar",self.ui.comboBox_21.currentIndex())
-            if self.ui.radioButton_10.isChecked():
-                settings.setValue("Otp_Phone", self.ui.radioButton_10.data())
+            settings.setValue("Otp_Phone", self.ui.radioButton_10.isChecked())
             settings.setValue("Nha_Mang",self.ui.comboBox_23.currentIndex())
             settings.setValue("Captcha",self.ui.comboBox_22.currentIndex())
             settings.setValue("Get_So_Mail", self.ui.comboBox_24.currentIndex())
@@ -153,38 +163,39 @@ class MainWindow(QMainWindow):
         self.ui.keyOtp.setText(settings.value("KeyOtp", ""))
         settings.endGroup()
     
-    # def loadSettingsValues(self):
-    #     settings = QSettings("output/config.ini", QSettings.IniFormat)
-    #     settings.beginGroup('section2')
+    def loadSettingsValues(self):
+        settings = QSettings("output/config.ini", QSettings.IniFormat)
+        settings.beginGroup('section2')
         
-    #     # Load values from the settings file
-    #     keyOtp = settings.value("KeyOtp")
-    #     keyCaptcha = settings.value("KeyCaptcha")
-    #     kieuXMDT = settings.value("Kieu_XMDT")
-    #     chonPhoi = settings.value("Chon_Phoi")
-    #     anhPhoi = settings.value("Anh_Phoi")
-    #     upAvatar = settings.value("Up_Avatar")
-    #     otpPhone = settings.value("Otp_Phone")
-    #     nhaMang = settings.value("Nha_Mang")
-    #     captcha = settings.value("Captcha")
-    #     getSoMail = settings.value("Get_So_Mail")
-    #     login = settings.value("Login")
-    #     ip = settings.value("Ip")
-        
-    #     # Set values in the UI elements
-    #     self.ui.keyOtp.setText(keyOtp)
-    #     self.ui.keyCapcha.setText(keyCaptcha)
-    #     self.ui.comboBox_18.setCurrentIndex(int(kieuXMDT))
-    #     self.ui.comboBox_19.setCurrentIndex(int(chonPhoi))
-    #     self.ui.comboBox_20.setCurrentIndex(int(anhPhoi))
-    #     self.ui.comboBox_21.setCurrentIndex(int(upAvatar))
-    #     if otpPhone == self.ui.radioButton_10.data():
-    #         self.ui.radioButton_10.setChecked(True)
-    #     self.ui.comboBox_23.setCurrentIndex(int(nhaMang))
-    #     self.ui.comboBox_22.setCurrentIndex(int(captcha))
-    #     self.ui.comboBox_24.setCurrentIndex(int(getSoMail))
-    #     self.ui.comboBox_25.setCurrentIndex(int(login))
-    #     self.ui.comboBox_26.setCurrentIndex(int(ip))
+        # Load values from the settings file
+        keyOtp = settings.value("KeyOtp")
+        keyCaptcha = settings.value("KeyCaptcha")
+        kieuXMDT = settings.value("Kieu_XMDT")
+        chonPhoi = settings.value("Chon_Phoi")
+        anhPhoi = settings.value("Anh_Phoi")
+        upAvatar = settings.value("Up_Avatar")
+        otpPhone = settings.value("Otp_Phone")
+        nhaMang = settings.value("Nha_Mang")
+        captcha = settings.value("Captcha")
+        getSoMail = settings.value("Get_So_Mail")
+        login = settings.value("Login")
+        ip = settings.value("Ip")
+        # Set values in the UI elements
+        self.ui.keyOtp.setText(keyOtp)
+        self.ui.keyCapcha_2.setText(keyCaptcha)
+        self.ui.comboBox_18.setCurrentIndex(int(kieuXMDT))
+        self.ui.comboBox_19.setCurrentIndex(int(chonPhoi))
+        self.ui.comboBox_20.setCurrentIndex(int(anhPhoi))
+        self.ui.comboBox_21.setCurrentIndex(int(upAvatar))
+        if otpPhone:
+            self.ui.radioButton_10.setChecked(True)
+        else:
+            self.ui.radioButton_10.setChecked(False)
+        self.ui.comboBox_23.setCurrentIndex(int(nhaMang))
+        self.ui.comboBox_22.setCurrentIndex(int(captcha))
+        self.ui.comboBox_24.setCurrentIndex(int(getSoMail))
+        self.ui.comboBox_25.setCurrentIndex(int(login))
+        self.ui.comboBox_26.setCurrentIndex(int(ip))
 
     def openUpPhoiWindow(self):
         if  self.ui.comboBox_19.currentIndex() == 1:
@@ -253,15 +264,9 @@ class MainWindow(QMainWindow):
                 itemCheckbox.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
                 itemCheckbox.setCheckState(Qt.Unchecked)
                 self.ui.tableWidget.setItem(row, 0, itemCheckbox)
-        
-        # for row in range(self.ui.tableWidget.rowCount()):
-        #     print(row)
-        #     item = QTableWidgetItem()
-        #     item.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
-        #     item.setCheckState(Qt.Unchecked)
-        #     # item2 = QTableWidgetItem(str(row + 1))
-        #     # self.ui.tableWidget.setVerticalHeaderItem(row, item2)
-        #     self.ui.tableWidget.setItem(row, 0, item)
+                index = QTableWidgetItem(str( row + 1))
+                self.ui.tableWidget.setVerticalHeaderItem(row, index)
+
 
 
     def pasteNoDeleteAccount(self):
@@ -287,6 +292,9 @@ class MainWindow(QMainWindow):
                 itemCheckbox.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
                 itemCheckbox.setCheckState(Qt.Unchecked)
                 self.ui.tableWidget.setItem(start_row+row, 0, itemCheckbox)
+                index = QTableWidgetItem(str(row + 1))
+                self.ui.tableWidget.setVerticalHeaderItem(row, index)
+
     def clickSelectedAccount(self):
         clipboard = QApplication.clipboard()
         mimeData = QMimeData()
@@ -295,6 +303,12 @@ class MainWindow(QMainWindow):
         for row in range(self.ui.tableWidget.rowCount()):
             item = self.ui.tableWidget.item(row, 0)
             if item.checkState() == Qt.Checked:
+                for column in range(self.ui.tableWidget.columnCount()):
+                    item2 = self.ui.tableWidget.item(row, column)
+                    if item2 is None:
+                        self.ui.tableWidget.setItem(row, column, QTableWidgetItem(" "))
+                    item2 = self.ui.tableWidget.item(row, column)
+                    item2.setBackground(QColor("#3bc7e3"))
                 cell_text = self.ui.tableWidget.item(row, 1).text()
                 selectedText += cell_text + "\n"
                 # print(cell_text)

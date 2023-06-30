@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowIDnPcA.ui'
+## Form generated from reading UI file 'upPhoiWindowbBOKIW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -353,32 +353,7 @@ class Ui_UpPhoiWindow(object):
 
         self.checkBox_fullname = QCheckBox(self.frame_20)
         self.checkBox_fullname.setObjectName(u"checkBox_fullname")
-        self.checkBox_fullname.setStyleSheet(u"    QCheckBox {\n"
-"        background-color: #3CAE3C;\n"
-"        padding: 0px;\n"
-"        border: none;\n"
-"        outline: none;\n"
-"        border-radius: 10%;\n"
-"        width: 20px;\n"
-"        height: 20px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator {\n"
-"        width:20px;\n"
-"        height: 20px;\n"
-"        background-color: #FFFFFF;\n"
-"        border-radius: 10%;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:checked {\n"
-"        background-color: #ffffff;\n"
-"        margin-left: 25px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:unchecked {\n"
-"        margin-left: 0px;\n"
-"		background-color: #d6d5d1;\n"
-"    }")
+        self.checkBox_fullname.setChecked(True)
 
         self.horizontalLayout_11.addWidget(self.checkBox_fullname)
 
@@ -442,32 +417,7 @@ class Ui_UpPhoiWindow(object):
 
         self.checkBox_givenname = QCheckBox(self.frame_18)
         self.checkBox_givenname.setObjectName(u"checkBox_givenname")
-        self.checkBox_givenname.setStyleSheet(u"    QCheckBox {\n"
-"        background-color: #3CAE3C;\n"
-"        padding: 0px;\n"
-"        border: none;\n"
-"        outline: none;\n"
-"        border-radius: 10%;\n"
-"        width: 20px;\n"
-"        height: 20px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator {\n"
-"        width:20px;\n"
-"        height: 20px;\n"
-"        background-color: #FFFFFF;\n"
-"        border-radius: 10%;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:checked {\n"
-"        background-color: #ffffff;\n"
-"        margin-left: 25px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:unchecked {\n"
-"        margin-left: 0px;\n"
-"		background-color: #d6d5d1;\n"
-"    }")
+        self.checkBox_givenname.setChecked(True)
 
         self.horizontalLayout_7.addWidget(self.checkBox_givenname)
 
@@ -532,32 +482,7 @@ class Ui_UpPhoiWindow(object):
 
         self.checkBox_surname = QCheckBox(self.frame_16)
         self.checkBox_surname.setObjectName(u"checkBox_surname")
-        self.checkBox_surname.setStyleSheet(u"    QCheckBox {\n"
-"        background-color: #3CAE3C;\n"
-"        padding: 0px;\n"
-"        border: none;\n"
-"        outline: none;\n"
-"        border-radius: 10%;\n"
-"        width: 20px;\n"
-"        height: 20px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator {\n"
-"        width:20px;\n"
-"        height: 20px;\n"
-"        background-color: #FFFFFF;\n"
-"        border-radius: 10%;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:checked {\n"
-"        background-color: #ffffff;\n"
-"        margin-left: 25px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:unchecked {\n"
-"        margin-left: 0px;\n"
-"		background-color: #d6d5d1;\n"
-"    }")
+        self.checkBox_surname.setChecked(True)
 
         self.horizontalLayout_8.addWidget(self.checkBox_surname)
 
@@ -622,32 +547,7 @@ class Ui_UpPhoiWindow(object):
 
         self.checkBox_birthday = QCheckBox(self.frame_17)
         self.checkBox_birthday.setObjectName(u"checkBox_birthday")
-        self.checkBox_birthday.setStyleSheet(u"    QCheckBox {\n"
-"        background-color: #3CAE3C;\n"
-"        padding: 0px;\n"
-"        border: none;\n"
-"        outline: none;\n"
-"        border-radius: 10%;\n"
-"        width: 20px;\n"
-"        height: 20px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator {\n"
-"        width:20px;\n"
-"        height: 20px;\n"
-"        background-color: #FFFFFF;\n"
-"        border-radius: 10%;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:checked {\n"
-"        background-color: #ffffff;\n"
-"        margin-left: 25px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:unchecked {\n"
-"        margin-left: 0px;\n"
-"		background-color: #d6d5d1;\n"
-"    }")
+        self.checkBox_birthday.setChecked(True)
 
         self.horizontalLayout_9.addWidget(self.checkBox_birthday)
 
@@ -711,32 +611,7 @@ class Ui_UpPhoiWindow(object):
 
         self.checkBox_code = QCheckBox(self.frame_19)
         self.checkBox_code.setObjectName(u"checkBox_code")
-        self.checkBox_code.setStyleSheet(u"    QCheckBox {\n"
-"        background-color: #3CAE3C;\n"
-"        padding: 0px;\n"
-"        border: none;\n"
-"        outline: none;\n"
-"        border-radius: 10%;\n"
-"        width: 20px;\n"
-"        height: 20px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator {\n"
-"        width:20px;\n"
-"        height: 20px;\n"
-"        background-color: #FFFFFF;\n"
-"        border-radius: 10%;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:checked {\n"
-"        background-color: #ffffff;\n"
-"        margin-left: 25px;\n"
-"    }\n"
-"\n"
-"    QCheckBox::indicator:unchecked {\n"
-"        margin-left: 0px;\n"
-"		background-color: #d6d5d1;\n"
-"    }")
+        self.checkBox_code.setChecked(True)
 
         self.horizontalLayout_10.addWidget(self.checkBox_code)
 
@@ -777,7 +652,7 @@ class Ui_UpPhoiWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 597, 778))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 629, 778))
         self.verticalLayout_12 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.label_img = QLabel(self.scrollAreaWidgetContents_2)
