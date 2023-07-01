@@ -137,18 +137,19 @@ class MainWindow(QMainWindow):
     def handleCellChanged(self, row, column):
         if column == 0:  # First column (checkbox column)
             item = self.ui.tableWidget.item(row, column)
-            if item.checkState() == Qt.Checked:
-                # self.ui.tableWidget.setRangeSelected(QTableWidgetSelectionRange(row, 0, row, self.ui.tableWidget.columnCount() - 1), True)
-                for column in range(self.ui.tableWidget.columnCount()):
-                    item = self.ui.tableWidget.item(row, column)
-                    if item is not None:
-                        item.setBackground(QColor("#308cc6")) 
-            else:
-                # self.ui.tableWidget.setRangeSelected(QTableWidgetSelectionRange(row, 0, row, self.ui.tableWidget.columnCount() - 1), True)
-                for column in range(self.ui.tableWidget.columnCount()):
-                    item = self.ui.tableWidget.item(row, column)
-                    if item is not None:
-                        item.setBackground(QColor("#ffffff")) 
+            if item is not None:
+                if item.checkState() == Qt.Checked:
+                    # self.ui.tableWidget.setRangeSelected(QTableWidgetSelectionRange(row, 0, row, self.ui.tableWidget.columnCount() - 1), True)
+                    for column in range(self.ui.tableWidget.columnCount()):
+                        item = self.ui.tableWidget.item(row, column)
+                        if item is not None:
+                            item.setBackground(QColor("#308cc6")) 
+                else:
+                    # self.ui.tableWidget.setRangeSelected(QTableWidgetSelectionRange(row, 0, row, self.ui.tableWidget.columnCount() - 1), True)
+                    for column in range(self.ui.tableWidget.columnCount()):
+                        item = self.ui.tableWidget.item(row, column)
+                        if item is not None:
+                            item.setBackground(QColor("#ffffff")) 
 
     def on_item_selection_changed(self):
         selected_rows = []
@@ -163,7 +164,8 @@ class MainWindow(QMainWindow):
                 if len(selected_rows) > 1:
                     checkbox_item.setCheckState(Qt.Checked)
             else:
-                checkbox_item.setCheckState(Qt.Unchecked)
+                if checkbox_item is not None:
+                    checkbox_item.setCheckState(Qt.Unchecked)
 
     def save_shoplikes(self):
         print(self.ui.comboBox_26.currentIndex())
@@ -343,22 +345,24 @@ class MainWindow(QMainWindow):
 
                 # Set the background color for the selected row
                 for column in range(self.ui.tableWidget.columnCount()):
-                    item = self.ui.tableWidget.item(row, column)
-                    if item is None:
-                        item = QTableWidgetItem()
-                        self.ui.tableWidget.setItem(row, column, item)
-                    item.setBackground(QColor("#308cc6"))
+                    item2 = self.ui.tableWidget.item(row, column)
+                    if item2 is not None:
+                    #     item2 = QTableWidgetItem()
+                    #     self.ui.tableWidget.setItem(row, column, item2)
+                        item2.setBackground(QColor("#308cc6"))
 
                 cell_text = self.ui.tableWidget.item(row, 1).text()
                 selectedText += cell_text + "\n"
             else:
                 # Reset the background color for unchecked rows
                 for column in range(self.ui.tableWidget.columnCount()):
-                    item = self.ui.tableWidget.item(row, column)
-                    if item is not None:
-                        item.setBackground(QColor("#ffffff")) 
+                    item2 = self.ui.tableWidget.item(row, column)
+                    if item2 is not None:
+                        item2.setBackground(QColor("#ffffff")) 
+                        # if item2.text() == "" and row > 0:
+                        #     self.ui.tableWidget.setItem(row, column, None)
 
-                
+            
                 # print(cell_text)
         mimeData.setText(selectedText)
         clipboard.setMimeData(mimeData)
