@@ -358,8 +358,6 @@ class MainWindow(QMainWindow):
                     if item is not None:
                         item.setBackground(QColor("#ffffff")) 
 
-                cell_text = self.ui.tableWidget.item(row, 1).text()
-                selectedText += cell_text + "\n"
                 
                 # print(cell_text)
         mimeData.setText(selectedText)
