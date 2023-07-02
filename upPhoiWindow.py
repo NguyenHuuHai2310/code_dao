@@ -45,6 +45,7 @@ class UpPhoiWindow(QMainWindow):
         self.ui.checkBox_givenname.clicked.connect(self.enable_spinbox)
         self.ui.checkBox_surname.clicked.connect(self.enable_spinbox)
         self.ui.checkBox_code.clicked.connect(self.enable_spinbox)
+        self.ui.checkBox_gender.clicked.connect(self.enable_spinbox)
         self.ui.checkBox_code.setStyleSheet('''
 
 
@@ -100,6 +101,17 @@ class UpPhoiWindow(QMainWindow):
                 image: url(icons/icons8-toggle-off-40.png);  /* Replace with your toggle-off image */
             }
         ''')
+        self.ui.checkBox_gender.setStyleSheet('''
+
+
+            QCheckBox::indicator:checked {
+                image: url(icons/icons8-toggle-on-40.png);  /* Replace with your toggle-on image */
+            }
+
+            QCheckBox::indicator:unchecked {
+                image: url(icons/icons8-toggle-off-40.png);  /* Replace with your toggle-off image */
+            }
+        ''')
         self.show()
 
     def enable_spinbox(self):
@@ -143,19 +155,20 @@ class UpPhoiWindow(QMainWindow):
             self.ui.spinBox_17.setEnabled(True)
             self.ui.spinBox_18.setEnabled(True)
             self.ui.spinBox_19.setEnabled(True)
+        if not self.ui.checkBox_gender.isChecked():
+            self.ui.spinBox_32.setEnabled(False)
+            self.ui.spinBox_33.setEnabled(False)
+            self.ui.spinBox_34.setEnabled(False) 
+        else:
+            self.ui.spinBox_32.setEnabled(True)
+            self.ui.spinBox_33.setEnabled(True)
+            self.ui.spinBox_34.setEnabled(True)
     def paint_images(self, background_image, foreground_image,
                      img_x, img_y, rotation_angle, img_width, img_height,
-                     fullname_x, fullname_y,givenname_x, givenname_y, surname_x, surname_y,
+                     fullname_x, fullname_y,givenname_x, givenname_y, surname_x, surname_y,gender_x, gender_y,
                      birthday_x, birthday_y,code_x, code_y,
                      font_family, is_bold, 
                      text_color, font_size):
-        # print("Status: =================================================================")
-        print(self.ui.checkBox_fullname.isChecked())
-        # print(self.ui.checkBox_code.isChecked())
-        # print(self.ui.checkBox_surname.isChecked())
-        # print(self.ui.checkBox_givenname.isChecked())
-        # print(self.ui.checkBox_birthday.isChecked())
-        print("Paint images")
         if not self.ui.checkBox_fullname.isChecked():
             self.fullname = ""
             self.ui.spinBox_26.setEnabled(False)
@@ -186,6 +199,16 @@ class UpPhoiWindow(QMainWindow):
             self.ui.spinBox_23.setEnabled(True)
             self.ui.spinBox_24.setEnabled(True)
             self.ui.spinBox_25.setEnabled(True) 
+        if not self.ui.checkBox_gender.isChecked():
+            self.gender = ""
+            self.ui.spinBox_32.setEnabled(False)
+            self.ui.spinBox_33.setEnabled(False)
+            self.ui.spinBox_34.setEnabled(False) 
+        else:
+            self.gender = "Gender"
+            self.ui.spinBox_32.setEnabled(True)
+            self.ui.spinBox_33.setEnabled(True)
+            self.ui.spinBox_34.setEnabled(True) 
         if not self.ui.checkBox_surname.isChecked():
             self.surname = ""
             self.ui.spinBox_14.setEnabled(False)
@@ -209,7 +232,7 @@ class UpPhoiWindow(QMainWindow):
                 self.birthday = "dd/mm/yyyy"
             else:
                 self.birthday = "dd Month yyyy"
- 
+
         font = QFont()
         font.setFamily(font_family)
         font.setPointSize(font_size)
@@ -243,6 +266,7 @@ class UpPhoiWindow(QMainWindow):
         angle_birthday = self.ui.spinBox_19.value()
         angle_code = self.ui.spinBox_13.value()
         angle_fullname = self.ui.spinBox_28.value()
+        angle_gender = self.ui.spinBox_34.value()
 
         # Create a transformation matrix for the rotation angle around the center
         transform_1 = QTransform()
@@ -270,6 +294,11 @@ class UpPhoiWindow(QMainWindow):
         transform_5.rotate(angle_fullname)
         transform_5.translate(-fullname_x, -fullname_y)
 
+        transform_6 = QTransform()
+        transform_6.translate(gender_y, gender_y)
+        transform_6.rotate(angle_gender)
+        transform_6.translate(-gender_y, -gender_y)
+
         painter.setTransform(transform_1)
         painter.drawText(givenname_x, givenname_y, self.givenname)
 
@@ -284,6 +313,9 @@ class UpPhoiWindow(QMainWindow):
 
         painter.setTransform(transform_5)
         painter.drawText(fullname_x, fullname_y, self.fullname)
+
+        painter.setTransform(transform_6)
+        painter.drawText(gender_x, gender_y, self.gender)
 
         self.combined_image = combined_image
         self.ui.label_img.setPixmap(combined_image)
@@ -325,12 +357,14 @@ class UpPhoiWindow(QMainWindow):
             fullname_x = self.ui.spinBox_26.value()
             fullname_y = self.ui.spinBox_27.value()
 
+            gender_x = self.ui.spinBox_32.value()
+            gender_y = self.ui.spinBox_33.value()
             self.paint_images(self.background_image, self.foreground_image,
                                 img_x=self.ui.spinBox_3.value(), img_y=self.ui.spinBox_4.value(), rotation_angle = self.ui.spinBox_5.value(),
                                 img_width =w , img_height = h,
                                 fullname_x= fullname_x, fullname_y= fullname_y,
                                 givenname_x = givenname_x, givenname_y= givenname_y, surname_x= surname_x, surname_y=surname_y,
-                                birthday_x= birthday_x, birthday_y= birthday_y,code_x= code_x, code_y= code_y,
+                                gender_x=gender_x, gender_y=gender_y, birthday_x= birthday_x, birthday_y= birthday_y,code_x= code_x, code_y= code_y,
                                 font_family=font_family, is_bold=True, 
                                 text_color ="Black", font_size = int(font_size))
             
@@ -363,11 +397,17 @@ class UpPhoiWindow(QMainWindow):
             self.ui.spinBox_26.valueChanged.connect(self.update)
             self.ui.spinBox_27.valueChanged.connect(self.update)
             self.ui.spinBox_28.valueChanged.connect(self.update)
+
+            self.ui.spinBox_32.valueChanged.connect(self.update)
+            self.ui.spinBox_33.valueChanged.connect(self.update)
+            self.ui.spinBox_34.valueChanged.connect(self.update)
+
             self.ui.checkBox_birthday.clicked.connect(self.update)
             self.ui.checkBox_fullname.clicked.connect(self.update)
             self.ui.checkBox_givenname.clicked.connect(self.update)
             self.ui.checkBox_surname.clicked.connect(self.update)
             self.ui.checkBox_code.clicked.connect(self.update)
+            self.ui.checkBox_gender.clicked.connect(self.update)
 
             self.ui.comboBox_time_format.currentIndexChanged.connect(self.update)
 
@@ -398,6 +438,8 @@ class UpPhoiWindow(QMainWindow):
         code_x = self.ui.spinBox_12.value()
         code_y = self.ui.spinBox_11.value()
 
+        gender_x = self.ui.spinBox_32.value()
+        gender_y = self.ui.spinBox_33.value()
         w = self.ui.spinBox.value()
         h = self.ui.spinBox_2.value()
         img_angle  = self.ui.spinBox_5.value()
@@ -409,7 +451,7 @@ class UpPhoiWindow(QMainWindow):
                                 img_width =w , img_height = h, 
                                 fullname_x=fullname_x, fullname_y=fullname_y,
                                 givenname_x = givenname_x, givenname_y= givenname_y, surname_x= surname_x, surname_y=surname_y,
-                                birthday_x= birthday_x, birthday_y= birthday_y,code_x= code_x, code_y= code_y, 
+                                gender_x=gender_x, gender_y=gender_y,birthday_x= birthday_x, birthday_y= birthday_y,code_x= code_x, code_y= code_y, 
                                 font_family=font_family, is_bold=True, 
                                 text_color ="Black", font_size = int(font_size))
         return 0
@@ -453,12 +495,16 @@ class UpPhoiWindow(QMainWindow):
         self.ui.spinBox_26.setValue(int(settings.value("Fullname_x", defaultValue)))
         self.ui.spinBox_27.setValue(int(settings.value("Fullname_y", defaultValue)))
         self.ui.spinBox_28.setValue(int(settings.value("Fullname_Angle", defaultValue)))
+        self.ui.spinBox_32.setValue(int(settings.value("Gender_x", defaultValue)))
+        self.ui.spinBox_33.setValue(int(settings.value("Gender_y", defaultValue)))
+        self.ui.spinBox_34.setValue(int(settings.value("Gender_Angle", defaultValue)))
 
         fullname_active = settings.value("Active_Fullname", False, bool)
         givenname_active = settings.value("Active_Givenname", False, bool)
         surname_active = settings.value("Active_Surname", False, bool)
         birthday_active = settings.value("Active_Birthday", False, bool)
         code_active = settings.value("Active_Code", False, bool)
+        gender_active = settings.value("Active_Gender", False, bool)
 
         # Use the loaded values to set the checkbox states
         self.ui.checkBox_fullname.setChecked(fullname_active)
@@ -466,6 +512,7 @@ class UpPhoiWindow(QMainWindow):
         self.ui.checkBox_surname.setChecked(surname_active)
         self.ui.checkBox_birthday.setChecked(birthday_active)
         self.ui.checkBox_code.setChecked(code_active)
+        self.ui.checkBox_gender.setChecked(gender_active)
         
         if settings.value("Time_format", defaultValue) == 0:
             self.ui.comboBox_time_format.setCurrentText("dd/mm/yyyy")
@@ -478,7 +525,7 @@ class UpPhoiWindow(QMainWindow):
         settings = QSettings(f"output/config.ini", QSettings.IniFormat)
         settings.beginGroup('section2')
         settings.setValue("Background_Width", self.org_w)
-        settings.setValue("Background_Height",self.org_w)
+        settings.setValue("Background_Height",self.org_h)
 
         settings.setValue("Foreground_Width", self.ui.spinBox.value())
         settings.setValue("Foreground_Height",  self.ui.spinBox_2.value())
@@ -488,7 +535,6 @@ class UpPhoiWindow(QMainWindow):
 
         settings.setValue("Font_Size", self.ui.comboBox_2.currentText())
         settings.setValue("Font_Family", self.ui.comboBox_3.currentText())
-
         
         settings.setValue("GivenName_x", self.ui.spinBox_23.value())
         settings.setValue("GivenName_y", self.ui.spinBox_25.value())
@@ -501,21 +547,26 @@ class UpPhoiWindow(QMainWindow):
         settings.setValue("Birthday_x", self.ui.spinBox_18.value())
         settings.setValue("Birthday_y", self.ui.spinBox_17.value())
         settings.setValue("Birthday_Angle", self.ui.spinBox_19.value())
+        settings.setValue("Time_format", self.ui.comboBox_time_format.currentIndex())
 
         settings.setValue("Code_x", self.ui.spinBox_12.value())
         settings.setValue("Code_y",self.ui.spinBox_11.value())
         settings.setValue("Code_Angle", self.ui.spinBox_13.value())
 
+        settings.setValue("Gender_x", self.ui.spinBox_32.value())
+        settings.setValue("Gender_y",self.ui.spinBox_33.value())
+        settings.setValue("Gender_Angle", self.ui.spinBox_34.value())
+
         settings.setValue("Fullname_x", self.ui.spinBox_26.value())
         settings.setValue("Fullname_y",  self.ui.spinBox_27.value())
-        settings.setValue("Fullname_Angle", self.ui.spinBox_28.value())
-        settings.setValue("Time_format", self.ui.comboBox_time_format.currentIndex())
+        settings.setValue("Fullname_Angle", self.ui.spinBox_28.value()) 
 
         settings.setValue("Active_Fullname", self.ui.checkBox_fullname.isChecked())
         settings.setValue("Active_Givenname", self.ui.checkBox_givenname.isChecked())
         settings.setValue("Active_Surname", self.ui.checkBox_surname.isChecked())
         settings.setValue("Active_Birthday", self.ui.checkBox_birthday.isChecked())
         settings.setValue("Active_Code", self.ui.checkBox_code.isChecked())
+        settings.setValue("Active_Gender", self.ui.checkBox_gender.isChecked())
 
         settings.sync()
         settings.endGroup()

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowbBOKIW.ui'
+## Form generated from reading UI file 'upPhoiWindowlUIHea.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -12,6 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+import resources_rc
 
 class Ui_UpPhoiWindow(object):
     def setupUi(self, UpPhoiWindow):
@@ -354,6 +355,7 @@ class Ui_UpPhoiWindow(object):
         self.checkBox_fullname = QCheckBox(self.frame_20)
         self.checkBox_fullname.setObjectName(u"checkBox_fullname")
         self.checkBox_fullname.setChecked(True)
+        self.checkBox_fullname.setTristate(False)
 
         self.horizontalLayout_11.addWidget(self.checkBox_fullname)
 
@@ -488,6 +490,70 @@ class Ui_UpPhoiWindow(object):
 
 
         self.verticalLayout_8.addWidget(self.frame_16)
+
+        self.frame_23 = QFrame(self.frame_6)
+        self.frame_23.setObjectName(u"frame_23")
+        self.frame_23.setFrameShape(QFrame.NoFrame)
+        self.frame_23.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_15 = QHBoxLayout(self.frame_23)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.label_38 = QLabel(self.frame_23)
+        self.label_38.setObjectName(u"label_38")
+        self.label_38.setMinimumSize(QSize(60, 0))
+        self.label_38.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.horizontalLayout_15.addWidget(self.label_38)
+
+        self.spinBox_32 = QSpinBox(self.frame_23)
+        self.spinBox_32.setObjectName(u"spinBox_32")
+        self.spinBox_32.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+        self.spinBox_32.setMaximum(9999999)
+
+        self.horizontalLayout_15.addWidget(self.spinBox_32)
+
+        self.label_39 = QLabel(self.frame_23)
+        self.label_39.setObjectName(u"label_39")
+        self.label_39.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.horizontalLayout_15.addWidget(self.label_39)
+
+        self.spinBox_33 = QSpinBox(self.frame_23)
+        self.spinBox_33.setObjectName(u"spinBox_33")
+        self.spinBox_33.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+        self.spinBox_33.setMaximum(9999999)
+
+        self.horizontalLayout_15.addWidget(self.spinBox_33)
+
+        self.label_40 = QLabel(self.frame_23)
+        self.label_40.setObjectName(u"label_40")
+        self.label_40.setStyleSheet(u"color: rgb(0, 0, 0);")
+
+        self.horizontalLayout_15.addWidget(self.label_40, 0, Qt.AlignHCenter)
+
+        self.spinBox_34 = QSpinBox(self.frame_23)
+        self.spinBox_34.setObjectName(u"spinBox_34")
+        self.spinBox_34.setStyleSheet(u"background-color: #edeef0;\n"
+"color: rgb(0,0,0);")
+        self.spinBox_34.setMinimum(-360)
+        self.spinBox_34.setMaximum(360)
+
+        self.horizontalLayout_15.addWidget(self.spinBox_34)
+
+        self.label_14 = QLabel(self.frame_23)
+        self.label_14.setObjectName(u"label_14")
+
+        self.horizontalLayout_15.addWidget(self.label_14)
+
+        self.checkBox_gender = QCheckBox(self.frame_23)
+        self.checkBox_gender.setObjectName(u"checkBox_gender")
+        self.checkBox_gender.setChecked(True)
+
+        self.horizontalLayout_15.addWidget(self.checkBox_gender)
+
+
+        self.verticalLayout_8.addWidget(self.frame_23)
 
         self.frame_17 = QFrame(self.frame_6)
         self.frame_17.setObjectName(u"frame_17")
@@ -655,6 +721,13 @@ class Ui_UpPhoiWindow(object):
         self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 629, 778))
         self.verticalLayout_12 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.frame_3 = QFrame(self.scrollAreaWidgetContents_2)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_12.addWidget(self.frame_3)
+
         self.label_img = QLabel(self.scrollAreaWidgetContents_2)
         self.label_img.setObjectName(u"label_img")
 
@@ -744,6 +817,11 @@ class Ui_UpPhoiWindow(object):
         self.label_23.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_8.setText(QCoreApplication.translate("UpPhoiWindow", u"Active:  ", None))
         self.checkBox_surname.setText("")
+        self.label_38.setText(QCoreApplication.translate("UpPhoiWindow", u"Gi\u1edbi t\u00ednh", None))
+        self.label_39.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
+        self.label_40.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
+        self.label_14.setText(QCoreApplication.translate("UpPhoiWindow", u"Active:  ", None))
+        self.checkBox_gender.setText("")
         self.label_17.setText(QCoreApplication.translate("UpPhoiWindow", u"Ng\u00e0y sinh", None))
         self.label_26.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
         self.label_25.setText(QCoreApplication.translate("UpPhoiWindow", u"X", None))
