@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QFileDialog, QDesktopWidget, QMessageBox
-
+import os
 from PyQt5.QtGui import QPainter, QPixmap, QFont, QFontDatabase, QTransform
 from PyQt5.QtCore import Qt, QSettings
 from Custom_Widgets.Widgets import *
@@ -31,9 +31,15 @@ class UpPhoiWindow(QMainWindow):
         # self.setFixedSize(self.size())
         self.ui.pushButton.clicked.connect(self.browser_images)
         # Get the list of available font families
-        font_families = QFontDatabase().families()
+        # font_families = QFontDatabase().families()
+        font_file_1 = [file for file in os.listdir("./font passport") if file.endswith(".ttf")]
+        # font_file_2 = [file for file in os.listdir("./font passport/static/OpenSans") if file.endswith(".ttf")]
+        # font_file_3 = [file for file in os.listdir("./font passport/static/OpenSans_Condensed") if file.endswith(".ttf")]
+        # font_file_4 = [file for file in os.listdir("./font passport/static/OpenSans_SemiCondensed") if file.endswith(".ttf")]
         # Set the font families as items in the QComboBox
-        self.ui.comboBox_3.addItems(font_families)
+        # font_files = font_file_1 + font_file_2 + font_file_3 + font_file_4
+        print(font_file_1)
+        self.ui.comboBox_3.addItems(font_file_1)
         for num in range(6, 96):
             self.ui.comboBox_2.addItem(str(num))
         self.ui.btn_preview.clicked.connect(self.show_preview)
@@ -233,8 +239,18 @@ class UpPhoiWindow(QMainWindow):
             else:
                 self.birthday = "dd Month yyyy"
 
-        font = QFont()
-        font.setFamily(font_family)
+        # font = QFont()
+        # font_id = QFontDatabase.addApplicationFont('/home/baoanh/Desktop/qt5_application/app_v1/font passport/OCR-B 10 BT.ttf')
+        # font_family = QFontDatabase.applicationFontFamilies(font_id)
+
+        # Create a QFont object with the desired font family
+        # font = QFont(font_family)
+        # font.setFamily(font_family)
+        font_id = QFontDatabase.addApplicationFont('./font passport/' + font_family)
+        font_name = QFontDatabase.applicationFontFamilies(font_id)[0]
+
+        # Create a QFont object with the loaded font
+        font = QFont(font_name)
         font.setPointSize(font_size)
         font.setBold(is_bold)
         

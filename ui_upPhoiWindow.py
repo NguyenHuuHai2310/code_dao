@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'upPhoiWindowlUIHea.ui'
+## Form generated from reading UI file 'upPhoiWindowHVhanB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -721,13 +721,6 @@ class Ui_UpPhoiWindow(object):
         self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 629, 778))
         self.verticalLayout_12 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-        self.frame_3 = QFrame(self.scrollAreaWidgetContents_2)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_12.addWidget(self.frame_3)
-
         self.label_img = QLabel(self.scrollAreaWidgetContents_2)
         self.label_img.setObjectName(u"label_img")
 
